@@ -1,26 +1,50 @@
 {
-    "name": "@micro/services",
-    "version": "1.0.1",
-    "description": "",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "type": "module",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/micro/services"
-    },
-    "author": "",
-    "license": "ISC",
-    "scripts": {
-        "build": "tsc",
-        "prepare": "npm run build",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "devDependencies": {
-        "typescript": "^3.5.1"
-    },
-    "dependencies": {
-        "@m3o/m3o-node": "^0.0.24"
-    },
-    "exports": {}
+  "name": "@micro/services",
+  "version": "1.0.1",
+  "description": "",
+  "main": "lib/m3o.js",
+  "module": "es/m3o.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "lib",
+    "es",
+    "src",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micro/services"
+  },
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "format": "prettier --write \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
+    "format:check": "prettier --list-different \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
+    "build": "rollup -c",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "@m3o/m3o-node": "^0.0.24"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-external-helpers": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-flow": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-replace": "^3.0.0",
+    "prettier": "^2.4.1",
+    "rollup": "^2.7.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^3.5.1"
+  }
 }
