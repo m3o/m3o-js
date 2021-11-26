@@ -41,6 +41,7 @@
   "location",
   "mq",
   "news",
+  "nft",
   "notes",
   "otp",
   "postcode",
@@ -78,5 +79,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.810"
+ "version": "1.0.811"
 }

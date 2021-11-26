@@ -23,6 +23,7 @@ import * as ip from "./ip";
 import * as location from "./location";
 import * as mq from "./mq";
 import * as news from "./news";
+import * as nft from "./nft";
 import * as notes from "./notes";
 import * as otp from "./otp";
 import * as postcode from "./postcode";
@@ -73,6 +74,7 @@ export class Client {
     this.locationService = new location.LocationService(token);
     this.mqService = new mq.MqService(token);
     this.newsService = new news.NewsService(token);
+    this.nftService = new nft.NftService(token);
     this.notesService = new notes.NotesService(token);
     this.otpService = new otp.OtpService(token);
     this.postcodeService = new postcode.PostcodeService(token);
@@ -122,6 +124,7 @@ export class Client {
   locationService: location.LocationService;
   mqService: mq.MqService;
   newsService: news.NewsService;
+  nftService: nft.NftService;
   notesService: notes.NotesService;
   otpService: otp.OtpService;
   postcodeService: postcode.PostcodeService;
