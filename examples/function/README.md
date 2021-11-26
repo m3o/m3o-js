@@ -4,57 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Deploy
-
-Deploy a group of functions
-
-
-[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Deploy a group of functions
-async function deployAfunction() {
-	const rsp = await functionService.deploy({
-  "entrypoint": "helloworld",
-  "name": "my-first-func",
-  "project": "tests",
-  "repo": "github.com/m3o/nodejs-function-example",
-  "runtime": "nodejs14"
-})
-	console.log(rsp)
-	
-}
-
-deployAfunction()
-```
-## Call
-
-Call a function by name
-
-
-[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Call a function by name
-async function callAfunction() {
-	const rsp = await functionService.call({
-  "name": "my-first-func",
-  "request": {}
-})
-	console.log(rsp)
-	
-}
-
-callAfunction()
-```
 ## List
 
 List all the deployed functions
@@ -123,4 +72,55 @@ async function describeFunctionStatus() {
 }
 
 describeFunctionStatus()
+```
+## Deploy
+
+Deploy a group of functions
+
+
+[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Deploy a group of functions
+async function deployAfunction() {
+	const rsp = await functionService.deploy({
+  "entrypoint": "helloworld",
+  "name": "my-first-func",
+  "project": "tests",
+  "repo": "github.com/m3o/nodejs-function-example",
+  "runtime": "nodejs14"
+})
+	console.log(rsp)
+	
+}
+
+deployAfunction()
+```
+## Call
+
+Call a function by name
+
+
+[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Call a function by name
+async function callAfunction() {
+	const rsp = await functionService.call({
+  "name": "my-first-func",
+  "request": {}
+})
+	console.log(rsp)
+	
+}
+
+callAfunction()
 ```
