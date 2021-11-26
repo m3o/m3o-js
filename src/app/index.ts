@@ -14,6 +14,10 @@ export class AppService {
       request
     ) as Promise<ReserveResponse>;
   }
+  // Vote to have the App api launched faster!
+  vote(request: VoteRequest): Promise<VoteResponse> {
+    return this.client.call("app", "Vote", request) as Promise<VoteResponse>;
+  }
 }
 
 export interface Reservation {
@@ -36,4 +40,14 @@ export interface ReserveRequest {
 
 export interface ReserveResponse {
   reservation?: { [key: string]: any };
+}
+
+export interface VoteRequest {
+  // optional message
+  message?: string;
+}
+
+export interface VoteResponse {
+  // response message
+  message?: string;
 }
