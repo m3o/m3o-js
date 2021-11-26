@@ -52,6 +52,7 @@
   "rss",
   "sentiment",
   "sms",
+  "space",
   "spam",
   "stock",
   "stream",
@@ -79,5 +80,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.811"
+ "version": "1.0.812"
 }
