@@ -4,75 +4,52 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
-## Truncate
+## Count
 
-Truncate the records in a table
+Count records in a table
 
 
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Truncate the records in a table
-async function truncateTable() {
-	const rsp = await dbService.truncate({
+// Count records in a table
+async function countEntriesInAtable() {
+	const rsp = await dbService.count({
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-truncateTable()
+countEntriesInAtable()
 ```
-## DropTable
+## RenameTable
 
-Drop a table in the DB
-
-
-[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Drop a table in the DB
-async function dropTable() {
-	const rsp = await dbService.dropTable({
-  "table": "users"
-})
-	console.log(rsp)
-	
-}
-
-dropTable()
-```
-## Read
-
-Read data from a table. Lookup can be by ID or via querying any field in the record.
+Rename a table
 
 
-[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Read data from a table. Lookup can be by ID or via querying any field in the record.
-async function readRecords() {
-	const rsp = await dbService.read({
-  "query": "age == 43",
-  "table": "users"
+// Rename a table
+async function renameTable() {
+	const rsp = await dbService.renameTable({
+  "from": "events",
+  "to": "events_backup"
 })
 	console.log(rsp)
 	
 }
 
-readRecords()
+renameTable()
 ```
 ## Delete
 
@@ -98,28 +75,75 @@ async function deleteArecord() {
 
 deleteArecord()
 ```
-## Count
+## Truncate
 
-Count records in a table
+Truncate the records in a table
 
 
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Count records in a table
-async function countEntriesInAtable() {
-	const rsp = await dbService.count({
+// Truncate the records in a table
+async function truncateTable() {
+	const rsp = await dbService.truncate({
   "table": "users"
 })
 	console.log(rsp)
 	
 }
 
-countEntriesInAtable()
+truncateTable()
+```
+## Read
+
+Read data from a table. Lookup can be by ID or via querying any field in the record.
+
+
+[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Read data from a table. Lookup can be by ID or via querying any field in the record.
+async function readRecords() {
+	const rsp = await dbService.read({
+  "query": "age == 43",
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+readRecords()
+```
+## DropTable
+
+Drop a table in the DB
+
+
+[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Drop a table in the DB
+async function dropTable() {
+	const rsp = await dbService.dropTable({
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+dropTable()
 ```
 ## ListTables
 
@@ -141,30 +165,6 @@ async function listTables() {
 }
 
 listTables()
-```
-## RenameTable
-
-Rename a table
-
-
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Rename a table
-async function renameTable() {
-	const rsp = await dbService.renameTable({
-  "from": "events",
-  "to": "events_backup"
-})
-	console.log(rsp)
-	
-}
-
-renameTable()
 ```
 ## Create
 
