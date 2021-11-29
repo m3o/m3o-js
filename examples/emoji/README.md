@@ -4,31 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Emoji/api](htt
 
 Endpoints:
 
-## Send
-
-Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
-
-
-[https://m3o.com/emoji/api#Send](https://m3o.com/emoji/api#Send)
-
-```js
-const { EmojiService } = require('m3o/emoji');
-
-const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
-
-// Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
-async function sendAtextContainingAnEmojiToAnyoneViaSms() {
-	const rsp = await emojiService.send({
-  "from": "Alice",
-  "message": "let's grab a :beer:",
-  "to": "+44782669123"
-})
-	console.log(rsp)
-	
-}
-
-sendAtextContainingAnEmojiToAnyoneViaSms()
-```
 ## Find
 
 Find an emoji by its alias e.g :beer:
@@ -99,4 +74,29 @@ async function printTextIncludingEmoji() {
 }
 
 printTextIncludingEmoji()
+```
+## Send
+
+Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
+
+
+[https://m3o.com/emoji/api#Send](https://m3o.com/emoji/api#Send)
+
+```js
+const { EmojiService } = require('m3o/emoji');
+
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+
+// Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
+async function sendAtextContainingAnEmojiToAnyoneViaSms() {
+	const rsp = await emojiService.send({
+  "from": "Alice",
+  "message": "let's grab a :beer:",
+  "to": "+44782669123"
+})
+	console.log(rsp)
+	
+}
+
+sendAtextContainingAnEmojiToAnyoneViaSms()
 ```
