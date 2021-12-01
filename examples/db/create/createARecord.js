@@ -11,7 +11,7 @@ async function createArecord() {
       isActive: true,
       name: "Jane",
     },
-    table: "people",
+    table: "example",
   });
   console.log(rsp);
 }
