@@ -5,7 +5,7 @@ const dbService = new DbService(process.env.M3O_API_TOKEN);
 // Count records in a table
 async function countEntriesInAtable() {
   const rsp = await dbService.count({
-    table: "users",
+    table: "example",
   });
   console.log(rsp);
 }

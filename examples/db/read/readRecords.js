@@ -6,7 +6,7 @@ const dbService = new DbService(process.env.M3O_API_TOKEN);
 async function readRecords() {
   const rsp = await dbService.read({
     query: "age == 43",
-    table: "users",
+    table: "example",
   });
   console.log(rsp);
 }

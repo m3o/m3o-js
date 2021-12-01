@@ -9,7 +9,7 @@ async function updateArecord() {
       age: 43,
       id: "1",
     },
-    table: "users",
+    table: "example",
   });
   console.log(rsp);
 }
