@@ -4,56 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
-## ListTables
-
-List tables in the DB
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// List tables in the DB
-async function listTables() {
-	const rsp = await dbService.listTables({})
-	console.log(rsp)
-	
-}
-
-listTables()
-```
-## Create
-
-Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-
-
-[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-async function createArecord() {
-	const rsp = await dbService.create({
-  "record": {
-    "age": 42,
-    "id": "1",
-    "isActive": true,
-    "name": "Jane"
-  },
-  "table": "users"
-})
-	console.log(rsp)
-	
-}
-
-createArecord()
-```
 ## Update
 
 Update a record in the database. Include an "id" in the record to update.
@@ -105,6 +55,51 @@ async function deleteArecord() {
 
 deleteArecord()
 ```
+## ListTables
+
+List tables in the DB
+
+
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// List tables in the DB
+async function listTables() {
+	const rsp = await dbService.listTables({})
+	console.log(rsp)
+	
+}
+
+listTables()
+```
+## RenameTable
+
+Rename a table
+
+
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Rename a table
+async function renameTable() {
+	const rsp = await dbService.renameTable({
+  "from": "events",
+  "to": "events_backup"
+})
+	console.log(rsp)
+	
+}
+
+renameTable()
+```
 ## Count
 
 Count records in a table
@@ -127,6 +122,35 @@ async function countEntriesInAtable() {
 }
 
 countEntriesInAtable()
+```
+## Create
+
+Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+
+
+[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+async function createArecord() {
+	const rsp = await dbService.create({
+  "record": {
+    "age": 42,
+    "id": "1",
+    "isActive": true,
+    "name": "Jane"
+  },
+  "table": "users"
+})
+	console.log(rsp)
+	
+}
+
+createArecord()
 ```
 ## Read
 
@@ -197,28 +221,4 @@ async function dropTable() {
 }
 
 dropTable()
-```
-## RenameTable
-
-Rename a table
-
-
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Rename a table
-async function renameTable() {
-	const rsp = await dbService.renameTable({
-  "from": "events",
-  "to": "events_backup"
-})
-	console.log(rsp)
-	
-}
-
-renameTable()
 ```
