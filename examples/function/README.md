@@ -20,8 +20,7 @@ const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 async function deployAfunction() {
 	const rsp = await functionService.deploy({
   "entrypoint": "helloworld",
-  "name": "my-first-func",
-  "project": "tests",
+  "name": "helloworld",
   "repo": "github.com/m3o/nodejs-function-example",
   "runtime": "nodejs14"
 })
@@ -46,7 +45,7 @@ const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 // Call a function by name
 async function callAfunction() {
 	const rsp = await functionService.call({
-  "name": "my-first-func",
+  "name": "helloworld",
   "request": {}
 })
 	console.log(rsp)
@@ -91,8 +90,7 @@ const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 // Delete a function by name
 async function deleteAfunction() {
 	const rsp = await functionService.delete({
-  "name": "my-first-func",
-  "project": "tests"
+  "name": "helloworld"
 })
 	console.log(rsp)
 	
@@ -115,8 +113,7 @@ const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 // Get the info for a deployed function
 async function describeFunctionStatus() {
 	const rsp = await functionService.describe({
-  "name": "my-first-func",
-  "project": "tests"
+  "name": "helloworld"
 })
 	console.log(rsp)
 	

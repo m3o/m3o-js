@@ -6,8 +6,7 @@ const functionService = new FunctionService(process.env.M3O_API_TOKEN);
 async function deployAfunction() {
   const rsp = await functionService.deploy({
     entrypoint: "helloworld",
-    name: "my-first-func",
-    project: "tests",
+    name: "helloworld",
     repo: "github.com/m3o/nodejs-function-example",
     runtime: "nodejs14",
   });
