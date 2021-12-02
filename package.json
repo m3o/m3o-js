@@ -50,6 +50,7 @@
   "quran",
   "routing",
   "rss",
+  "search",
   "sentiment",
   "sms",
   "space",
@@ -80,5 +81,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.857"
+ "version": "1.0.858"
 }

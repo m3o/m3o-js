@@ -32,6 +32,7 @@ import * as qr from "./qr";
 import * as quran from "./quran";
 import * as routing from "./routing";
 import * as rss from "./rss";
+import * as search from "./search";
 import * as sentiment from "./sentiment";
 import * as sms from "./sms";
 import * as space from "./space";
@@ -84,6 +85,7 @@ export class Client {
     this.quranService = new quran.QuranService(token);
     this.routingService = new routing.RoutingService(token);
     this.rssService = new rss.RssService(token);
+    this.searchService = new search.SearchService(token);
     this.sentimentService = new sentiment.SentimentService(token);
     this.smsService = new sms.SmsService(token);
     this.spaceService = new space.SpaceService(token);
@@ -135,6 +137,7 @@ export class Client {
   quranService: quran.QuranService;
   routingService: routing.RoutingService;
   rssService: rss.RssService;
+  searchService: search.SearchService;
   sentimentService: sentiment.SentimentService;
   smsService: sms.SmsService;
   spaceService: space.SpaceService;
