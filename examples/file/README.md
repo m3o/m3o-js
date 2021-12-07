@@ -4,30 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/File/api](http
 
 Endpoints:
 
-## Delete
-
-Delete a file by project name/path
-
-
-[https://m3o.com/file/api#Delete](https://m3o.com/file/api#Delete)
-
-```js
-const { FileService } = require('m3o/file');
-
-const fileService = new FileService(process.env.M3O_API_TOKEN)
-
-// Delete a file by project name/path
-async function deleteFile() {
-	const rsp = await fileService.delete({
-  "path": "/document/text-files/file.txt",
-  "project": "examples"
-})
-	console.log(rsp)
-	
-}
-
-deleteFile()
-```
 ## Read
 
 Read a file by path
@@ -101,4 +77,28 @@ async function listFiles() {
 }
 
 listFiles()
+```
+## Delete
+
+Delete a file by project name/path
+
+
+[https://m3o.com/file/api#Delete](https://m3o.com/file/api#Delete)
+
+```js
+const { FileService } = require('m3o/file');
+
+const fileService = new FileService(process.env.M3O_API_TOKEN)
+
+// Delete a file by project name/path
+async function deleteFile() {
+	const rsp = await fileService.delete({
+  "path": "/document/text-files/file.txt",
+  "project": "examples"
+})
+	console.log(rsp)
+	
+}
+
+deleteFile()
 ```
