@@ -21,6 +21,7 @@ import * as id from "./id";
 import * as image from "./image";
 import * as ip from "./ip";
 import * as location from "./location";
+import * as movie from "./movie";
 import * as mq from "./mq";
 import * as news from "./news";
 import * as nft from "./nft";
@@ -74,6 +75,7 @@ export class Client {
     this.imageService = new image.ImageService(token);
     this.ipService = new ip.IpService(token);
     this.locationService = new location.LocationService(token);
+    this.movieService = new movie.MovieService(token);
     this.mqService = new mq.MqService(token);
     this.newsService = new news.NewsService(token);
     this.nftService = new nft.NftService(token);
@@ -126,6 +128,7 @@ export class Client {
   imageService: image.ImageService;
   ipService: ip.IpService;
   locationService: location.LocationService;
+  movieService: movie.MovieService;
   mqService: mq.MqService;
   newsService: news.NewsService;
   nftService: nft.NftService;

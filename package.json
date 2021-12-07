@@ -39,6 +39,7 @@
   "image",
   "ip",
   "location",
+  "movie",
   "mq",
   "news",
   "nft",
@@ -81,5 +82,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.885"
+ "version": "1.0.886"
 }
