@@ -6,7 +6,7 @@ export class MovieService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Search for movies by simple text search
   search(request: SearchRequest): Promise<SearchResponse> {
     return this.client.call(
       "movie",
@@ -38,11 +38,13 @@ export interface SearchRequest {
   language?: string;
   // page to query
   page?: number;
+  // year of release
   primary_release_year?: number;
   // a text query to search
   query?: string;
   // a ISO 3166-1 code to filter release dates.
   region?: string;
+  // year of making
   year?: number;
 }
 
