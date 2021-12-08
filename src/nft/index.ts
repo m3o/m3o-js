@@ -14,6 +14,14 @@ export class NftService {
       request
     ) as Promise<AssetsResponse>;
   }
+  // Get a list of collections
+  collections(request: CollectionsRequest): Promise<CollectionsResponse> {
+    return this.client.call(
+      "nft",
+      "Collections",
+      request
+    ) as Promise<CollectionsResponse>;
+  }
   // Create your own NFT (coming soon)
   create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
@@ -80,6 +88,15 @@ export interface Collection {
   name?: string;
   payout_address?: string;
   slug?: string;
+}
+
+export interface CollectionsRequest {
+  limit?: number;
+  offset?: number;
+}
+
+export interface CollectionsResponse {
+  collections?: Collection[];
 }
 
 export interface Contract {
