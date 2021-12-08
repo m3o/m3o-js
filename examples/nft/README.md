@@ -4,26 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Nft/api](https
 
 Endpoints:
 
-## Vote
+## Assets
 
-Vote to have the NFT api launched faster!
+Return a list of NFT assets
 
 
-[https://m3o.com/nft/api#Vote](https://m3o.com/nft/api#Vote)
+[https://m3o.com/nft/api#Assets](https://m3o.com/nft/api#Assets)
 
 ```js
 const { NftService } = require('m3o/nft');
 
 const nftService = new NftService(process.env.M3O_API_TOKEN)
 
-// Vote to have the NFT api launched faster!
-async function voteForTheApi() {
-	const rsp = await nftService.vote({
-  "message": "Launch it!"
+// Return a list of NFT assets
+async function getAlistOfAssets() {
+	const rsp = await nftService.assets({
+  "limit": 1,
+  "order_by": "sale_date"
 })
 	console.log(rsp)
 	
 }
 
-voteForTheApi()
+getAlistOfAssets()
+```
+## Create
+
+Create your own NFT (coming soon)
+
+
+[https://m3o.com/nft/api#Create](https://m3o.com/nft/api#Create)
+
+```js
+const { NftService } = require('m3o/nft');
+
+const nftService = new NftService(process.env.M3O_API_TOKEN)
+
+// Create your own NFT (coming soon)
+async function createAnNft() {
+	const rsp = await nftService.create({
+  "description": "The epic monkey island character",
+  "name": "Guybrush Threepwood"
+})
+	console.log(rsp)
+	
+}
+
+createAnNft()
 ```
