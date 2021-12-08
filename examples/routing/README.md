@@ -4,6 +4,36 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Routing/api](h
 
 Endpoints:
 
+## Eta
+
+Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
+
+
+[https://m3o.com/routing/api#Eta](https://m3o.com/routing/api#Eta)
+
+```js
+const { RoutingService } = require('m3o/routing');
+
+const routingService = new RoutingService(process.env.M3O_API_TOKEN)
+
+// Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
+async function etaFromPointAtoPointB() {
+	const rsp = await routingService.eta({
+  "destination": {
+    "latitude": 52.529407,
+    "longitude": 13.397634
+  },
+  "origin": {
+    "latitude": 52.517037,
+    "longitude": 13.38886
+  }
+})
+	console.log(rsp)
+	
+}
+
+etaFromPointAtoPointB()
+```
 ## Directions
 
 Turn by turn directions from a start point to an end point including maneuvers and bearings
@@ -63,34 +93,4 @@ async function gpsPointsForAroute() {
 }
 
 gpsPointsForAroute()
-```
-## Eta
-
-Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
-
-
-[https://m3o.com/routing/api#Eta](https://m3o.com/routing/api#Eta)
-
-```js
-const { RoutingService } = require('m3o/routing');
-
-const routingService = new RoutingService(process.env.M3O_API_TOKEN)
-
-// Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
-async function etaFromPointAtoPointB() {
-	const rsp = await routingService.eta({
-  "destination": {
-    "latitude": 52.529407,
-    "longitude": 13.397634
-  },
-  "origin": {
-    "latitude": 52.517037,
-    "longitude": 13.38886
-  }
-})
-	console.log(rsp)
-	
-}
-
-etaFromPointAtoPointB()
 ```
