@@ -38,6 +38,7 @@
   "id",
   "image",
   "ip",
+  "joke",
   "location",
   "movie",
   "mq",
@@ -82,5 +83,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.891"
+ "version": "1.0.892"
 }

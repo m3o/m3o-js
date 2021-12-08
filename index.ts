@@ -20,6 +20,7 @@ import * as holidays from "./holidays";
 import * as id from "./id";
 import * as image from "./image";
 import * as ip from "./ip";
+import * as joke from "./joke";
 import * as location from "./location";
 import * as movie from "./movie";
 import * as mq from "./mq";
@@ -74,6 +75,7 @@ export class Client {
     this.idService = new id.IdService(token);
     this.imageService = new image.ImageService(token);
     this.ipService = new ip.IpService(token);
+    this.jokeService = new joke.JokeService(token);
     this.locationService = new location.LocationService(token);
     this.movieService = new movie.MovieService(token);
     this.mqService = new mq.MqService(token);
@@ -127,6 +129,7 @@ export class Client {
   idService: id.IdService;
   imageService: image.ImageService;
   ipService: ip.IpService;
+  jokeService: joke.JokeService;
   locationService: location.LocationService;
   movieService: movie.MovieService;
   mqService: mq.MqService;
