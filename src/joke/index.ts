@@ -6,7 +6,7 @@ export class JokeService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Get a random joke
   random(request: RandomRequest): Promise<RandomResponse> {
     return this.client.call(
       "joke",
@@ -20,7 +20,6 @@ export interface JokeInfo {
   body?: string;
   category?: string;
   id?: string;
-  // the source of joke
   source?: string;
   title?: string;
 }
