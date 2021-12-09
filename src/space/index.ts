@@ -112,7 +112,7 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  // Returns the response as a raw object
+  // Returns the response as raw data
   object?: string;
 }
 
