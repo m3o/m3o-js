@@ -32,7 +32,7 @@ export class SpaceService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("space", "List", request) as Promise<ListResponse>;
   }
-  // Read an object in storage
+  // Read an object in storage. Use for private objects.
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("space", "Read", request) as Promise<ReadResponse>;
   }
