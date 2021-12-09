@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
+## List
+
+List all users. Returns a paged list of results
+
+
+[https://m3o.com/user/api#List](https://m3o.com/user/api#List)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// List all users. Returns a paged list of results
+async function listAllUsers() {
+	const rsp = await userService.list({
+  "limit": 100,
+  "offset": 0
+})
+	console.log(rsp)
+	
+}
+
+listAllUsers()
+```
 ## Update
 
 Update the account username or email
@@ -97,52 +121,6 @@ async function readAccountByEmail() {
 
 readAccountByEmail()
 ```
-## Delete
-
-Delete an account by id
-
-
-[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Delete an account by id
-async function deleteUserAccount() {
-	const rsp = await userService.delete({
-  "id": "8b98acbe-0b6a-4d66-a414-5ffbf666786f"
-})
-	console.log(rsp)
-	
-}
-
-deleteUserAccount()
-```
-## ReadSession
-
-Read a session by the session id. In the event it has expired or is not found and error is returned.
-
-
-[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Read a session by the session id. In the event it has expired or is not found and error is returned.
-async function readAsessionByTheSessionId() {
-	const rsp = await userService.readSession({
-  "sessionId": "df91a612-5b24-4634-99ff-240220ab8f55"
-})
-	console.log(rsp)
-	
-}
-
-readAsessionByTheSessionId()
-```
 ## ResetPassword
 
 Reset password with the code sent by the "SendPasswordResetEmail" endoint.
@@ -193,6 +171,29 @@ async function verifyEmail() {
 
 verifyEmail()
 ```
+## Delete
+
+Delete an account by id
+
+
+[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Delete an account by id
+async function deleteUserAccount() {
+	const rsp = await userService.delete({
+  "id": "8b98acbe-0b6a-4d66-a414-5ffbf666786f"
+})
+	console.log(rsp)
+	
+}
+
+deleteUserAccount()
+```
 ## Login
 
 Login using username or email. The response will return a new session for successful login,
@@ -241,6 +242,29 @@ async function logAuserOut() {
 }
 
 logAuserOut()
+```
+## ReadSession
+
+Read a session by the session id. In the event it has expired or is not found and error is returned.
+
+
+[https://m3o.com/user/api#ReadSession](https://m3o.com/user/api#ReadSession)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Read a session by the session id. In the event it has expired or is not found and error is returned.
+async function readAsessionByTheSessionId() {
+	const rsp = await userService.readSession({
+  "sessionId": "df91a612-5b24-4634-99ff-240220ab8f55"
+})
+	console.log(rsp)
+	
+}
+
+readAsessionByTheSessionId()
 ```
 ## Create
 
@@ -361,28 +385,4 @@ async function sendPasswordResetEmail() {
 }
 
 sendPasswordResetEmail()
-```
-## List
-
-List all users. Returns a paged list of results
-
-
-[https://m3o.com/user/api#List](https://m3o.com/user/api#List)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// List all users. Returns a paged list of results
-async function listAllUsers() {
-	const rsp = await userService.list({
-  "limit": 100,
-  "offset": 0
-})
-	console.log(rsp)
-	
-}
-
-listAllUsers()
 ```
