@@ -71,9 +71,9 @@ export interface DeleteResponse {}
 
 export interface HeadObject {
   // when was this created
-  created?: number;
+  created?: string;
   // when was this last modified
-  modified?: number;
+  modified?: string;
   name?: string;
   // URL to access the object if it is public
   url?: string;
@@ -91,10 +91,12 @@ export interface HeadResponse {
 }
 
 export interface ListObject {
+  created?: string;
   // when was this last modified
-  modified?: number;
+  modified?: string;
   name?: string;
   url?: string;
+  visibility?: string;
 }
 
 export interface ListRequest {
