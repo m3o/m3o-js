@@ -4,6 +4,75 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
+## List
+
+List the objects in space
+
+
+[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// List the objects in space
+async function listObjectsWithPrefix() {
+	const rsp = await spaceService.list({
+  "prefix": "images/"
+})
+	console.log(rsp)
+	
+}
+
+listObjectsWithPrefix()
+```
+## Head
+
+Retrieve meta information about an object
+
+
+[https://m3o.com/space/api#Head](https://m3o.com/space/api#Head)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Retrieve meta information about an object
+async function headAnObject() {
+	const rsp = await spaceService.head({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+headAnObject()
+```
+## Read
+
+Read an object in space. Use for private objects.
+
+
+[https://m3o.com/space/api#Read](https://m3o.com/space/api#Read)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Read an object in space. Use for private objects.
+async function readAnObject() {
+	const rsp = await spaceService.read({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+readAnObject()
+```
 ## Create
 
 Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
@@ -84,73 +153,4 @@ async function deleteAnObject() {
 }
 
 deleteAnObject()
-```
-## List
-
-List the objects in space
-
-
-[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// List the objects in space
-async function listObjectsWithPrefix() {
-	const rsp = await spaceService.list({
-  "prefix": "images/"
-})
-	console.log(rsp)
-	
-}
-
-listObjectsWithPrefix()
-```
-## Head
-
-Retrieve meta information about an object
-
-
-[https://m3o.com/space/api#Head](https://m3o.com/space/api#Head)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Retrieve meta information about an object
-async function headAnObject() {
-	const rsp = await spaceService.head({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-headAnObject()
-```
-## Read
-
-Read an object in space. Use for private objects.
-
-
-[https://m3o.com/space/api#Read](https://m3o.com/space/api#Read)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Read an object in space. Use for private objects.
-async function readAnObject() {
-	const rsp = await spaceService.read({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-readAnObject()
 ```
