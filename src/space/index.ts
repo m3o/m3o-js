@@ -32,7 +32,7 @@ export class SpaceService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("space", "List", request) as Promise<ListResponse>;
   }
-  // Read/download the object
+  // Read an object in storage
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("space", "Read", request) as Promise<ReadResponse>;
   }
@@ -82,6 +82,7 @@ export interface HeadObject {
 }
 
 export interface HeadRequest {
+  // name of the object
   name?: string;
 }
 
@@ -106,10 +107,14 @@ export interface ListResponse {
 }
 
 export interface ReadRequest {
+  // name of the object
   name?: string;
 }
 
-export interface ReadResponse {}
+export interface ReadResponse {
+  // Returns the response as a raw object
+  object?: string;
+}
 
 export interface UpdateRequest {
   // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
