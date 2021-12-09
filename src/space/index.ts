@@ -63,7 +63,7 @@ export interface CreateResponse {
 }
 
 export interface DeleteRequest {
-  // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  // Name of the object
   name?: string;
 }
 
