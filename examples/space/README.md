@@ -4,26 +4,153 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
-## Vote
+## Create
 
-Vote to have the Space api launched faster!
+Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+You need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
 
 
-[https://m3o.com/space/api#Vote](https://m3o.com/space/api#Vote)
+[https://m3o.com/space/api#Create](https://m3o.com/space/api#Create)
 
 ```js
 const { SpaceService } = require('m3o/space');
 
 const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
 
-// Vote to have the Space api launched faster!
-async function voteForTheApi() {
-	const rsp = await spaceService.vote({
-  "message": "Launch it!"
+// Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+// You need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
+async function createAnObject() {
+	const rsp = await spaceService.create({
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
 })
 	console.log(rsp)
 	
 }
 
-voteForTheApi()
+createAnObject()
+```
+## Update
+
+Update an object. If an object with this name does not exist, creates a new one.
+You need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Update an object. If an object with this name does not exist, creates a new one.
+// You need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
+async function updateAnObject() {
+	const rsp = await spaceService.update({
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
+})
+	console.log(rsp)
+	
+}
+
+updateAnObject()
+```
+## Delete
+
+Delete an object
+
+
+[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Delete an object
+async function deleteAnObject() {
+	const rsp = await spaceService.delete({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnObject()
+```
+## List
+
+List the objects in the space
+
+
+[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// List the objects in the space
+async function listObjectsWithPrefix() {
+	const rsp = await spaceService.list({
+  "prefix": "images/"
+})
+	console.log(rsp)
+	
+}
+
+listObjectsWithPrefix()
+```
+## Head
+
+Retrieve meta information about an object
+
+
+[https://m3o.com/space/api#Head](https://m3o.com/space/api#Head)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Retrieve meta information about an object
+async function headAnObject() {
+	const rsp = await spaceService.head({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+headAnObject()
+```
+## Read
+
+Read/download the object
+
+
+[https://m3o.com/space/api#Read](https://m3o.com/space/api#Read)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Read/download the object
+async function readAnObject() {
+	const rsp = await spaceService.read({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+readAnObject()
 ```
