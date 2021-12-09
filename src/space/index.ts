@@ -16,7 +16,7 @@ export class SpaceService {
       request
     ) as Promise<CreateResponse>;
   }
-  // Delete an object
+  // Delete an object from space
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       "space",
@@ -28,11 +28,11 @@ export class SpaceService {
   head(request: HeadRequest): Promise<HeadResponse> {
     return this.client.call("space", "Head", request) as Promise<HeadResponse>;
   }
-  // List the objects in the space
+  // List the objects in space
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("space", "List", request) as Promise<ListResponse>;
   }
-  // Read an object in storage. Use for private objects.
+  // Read an object in space. Use for private objects.
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("space", "Read", request) as Promise<ReadResponse>;
   }
@@ -112,7 +112,7 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  // Returns the response as raw data
+  // Returns the object as raw data
   object?: string;
 }
 
