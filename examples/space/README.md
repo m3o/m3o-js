@@ -4,58 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
-## Update
-
-Update an object. If an object with this name does not exist, creates a new one.
-You need to send the request as a multipart/form-data rather than the usual application/json
-with each parameter as a form field.
-
-
-[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Update an object. If an object with this name does not exist, creates a new one.
-// You need to send the request as a multipart/form-data rather than the usual application/json
-// with each parameter as a form field.
-async function updateAnObject() {
-	const rsp = await spaceService.update({
-  "name": "images/file.jpg",
-  "object": "\u003cfile bytes\u003e",
-  "visibility": "public"
-})
-	console.log(rsp)
-	
-}
-
-updateAnObject()
-```
-## Delete
-
-Delete an object from space
-
-
-[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Delete an object from space
-async function deleteAnObject() {
-	const rsp = await spaceService.delete({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnObject()
-```
 ## List
 
 List the objects in space
@@ -150,7 +98,7 @@ downloadAnObject()
 ```
 ## Upload
 
-Upload a large object. Returns a time limited presigned URL to be used for uploading the object
+Upload a large object (> 10MB). Returns a time limited presigned URL to be used for uploading the object
 
 
 [https://m3o.com/space/api#Upload](https://m3o.com/space/api#Upload)
@@ -160,7 +108,7 @@ const { SpaceService } = require('m3o/space');
 
 const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
 
-// Upload a large object. Returns a time limited presigned URL to be used for uploading the object
+// Upload a large object (> 10MB). Returns a time limited presigned URL to be used for uploading the object
 async function uploadAnObject() {
 	const rsp = await spaceService.upload({
   "name": "images/file.jpg"
@@ -173,7 +121,7 @@ uploadAnObject()
 ```
 ## Create
 
-Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+Create an object. Returns error if object with this name already exists. Max object size of 10MB, see Upload endpoint for larger objects. If you want to update an existing object use the `Update` endpoint
 You need to send the request as a multipart/form-data rather than the usual application/json
 with each parameter as a form field.
 
@@ -185,7 +133,7 @@ const { SpaceService } = require('m3o/space');
 
 const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
 
-// Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+// Create an object. Returns error if object with this name already exists. Max object size of 10MB, see Upload endpoint for larger objects. If you want to update an existing object use the `Update` endpoint
 // You need to send the request as a multipart/form-data rather than the usual application/json
 // with each parameter as a form field.
 async function createAnObject() {
@@ -199,4 +147,56 @@ async function createAnObject() {
 }
 
 createAnObject()
+```
+## Update
+
+Update an object. If an object with this name does not exist, creates a new one.
+You need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Update an object. If an object with this name does not exist, creates a new one.
+// You need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
+async function updateAnObject() {
+	const rsp = await spaceService.update({
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
+})
+	console.log(rsp)
+	
+}
+
+updateAnObject()
+```
+## Delete
+
+Delete an object from space
+
+
+[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Delete an object from space
+async function deleteAnObject() {
+	const rsp = await spaceService.delete({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnObject()
 ```

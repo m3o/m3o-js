@@ -6,7 +6,7 @@ export class SpaceService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+  // Create an object. Returns error if object with this name already exists. Max object size of 10MB, see Upload endpoint for larger objects. If you want to update an existing object use the `Update` endpoint
   // You need to send the request as a multipart/form-data rather than the usual application/json
   // with each parameter as a form field.
   create(request: CreateRequest): Promise<CreateResponse> {
@@ -54,7 +54,7 @@ export class SpaceService {
       request
     ) as Promise<UpdateResponse>;
   }
-  // Upload a large object. Returns a time limited presigned URL to be used for uploading the object
+  // Upload a large object (> 10MB). Returns a time limited presigned URL to be used for uploading the object
   upload(request: UploadRequest): Promise<UploadResponse> {
     return this.client.call(
       "space",
