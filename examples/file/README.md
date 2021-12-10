@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/File/api](http
 
 Endpoints:
 
+## Read
+
+Read a file by path
+
+
+[https://m3o.com/file/api#Read](https://m3o.com/file/api#Read)
+
+```js
+const { FileService } = require('m3o/file');
+
+const fileService = new FileService(process.env.M3O_API_TOKEN)
+
+// Read a file by path
+async function readFile() {
+	const rsp = await fileService.read({
+  "path": "/document/text-files/file.txt",
+  "project": "examples"
+})
+	console.log(rsp)
+	
+}
+
+readFile()
+```
 ## Save
 
 Save a file
@@ -77,28 +101,4 @@ async function deleteFile() {
 }
 
 deleteFile()
-```
-## Read
-
-Read a file by path
-
-
-[https://m3o.com/file/api#Read](https://m3o.com/file/api#Read)
-
-```js
-const { FileService } = require('m3o/file');
-
-const fileService = new FileService(process.env.M3O_API_TOKEN)
-
-// Read a file by path
-async function readFile() {
-	const rsp = await fileService.read({
-  "path": "/document/text-files/file.txt",
-  "project": "examples"
-})
-	console.log(rsp)
-	
-}
-
-readFile()
 ```
