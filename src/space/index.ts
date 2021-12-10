@@ -24,6 +24,14 @@ export class SpaceService {
       request
     ) as Promise<DeleteResponse>;
   }
+  // Download an object via a presigned url
+  download(request: DownloadRequest): Promise<DownloadResponse> {
+    return this.client.call(
+      "space",
+      "Download",
+      request
+    ) as Promise<DownloadResponse>;
+  }
   // Retrieve meta information about an object
   head(request: HeadRequest): Promise<HeadResponse> {
     return this.client.call("space", "Head", request) as Promise<HeadResponse>;
@@ -32,7 +40,7 @@ export class SpaceService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("space", "List", request) as Promise<ListResponse>;
   }
-  // Read an object in space. Use for private objects.
+  // Read an object in space
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call("space", "Read", request) as Promise<ReadResponse>;
   }
@@ -68,6 +76,16 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {}
+
+export interface DownloadRequest {
+  // name of object
+  name?: string;
+}
+
+export interface DownloadResponse {
+  // presigned url
+  url?: string;
+}
 
 export interface HeadObject {
   // when was this created
@@ -108,14 +126,29 @@ export interface ListResponse {
   objects?: ListObject[];
 }
 
+export interface Object {
+  // when was this created
+  created?: string;
+  // the data within the object
+  data?: string;
+  // when was this last modified
+  modified?: string;
+  // name of object
+  name?: string;
+  // URL to access the object if it is public
+  url?: string;
+  // is this public or private
+  visibility?: string;
+}
+
 export interface ReadRequest {
   // name of the object
   name?: string;
 }
 
 export interface ReadResponse {
-  // Returns the object as raw data
-  object?: string;
+  // The object itself
+  object?: { [key: string]: any };
 }
 
 export interface UpdateRequest {
