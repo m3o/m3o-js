@@ -44,6 +44,7 @@ import * as stream from "./stream";
 import * as sunnah from "./sunnah";
 import * as thumbnail from "./thumbnail";
 import * as time from "./time";
+import * as translate from "./translate";
 import * as twitter from "./twitter";
 import * as url from "./url";
 import * as user from "./user";
@@ -99,6 +100,7 @@ export class Client {
     this.sunnahService = new sunnah.SunnahService(token);
     this.thumbnailService = new thumbnail.ThumbnailService(token);
     this.timeService = new time.TimeService(token);
+    this.translateService = new translate.TranslateService(token);
     this.twitterService = new twitter.TwitterService(token);
     this.urlService = new url.UrlService(token);
     this.userService = new user.UserService(token);
@@ -153,6 +155,7 @@ export class Client {
   sunnahService: sunnah.SunnahService;
   thumbnailService: thumbnail.ThumbnailService;
   timeService: time.TimeService;
+  translateService: translate.TranslateService;
   twitterService: twitter.TwitterService;
   urlService: url.UrlService;
   userService: user.UserService;
