@@ -125,7 +125,7 @@ export interface Func {
   // name of handler in source code
   entrypoint?: string;
   // associated env vars
-  env_Vars?: { [key: string]: string };
+  env_vars?: { [key: string]: string };
   // function name
   // limitation: must be unique across projects
   name?: string;
