@@ -31,10 +31,12 @@ export interface EmbedRequest {
 
 export interface EmbedResponse {
   // the embeddable link e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
-  link?: string;
+  embed_url?: string;
   // the script code
-  script?: string;
-  // the short link
+  html_script?: string;
+  // the full url
+  long_url?: string;
+  // the short url
   short_url?: string;
 }
 
