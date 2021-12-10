@@ -54,6 +54,14 @@ export class SpaceService {
       request
     ) as Promise<UpdateResponse>;
   }
+  // Upload a large object. Returns a time limited presigned URL to be used for uploading the object
+  upload(request: UploadRequest): Promise<UploadResponse> {
+    return this.client.call(
+      "space",
+      "Upload",
+      request
+    ) as Promise<UploadResponse>;
+  }
 }
 
 export interface CreateRequest {
@@ -162,5 +170,16 @@ export interface UpdateRequest {
 
 export interface UpdateResponse {
   // A public URL to access the object if visibility is "public"
+  url?: string;
+}
+
+export interface UploadRequest {
+  name?: string;
+  // is this object public or private
+  visibility?: string;
+}
+
+export interface UploadResponse {
+  // a presigned url to be used for uploading
   url?: string;
 }
