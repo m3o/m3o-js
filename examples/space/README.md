@@ -4,87 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
-## Download
-
-Download an object via a presigned url
-
-
-[https://m3o.com/space/api#Download](https://m3o.com/space/api#Download)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Download an object via a presigned url
-async function downloadAnObject() {
-	const rsp = await spaceService.download({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-downloadAnObject()
-```
-## Create
-
-Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
-You need to send the request as a multipart/form-data rather than the usual application/json
-with each parameter as a form field.
-
-
-[https://m3o.com/space/api#Create](https://m3o.com/space/api#Create)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
-// You need to send the request as a multipart/form-data rather than the usual application/json
-// with each parameter as a form field.
-async function createAnObject() {
-	const rsp = await spaceService.create({
-  "name": "images/file.jpg",
-  "object": "\u003cfile bytes\u003e",
-  "visibility": "public"
-})
-	console.log(rsp)
-	
-}
-
-createAnObject()
-```
-## Update
-
-Update an object. If an object with this name does not exist, creates a new one.
-You need to send the request as a multipart/form-data rather than the usual application/json
-with each parameter as a form field.
-
-
-[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Update an object. If an object with this name does not exist, creates a new one.
-// You need to send the request as a multipart/form-data rather than the usual application/json
-// with each parameter as a form field.
-async function updateAnObject() {
-	const rsp = await spaceService.update({
-  "name": "images/file.jpg",
-  "object": "\u003cfile bytes\u003e",
-  "visibility": "public"
-})
-	console.log(rsp)
-	
-}
-
-updateAnObject()
-```
 ## Delete
 
 Delete an object from space
@@ -176,4 +95,85 @@ async function readAnObject() {
 }
 
 readAnObject()
+```
+## Download
+
+Download an object via a presigned url
+
+
+[https://m3o.com/space/api#Download](https://m3o.com/space/api#Download)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Download an object via a presigned url
+async function downloadAnObject() {
+	const rsp = await spaceService.download({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+downloadAnObject()
+```
+## Create
+
+Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+You need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/space/api#Create](https://m3o.com/space/api#Create)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Create an object. Returns error if object with this name already exists. If you want to update an existing object use the `Update` endpoint
+// You need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
+async function createAnObject() {
+	const rsp = await spaceService.create({
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
+})
+	console.log(rsp)
+	
+}
+
+createAnObject()
+```
+## Update
+
+Update an object. If an object with this name does not exist, creates a new one.
+You need to send the request as a multipart/form-data rather than the usual application/json
+with each parameter as a form field.
+
+
+[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Update an object. If an object with this name does not exist, creates a new one.
+// You need to send the request as a multipart/form-data rather than the usual application/json
+// with each parameter as a form field.
+async function updateAnObject() {
+	const rsp = await spaceService.update({
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
+})
+	console.log(rsp)
+	
+}
+
+updateAnObject()
 ```
