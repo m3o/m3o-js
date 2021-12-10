@@ -28,12 +28,6 @@ export class FileService {
   }
 }
 
-export interface BatchSaveRequest {
-  files?: Record[];
-}
-
-export interface BatchSaveResponse {}
-
 export interface DeleteRequest {
   // Path to the file
   path?: string;
