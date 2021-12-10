@@ -59,6 +59,12 @@ export class UserService {
       request
     ) as Promise<ResetPasswordResponse>;
   }
+  // Login using email only - Passwordless
+  sendMagicLink(
+    request: SendMagicLinkRequest
+  ): Promise<m3o.Stream<SendMagicLinkRequest, SendMagicLinkResponse>> {
+    return this.client.stream("user", "SendMagicLink", request);
+  }
   // Send an email with a verification code to reset password.
   // Call "ResetPassword" endpoint once user provides the code.
   sendPasswordResetEmail(
@@ -111,6 +117,17 @@ export class UserService {
       "VerifyEmail",
       request
     ) as Promise<VerifyEmailResponse>;
+  }
+  // Check whether the token attached to MagicLink is valid or not.
+  // Ideally, you need to call this endpoint from your http request
+  // handler that handles the endpoint which is specified in the
+  // SendMagicLink request.
+  verifyToken(request: VerifyTokenRequest): Promise<VerifyTokenResponse> {
+    return this.client.call(
+      "user",
+      "VerifyToken",
+      request
+    ) as Promise<VerifyTokenResponse>;
   }
 }
 
@@ -225,6 +242,27 @@ export interface ResetPasswordRequest {
 
 export interface ResetPasswordResponse {}
 
+export interface SendMagicLinkRequest {
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
+  // the email address of the user
+  email?: string;
+  // Endpoint name where your http request handler handles MagicLink by
+  // calling M3O VerifyToken endpoint. You can return as a result a success,
+  // failed or redirect to another page.
+  endpoint?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+  fromName?: string;
+  subject?: string;
+  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  textContent?: string;
+}
+
+export interface SendMagicLinkResponse {
+  session?: { [key: string]: any };
+}
+
 export interface SendPasswordResetEmailRequest {
   // email address to send reset for
   email?: string;
@@ -300,3 +338,12 @@ export interface VerifyEmailRequest {
 }
 
 export interface VerifyEmailResponse {}
+
+export interface VerifyTokenRequest {
+  token?: string;
+}
+
+export interface VerifyTokenResponse {
+  is_valid?: boolean;
+  message?: string;
+}
