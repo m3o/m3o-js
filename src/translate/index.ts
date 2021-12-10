@@ -6,7 +6,7 @@ export class TranslateService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // TextRequest is the basic edition request
+  // Basic text translation
   text(request: TextRequest): Promise<TextResponse> {
     return this.client.call(
       "translate",
@@ -33,6 +33,7 @@ export interface TextRequest {
 }
 
 export interface TextResponse {
+  // The translated text
   translation?: { [key: string]: any };
 }
 

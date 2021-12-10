@@ -6,7 +6,7 @@ Endpoints:
 
 ## Text
 
-TextRequest is the basic edition request
+Basic text translation
 
 
 [https://m3o.com/translate/api#Text](https://m3o.com/translate/api#Text)
@@ -16,21 +16,18 @@ const { TranslateService } = require('m3o/translate');
 
 const translateService = new TranslateService(process.env.M3O_API_TOKEN)
 
-// TextRequest is the basic edition request
-async function translateString() {
+// Basic text translation
+async function translateText() {
 	const rsp = await translateService.text({
-  "contents": [
-    "pen",
-    "pencil"
-  ],
+  "content": "hello",
   "format": "text",
   "model": "nmt",
   "source": "en",
-  "target": "zh"
+  "target": "fr"
 })
 	console.log(rsp)
 	
 }
 
-translateString()
+translateText()
 ```

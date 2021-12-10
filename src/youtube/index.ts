@@ -6,6 +6,14 @@ export class YoutubeService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
+  // Embed a YouTube video
+  embed(request: EmbedRequest): Promise<EmbedResponse> {
+    return this.client.call(
+      "youtube",
+      "Embed",
+      request
+    ) as Promise<EmbedResponse>;
+  }
   // Search for videos on YouTube
   search(request: SearchRequest): Promise<SearchResponse> {
     return this.client.call(
@@ -14,6 +22,20 @@ export class YoutubeService {
       request
     ) as Promise<SearchResponse>;
   }
+}
+
+export interface EmbedRequest {
+  // provide the youtube url e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
+  url?: string;
+}
+
+export interface EmbedResponse {
+  // the embeddable link e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
+  link?: string;
+  // the script code
+  script?: string;
+  // the short link
+  short_url?: string;
 }
 
 export interface SearchRequest {
