@@ -46,6 +46,14 @@ export class FunctionService {
       request
     ) as Promise<ListResponse>;
   }
+  //
+  update(request: UpdateRequest): Promise<UpdateResponse> {
+    return this.client.call(
+      "function",
+      "Update",
+      request
+    ) as Promise<UpdateResponse>;
+  }
 }
 
 export interface CallRequest {
@@ -116,6 +124,8 @@ export interface DescribeResponse {
 export interface Func {
   // name of handler in source code
   entrypoint?: string;
+  // associated env vars
+  env_Vars?: { [key: string]: string };
   // function name
   // limitation: must be unique across projects
   name?: string;
@@ -149,3 +159,31 @@ export interface ListResponse {
   // List of functions deployed
   functions?: Func[];
 }
+
+export interface UpdateRequest {
+  // entry point, ie. handler name in the source code
+  // if not provided, defaults to the name parameter
+  entrypoint?: string;
+  // environment variables to pass in at runtime
+  env_vars?: { [key: string]: string };
+  // function name
+  name?: string;
+  // project is used for namespacing your functions
+  // optional. defaults to "default".
+  project?: string;
+  // github url to repo
+  repo?: string;
+  // runtime/language of the function
+  // eg: php74,
+  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16
+  // dotnet3
+  // java11
+  // ruby26, ruby27
+  // go111, go113, go116
+  // python37, python38, python39
+  runtime?: string;
+  // optional subfolder path
+  subfolder?: string;
+}
+
+export interface UpdateResponse {}
