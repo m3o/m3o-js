@@ -16,18 +16,9 @@ export class TranslateService {
   }
 }
 
-export interface BasicTranslation {
-  // The model used in translation
-  model?: string;
-  // The source of the query string
-  source?: string;
-  // The translation result
-  text?: string;
-}
-
 export interface TextRequest {
   // The contents to be translated
-  contents?: string[];
+  content?: string;
   // The string format, `text` or `html`
   format?: string;
   // The model to use for translation, `nmt` or `base`,
@@ -42,5 +33,14 @@ export interface TextRequest {
 }
 
 export interface TextResponse {
-  translations?: BasicTranslation[];
+  translation?: { [key: string]: any };
+}
+
+export interface Translation {
+  // The model used in translation
+  model?: string;
+  // The source of the query string
+  source?: string;
+  // The translation result
+  text?: string;
 }
