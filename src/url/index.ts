@@ -6,7 +6,7 @@ export class UrlService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // List information on all the shortened URLs that you have created
+  // List all the shortened URLs
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("url", "List", request) as Promise<ListResponse>;
   }
@@ -14,7 +14,7 @@ export class UrlService {
   proxy(request: ProxyRequest): Promise<ProxyResponse> {
     return this.client.call("url", "Proxy", request) as Promise<ProxyResponse>;
   }
-  // Shortens a destination URL and returns a full short URL.
+  // Shorten a long URL
   shorten(request: ShortenRequest): Promise<ShortenResponse> {
     return this.client.call(
       "url",
@@ -30,7 +30,7 @@ export interface ListRequest {
 }
 
 export interface ListResponse {
-  urlPairs?: URLPair;
+  urls?: URLPair[];
 }
 
 export interface ProxyRequest {
@@ -44,20 +44,20 @@ export interface ProxyResponse {
 }
 
 export interface ShortenRequest {
+  // the url to shorten
   destinationURL?: string;
 }
 
 export interface ShortenResponse {
+  // the shortened url
   shortURL?: string;
 }
 
 export interface URLPair {
-  created?: number;
+  // time of creation
+  created?: string;
+  // destination url
   destinationURL?: string;
-  // HitCount keeps track many times the short URL has been resolved.
-  // Hitcount only gets saved to disk (database) after every 10th hit, so
-  // its not intended to be 100% accurate, more like an almost correct estimate.
-  hitCount?: number;
-  owner?: string;
+  // shortened url
   shortURL?: string;
 }
