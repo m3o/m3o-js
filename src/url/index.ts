@@ -30,7 +30,7 @@ export interface ListRequest {
 }
 
 export interface ListResponse {
-  urls?: URLPair[];
+  urlPairs?: URLPair;
 }
 
 export interface ProxyRequest {
