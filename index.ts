@@ -1,6 +1,7 @@
 import * as address from "./address";
 import * as answer from "./answer";
 import * as app from "./app";
+import * as avatar from "./avatar";
 import * as cache from "./cache";
 import * as crypto from "./crypto";
 import * as currency from "./currency";
@@ -57,6 +58,7 @@ export class Client {
     this.addressService = new address.AddressService(token);
     this.answerService = new answer.AnswerService(token);
     this.appService = new app.AppService(token);
+    this.avatarService = new avatar.AvatarService(token);
     this.cacheService = new cache.CacheService(token);
     this.cryptoService = new crypto.CryptoService(token);
     this.currencyService = new currency.CurrencyService(token);
@@ -112,6 +114,7 @@ export class Client {
   addressService: address.AddressService;
   answerService: answer.AnswerService;
   appService: app.AppService;
+  avatarService: avatar.AvatarService;
   cacheService: cache.CacheService;
   cryptoService: crypto.CryptoService;
   currencyService: currency.CurrencyService;
