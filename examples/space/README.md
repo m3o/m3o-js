@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
+## Delete
+
+Delete an object from space
+
+
+[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Delete an object from space
+async function deleteAnObject() {
+	const rsp = await spaceService.delete({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnObject()
+```
 ## List
 
 List the objects in space
@@ -176,27 +199,4 @@ async function updateAnObject() {
 }
 
 updateAnObject()
-```
-## Delete
-
-Delete an object from space
-
-
-[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Delete an object from space
-async function deleteAnObject() {
-	const rsp = await spaceService.delete({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnObject()
 ```
