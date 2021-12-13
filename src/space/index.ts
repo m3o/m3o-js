@@ -7,8 +7,6 @@ export class SpaceService {
     this.client = new m3o.Client({ token: token });
   }
   // Create an object. Returns error if object with this name already exists. Max object size of 10MB, see Upload endpoint for larger objects. If you want to update an existing object use the `Update` endpoint
-  // You need to send the request as a multipart/form-data rather than the usual application/json
-  // with each parameter as a form field.
   create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
       "space",
@@ -45,8 +43,6 @@ export class SpaceService {
     return this.client.call("space", "Read", request) as Promise<ReadResponse>;
   }
   // Update an object. If an object with this name does not exist, creates a new one.
-  // You need to send the request as a multipart/form-data rather than the usual application/json
-  // with each parameter as a form field.
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       "space",
@@ -67,7 +63,7 @@ export class SpaceService {
 export interface CreateRequest {
   // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
   name?: string;
-  // The contents of the object
+  // The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   object?: string;
   // Who can see this object? "public" or "private", defaults to "private"
   visibility?: string;
@@ -162,7 +158,7 @@ export interface ReadResponse {
 export interface UpdateRequest {
   // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
   name?: string;
-  // The contents of the object
+  // The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   object?: string;
   // Who can see this object? "public" or "private", defaults to "private"
   visibility?: string;
