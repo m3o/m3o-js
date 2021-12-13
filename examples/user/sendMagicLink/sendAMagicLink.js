@@ -13,9 +13,7 @@ async function sendAmagicLink() {
     textContent:
       "Hi there,\n\nClick here to access your account $micro_verification_link",
   });
-  rsp.onMessage((msg) => {
-    console.log(msg);
-  });
+  console.log(rsp);
 }
 
 sendAmagicLink();

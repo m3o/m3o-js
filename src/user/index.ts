@@ -60,10 +60,12 @@ export class UserService {
     ) as Promise<ResetPasswordResponse>;
   }
   // Login using email only - Passwordless
-  sendMagicLink(
-    request: SendMagicLinkRequest
-  ): Promise<m3o.Stream<SendMagicLinkRequest, SendMagicLinkResponse>> {
-    return this.client.stream("user", "SendMagicLink", request);
+  sendMagicLink(request: SendMagicLinkRequest): Promise<SendMagicLinkResponse> {
+    return this.client.call(
+      "user",
+      "SendMagicLink",
+      request
+    ) as Promise<SendMagicLinkResponse>;
   }
   // Send an email with a verification code to reset password.
   // Call "ResetPassword" endpoint once user provides the code.
@@ -259,9 +261,7 @@ export interface SendMagicLinkRequest {
   textContent?: string;
 }
 
-export interface SendMagicLinkResponse {
-  session?: { [key: string]: any };
-}
+export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
   // email address to send reset for
@@ -346,4 +346,5 @@ export interface VerifyTokenRequest {
 export interface VerifyTokenResponse {
   is_valid?: boolean;
   message?: string;
+  session?: { [key: string]: any };
 }
