@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Id/api](https:
 
 Endpoints:
 
-## Types
-
-List the types of IDs available. No query params needed.
-
-
-[https://m3o.com/id/api#Types](https://m3o.com/id/api#Types)
-
-```js
-const { IdService } = require('m3o/id');
-
-const idService = new IdService(process.env.M3O_API_TOKEN)
-
-// List the types of IDs available. No query params needed.
-async function listTheTypesOfIdsAvailable() {
-	const rsp = await idService.types({})
-	console.log(rsp)
-	
-}
-
-listTheTypesOfIdsAvailable()
-```
 ## Generate
 
 Generate a unique ID. Defaults to uuid.
@@ -116,4 +95,25 @@ async function generateAbigflakeId() {
 }
 
 generateAbigflakeId()
+```
+## Types
+
+List the types of IDs available. No query params needed.
+
+
+[https://m3o.com/id/api#Types](https://m3o.com/id/api#Types)
+
+```js
+const { IdService } = require('m3o/id');
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
+// List the types of IDs available. No query params needed.
+async function listTheTypesOfIdsAvailable() {
+	const rsp = await idService.types({})
+	console.log(rsp)
+	
+}
+
+listTheTypesOfIdsAvailable()
 ```

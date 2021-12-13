@@ -2,7 +2,7 @@ const { FunctionService } = require("m3o/function");
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN);
 
-//
+// Update a function
 async function updateAfunction() {
   const rsp = await functionService.update({
     entrypoint: "helloworld",

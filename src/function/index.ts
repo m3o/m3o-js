@@ -46,7 +46,7 @@ export class FunctionService {
       request
     ) as Promise<ListResponse>;
   }
-  //
+  // Update a function
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       "function",
