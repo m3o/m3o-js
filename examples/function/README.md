@@ -4,6 +4,32 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
+## Update
+
+
+
+
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// 
+async function updateAfunction() {
+	const rsp = await functionService.update({
+  "entrypoint": "helloworld",
+  "name": "helloworld",
+  "repo": "github.com/m3o/nodejs-function-example",
+  "runtime": "nodejs14"
+})
+	console.log(rsp)
+	
+}
+
+updateAfunction()
+```
 ## Call
 
 Call a function by name
@@ -120,30 +146,4 @@ async function deployAfunction() {
 }
 
 deployAfunction()
-```
-## Update
-
-
-
-
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// 
-async function updateAfunction() {
-	const rsp = await functionService.update({
-  "entrypoint": "helloworld",
-  "name": "helloworld",
-  "repo": "github.com/m3o/nodejs-function-example",
-  "runtime": "nodejs14"
-})
-	console.log(rsp)
-	
-}
-
-updateAfunction()
 ```
