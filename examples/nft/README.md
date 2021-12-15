@@ -4,30 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Nft/api](https
 
 Endpoints:
 
-## Create
-
-Create your own NFT (coming soon)
-
-
-[https://m3o.com/nft/api#Create](https://m3o.com/nft/api#Create)
-
-```js
-const { NftService } = require('m3o/nft');
-
-const nftService = new NftService(process.env.M3O_API_TOKEN)
-
-// Create your own NFT (coming soon)
-async function createAnNft() {
-	const rsp = await nftService.create({
-  "description": "The epic monkey island character",
-  "name": "Guybrush Threepwood"
-})
-	console.log(rsp)
-	
-}
-
-createAnNft()
-```
 ## Collections
 
 Get a list of collections
@@ -74,4 +50,28 @@ async function getAlistOfAssets() {
 }
 
 getAlistOfAssets()
+```
+## Create
+
+Create your own NFT (coming soon)
+
+
+[https://m3o.com/nft/api#Create](https://m3o.com/nft/api#Create)
+
+```js
+const { NftService } = require('m3o/nft');
+
+const nftService = new NftService(process.env.M3O_API_TOKEN)
+
+// Create your own NFT (coming soon)
+async function createAnNft() {
+	const rsp = await nftService.create({
+  "description": "The epic monkey island character",
+  "name": "Guybrush Threepwood"
+})
+	console.log(rsp)
+	
+}
+
+createAnNft()
 ```
