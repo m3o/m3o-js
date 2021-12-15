@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Cache/api](htt
 
 Endpoints:
 
-## Delete
-
-Delete a value from the cache. If key not found a success response is returned.
-
-
-[https://m3o.com/cache/api#Delete](https://m3o.com/cache/api#Delete)
-
-```js
-const { CacheService } = require('m3o/cache');
-
-const cacheService = new CacheService(process.env.M3O_API_TOKEN)
-
-// Delete a value from the cache. If key not found a success response is returned.
-async function deleteAvalue() {
-	const rsp = await cacheService.delete({
-  "key": "foo"
-})
-	console.log(rsp)
-	
-}
-
-deleteAvalue()
-```
 ## Increment
 
 Increment a value (if it's a number). If key not found it is equivalent to set.
@@ -121,4 +98,27 @@ async function getAvalue() {
 }
 
 getAvalue()
+```
+## Delete
+
+Delete a value from the cache. If key not found a success response is returned.
+
+
+[https://m3o.com/cache/api#Delete](https://m3o.com/cache/api#Delete)
+
+```js
+const { CacheService } = require('m3o/cache');
+
+const cacheService = new CacheService(process.env.M3O_API_TOKEN)
+
+// Delete a value from the cache. If key not found a success response is returned.
+async function deleteAvalue() {
+	const rsp = await cacheService.delete({
+  "key": "foo"
+})
+	console.log(rsp)
+	
+}
+
+deleteAvalue()
 ```
