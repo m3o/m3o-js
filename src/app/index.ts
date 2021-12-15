@@ -42,7 +42,7 @@ export class AppService {
       request
     ) as Promise<ResolveResponse>;
   }
-  // Run an app
+  // Run an app from a source repo. Specify region etc.
   run(request: RunRequest): Promise<RunResponse> {
     return this.client.call("app", "Run", request) as Promise<RunResponse>;
   }
@@ -54,7 +54,7 @@ export class AppService {
       request
     ) as Promise<StatusResponse>;
   }
-  // Update the app
+  // Update the app. The latest source code will be downloaded, built and deployed.
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       "app",
