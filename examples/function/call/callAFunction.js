@@ -6,7 +6,9 @@ const functionService = new FunctionService(process.env.M3O_API_TOKEN);
 async function callAfunction() {
   const rsp = await functionService.call({
     name: "helloworld",
-    request: {},
+    request: {
+      name: "Alice",
+    },
   });
   console.log(rsp);
 }

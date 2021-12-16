@@ -46,7 +46,31 @@ export class FunctionService {
       request
     ) as Promise<ListResponse>;
   }
-  // Update a function
+  // Return the backend url for proxying
+  proxy(request: ProxyRequest): Promise<ProxyResponse> {
+    return this.client.call(
+      "function",
+      "Proxy",
+      request
+    ) as Promise<ProxyResponse>;
+  }
+  // Return a list of supported regions
+  regions(request: RegionsRequest): Promise<RegionsResponse> {
+    return this.client.call(
+      "function",
+      "Regions",
+      request
+    ) as Promise<RegionsResponse>;
+  }
+  // Reserve function names and resources beyond free quota
+  reserve(request: ReserveRequest): Promise<ReserveResponse> {
+    return this.client.call(
+      "function",
+      "Reserve",
+      request
+    ) as Promise<ReserveResponse>;
+  }
+  // Update a function. Downloads the source, builds and redeploys
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       "function",
@@ -71,13 +95,13 @@ export interface CallResponse {
 export interface DeleteRequest {
   // The name of the function
   name?: string;
-  // Optional project name
-  project?: string;
 }
 
 export interface DeleteResponse {}
 
 export interface DeployRequest {
+  // branch to deploy. defaults to master
+  branch?: string;
   // entry point, ie. handler name in the source code
   // if not provided, defaults to the name parameter
   entrypoint?: string;
@@ -85,105 +109,115 @@ export interface DeployRequest {
   env_vars?: { [key: string]: string };
   // function name
   name?: string;
-  // project is used for namespacing your functions
-  // optional. defaults to "default".
-  project?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
   // github url to repo
   repo?: string;
-  // runtime/language of the function
-  // eg: php74,
-  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16
-  // dotnet3
-  // java11
-  // ruby26, ruby27
-  // go111, go113, go116
+  // runtime/lanaguage of the function e.g php74,
+  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+  // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
   // optional subfolder path
   subfolder?: string;
 }
 
-export interface DeployResponse {}
+export interface DeployResponse {
+  function?: Func;
+}
 
 export interface DescribeRequest {
   // The name of the function
   name?: string;
-  // Optional project name
-  project?: string;
 }
 
 export interface DescribeResponse {
   // The function requested
   function?: Func;
-  // The timeout for requests to the function
-  timeout?: string;
-  // The time at which the function was updated
-  updated_at?: string;
 }
 
 export interface Func {
+  // branch to deploy. defaults to master
+  branch?: string;
+  // time of creation
+  created?: string;
   // name of handler in source code
   entrypoint?: string;
   // associated env vars
   env_vars?: { [key: string]: string };
+  // id of the function
+  id?: string;
   // function name
   // limitation: must be unique across projects
   name?: string;
-  // project of function, optional
-  // defaults to literal "default"
-  // used to namespace functions
-  project?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
   // git repo address
   repo?: string;
-  // runtime/language of the function
-  // eg: php74,
-  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16
-  // dotnet3
-  // java11
-  // ruby26, ruby27
-  // go111, go113, go116
+  // runtime/language of the function e.g php74,
+  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+  // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
   // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
   status?: string;
   // subfolder path to entrypoint
   subfolder?: string;
+  // time it was updated
+  updated?: string;
+  // unique url of the function
+  url?: string;
 }
 
-export interface ListRequest {
-  // optional project name
-  project?: string;
-}
+export interface ListRequest {}
 
 export interface ListResponse {
   // List of functions deployed
   functions?: Func[];
 }
 
+export interface ProxyRequest {
+  // id of the function
+  id?: string;
+}
+
+export interface ProxyResponse {
+  // backend url
+  url?: string;
+}
+
+export interface RegionsRequest {}
+
+export interface RegionsResponse {
+  regions?: string[];
+}
+
+export interface Reservation {
+  // time of reservation
+  created?: string;
+  // time reservation expires
+  expires?: string;
+  // name of the app
+  name?: string;
+  // owner id
+  owner?: string;
+  // associated token
+  token?: string;
+}
+
+export interface ReserveRequest {
+  // name of your app e.g helloworld
+  name?: string;
+}
+
+export interface ReserveResponse {
+  // The app reservation
+  reservation?: { [key: string]: any };
+}
+
 export interface UpdateRequest {
-  // entry point, ie. handler name in the source code
-  // if not provided, defaults to the name parameter
-  entrypoint?: string;
-  // environment variables to pass in at runtime
-  env_vars?: { [key: string]: string };
   // function name
   name?: string;
-  // project is used for namespacing your functions
-  // optional. defaults to "default".
-  project?: string;
-  // github url to repo
-  repo?: string;
-  // runtime/language of the function
-  // eg: php74,
-  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16
-  // dotnet3
-  // java11
-  // ruby26, ruby27
-  // go111, go113, go116
-  // python37, python38, python39
-  runtime?: string;
-  // optional subfolder path
-  subfolder?: string;
 }
 
 export interface UpdateResponse {}
