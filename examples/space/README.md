@@ -4,77 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
-## Update
-
-Update an object. If an object with this name does not exist, creates a new one.
-
-
-[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Update an object. If an object with this name does not exist, creates a new one.
-async function updateAnObject() {
-	const rsp = await spaceService.update({
-  "name": "images/file.jpg",
-  "object": "\u003cfile bytes\u003e",
-  "visibility": "public"
-})
-	console.log(rsp)
-	
-}
-
-updateAnObject()
-```
-## Delete
-
-Delete an object from space
-
-
-[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Delete an object from space
-async function deleteAnObject() {
-	const rsp = await spaceService.delete({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnObject()
-```
-## List
-
-List the objects in space
-
-
-[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// List the objects in space
-async function listObjectsWithPrefix() {
-	const rsp = await spaceService.list({
-  "prefix": "images/"
-})
-	console.log(rsp)
-	
-}
-
-listObjectsWithPrefix()
-```
 ## Head
 
 Retrieve meta information about an object
@@ -191,4 +120,75 @@ async function createAnObject() {
 }
 
 createAnObject()
+```
+## Update
+
+Update an object. If an object with this name does not exist, creates a new one.
+
+
+[https://m3o.com/space/api#Update](https://m3o.com/space/api#Update)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Update an object. If an object with this name does not exist, creates a new one.
+async function updateAnObject() {
+	const rsp = await spaceService.update({
+  "name": "images/file.jpg",
+  "object": "\u003cfile bytes\u003e",
+  "visibility": "public"
+})
+	console.log(rsp)
+	
+}
+
+updateAnObject()
+```
+## Delete
+
+Delete an object from space
+
+
+[https://m3o.com/space/api#Delete](https://m3o.com/space/api#Delete)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Delete an object from space
+async function deleteAnObject() {
+	const rsp = await spaceService.delete({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnObject()
+```
+## List
+
+List the objects in space
+
+
+[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// List the objects in space
+async function listObjectsWithPrefix() {
+	const rsp = await spaceService.list({
+  "prefix": "images/"
+})
+	console.log(rsp)
+	
+}
+
+listObjectsWithPrefix()
 ```
