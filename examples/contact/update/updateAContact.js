@@ -7,8 +7,8 @@ async function updateAcontact() {
   const rsp = await contactService.update({
     addresses: [
       {
-        address: "https://company.of.joe.com",
         label: "company address",
+        location: "123 street address",
       },
     ],
     birthday: "1995-01-01",

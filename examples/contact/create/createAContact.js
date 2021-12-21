@@ -7,8 +7,8 @@ async function createAcontact() {
   const rsp = await contactService.create({
     addresses: [
       {
-        address: "https://company.of.joe.com",
         label: "company address",
+        location: "123 street address",
       },
     ],
     birthday: "1995-01-01",

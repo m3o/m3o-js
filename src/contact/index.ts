@@ -51,8 +51,8 @@ export class ContactService {
 export interface Address {
   // the label of the address
   label?: string;
-  // the street address
-  street?: string;
+  // the address location
+  location?: string;
 }
 
 export interface ContactInfo {
@@ -81,7 +81,7 @@ export interface ContactInfo {
 }
 
 export interface CreateRequest {
-  // optional, address
+  // optional, location
   addresses?: Address[];
   // optional, birthday
   birthday?: string;
