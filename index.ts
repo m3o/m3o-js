@@ -3,6 +3,7 @@ import * as answer from "./answer";
 import * as app from "./app";
 import * as avatar from "./avatar";
 import * as cache from "./cache";
+import * as contact from "./contact";
 import * as crypto from "./crypto";
 import * as currency from "./currency";
 import * as db from "./db";
@@ -60,6 +61,7 @@ export class Client {
     this.appService = new app.AppService(token);
     this.avatarService = new avatar.AvatarService(token);
     this.cacheService = new cache.CacheService(token);
+    this.contactService = new contact.ContactService(token);
     this.cryptoService = new crypto.CryptoService(token);
     this.currencyService = new currency.CurrencyService(token);
     this.dbService = new db.DbService(token);
@@ -116,6 +118,7 @@ export class Client {
   appService: app.AppService;
   avatarService: avatar.AvatarService;
   cacheService: cache.CacheService;
+  contactService: contact.ContactService;
   cryptoService: crypto.CryptoService;
   currencyService: currency.CurrencyService;
   dbService: db.DbService;
