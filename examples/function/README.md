@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Update
-
-Update a function. Downloads the source, builds and redeploys
-
-
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Update a function. Downloads the source, builds and redeploys
-async function updateAfunction() {
-	const rsp = await functionService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAfunction()
-```
-## Proxy
-
-Return the backend url for proxying
-
-
-[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Return the backend url for proxying
-async function proxyUrl() {
-	const rsp = await functionService.proxy({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-proxyUrl()
-```
 ## Deploy
 
 Deploy a group of functions
@@ -105,27 +59,6 @@ async function callAfunction() {
 
 callAfunction()
 ```
-## List
-
-List all the deployed functions
-
-
-[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// List all the deployed functions
-async function listFunctions() {
-	const rsp = await functionService.list({})
-	console.log(rsp)
-	
-}
-
-listFunctions()
-```
 ## Delete
 
 Delete a function by name
@@ -148,6 +81,73 @@ async function deleteAfunction() {
 }
 
 deleteAfunction()
+```
+## Proxy
+
+Return the backend url for proxying
+
+
+[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return the backend url for proxying
+async function proxyUrl() {
+	const rsp = await functionService.proxy({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+proxyUrl()
+```
+## Update
+
+Update a function. Downloads the source, builds and redeploys
+
+
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Update a function. Downloads the source, builds and redeploys
+async function updateAfunction() {
+	const rsp = await functionService.update({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+updateAfunction()
+```
+## List
+
+List all the deployed functions
+
+
+[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// List all the deployed functions
+async function listFunctions() {
+	const rsp = await functionService.list({})
+	console.log(rsp)
+	
+}
+
+listFunctions()
 ```
 ## Describe
 
