@@ -21,6 +21,7 @@
   "app",
   "avatar",
   "cache",
+  "carbon",
   "contact",
   "crypto",
   "currency",
@@ -86,5 +87,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.1053"
+ "version": "1.0.1054"
 }
