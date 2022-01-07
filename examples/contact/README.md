@@ -4,51 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Contact/api](h
 
 Endpoints:
 
-## List
-
-
-
-
-[https://m3o.com/contact/api#List](https://m3o.com/contact/api#List)
-
-```js
-const { ContactService } = require('m3o/contact');
-
-const contactService = new ContactService(process.env.M3O_API_TOKEN)
-
-// 
-async function listContactsWithDefaultOffsetAndLimitDefaultLimitIs20() {
-	const rsp = await contactService.list({})
-	console.log(rsp)
-	
-}
-
-listContactsWithDefaultOffsetAndLimitDefaultLimitIs20()
-```
-## List
-
-
-
-
-[https://m3o.com/contact/api#List](https://m3o.com/contact/api#List)
-
-```js
-const { ContactService } = require('m3o/contact');
-
-const contactService = new ContactService(process.env.M3O_API_TOKEN)
-
-// 
-async function listContactsWithSpecificOffsetAndLimit() {
-	const rsp = await contactService.list({
-  "limit": 1,
-  "offset": 1
-})
-	console.log(rsp)
-	
-}
-
-listContactsWithSpecificOffsetAndLimit()
-```
 ## Create
 
 
@@ -229,4 +184,49 @@ async function deleteAcontact() {
 }
 
 deleteAcontact()
+```
+## List
+
+
+
+
+[https://m3o.com/contact/api#List](https://m3o.com/contact/api#List)
+
+```js
+const { ContactService } = require('m3o/contact');
+
+const contactService = new ContactService(process.env.M3O_API_TOKEN)
+
+// 
+async function listContactsWithDefaultOffsetAndLimitDefaultLimitIs20() {
+	const rsp = await contactService.list({})
+	console.log(rsp)
+	
+}
+
+listContactsWithDefaultOffsetAndLimitDefaultLimitIs20()
+```
+## List
+
+
+
+
+[https://m3o.com/contact/api#List](https://m3o.com/contact/api#List)
+
+```js
+const { ContactService } = require('m3o/contact');
+
+const contactService = new ContactService(process.env.M3O_API_TOKEN)
+
+// 
+async function listContactsWithSpecificOffsetAndLimit() {
+	const rsp = await contactService.list({
+  "limit": 1,
+  "offset": 1
+})
+	console.log(rsp)
+	
+}
+
+listContactsWithSpecificOffsetAndLimit()
 ```
