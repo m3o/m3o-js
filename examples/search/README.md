@@ -4,26 +4,153 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
-## Vote
+## Search
 
-Vote to have the Search api launched faster!
+Search for documents in a given in index
 
 
-[https://m3o.com/search/api#Vote](https://m3o.com/search/api#Vote)
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
 
 ```js
 const { SearchService } = require('m3o/search');
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN)
 
-// Vote to have the Search api launched faster!
-async function voteForTheApi() {
-	const rsp = await searchService.vote({
-  "message": "Launch it!"
+// Search for documents in a given in index
+async function searchForAdocument() {
+	const rsp = await searchService.search({
+  "index": "customers",
+  "query": "name == 'John'"
 })
 	console.log(rsp)
 	
 }
 
-voteForTheApi()
+searchForAdocument()
+```
+## Search
+
+Search for documents in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Search for documents in a given in index
+async function searchOnMultipleFieldsand() {
+	const rsp = await searchService.search({
+  "index": "customers",
+  "query": "name == 'John' AND starsign == 'Leo'"
+})
+	console.log(rsp)
+	
+}
+
+searchOnMultipleFieldsand()
+```
+## Search
+
+Search for documents in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Search for documents in a given in index
+async function searchOnMultipleFieldsor() {
+	const rsp = await searchService.search({
+  "index": "customers",
+  "query": "name == 'John' OR name == 'Jane'"
+})
+	console.log(rsp)
+	
+}
+
+searchOnMultipleFieldsor()
+```
+## Delete
+
+Delete a document given its ID
+
+
+[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Delete a document given its ID
+async function deleteAdocument() {
+	const rsp = await searchService.delete({
+  "id": "1234",
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+deleteAdocument()
+```
+## DeleteIndex
+
+Delete an index.
+
+
+[https://m3o.com/search/api#DeleteIndex](https://m3o.com/search/api#DeleteIndex)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Delete an index.
+async function deleteAnIndex() {
+	const rsp = await searchService.deleteIndex({
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnIndex()
+```
+## Index
+
+Index a document i.e. insert a document to search for.
+
+
+[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Index a document i.e. insert a document to search for.
+async function indexAdocument() {
+	const rsp = await searchService.index({
+  "document": {
+    "contents": {
+      "age": 37,
+      "name": "John Doe",
+      "starsign": "Leo"
+    },
+    "id": "1234"
+  },
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+indexAdocument()
 ```
