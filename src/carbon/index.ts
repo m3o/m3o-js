@@ -6,7 +6,7 @@ export class CarbonService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Purchase 1K (0.001 tonne) of carbon offsets in a single request
+  // Purchase 1KG (0.001 tonne) of carbon offsets in a single request
   offset(request: OffsetRequest): Promise<OffsetResponse> {
     return this.client.call(
       "carbon",
