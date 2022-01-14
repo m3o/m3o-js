@@ -34,6 +34,14 @@ export class CacheService {
       request
     ) as Promise<IncrementResponse>;
   }
+  // List all the available keys
+  listKeys(request: ListKeysRequest): Promise<ListKeysResponse> {
+    return this.client.call(
+      "cache",
+      "ListKeys",
+      request
+    ) as Promise<ListKeysResponse>;
+  }
   // Set an item in the cache. Overwrites any existing value already set.
   set(request: SetRequest): Promise<SetResponse> {
     return this.client.call("cache", "Set", request) as Promise<SetResponse>;
@@ -90,6 +98,12 @@ export interface IncrementResponse {
   key?: string;
   // The new value
   value?: number;
+}
+
+export interface ListKeysRequest {}
+
+export interface ListKeysResponse {
+  keys?: string[];
 }
 
 export interface SetRequest {
