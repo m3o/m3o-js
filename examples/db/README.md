@@ -84,6 +84,27 @@ async function readRecords() {
 
 readRecords()
 ```
+## ListTables
+
+List tables in the DB
+
+
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// List tables in the DB
+async function listTables() {
+	const rsp = await dbService.listTables({})
+	console.log(rsp)
+	
+}
+
+listTables()
+```
 ## Delete
 
 Delete a record in the database by id.
@@ -176,27 +197,6 @@ async function countEntriesInAtable() {
 }
 
 countEntriesInAtable()
-```
-## ListTables
-
-List tables in the DB
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// List tables in the DB
-async function listTables() {
-	const rsp = await dbService.listTables({})
-	console.log(rsp)
-	
-}
-
-listTables()
 ```
 ## RenameTable
 
