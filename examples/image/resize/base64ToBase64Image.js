@@ -1,3 +1,4 @@
+// npm install m3o
 const { ImageService } = require("m3o/image");
 
 const imageService = new ImageService(process.env.M3O_API_TOKEN);

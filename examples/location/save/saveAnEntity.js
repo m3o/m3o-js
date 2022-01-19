@@ -1,3 +1,4 @@
+// npm install m3o
 const { LocationService } = require("m3o/location");
 
 const locationService = new LocationService(process.env.M3O_API_TOKEN);

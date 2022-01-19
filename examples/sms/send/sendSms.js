@@ -1,3 +1,4 @@
+// npm install m3o
 const { SmsService } = require("m3o/sms");
 
 const smsService = new SmsService(process.env.M3O_API_TOKEN);

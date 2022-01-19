@@ -1,3 +1,4 @@
+// npm install m3o
 const { PrayerService } = require("m3o/prayer");
 
 const prayerService = new PrayerService(process.env.M3O_API_TOKEN);

@@ -1,3 +1,4 @@
+// npm install m3o
 const { QrService } = require("m3o/qr");
 
 const qrService = new QrService(process.env.M3O_API_TOKEN);

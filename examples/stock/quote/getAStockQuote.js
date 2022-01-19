@@ -1,3 +1,4 @@
+// npm install m3o
 const { StockService } = require("m3o/stock");
 
 const stockService = new StockService(process.env.M3O_API_TOKEN);

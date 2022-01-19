@@ -1,3 +1,4 @@
+// npm install m3o
 const { AddressService } = require("m3o/address");
 
 const addressService = new AddressService(process.env.M3O_API_TOKEN);

@@ -1,3 +1,4 @@
+// npm install m3o
 const { AvatarService } = require("m3o/avatar");
 
 const avatarService = new AvatarService(process.env.M3O_API_TOKEN);

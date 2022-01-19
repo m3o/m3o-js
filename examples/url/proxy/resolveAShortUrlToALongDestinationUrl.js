@@ -1,3 +1,4 @@
+// npm install m3o
 const { UrlService } = require("m3o/url");
 
 const urlService = new UrlService(process.env.M3O_API_TOKEN);

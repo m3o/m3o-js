@@ -1,3 +1,4 @@
+// npm install m3o
 const { EmojiService } = require("m3o/emoji");
 
 const emojiService = new EmojiService(process.env.M3O_API_TOKEN);

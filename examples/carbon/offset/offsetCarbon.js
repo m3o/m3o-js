@@ -1,3 +1,4 @@
+// npm install m3o
 const { CarbonService } = require("m3o/carbon");
 
 const carbonService = new CarbonService(process.env.M3O_API_TOKEN);

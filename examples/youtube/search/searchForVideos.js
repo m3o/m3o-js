@@ -1,3 +1,4 @@
+// npm install m3o
 const { YoutubeService } = require("m3o/youtube");
 
 const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN);

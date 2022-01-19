@@ -1,3 +1,4 @@
+// npm install m3o
 const { OtpService } = require("m3o/otp");
 
 const otpService = new OtpService(process.env.M3O_API_TOKEN);

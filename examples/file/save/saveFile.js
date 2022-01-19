@@ -1,3 +1,4 @@
+// npm install m3o
 const { FileService } = require("m3o/file");
 
 const fileService = new FileService(process.env.M3O_API_TOKEN);

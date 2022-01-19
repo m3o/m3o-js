@@ -1,3 +1,4 @@
+// npm install m3o
 const { SentimentService } = require("m3o/sentiment");
 
 const sentimentService = new SentimentService(process.env.M3O_API_TOKEN);

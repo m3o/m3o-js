@@ -1,3 +1,4 @@
+// npm install m3o
 const { MovieService } = require("m3o/movie");
 
 const movieService = new MovieService(process.env.M3O_API_TOKEN);

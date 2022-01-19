@@ -1,3 +1,4 @@
+// npm install m3o
 const { CryptoService } = require("m3o/crypto");
 
 const cryptoService = new CryptoService(process.env.M3O_API_TOKEN);

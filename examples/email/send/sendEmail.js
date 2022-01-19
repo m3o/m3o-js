@@ -1,3 +1,4 @@
+// npm install m3o
 const { EmailService } = require("m3o/email");
 
 const emailService = new EmailService(process.env.M3O_API_TOKEN);

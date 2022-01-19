@@ -1,3 +1,4 @@
+// npm install m3o
 const { VehicleService } = require("m3o/vehicle");
 
 const vehicleService = new VehicleService(process.env.M3O_API_TOKEN);

@@ -1,3 +1,4 @@
+// npm install m3o
 const { IpService } = require("m3o/ip");
 
 const ipService = new IpService(process.env.M3O_API_TOKEN);

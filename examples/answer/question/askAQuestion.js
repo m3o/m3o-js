@@ -1,3 +1,4 @@
+// npm install m3o
 const { AnswerService } = require("m3o/answer");
 
 const answerService = new AnswerService(process.env.M3O_API_TOKEN);

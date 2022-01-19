@@ -1,3 +1,4 @@
+// npm install m3o
 const { ThumbnailService } = require("m3o/thumbnail");
 
 const thumbnailService = new ThumbnailService(process.env.M3O_API_TOKEN);

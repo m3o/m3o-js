@@ -1,3 +1,4 @@
+// npm install m3o
 const { HolidaysService } = require("m3o/holidays");
 
 const holidaysService = new HolidaysService(process.env.M3O_API_TOKEN);

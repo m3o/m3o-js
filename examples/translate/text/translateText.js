@@ -1,3 +1,4 @@
+// npm install m3o
 const { TranslateService } = require("m3o/translate");
 
 const translateService = new TranslateService(process.env.M3O_API_TOKEN);

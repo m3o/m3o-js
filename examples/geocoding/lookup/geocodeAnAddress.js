@@ -1,3 +1,4 @@
+// npm install m3o
 const { GeocodingService } = require("m3o/geocoding");
 
 const geocodingService = new GeocodingService(process.env.M3O_API_TOKEN);

@@ -1,3 +1,4 @@
+// npm install m3o
 const { WeatherService } = require("m3o/weather");
 
 const weatherService = new WeatherService(process.env.M3O_API_TOKEN);

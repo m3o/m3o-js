@@ -1,3 +1,4 @@
+// npm install m3o
 const { GoogleService } = require("m3o/google");
 
 const googleService = new GoogleService(process.env.M3O_API_TOKEN);

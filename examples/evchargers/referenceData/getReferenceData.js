@@ -1,3 +1,4 @@
+// npm install m3o
 const { EvchargersService } = require("m3o/evchargers");
 
 const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN);

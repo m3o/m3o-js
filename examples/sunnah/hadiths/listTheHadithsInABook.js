@@ -1,3 +1,4 @@
+// npm install m3o
 const { SunnahService } = require("m3o/sunnah");
 
 const sunnahService = new SunnahService(process.env.M3O_API_TOKEN);

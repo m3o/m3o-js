@@ -1,3 +1,4 @@
+// npm install m3o
 const { ForexService } = require("m3o/forex");
 
 const forexService = new ForexService(process.env.M3O_API_TOKEN);

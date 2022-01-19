@@ -1,3 +1,4 @@
+// npm install m3o
 const { SpamService } = require("m3o/spam");
 
 const spamService = new SpamService(process.env.M3O_API_TOKEN);
