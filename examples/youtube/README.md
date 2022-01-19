@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Youtube/api](h
 
 Endpoints:
 
-## Embed
-
-Embed a YouTube video
-
-
-[https://m3o.com/youtube/api#Embed](https://m3o.com/youtube/api#Embed)
-
-```js
-const { YoutubeService } = require('m3o/youtube');
-
-const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN)
-
-// Embed a YouTube video
-async function embedAyoutubeVideo() {
-	const rsp = await youtubeService.embed({
-  "url": "https://www.youtube.com/watch?v=GWRWZu7XsJ0"
-})
-	console.log(rsp)
-	
-}
-
-embedAyoutubeVideo()
-```
 ## Search
 
 Search for videos on YouTube
@@ -49,4 +26,27 @@ async function searchForVideos() {
 }
 
 searchForVideos()
+```
+## Embed
+
+Embed a YouTube video
+
+
+[https://m3o.com/youtube/api#Embed](https://m3o.com/youtube/api#Embed)
+
+```js
+const { YoutubeService } = require('m3o/youtube');
+
+const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN)
+
+// Embed a YouTube video
+async function embedAyoutubeVideo() {
+	const rsp = await youtubeService.embed({
+  "url": "https://www.youtube.com/watch?v=GWRWZu7XsJ0"
+})
+	console.log(rsp)
+	
+}
+
+embedAyoutubeVideo()
 ```
