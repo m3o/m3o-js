@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Forex/api](htt
 
 Endpoints:
 
-## History
-
-Returns the data for the previous close
-
-
-[https://m3o.com/forex/api#History](https://m3o.com/forex/api#History)
-
-```js
-const { ForexService } = require('m3o/forex');
-
-const forexService = new ForexService(process.env.M3O_API_TOKEN)
-
-// Returns the data for the previous close
-async function getPreviousClose() {
-	const rsp = await forexService.history({
-  "symbol": "GBPUSD"
-})
-	console.log(rsp)
-	
-}
-
-getPreviousClose()
-```
 ## Price
 
 Get the latest price for a given forex ticker
@@ -72,4 +49,27 @@ async function getAfxQuote() {
 }
 
 getAfxQuote()
+```
+## History
+
+Returns the data for the previous close
+
+
+[https://m3o.com/forex/api#History](https://m3o.com/forex/api#History)
+
+```js
+const { ForexService } = require('m3o/forex');
+
+const forexService = new ForexService(process.env.M3O_API_TOKEN)
+
+// Returns the data for the previous close
+async function getPreviousClose() {
+	const rsp = await forexService.history({
+  "symbol": "GBPUSD"
+})
+	console.log(rsp)
+	
+}
+
+getPreviousClose()
 ```
