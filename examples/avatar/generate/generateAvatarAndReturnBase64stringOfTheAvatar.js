@@ -6,9 +6,9 @@ const avatarService = new AvatarService(process.env.M3O_API_TOKEN);
 //
 async function generateAvatarAndReturnBase64stringOfTheAvatar() {
   const rsp = await avatarService.generate({
-    format: "png",
+    format: "jpeg",
     gender: "female",
-    upload: true,
+    upload: false,
     username: "",
   });
   console.log(rsp);
