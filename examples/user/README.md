@@ -4,6 +4,84 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/User/api](http
 
 Endpoints:
 
+## Delete
+
+Delete an account by id
+
+
+[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Delete an account by id
+async function deleteUserAccount() {
+	const rsp = await userService.delete({
+  "id": "8b98acbe-0b6a-4d66-a414-5ffbf666786f"
+})
+	console.log(rsp)
+	
+}
+
+deleteUserAccount()
+```
+## VerifyToken
+
+Check whether the token attached to MagicLink is valid or not.
+Ideally, you need to call this endpoint from your http request
+handler that handles the endpoint which is specified in the
+SendMagicLink request.
+
+
+[https://m3o.com/user/api#VerifyToken](https://m3o.com/user/api#VerifyToken)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Check whether the token attached to MagicLink is valid or not.
+// Ideally, you need to call this endpoint from your http request
+// handler that handles the endpoint which is specified in the
+// SendMagicLink request.
+async function verifyAtoken() {
+	const rsp = await userService.verifyToken({
+  "token": "EdsUiidouJJJLldjlloofUiorkojflsWWdld"
+})
+	console.log(rsp)
+	
+}
+
+verifyAtoken()
+```
+## Create
+
+Create a new user account. The email address and username for the account must be unique.
+
+
+[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Create a new user account. The email address and username for the account must be unique.
+async function createAnAccount() {
+	const rsp = await userService.create({
+  "email": "joe@example.com",
+  "id": "user-1",
+  "password": "Password1",
+  "username": "joe"
+})
+	console.log(rsp)
+	
+}
+
+createAnAccount()
+```
 ## SendPasswordResetEmail
 
 Send an email with a verification code to reset password.
@@ -32,6 +110,84 @@ async function sendPasswordResetEmail() {
 
 sendPasswordResetEmail()
 ```
+## VerifyEmail
+
+Verify the email address of an account from a token sent in an email to the user.
+
+
+[https://m3o.com/user/api#VerifyEmail](https://m3o.com/user/api#VerifyEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Verify the email address of an account from a token sent in an email to the user.
+async function verifyEmail() {
+	const rsp = await userService.verifyEmail({
+  "email": "joe@example.com",
+  "token": "012345"
+})
+	console.log(rsp)
+	
+}
+
+verifyEmail()
+```
+## SendMagicLink
+
+Login using email only - Passwordless
+
+
+[https://m3o.com/user/api#SendMagicLink](https://m3o.com/user/api#SendMagicLink)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Login using email only - Passwordless
+async function sendAmagicLink() {
+	const rsp = await userService.sendMagicLink({
+  "address": "www.example.com",
+  "email": "joe@example.com",
+  "endpoint": "verifytoken",
+  "fromName": "Awesome Dot Com",
+  "subject": "MagicLink to access your account",
+  "textContent": "Hi there,\n\nClick here to access your account $micro_verification_link"
+})
+	console.log(rsp)
+	
+}
+
+sendAmagicLink()
+```
+## UpdatePassword
+
+Update the account password
+
+
+[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Update the account password
+async function updateTheAccountPassword() {
+	const rsp = await userService.updatePassword({
+  "confirmPassword": "Password2",
+  "id": "user-1",
+  "newPassword": "Password2",
+  "oldPassword": "Password1"
+})
+	console.log(rsp)
+	
+}
+
+updateTheAccountPassword()
+```
 ## Login
 
 Login using username or email. The response will return a new session for successful login,
@@ -57,101 +213,6 @@ async function logAuserIn() {
 }
 
 logAuserIn()
-```
-## Create
-
-Create a new user account. The email address and username for the account must be unique.
-
-
-[https://m3o.com/user/api#Create](https://m3o.com/user/api#Create)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Create a new user account. The email address and username for the account must be unique.
-async function createAnAccount() {
-	const rsp = await userService.create({
-  "email": "joe@example.com",
-  "id": "user-1",
-  "password": "Password1",
-  "username": "joe"
-})
-	console.log(rsp)
-	
-}
-
-createAnAccount()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAnAccountById() {
-	const rsp = await userService.read({
-  "id": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-readAnAccountById()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAccountByUsernameOrEmail() {
-	const rsp = await userService.read({
-  "username": "joe"
-})
-	console.log(rsp)
-	
-}
-
-readAccountByUsernameOrEmail()
-```
-## Read
-
-Read an account by id, username or email. Only one need to be specified.
-
-
-[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Read an account by id, username or email. Only one need to be specified.
-async function readAccountByEmail() {
-	const rsp = await userService.read({
-  "email": "joe@example.com"
-})
-	console.log(rsp)
-	
-}
-
-readAccountByEmail()
 ```
 ## Logout
 
@@ -223,34 +284,6 @@ async function listAllUsers() {
 
 listAllUsers()
 ```
-## SendMagicLink
-
-Login using email only - Passwordless
-
-
-[https://m3o.com/user/api#SendMagicLink](https://m3o.com/user/api#SendMagicLink)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Login using email only - Passwordless
-async function sendAmagicLink() {
-	const rsp = await userService.sendMagicLink({
-  "address": "www.example.com",
-  "email": "joe@example.com",
-  "endpoint": "verifytoken",
-  "fromName": "Awesome Dot Com",
-  "subject": "MagicLink to access your account",
-  "textContent": "Hi there,\n\nClick here to access your account $micro_verification_link"
-})
-	console.log(rsp)
-	
-}
-
-sendAmagicLink()
-```
 ## Update
 
 Update the account username or email
@@ -275,31 +308,74 @@ async function updateAnAccount() {
 
 updateAnAccount()
 ```
-## UpdatePassword
+## Read
 
-Update the account password
+Read an account by id, username or email. Only one need to be specified.
 
 
-[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
 
 ```js
 const { UserService } = require('m3o/user');
 
 const userService = new UserService(process.env.M3O_API_TOKEN)
 
-// Update the account password
-async function updateTheAccountPassword() {
-	const rsp = await userService.updatePassword({
-  "confirmPassword": "Password2",
-  "id": "user-1",
-  "newPassword": "Password2",
-  "oldPassword": "Password1"
+// Read an account by id, username or email. Only one need to be specified.
+async function readAnAccountById() {
+	const rsp = await userService.read({
+  "id": "user-1"
 })
 	console.log(rsp)
 	
 }
 
-updateTheAccountPassword()
+readAnAccountById()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAccountByUsernameOrEmail() {
+	const rsp = await userService.read({
+  "username": "joe"
+})
+	console.log(rsp)
+	
+}
+
+readAccountByUsernameOrEmail()
+```
+## Read
+
+Read an account by id, username or email. Only one need to be specified.
+
+
+[https://m3o.com/user/api#Read](https://m3o.com/user/api#Read)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Read an account by id, username or email. Only one need to be specified.
+async function readAccountByEmail() {
+	const rsp = await userService.read({
+  "email": "joe@example.com"
+})
+	console.log(rsp)
+	
+}
+
+readAccountByEmail()
 ```
 ## SendVerificationEmail
 
@@ -341,58 +417,6 @@ async function sendVerificationEmail() {
 
 sendVerificationEmail()
 ```
-## Delete
-
-Delete an account by id
-
-
-[https://m3o.com/user/api#Delete](https://m3o.com/user/api#Delete)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Delete an account by id
-async function deleteUserAccount() {
-	const rsp = await userService.delete({
-  "id": "8b98acbe-0b6a-4d66-a414-5ffbf666786f"
-})
-	console.log(rsp)
-	
-}
-
-deleteUserAccount()
-```
-## VerifyToken
-
-Check whether the token attached to MagicLink is valid or not.
-Ideally, you need to call this endpoint from your http request
-handler that handles the endpoint which is specified in the
-SendMagicLink request.
-
-
-[https://m3o.com/user/api#VerifyToken](https://m3o.com/user/api#VerifyToken)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Check whether the token attached to MagicLink is valid or not.
-// Ideally, you need to call this endpoint from your http request
-// handler that handles the endpoint which is specified in the
-// SendMagicLink request.
-async function verifyAtoken() {
-	const rsp = await userService.verifyToken({
-  "token": "EdsUiidouJJJLldjlloofUiorkojflsWWdld"
-})
-	console.log(rsp)
-	
-}
-
-verifyAtoken()
-```
 ## ResetPassword
 
 Reset password with the code sent by the "SendPasswordResetEmail" endoint.
@@ -418,28 +442,4 @@ async function resetPassword() {
 }
 
 resetPassword()
-```
-## VerifyEmail
-
-Verify the email address of an account from a token sent in an email to the user.
-
-
-[https://m3o.com/user/api#VerifyEmail](https://m3o.com/user/api#VerifyEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Verify the email address of an account from a token sent in an email to the user.
-async function verifyEmail() {
-	const rsp = await userService.verifyEmail({
-  "email": "joe@example.com",
-  "token": "012345"
-})
-	console.log(rsp)
-	
-}
-
-verifyEmail()
 ```
