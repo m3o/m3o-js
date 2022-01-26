@@ -49,10 +49,7 @@ export class SearchService {
 }
 
 export interface CreateIndexRequest {
-  // the name of the index
-  //
-  // TODO: allow fields to index
-  // repeated Field fields = 2;
+  // The name of the index
   index?: string;
 }
 
