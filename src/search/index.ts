@@ -6,7 +6,7 @@ export class SearchService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Create a search index by name
+  // Create an index by name
   createIndex(request: CreateIndexRequest): Promise<CreateIndexResponse> {
     return this.client.call(
       "search",
@@ -14,7 +14,7 @@ export class SearchService {
       request
     ) as Promise<CreateIndexResponse>;
   }
-  // Delete an index.
+  // Delete an index by name
   deleteIndex(request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
     return this.client.call(
       "search",

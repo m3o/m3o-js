@@ -3,7 +3,7 @@ const { SearchService } = require("m3o/search");
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN);
 
-// Create a search index by name
+// Create an index by name
 async function createAnIndex() {
   const rsp = await searchService.createIndex({
     index: "customers",
