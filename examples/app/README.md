@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## List
-
-List all the apps
-
-
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// List all the apps
-async function listTheApps() {
-	const rsp = await appService.list({})
-	console.log(rsp)
-	
-}
-
-listTheApps()
-```
 ## Run
 
 Run an app from a source repo. Specify region etc.
@@ -187,4 +166,25 @@ async function reserveAppName() {
 }
 
 reserveAppName()
+```
+## List
+
+List all the apps
+
+
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// List all the apps
+async function listTheApps() {
+	const rsp = await appService.list({})
+	console.log(rsp)
+	
+}
+
+listTheApps()
 ```
