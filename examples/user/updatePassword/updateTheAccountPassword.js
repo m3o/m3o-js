@@ -7,9 +7,9 @@ const userService = new UserService(process.env.M3O_API_TOKEN);
 async function updateTheAccountPassword() {
   const rsp = await userService.updatePassword({
     confirmPassword: "Password2",
-    id: "user-1",
     newPassword: "Password2",
     oldPassword: "Password1",
+    userId: "user-1",
   });
   console.log(rsp);
 }
