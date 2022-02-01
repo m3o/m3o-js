@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Crypto/api](ht
 
 Endpoints:
 
-## History
-
-Returns the history for the previous close
-
-
-[https://m3o.com/crypto/api#History](https://m3o.com/crypto/api#History)
-
-```js
-const { CryptoService } = require('m3o/crypto');
-
-const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
-
-// Returns the history for the previous close
-async function getPreviousClose() {
-	const rsp = await cryptoService.history({
-  "symbol": "BTCUSD"
-})
-	console.log(rsp)
-	
-}
-
-getPreviousClose()
-```
 ## News
 
 Get news related to a currency
@@ -95,4 +72,27 @@ async function getAcryptocurrencyQuote() {
 }
 
 getAcryptocurrencyQuote()
+```
+## History
+
+Returns the history for the previous close
+
+
+[https://m3o.com/crypto/api#History](https://m3o.com/crypto/api#History)
+
+```js
+const { CryptoService } = require('m3o/crypto');
+
+const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
+
+// Returns the history for the previous close
+async function getPreviousClose() {
+	const rsp = await cryptoService.history({
+  "symbol": "BTCUSD"
+})
+	console.log(rsp)
+	
+}
+
+getPreviousClose()
 ```
