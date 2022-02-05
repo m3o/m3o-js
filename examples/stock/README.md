@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stock/api](htt
 
 Endpoints:
 
-## Quote
-
-Get the last quote for the stock
-
-
-[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
-
-```js
-const { StockService } = require('m3o/stock');
-
-const stockService = new StockService(process.env.M3O_API_TOKEN)
-
-// Get the last quote for the stock
-async function getAstockQuote() {
-	const rsp = await stockService.quote({
-  "symbol": "AAPL"
-})
-	console.log(rsp)
-	
-}
-
-getAstockQuote()
-```
 ## History
 
 Get the historic open-close for a given day
@@ -100,4 +77,27 @@ async function getAstockPrice() {
 }
 
 getAstockPrice()
+```
+## Quote
+
+Get the last quote for the stock
+
+
+[https://m3o.com/stock/api#Quote](https://m3o.com/stock/api#Quote)
+
+```js
+const { StockService } = require('m3o/stock');
+
+const stockService = new StockService(process.env.M3O_API_TOKEN)
+
+// Get the last quote for the stock
+async function getAstockQuote() {
+	const rsp = await stockService.quote({
+  "symbol": "AAPL"
+})
+	console.log(rsp)
+	
+}
+
+getAstockQuote()
 ```
