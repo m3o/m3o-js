@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
+## List
+
+List the objects in space
+
+
+[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// List the objects in space
+async function listObjectsWithPrefix() {
+	const rsp = await spaceService.list({
+  "prefix": "images/"
+})
+	console.log(rsp)
+	
+}
+
+listObjectsWithPrefix()
+```
 ## Head
 
 Retrieve meta information about an object
@@ -168,27 +191,4 @@ async function deleteAnObject() {
 }
 
 deleteAnObject()
-```
-## List
-
-List the objects in space
-
-
-[https://m3o.com/space/api#List](https://m3o.com/space/api#List)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// List the objects in space
-async function listObjectsWithPrefix() {
-	const rsp = await spaceService.list({
-  "prefix": "images/"
-})
-	console.log(rsp)
-	
-}
-
-listObjectsWithPrefix()
 ```
