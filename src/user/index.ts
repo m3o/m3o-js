@@ -333,10 +333,6 @@ export interface UpdateRequest {
 export interface UpdateResponse {}
 
 export interface VerifyEmailRequest {
-  // the email address to verify
-  email?: string;
-  // the unique id assigned to the verification process
-  id?: string;
   // The token from the verification email
   token?: string;
 }
