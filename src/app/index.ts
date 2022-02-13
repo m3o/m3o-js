@@ -42,7 +42,7 @@ export class AppService {
       request
     ) as Promise<ResolveResponse>;
   }
-  // Run an app from a source repo. Specify region etc.
+  // Run an app from source
   run(request: RunRequest): Promise<RunResponse> {
     return this.client.call("app", "Run", request) as Promise<RunResponse>;
   }
@@ -120,7 +120,7 @@ export interface ResolveResponse {
 export interface RunRequest {
   // branch. defaults to master
   branch?: string;
-  // associatede env vars to pass in
+  // associated env vars to pass in
   env_vars?: { [key: string]: string };
   // name of the app
   name?: string;

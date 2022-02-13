@@ -3,7 +3,7 @@ const { AppService } = require("m3o/app");
 
 const appService = new AppService(process.env.M3O_API_TOKEN);
 
-// Run an app from a source repo. Specify region etc.
+// Run an app from source
 async function runAnApp() {
   const rsp = await appService.run({
     branch: "master",
