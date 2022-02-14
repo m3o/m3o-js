@@ -33,49 +33,28 @@ async function deployAfunction() {
 
 deployAfunction()
 ```
-## Delete
+## Describe
 
-Delete a function by name
+Get the info for a deployed function
 
 
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
+// Get the info for a deployed function
+async function describeFunctionStatus() {
+	const rsp = await functionService.describe({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAfunction()
-```
-## Regions
-
-Return a list of supported regions
-
-
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Return a list of supported regions
-async function listRegions() {
-	const rsp = await functionService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
+describeFunctionStatus()
 ```
 ## Reserve
 
@@ -99,6 +78,29 @@ async function reserveAfunction() {
 }
 
 reserveAfunction()
+```
+## Proxy
+
+Return the backend url for proxying
+
+
+[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return the backend url for proxying
+async function proxyUrl() {
+	const rsp = await functionService.proxy({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+proxyUrl()
 ```
 ## Update
 
@@ -170,49 +172,47 @@ async function listFunctions() {
 
 listFunctions()
 ```
-## Describe
+## Delete
 
-Get the info for a deployed function
+Delete a function by name
 
 
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Get the info for a deployed function
-async function describeFunctionStatus() {
-	const rsp = await functionService.describe({
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-describeFunctionStatus()
+deleteAfunction()
 ```
-## Proxy
+## Regions
 
-Return the backend url for proxying
+Return a list of supported regions
 
 
-[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return the backend url for proxying
-async function proxyUrl() {
-	const rsp = await functionService.proxy({
-  "id": "helloworld"
-})
+// Return a list of supported regions
+async function listRegions() {
+	const rsp = await functionService.regions({})
 	console.log(rsp)
 	
 }
 
-proxyUrl()
+listRegions()
 ```
