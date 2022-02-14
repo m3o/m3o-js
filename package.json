@@ -43,12 +43,14 @@
   "ip",
   "joke",
   "location",
+  "minecraft",
   "movie",
   "mq",
   "news",
   "nft",
   "notes",
   "otp",
+  "ping",
   "postcode",
   "prayer",
   "qr",
@@ -87,5 +89,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.1192"
+ "version": "1.0.1193"
 }
