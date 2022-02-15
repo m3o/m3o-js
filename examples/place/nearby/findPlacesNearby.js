@@ -3,7 +3,7 @@ const { PlaceService } = require("m3o/place");
 
 const placeService = new PlaceService(process.env.M3O_API_TOKEN);
 
-// Search for places nearby, points of interest and geographic locations
+// Find places nearby using a location
 async function findPlacesNearby() {
   const rsp = await placeService.nearby({
     keyword: "tesco",

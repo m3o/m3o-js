@@ -4,9 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Place/api](htt
 
 Endpoints:
 
+## Autocomplete
+
+Autocomplete queries (coming soon)
+
+
+[https://m3o.com/place/api#Autocomplete](https://m3o.com/place/api#Autocomplete)
+
+```js
+const { PlaceService } = require('m3o/place');
+
+const placeService = new PlaceService(process.env.M3O_API_TOKEN)
+
+// Autocomplete queries (coming soon)
+async function autocompleteQueries() {
+	const rsp = await placeService.autocomplete({})
+	console.log(rsp)
+	
+}
+
+autocompleteQueries()
+```
 ## Nearby
 
-Search for places nearby, points of interest and geographic locations
+Find places nearby using a location
 
 
 [https://m3o.com/place/api#Nearby](https://m3o.com/place/api#Nearby)
@@ -16,7 +37,7 @@ const { PlaceService } = require('m3o/place');
 
 const placeService = new PlaceService(process.env.M3O_API_TOKEN)
 
-// Search for places nearby, points of interest and geographic locations
+// Find places nearby using a location
 async function findPlacesNearby() {
 	const rsp = await placeService.nearby({
   "keyword": "tesco",
@@ -31,7 +52,7 @@ findPlacesNearby()
 ```
 ## Search
 
-
+Search for places by text query
 
 
 [https://m3o.com/place/api#Search](https://m3o.com/place/api#Search)
@@ -41,7 +62,7 @@ const { PlaceService } = require('m3o/place');
 
 const placeService = new PlaceService(process.env.M3O_API_TOKEN)
 
-// 
+// Search for places by text query
 async function searchForPlaces() {
 	const rsp = await placeService.search({
   "location": "51.5074577,-0.1297515",
