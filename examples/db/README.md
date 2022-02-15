@@ -48,30 +48,6 @@ async function listTables() {
 
 listTables()
 ```
-## RenameTable
-
-Rename a table
-
-
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Rename a table
-async function renameTable() {
-	const rsp = await dbService.renameTable({
-  "from": "examples2",
-  "to": "examples3"
-})
-	console.log(rsp)
-	
-}
-
-renameTable()
-```
 ## Create
 
 Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
@@ -147,6 +123,30 @@ async function dropTable() {
 }
 
 dropTable()
+```
+## RenameTable
+
+Rename a table
+
+
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Rename a table
+async function renameTable() {
+	const rsp = await dbService.renameTable({
+  "from": "examples2",
+  "to": "examples3"
+})
+	console.log(rsp)
+	
+}
+
+renameTable()
 ```
 ## Update
 
