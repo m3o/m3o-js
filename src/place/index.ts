@@ -6,14 +6,6 @@ export class PlaceService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Autocomplete queries (coming soon)
-  autocomplete(request: AutocompleteRequest): Promise<AutocompleteResponse> {
-    return this.client.call(
-      "place",
-      "Autocomplete",
-      request
-    ) as Promise<AutocompleteResponse>;
-  }
   // Find places nearby using a location
   nearby(request: NearbyRequest): Promise<NearbyResponse> {
     return this.client.call(

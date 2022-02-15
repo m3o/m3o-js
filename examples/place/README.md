@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Place/api](htt
 
 Endpoints:
 
-## Autocomplete
-
-Autocomplete queries (coming soon)
-
-
-[https://m3o.com/place/api#Autocomplete](https://m3o.com/place/api#Autocomplete)
-
-```js
-const { PlaceService } = require('m3o/place');
-
-const placeService = new PlaceService(process.env.M3O_API_TOKEN)
-
-// Autocomplete queries (coming soon)
-async function autocompleteQueries() {
-	const rsp = await placeService.autocomplete({})
-	console.log(rsp)
-	
-}
-
-autocompleteQueries()
-```
 ## Nearby
 
 Find places nearby using a location
