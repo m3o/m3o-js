@@ -33,6 +33,7 @@ import * as nft from "./nft";
 import * as notes from "./notes";
 import * as otp from "./otp";
 import * as ping from "./ping";
+import * as place from "./place";
 import * as postcode from "./postcode";
 import * as prayer from "./prayer";
 import * as qr from "./qr";
@@ -94,6 +95,7 @@ export class Client {
     this.notesService = new notes.NotesService(token);
     this.otpService = new otp.OtpService(token);
     this.pingService = new ping.PingService(token);
+    this.placeService = new place.PlaceService(token);
     this.postcodeService = new postcode.PostcodeService(token);
     this.prayerService = new prayer.PrayerService(token);
     this.qrService = new qr.QrService(token);
@@ -154,6 +156,7 @@ export class Client {
   notesService: notes.NotesService;
   otpService: otp.OtpService;
   pingService: ping.PingService;
+  placeService: place.PlaceService;
   postcodeService: postcode.PostcodeService;
   prayerService: prayer.PrayerService;
   qrService: qr.QrService;
