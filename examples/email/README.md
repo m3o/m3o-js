@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Email/api](htt
 
 Endpoints:
 
-## Validate
-
-Validate an email address format
-
-
-[https://m3o.com/email/api#Validate](https://m3o.com/email/api#Validate)
-
-```js
-const { EmailService } = require('m3o/email');
-
-const emailService = new EmailService(process.env.M3O_API_TOKEN)
-
-// Validate an email address format
-async function validateEmail() {
-	const rsp = await emailService.validate({
-  "address": "joe@example.com"
-})
-	console.log(rsp)
-	
-}
-
-validateEmail()
-```
 ## Send
 
 Send an email by passing in from, to, subject, and a text or html body
@@ -74,4 +51,27 @@ async function parseEmail() {
 }
 
 parseEmail()
+```
+## Validate
+
+Validate an email address format
+
+
+[https://m3o.com/email/api#Validate](https://m3o.com/email/api#Validate)
+
+```js
+const { EmailService } = require('m3o/email');
+
+const emailService = new EmailService(process.env.M3O_API_TOKEN)
+
+// Validate an email address format
+async function validateEmail() {
+	const rsp = await emailService.validate({
+  "address": "joe@example.com"
+})
+	console.log(rsp)
+	
+}
+
+validateEmail()
 ```
