@@ -4,76 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
-## Delete
-
-Delete a document given its ID
-
-
-[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Delete a document given its ID
-async function deleteAdocument() {
-	const rsp = await searchService.delete({
-  "id": "1234",
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-deleteAdocument()
-```
-## CreateIndex
-
-Create an index by name
-
-
-[https://m3o.com/search/api#CreateIndex](https://m3o.com/search/api#CreateIndex)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Create an index by name
-async function createAnIndex() {
-	const rsp = await searchService.createIndex({
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-createAnIndex()
-```
-## DeleteIndex
-
-Delete an index by name
-
-
-[https://m3o.com/search/api#DeleteIndex](https://m3o.com/search/api#DeleteIndex)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Delete an index by name
-async function deleteAnIndex() {
-	const rsp = await searchService.deleteIndex({
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnIndex()
-```
 ## Index
 
 Index a document i.e. insert a document to search for.
@@ -176,4 +106,74 @@ async function searchOnMultipleFieldsor() {
 }
 
 searchOnMultipleFieldsor()
+```
+## Delete
+
+Delete a document given its ID
+
+
+[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Delete a document given its ID
+async function deleteAdocument() {
+	const rsp = await searchService.delete({
+  "id": "1234",
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+deleteAdocument()
+```
+## CreateIndex
+
+Create an index by name
+
+
+[https://m3o.com/search/api#CreateIndex](https://m3o.com/search/api#CreateIndex)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Create an index by name
+async function createAnIndex() {
+	const rsp = await searchService.createIndex({
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+createAnIndex()
+```
+## DeleteIndex
+
+Delete an index by name
+
+
+[https://m3o.com/search/api#DeleteIndex](https://m3o.com/search/api#DeleteIndex)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Delete an index by name
+async function deleteAnIndex() {
+	const rsp = await searchService.deleteIndex({
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnIndex()
 ```
