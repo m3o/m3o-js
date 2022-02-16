@@ -8,6 +8,7 @@ async function updateAnAccount() {
   const rsp = await userService.update({
     email: "joe+2@example.com",
     id: "user-1",
+    username: "joe",
   });
   console.log(rsp);
 }
