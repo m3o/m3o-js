@@ -32,6 +32,8 @@ export interface LookupResponse {
   fuel_type?: string;
   // date of last v5 issue
   last_v5_issued?: string;
+  // url of logo for the make
+  logo_url?: string;
   // make of vehicle
   make?: string;
   // month of first registration
