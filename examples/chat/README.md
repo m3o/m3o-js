@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Chat/api](http
 
 Endpoints:
 
-## Delete
-
-Delete a chat room
-
-
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Delete a chat room
-async function deleteAchat() {
-	const rsp = await chatService.delete({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-})
-	console.log(rsp)
-	
-}
-
-deleteAchat()
-```
 ## Invite
 
 Invite a user to a chat room
@@ -50,29 +27,6 @@ async function inviteAuser() {
 }
 
 inviteAuser()
-```
-## History
-
-List the messages in a chat
-
-
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// List the messages in a chat
-async function getChatHistory() {
-	const rsp = await chatService.history({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-})
-	console.log(rsp)
-	
-}
-
-getChatHistory()
 ```
 ## Join
 
@@ -123,6 +77,30 @@ async function kickAuserFromAroom() {
 
 kickAuserFromAroom()
 ```
+## Leave
+
+Leave a chat room
+
+
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Leave a chat room
+async function leaveAroom() {
+	const rsp = await chatService.leave({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+leaveAroom()
+```
 ## New
 
 Create a new chat room
@@ -168,6 +146,29 @@ async function listChatRooms() {
 
 listChatRooms()
 ```
+## Delete
+
+Delete a chat room
+
+
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Delete a chat room
+async function deleteAchat() {
+	const rsp = await chatService.delete({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+})
+	console.log(rsp)
+	
+}
+
+deleteAchat()
+```
 ## Send
 
 Connect to a chat to receive a stream of messages
@@ -197,27 +198,26 @@ async function sendAmessage() {
 
 sendAmessage()
 ```
-## Leave
+## History
 
-Leave a chat room
+List the messages in a chat
 
 
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Leave a chat room
-async function leaveAroom() {
-	const rsp = await chatService.leave({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+// List the messages in a chat
+async function getChatHistory() {
+	const rsp = await chatService.history({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 })
 	console.log(rsp)
 	
 }
 
-leaveAroom()
+getChatHistory()
 ```
