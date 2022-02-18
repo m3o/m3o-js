@@ -73,6 +73,8 @@ export interface DeleteResponse {
 }
 
 export interface GetRequest {
+  // Specify a default value returned in the event the value does not exist
+  default_value?: string;
   // The key to retrieve
   key?: string;
 }
