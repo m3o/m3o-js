@@ -6,7 +6,7 @@ export class AvatarService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Generate an unique avatar
   generate(request: GenerateRequest): Promise<GenerateResponse> {
     return this.client.call(
       "avatar",
