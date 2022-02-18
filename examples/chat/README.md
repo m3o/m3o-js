@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Chat/api](http
 
 Endpoints:
 
+## Leave
+
+Leave a chat room
+
+
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Leave a chat room
+async function leaveAroom() {
+	const rsp = await chatService.leave({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+leaveAroom()
+```
 ## List
 
 List available chats
@@ -24,30 +48,6 @@ async function listChatRooms() {
 }
 
 listChatRooms()
-```
-## Invite
-
-Invite a user to a chat room
-
-
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Invite a user to a chat room
-async function inviteAuser() {
-	const rsp = await chatService.invite({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-inviteAuser()
 ```
 ## Send
 
@@ -197,21 +197,21 @@ async function deleteAchat() {
 
 deleteAchat()
 ```
-## Leave
+## Invite
 
-Leave a chat room
+Invite a user to a chat room
 
 
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Leave a chat room
-async function leaveAroom() {
-	const rsp = await chatService.leave({
+// Invite a user to a chat room
+async function inviteAuser() {
+	const rsp = await chatService.invite({
   "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
   "user_id": "user-1"
 })
@@ -219,5 +219,5 @@ async function leaveAroom() {
 	
 }
 
-leaveAroom()
+inviteAuser()
 ```
