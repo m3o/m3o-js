@@ -4,37 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
-## Index
-
-Index a document i.e. insert a document to search for.
-
-
-[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Index a document i.e. insert a document to search for.
-async function indexAdocument() {
-	const rsp = await searchService.index({
-  "document": {
-    "contents": {
-      "age": 37,
-      "name": "John Doe",
-      "starsign": "Leo"
-    },
-    "id": "1234"
-  },
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-indexAdocument()
-```
 ## Search
 
 Search for documents in a given in index
@@ -176,4 +145,35 @@ async function deleteAnIndex() {
 }
 
 deleteAnIndex()
+```
+## Index
+
+Index a document i.e. insert a document to search for.
+
+
+[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Index a document i.e. insert a document to search for.
+async function indexAdocument() {
+	const rsp = await searchService.index({
+  "document": {
+    "contents": {
+      "age": 37,
+      "name": "John Doe",
+      "starsign": "Leo"
+    },
+    "id": "1234"
+  },
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+indexAdocument()
 ```
