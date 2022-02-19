@@ -4,29 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Chat/api](http
 
 Endpoints:
 
-## New
+## Delete
 
-Create a new chat room
+Delete a chat room
 
 
-[https://m3o.com/chat/api#New](https://m3o.com/chat/api#New)
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Create a new chat room
-async function createAnewChat() {
-	const rsp = await chatService.new({
-  "description": "The general chat room",
-  "name": "general"
+// Delete a chat room
+async function deleteAchat() {
+	const rsp = await chatService.delete({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 })
 	console.log(rsp)
 	
 }
 
-createAnewChat()
+deleteAchat()
 ```
 ## Send
 
@@ -57,30 +56,28 @@ async function sendAmessage() {
 
 sendAmessage()
 ```
-## Join
+## History
 
-Join a chat room
+List the messages in a chat
 
 
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Join a chat room
-async function joinAroom() {
-	const rsp = await chatService.join({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
+// List the messages in a chat
+async function getChatHistory() {
+	const rsp = await chatService.history({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 })
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
+	console.log(rsp)
+	
 }
 
-joinAroom()
+getChatHistory()
 ```
 ## List
 
@@ -102,29 +99,6 @@ async function listChatRooms() {
 }
 
 listChatRooms()
-```
-## Delete
-
-Delete a chat room
-
-
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Delete a chat room
-async function deleteAchat() {
-	const rsp = await chatService.delete({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-})
-	console.log(rsp)
-	
-}
-
-deleteAchat()
 ```
 ## Invite
 
@@ -150,28 +124,30 @@ async function inviteAuser() {
 
 inviteAuser()
 ```
-## History
+## Join
 
-List the messages in a chat
+Join a chat room
 
 
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// List the messages in a chat
-async function getChatHistory() {
-	const rsp = await chatService.history({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+// Join a chat room
+async function joinAroom() {
+	const rsp = await chatService.join({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-2"
 })
-	console.log(rsp)
-	
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
-getChatHistory()
+joinAroom()
 ```
 ## Kick
 
@@ -220,4 +196,28 @@ async function leaveAroom() {
 }
 
 leaveAroom()
+```
+## New
+
+Create a new chat room
+
+
+[https://m3o.com/chat/api#New](https://m3o.com/chat/api#New)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Create a new chat room
+async function createAnewChat() {
+	const rsp = await chatService.new({
+  "description": "The general chat room",
+  "name": "general"
+})
+	console.log(rsp)
+	
+}
+
+createAnewChat()
 ```
