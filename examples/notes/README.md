@@ -4,6 +4,33 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Notes/api](htt
 
 Endpoints:
 
+## Update
+
+Update a note
+
+
+[https://m3o.com/notes/api#Update](https://m3o.com/notes/api#Update)
+
+```js
+const { NotesService } = require('m3o/notes');
+
+const notesService = new NotesService(process.env.M3O_API_TOKEN)
+
+// Update a note
+async function updateAnote() {
+	const rsp = await notesService.update({
+  "note": {
+    "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
+    "text": "Updated note text",
+    "title": "Update Note"
+  }
+})
+	console.log(rsp)
+	
+}
+
+updateAnote()
+```
 ## Delete
 
 Delete a note
@@ -118,31 +145,4 @@ async function listAllNotes() {
 }
 
 listAllNotes()
-```
-## Update
-
-Update a note
-
-
-[https://m3o.com/notes/api#Update](https://m3o.com/notes/api#Update)
-
-```js
-const { NotesService } = require('m3o/notes');
-
-const notesService = new NotesService(process.env.M3O_API_TOKEN)
-
-// Update a note
-async function updateAnote() {
-	const rsp = await notesService.update({
-  "note": {
-    "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
-    "text": "Updated note text",
-    "title": "Update Note"
-  }
-})
-	console.log(rsp)
-	
-}
-
-updateAnote()
 ```
