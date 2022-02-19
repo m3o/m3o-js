@@ -28,50 +28,28 @@ async function leaveAroom() {
 
 leaveAroom()
 ```
-## New
+## Delete
 
-Create a new chat room
+Delete a chat room
 
 
-[https://m3o.com/chat/api#New](https://m3o.com/chat/api#New)
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Create a new chat room
-async function createAnewChat() {
-	const rsp = await chatService.new({
-  "description": "The general chat room",
-  "name": "general"
+// Delete a chat room
+async function deleteAchat() {
+	const rsp = await chatService.delete({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 })
 	console.log(rsp)
 	
 }
 
-createAnewChat()
-```
-## List
-
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// List available chats
-async function listChatRooms() {
-	const rsp = await chatService.list({})
-	console.log(rsp)
-	
-}
-
-listChatRooms()
+deleteAchat()
 ```
 ## Invite
 
@@ -150,28 +128,50 @@ async function kickAuserFromAroom() {
 
 kickAuserFromAroom()
 ```
-## Delete
+## New
 
-Delete a chat room
+Create a new chat room
 
 
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+[https://m3o.com/chat/api#New](https://m3o.com/chat/api#New)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Delete a chat room
-async function deleteAchat() {
-	const rsp = await chatService.delete({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+// Create a new chat room
+async function createAnewChat() {
+	const rsp = await chatService.new({
+  "description": "The general chat room",
+  "name": "general"
 })
 	console.log(rsp)
 	
 }
 
-deleteAchat()
+createAnewChat()
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// List available chats
+async function listChatRooms() {
+	const rsp = await chatService.list({})
+	console.log(rsp)
+	
+}
+
+listChatRooms()
 ```
 ## History
 
