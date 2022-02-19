@@ -51,6 +51,29 @@ async function truncateTable() {
 
 truncateTable()
 ```
+## Count
+
+Count records in a table
+
+
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Count records in a table
+async function countEntriesInAtable() {
+	const rsp = await dbService.count({
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+countEntriesInAtable()
+```
 ## ListTables
 
 List tables in the DB
@@ -198,27 +221,4 @@ async function dropTable() {
 }
 
 dropTable()
-```
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Count records in a table
-async function countEntriesInAtable() {
-	const rsp = await dbService.count({
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-countEntriesInAtable()
 ```
