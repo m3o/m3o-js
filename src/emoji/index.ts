@@ -23,10 +23,6 @@ export class EmojiService {
       request
     ) as Promise<PrintResponse>;
   }
-  // Send an emoji to anyone via SMS. Messages are sent in the form '<message> Sent from <from>'
-  send(request: SendRequest): Promise<SendResponse> {
-    return this.client.call("emoji", "Send", request) as Promise<SendResponse>;
-  }
 }
 
 export interface FindRequest {
@@ -57,18 +53,4 @@ export interface PrintRequest {
 export interface PrintResponse {
   // text with rendered emojis
   text?: string;
-}
-
-export interface SendRequest {
-  // the name of the sender from e.g Alice
-  from?: string;
-  // message to send including emoji aliases
-  message?: string;
-  // phone number to send to (including international dialing code)
-  to?: string;
-}
-
-export interface SendResponse {
-  // whether or not it succeeded
-  success?: boolean;
 }
