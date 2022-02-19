@@ -102,29 +102,6 @@ async function createAnewChat() {
 
 createAnewChat()
 ```
-## Delete
-
-Delete a chat room
-
-
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Delete a chat room
-async function deleteAchat() {
-	const rsp = await chatService.delete({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-})
-	console.log(rsp)
-	
-}
-
-deleteAchat()
-```
 ## Invite
 
 Invite a user to a chat room
@@ -220,4 +197,27 @@ async function kickAuserFromAroom() {
 }
 
 kickAuserFromAroom()
+```
+## Delete
+
+Delete a chat room
+
+
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Delete a chat room
+async function deleteAchat() {
+	const rsp = await chatService.delete({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+})
+	console.log(rsp)
+	
+}
+
+deleteAchat()
 ```
