@@ -4,6 +4,59 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
+## Create
+
+Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+
+
+[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+async function createArecord() {
+	const rsp = await dbService.create({
+  "record": {
+    "age": 42,
+    "id": "1",
+    "isActive": true,
+    "name": "Jane"
+  },
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+createArecord()
+```
+## Read
+
+Read data from a table. Lookup can be by ID or via querying any field in the record.
+
+
+[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Read data from a table. Lookup can be by ID or via querying any field in the record.
+async function readRecords() {
+	const rsp = await dbService.read({
+  "query": "age == 43",
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+readRecords()
+```
 ## Truncate
 
 Truncate the records in a table
@@ -26,6 +79,29 @@ async function truncateTable() {
 }
 
 truncateTable()
+```
+## DropTable
+
+Drop a table in the DB
+
+
+[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Drop a table in the DB
+async function dropTable() {
+	const rsp = await dbService.dropTable({
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+dropTable()
 ```
 ## Count
 
@@ -71,34 +147,29 @@ async function listTables() {
 
 listTables()
 ```
-## Create
+## RenameTable
 
-Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+Rename a table
 
 
-[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-async function createArecord() {
-	const rsp = await dbService.create({
-  "record": {
-    "age": 42,
-    "id": "1",
-    "isActive": true,
-    "name": "Jane"
-  },
-  "table": "example"
+// Rename a table
+async function renameTable() {
+	const rsp = await dbService.renameTable({
+  "from": "examples2",
+  "to": "examples3"
 })
 	console.log(rsp)
 	
 }
 
-createArecord()
+renameTable()
 ```
 ## Update
 
@@ -126,77 +197,6 @@ async function updateArecord() {
 }
 
 updateArecord()
-```
-## DropTable
-
-Drop a table in the DB
-
-
-[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Drop a table in the DB
-async function dropTable() {
-	const rsp = await dbService.dropTable({
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-dropTable()
-```
-## RenameTable
-
-Rename a table
-
-
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Rename a table
-async function renameTable() {
-	const rsp = await dbService.renameTable({
-  "from": "examples2",
-  "to": "examples3"
-})
-	console.log(rsp)
-	
-}
-
-renameTable()
-```
-## Read
-
-Read data from a table. Lookup can be by ID or via querying any field in the record.
-
-
-[https://m3o.com/db/api#Read](https://m3o.com/db/api#Read)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Read data from a table. Lookup can be by ID or via querying any field in the record.
-async function readRecords() {
-	const rsp = await dbService.read({
-  "query": "age == 43",
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-readRecords()
 ```
 ## Delete
 
