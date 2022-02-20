@@ -100,27 +100,6 @@ async function createAnewChat() {
 
 createAnewChat()
 ```
-## List
-
-List available chats
-
-
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// List available chats
-async function listChatRooms() {
-	const rsp = await chatService.list({})
-	console.log(rsp)
-	
-}
-
-listChatRooms()
-```
 ## Delete
 
 Delete a chat room
@@ -167,6 +146,27 @@ async function inviteAuser() {
 }
 
 inviteAuser()
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// List available chats
+async function listChatRooms() {
+	const rsp = await chatService.list({})
+	console.log(rsp)
+	
+}
+
+listChatRooms()
 ```
 ## Send
 
