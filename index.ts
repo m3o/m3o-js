@@ -25,6 +25,7 @@ import * as id from "./id";
 import * as image from "./image";
 import * as ip from "./ip";
 import * as joke from "./joke";
+import * as lists from "./lists";
 import * as location from "./location";
 import * as minecraft from "./minecraft";
 import * as movie from "./movie";
@@ -88,6 +89,7 @@ export class Client {
     this.imageService = new image.ImageService(token);
     this.ipService = new ip.IpService(token);
     this.jokeService = new joke.JokeService(token);
+    this.listsService = new lists.ListsService(token);
     this.locationService = new location.LocationService(token);
     this.minecraftService = new minecraft.MinecraftService(token);
     this.movieService = new movie.MovieService(token);
@@ -150,6 +152,7 @@ export class Client {
   imageService: image.ImageService;
   ipService: ip.IpService;
   jokeService: joke.JokeService;
+  listsService: lists.ListsService;
   locationService: location.LocationService;
   minecraftService: minecraft.MinecraftService;
   movieService: movie.MovieService;
