@@ -33,29 +33,6 @@ async function sendAmessage() {
 
 sendAmessage()
 ```
-## History
-
-List the messages in a chat
-
-
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// List the messages in a chat
-async function getChatHistory() {
-	const rsp = await chatService.history({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-})
-	console.log(rsp)
-	
-}
-
-getChatHistory()
-```
 ## Kick
 
 Kick a user from a chat room
@@ -195,6 +172,29 @@ async function inviteAuser() {
 }
 
 inviteAuser()
+```
+## History
+
+List the messages in a chat
+
+
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// List the messages in a chat
+async function getChatHistory() {
+	const rsp = await chatService.history({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+})
+	console.log(rsp)
+	
+}
+
+getChatHistory()
 ```
 ## Join
 
