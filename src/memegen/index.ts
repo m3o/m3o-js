@@ -6,7 +6,7 @@ export class MemegenService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Generate a meme using a template
   generate(request: GenerateRequest): Promise<GenerateResponse> {
     return this.client.call(
       "memegen",

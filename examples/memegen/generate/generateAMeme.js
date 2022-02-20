@@ -3,7 +3,7 @@ const { MemegenService } = require("m3o/memegen");
 
 const memegenService = new MemegenService(process.env.M3O_API_TOKEN);
 
-//
+// Generate a meme using a template
 async function generateAmeme() {
   const rsp = await memegenService.generate({
     bottom_text: "Huh?",
