@@ -5,6 +5,7 @@ import * as avatar from "./avatar";
 import * as cache from "./cache";
 import * as carbon from "./carbon";
 import * as chat from "./chat";
+import * as comments from "./comments";
 import * as contact from "./contact";
 import * as crypto from "./crypto";
 import * as currency from "./currency";
@@ -69,6 +70,7 @@ export class Client {
     this.cacheService = new cache.CacheService(token);
     this.carbonService = new carbon.CarbonService(token);
     this.chatService = new chat.ChatService(token);
+    this.commentsService = new comments.CommentsService(token);
     this.contactService = new contact.ContactService(token);
     this.cryptoService = new crypto.CryptoService(token);
     this.currencyService = new currency.CurrencyService(token);
@@ -132,6 +134,7 @@ export class Client {
   cacheService: cache.CacheService;
   carbonService: carbon.CarbonService;
   chatService: chat.ChatService;
+  commentsService: comments.CommentsService;
   contactService: contact.ContactService;
   cryptoService: crypto.CryptoService;
   currencyService: currency.CurrencyService;

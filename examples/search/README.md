@@ -4,78 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
-## Search
-
-Search for documents in a given in index
-
-
-[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Search for documents in a given in index
-async function searchForAdocument() {
-	const rsp = await searchService.search({
-  "index": "customers",
-  "query": "name == 'John'"
-})
-	console.log(rsp)
-	
-}
-
-searchForAdocument()
-```
-## Search
-
-Search for documents in a given in index
-
-
-[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Search for documents in a given in index
-async function searchOnMultipleFieldsand() {
-	const rsp = await searchService.search({
-  "index": "customers",
-  "query": "name == 'John' AND starsign == 'Leo'"
-})
-	console.log(rsp)
-	
-}
-
-searchOnMultipleFieldsand()
-```
-## Search
-
-Search for documents in a given in index
-
-
-[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Search for documents in a given in index
-async function searchOnMultipleFieldsor() {
-	const rsp = await searchService.search({
-  "index": "customers",
-  "query": "name == 'John' OR name == 'Jane'"
-})
-	console.log(rsp)
-	
-}
-
-searchOnMultipleFieldsor()
-```
 ## Delete
 
 Delete a document given its ID
@@ -176,4 +104,76 @@ async function indexAdocument() {
 }
 
 indexAdocument()
+```
+## Search
+
+Search for documents in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Search for documents in a given in index
+async function searchForAdocument() {
+	const rsp = await searchService.search({
+  "index": "customers",
+  "query": "name == 'John'"
+})
+	console.log(rsp)
+	
+}
+
+searchForAdocument()
+```
+## Search
+
+Search for documents in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Search for documents in a given in index
+async function searchOnMultipleFieldsand() {
+	const rsp = await searchService.search({
+  "index": "customers",
+  "query": "name == 'John' AND starsign == 'Leo'"
+})
+	console.log(rsp)
+	
+}
+
+searchOnMultipleFieldsand()
+```
+## Search
+
+Search for documents in a given in index
+
+
+[https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Search for documents in a given in index
+async function searchOnMultipleFieldsor() {
+	const rsp = await searchService.search({
+  "index": "customers",
+  "query": "name == 'John' OR name == 'Jane'"
+})
+	console.log(rsp)
+	
+}
+
+searchOnMultipleFieldsor()
 ```
