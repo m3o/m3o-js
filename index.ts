@@ -28,7 +28,7 @@ import * as ip from "./ip";
 import * as joke from "./joke";
 import * as lists from "./lists";
 import * as location from "./location";
-import * as meme from "./meme";
+import * as memegen from "./memegen";
 import * as minecraft from "./minecraft";
 import * as movie from "./movie";
 import * as mq from "./mq";
@@ -94,7 +94,7 @@ export class Client {
     this.jokeService = new joke.JokeService(token);
     this.listsService = new lists.ListsService(token);
     this.locationService = new location.LocationService(token);
-    this.memeService = new meme.MemeService(token);
+    this.memegenService = new memegen.MemegenService(token);
     this.minecraftService = new minecraft.MinecraftService(token);
     this.movieService = new movie.MovieService(token);
     this.mqService = new mq.MqService(token);
@@ -159,7 +159,7 @@ export class Client {
   jokeService: joke.JokeService;
   listsService: lists.ListsService;
   locationService: location.LocationService;
-  memeService: meme.MemeService;
+  memegenService: memegen.MemegenService;
   minecraftService: minecraft.MinecraftService;
   movieService: movie.MovieService;
   mqService: mq.MqService;
