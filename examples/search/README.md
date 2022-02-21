@@ -6,7 +6,7 @@ Endpoints:
 
 ## Index
 
-Index a document i.e. insert a document to search for.
+Index a record i.e. insert a document to search for.
 
 
 [https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
@@ -16,16 +16,13 @@ const { SearchService } = require('m3o/search');
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN)
 
-// Index a document i.e. insert a document to search for.
-async function indexAdocument() {
+// Index a record i.e. insert a document to search for.
+async function indexArecord() {
 	const rsp = await searchService.index({
-  "document": {
-    "contents": {
-      "age": 37,
-      "name": "John Doe",
-      "starsign": "Leo"
-    },
-    "id": "1234"
+  "data": {
+    "age": 37,
+    "name": "John Doe",
+    "starsign": "Leo"
   },
   "index": "customers"
 })
@@ -33,11 +30,11 @@ async function indexAdocument() {
 	
 }
 
-indexAdocument()
+indexArecord()
 ```
 ## Search
 
-Search for documents in a given in index
+Search for records in a given in index
 
 
 [https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
@@ -47,8 +44,8 @@ const { SearchService } = require('m3o/search');
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN)
 
-// Search for documents in a given in index
-async function searchForAdocument() {
+// Search for records in a given in index
+async function searchForArecord() {
 	const rsp = await searchService.search({
   "index": "customers",
   "query": "name == 'John'"
@@ -57,11 +54,11 @@ async function searchForAdocument() {
 	
 }
 
-searchForAdocument()
+searchForArecord()
 ```
 ## Search
 
-Search for documents in a given in index
+Search for records in a given in index
 
 
 [https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
@@ -71,7 +68,7 @@ const { SearchService } = require('m3o/search');
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN)
 
-// Search for documents in a given in index
+// Search for records in a given in index
 async function searchOnMultipleFieldsand() {
 	const rsp = await searchService.search({
   "index": "customers",
@@ -85,7 +82,7 @@ searchOnMultipleFieldsand()
 ```
 ## Search
 
-Search for documents in a given in index
+Search for records in a given in index
 
 
 [https://m3o.com/search/api#Search](https://m3o.com/search/api#Search)
@@ -95,7 +92,7 @@ const { SearchService } = require('m3o/search');
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN)
 
-// Search for documents in a given in index
+// Search for records in a given in index
 async function searchOnMultipleFieldsor() {
 	const rsp = await searchService.search({
   "index": "customers",
@@ -109,7 +106,7 @@ searchOnMultipleFieldsor()
 ```
 ## Delete
 
-Delete a document given its ID
+Delete a record given its ID
 
 
 [https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
@@ -119,8 +116,8 @@ const { SearchService } = require('m3o/search');
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN)
 
-// Delete a document given its ID
-async function deleteAdocument() {
+// Delete a record given its ID
+async function deleteArecord() {
 	const rsp = await searchService.delete({
   "id": "1234",
   "index": "customers"
@@ -129,7 +126,7 @@ async function deleteAdocument() {
 	
 }
 
-deleteAdocument()
+deleteArecord()
 ```
 ## CreateIndex
 

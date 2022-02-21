@@ -22,7 +22,7 @@ export class SearchService {
       request
     ) as Promise<DeleteIndexResponse>;
   }
-  // Delete a document given its ID
+  // Delete a record given its ID
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       "search",
@@ -30,7 +30,7 @@ export class SearchService {
       request
     ) as Promise<DeleteResponse>;
   }
-  // Index a document i.e. insert a document to search for.
+  // Index a record i.e. insert a document to search for.
   index(request: IndexRequest): Promise<IndexResponse> {
     return this.client.call(
       "search",
@@ -38,7 +38,7 @@ export class SearchService {
       request
     ) as Promise<IndexResponse>;
   }
-  // Search for documents in a given in index
+  // Search for records in a given in index
   search(request: SearchRequest): Promise<SearchResponse> {
     return this.client.call(
       "search",
@@ -63,20 +63,13 @@ export interface DeleteIndexRequest {
 export interface DeleteIndexResponse {}
 
 export interface DeleteRequest {
-  // The ID of the document to delete
+  // The ID of the record to delete
   id?: string;
-  // The index the document belongs to
+  // The index the record belongs to
   index?: string;
 }
 
 export interface DeleteResponse {}
-
-export interface Document {
-  // The JSON contents of the document
-  contents?: { [key: string]: any };
-  // The ID for this document. If blank, one will be generated
-  id?: string;
-}
 
 export interface Field {
   // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
@@ -86,24 +79,34 @@ export interface Field {
 }
 
 export interface IndexRequest {
-  // The document to index
-  document?: { [key: string]: any };
-  // The index this document belongs to
+  // The data to index
+  data?: { [key: string]: any };
+  // Optional ID for the record
+  id?: string;
+  // The index this record belongs to
   index?: string;
 }
 
 export interface IndexResponse {
+  // the indexed record
+  record?: { [key: string]: any };
+}
+
+export interface Record {
+  // The JSON contents of the record
+  data?: { [key: string]: any };
+  // The ID for this record. If blank, one will be generated
   id?: string;
 }
 
 export interface SearchRequest {
-  // The index the document belongs to
+  // The index the record belongs to
   index?: string;
   // The query. See docs for query language examples
   query?: string;
 }
 
 export interface SearchResponse {
-  // The matching documents
-  documents?: Document[];
+  // The matching records
+  records?: Record[];
 }
