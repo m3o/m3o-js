@@ -1,4 +1,4 @@
-# M3O Client for Javascript
+# M3O JS Client
 
 This package contains javascript, node.js and typescript clients.
 

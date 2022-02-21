@@ -130,7 +130,17 @@ export interface ListResponse {
   objects?: ListObject[];
 }
 
-export interface Object {
+export interface ReadRequest {
+  // name of the object
+  name?: string;
+}
+
+export interface ReadResponse {
+  // The object itself
+  object?: SpaceObject;
+}
+
+export interface SpaceObject {
   // when was this created
   created?: string;
   // the data within the object
@@ -143,16 +153,6 @@ export interface Object {
   url?: string;
   // is this public or private
   visibility?: string;
-}
-
-export interface ReadRequest {
-  // name of the object
-  name?: string;
-}
-
-export interface ReadResponse {
-  // The object itself
-  object?: { [key: string]: any };
 }
 
 export interface UpdateRequest {
