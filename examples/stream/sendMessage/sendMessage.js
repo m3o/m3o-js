@@ -1,7 +1,7 @@
 // npm install m3o
-const { StreamService } = require("m3o/stream");
+const { Stream } = require("m3o/stream");
 
-const streamService = new StreamService(process.env.M3O_API_TOKEN);
+const streamService = new Stream(process.env.M3O_API_TOKEN);
 
 // Send a message to the stream.
 async function sendMessage() {

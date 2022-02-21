@@ -1,7 +1,7 @@
 // npm install m3o
-const { ContactService } = require("m3o/contact");
+const { Contact } = require("m3o/contact");
 
-const contactService = new ContactService(process.env.M3O_API_TOKEN);
+const contactService = new Contact(process.env.M3O_API_TOKEN);
 
 //
 async function updateAcontact() {

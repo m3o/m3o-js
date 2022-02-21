@@ -1,7 +1,7 @@
 // npm install m3o
-const { QrService } = require("m3o/qr");
+const { Qr } = require("m3o/qr");
 
-const qrService = new QrService(process.env.M3O_API_TOKEN);
+const qrService = new Qr(process.env.M3O_API_TOKEN);
 
 // Generate a QR code with a specific text and size
 async function generateAqrCode() {

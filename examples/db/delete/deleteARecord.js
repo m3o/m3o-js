@@ -1,7 +1,7 @@
 // npm install m3o
-const { DbService } = require("m3o/db");
+const { Db } = require("m3o/db");
 
-const dbService = new DbService(process.env.M3O_API_TOKEN);
+const dbService = new Db(process.env.M3O_API_TOKEN);
 
 // Delete a record in the database by id.
 async function deleteArecord() {

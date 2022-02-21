@@ -1,7 +1,7 @@
 // npm install m3o
-const { AppService } = require("m3o/app");
+const { App } = require("m3o/app");
 
-const appService = new AppService(process.env.M3O_API_TOKEN);
+const appService = new App(process.env.M3O_API_TOKEN);
 
 // Reserve apps beyond the free quota. Call Run after.
 async function reserveAppName() {

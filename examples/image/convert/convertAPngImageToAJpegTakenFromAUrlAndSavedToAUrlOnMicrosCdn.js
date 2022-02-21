@@ -1,7 +1,7 @@
 // npm install m3o
-const { ImageService } = require("m3o/image");
+const { Image } = require("m3o/image");
 
-const imageService = new ImageService(process.env.M3O_API_TOKEN);
+const imageService = new Image(process.env.M3O_API_TOKEN);
 
 // Convert an image from one format (jpeg, png etc.) to an other either on the fly (from base64 to base64),
 // or by uploading the conversion result.

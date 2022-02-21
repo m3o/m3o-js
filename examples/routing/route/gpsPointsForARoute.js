@@ -1,7 +1,7 @@
 // npm install m3o
-const { RoutingService } = require("m3o/routing");
+const { Routing } = require("m3o/routing");
 
-const routingService = new RoutingService(process.env.M3O_API_TOKEN);
+const routingService = new Routing(process.env.M3O_API_TOKEN);
 
 // Retrieve a route as a simple list of gps points along with total distance and estimated duration
 async function gpsPointsForAroute() {

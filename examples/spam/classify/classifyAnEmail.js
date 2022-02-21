@@ -1,7 +1,7 @@
 // npm install m3o
-const { SpamService } = require("m3o/spam");
+const { Spam } = require("m3o/spam");
 
-const spamService = new SpamService(process.env.M3O_API_TOKEN);
+const spamService = new Spam(process.env.M3O_API_TOKEN);
 
 // Check whether an email is likely to be spam based on its attributes
 async function classifyAnEmail() {

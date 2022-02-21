@@ -1,7 +1,7 @@
 // npm install m3o
-const { VehicleService } = require("m3o/vehicle");
+const { Vehicle } = require("m3o/vehicle");
 
-const vehicleService = new VehicleService(process.env.M3O_API_TOKEN);
+const vehicleService = new Vehicle(process.env.M3O_API_TOKEN);
 
 // Lookup a UK vehicle by it's registration number
 async function lookupVehicle() {

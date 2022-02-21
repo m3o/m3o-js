@@ -1,7 +1,7 @@
 // npm install m3o
-const { NotesService } = require("m3o/notes");
+const { Notes } = require("m3o/notes");
 
-const notesService = new NotesService(process.env.M3O_API_TOKEN);
+const notesService = new Notes(process.env.M3O_API_TOKEN);
 
 // Delete a note
 async function deleteAnote() {

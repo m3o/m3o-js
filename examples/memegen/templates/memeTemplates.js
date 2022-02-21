@@ -1,7 +1,7 @@
 // npm install m3o
-const { MemegenService } = require("m3o/memegen");
+const { Memegen } = require("m3o/memegen");
 
-const memegenService = new MemegenService(process.env.M3O_API_TOKEN);
+const memegenService = new Memegen(process.env.M3O_API_TOKEN);
 
 // List the available templates
 async function memeTemplates() {

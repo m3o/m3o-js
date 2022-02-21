@@ -1,7 +1,7 @@
 // npm install m3o
-const { TimeService } = require("m3o/time");
+const { Time } = require("m3o/time");
 
-const timeService = new TimeService(process.env.M3O_API_TOKEN);
+const timeService = new Time(process.env.M3O_API_TOKEN);
 
 // Get the current time
 async function returnsCurrentTimeOptionallyWithLocation() {

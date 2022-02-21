@@ -1,7 +1,7 @@
 // npm install m3o
-const { EmailService } = require("m3o/email");
+const { Email } = require("m3o/email");
 
-const emailService = new EmailService(process.env.M3O_API_TOKEN);
+const emailService = new Email(process.env.M3O_API_TOKEN);
 
 // Parse an RFC5322 address e.g "Joe Blogs <joe@example.com>"
 async function parseEmail() {

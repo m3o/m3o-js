@@ -1,7 +1,7 @@
 // npm install m3o
-const { ChatService } = require("m3o/chat");
+const { Chat } = require("m3o/chat");
 
-const chatService = new ChatService(process.env.M3O_API_TOKEN);
+const chatService = new Chat(process.env.M3O_API_TOKEN);
 
 // Join a chat room
 async function joinAroom() {

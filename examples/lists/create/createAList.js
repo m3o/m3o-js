@@ -1,7 +1,7 @@
 // npm install m3o
-const { ListsService } = require("m3o/lists");
+const { Lists } = require("m3o/lists");
 
-const listsService = new ListsService(process.env.M3O_API_TOKEN);
+const listsService = new Lists(process.env.M3O_API_TOKEN);
 
 // Create a new list
 async function createAlist() {

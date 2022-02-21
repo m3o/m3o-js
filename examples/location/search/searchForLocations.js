@@ -1,7 +1,7 @@
 // npm install m3o
-const { LocationService } = require("m3o/location");
+const { Location } = require("m3o/location");
 
-const locationService = new LocationService(process.env.M3O_API_TOKEN);
+const locationService = new Location(process.env.M3O_API_TOKEN);
 
 // Search for entities in a given radius
 async function searchForLocations() {

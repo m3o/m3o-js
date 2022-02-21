@@ -1,7 +1,7 @@
 // npm install m3o
-const { EmojiService } = require("m3o/emoji");
+const { Emoji } = require("m3o/emoji");
 
-const emojiService = new EmojiService(process.env.M3O_API_TOKEN);
+const emojiService = new Emoji(process.env.M3O_API_TOKEN);
 
 // Print text and renders the emojis with aliases e.g
 // let's grab a :beer: becomes let's grab a 🍺

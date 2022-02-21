@@ -1,7 +1,7 @@
 // npm install m3o
-const { FileService } = require("m3o/file");
+const { File } = require("m3o/file");
 
-const fileService = new FileService(process.env.M3O_API_TOKEN);
+const fileService = new File(process.env.M3O_API_TOKEN);
 
 // Save a file
 async function saveFile() {

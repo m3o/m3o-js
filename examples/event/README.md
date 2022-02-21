@@ -4,30 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Event/api](htt
 
 Endpoints:
 
-## Consume
-
-Consume events from a given topic.
-
-
-[https://m3o.com/event/api#Consume](https://m3o.com/event/api#Consume)
-
-```js
-const { EventService } = require('m3o/event');
-
-const eventService = new EventService(process.env.M3O_API_TOKEN)
-
-// Consume events from a given topic.
-async function consumeFromAtopic() {
-	const rsp = await eventService.consume({
-  "topic": "user"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-consumeFromAtopic()
-```
 ## Read
 
 Read stored events
@@ -78,4 +54,28 @@ async function publishAnEvent() {
 }
 
 publishAnEvent()
+```
+## Consume
+
+Consume events from a given topic.
+
+
+[https://m3o.com/event/api#Consume](https://m3o.com/event/api#Consume)
+
+```js
+const { EventService } = require('m3o/event');
+
+const eventService = new EventService(process.env.M3O_API_TOKEN)
+
+// Consume events from a given topic.
+async function consumeFromAtopic() {
+	const rsp = await eventService.consume({
+  "topic": "user"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+consumeFromAtopic()
 ```

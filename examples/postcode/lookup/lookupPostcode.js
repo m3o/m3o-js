@@ -1,7 +1,7 @@
 // npm install m3o
-const { PostcodeService } = require("m3o/postcode");
+const { Postcode } = require("m3o/postcode");
 
-const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN);
+const postcodeService = new Postcode(process.env.M3O_API_TOKEN);
 
 // Lookup a postcode to retrieve the related region, county, etc
 async function lookupPostcode() {

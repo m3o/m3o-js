@@ -1,7 +1,7 @@
 // npm install m3o
-const { StockService } = require("m3o/stock");
+const { Stock } = require("m3o/stock");
 
-const stockService = new StockService(process.env.M3O_API_TOKEN);
+const stockService = new Stock(process.env.M3O_API_TOKEN);
 
 // Get the last quote for the stock
 async function getAstockQuote() {

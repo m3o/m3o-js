@@ -1,7 +1,7 @@
 // npm install m3o
-const { PlaceService } = require("m3o/place");
+const { Place } = require("m3o/place");
 
-const placeService = new PlaceService(process.env.M3O_API_TOKEN);
+const placeService = new Place(process.env.M3O_API_TOKEN);
 
 // Find places nearby using a location
 async function findPlacesNearby() {
