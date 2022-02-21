@@ -4,54 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Chat/api](http
 
 Endpoints:
 
-## Kick
-
-Kick a user from a chat room
-
-
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Kick a user from a chat room
-async function kickAuserFromAroom() {
-	const rsp = await chatService.kick({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-kickAuserFromAroom()
-```
-## New
-
-Create a new chat room
-
-
-[https://m3o.com/chat/api#New](https://m3o.com/chat/api#New)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Create a new chat room
-async function createAnewChat() {
-	const rsp = await chatService.new({
-  "description": "The general chat room",
-  "name": "general"
-})
-	console.log(rsp)
-	
-}
-
-createAnewChat()
-```
 ## List
 
 List available chats
@@ -73,29 +25,28 @@ async function listChatRooms() {
 
 listChatRooms()
 ```
-## Invite
+## Delete
 
-Invite a user to a chat room
+Delete a chat room
 
 
-[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Invite a user to a chat room
-async function inviteAuser() {
-	const rsp = await chatService.invite({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
+// Delete a chat room
+async function deleteAchat() {
+	const rsp = await chatService.delete({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 })
 	console.log(rsp)
 	
 }
 
-inviteAuser()
+deleteAchat()
 ```
 ## Send
 
@@ -126,54 +77,6 @@ async function sendAmessage() {
 
 sendAmessage()
 ```
-## Join
-
-Join a chat room
-
-
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Join a chat room
-async function joinAroom() {
-	const rsp = await chatService.join({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-joinAroom()
-```
-## Delete
-
-Delete a chat room
-
-
-[https://m3o.com/chat/api#Delete](https://m3o.com/chat/api#Delete)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Delete a chat room
-async function deleteAchat() {
-	const rsp = await chatService.delete({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
-})
-	console.log(rsp)
-	
-}
-
-deleteAchat()
-```
 ## History
 
 List the messages in a chat
@@ -196,6 +99,30 @@ async function getChatHistory() {
 }
 
 getChatHistory()
+```
+## Kick
+
+Kick a user from a chat room
+
+
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Kick a user from a chat room
+async function kickAuserFromAroom() {
+	const rsp = await chatService.kick({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+kickAuserFromAroom()
 ```
 ## Leave
 
@@ -220,4 +147,77 @@ async function leaveAroom() {
 }
 
 leaveAroom()
+```
+## New
+
+Create a new chat room
+
+
+[https://m3o.com/chat/api#New](https://m3o.com/chat/api#New)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Create a new chat room
+async function createAnewChat() {
+	const rsp = await chatService.new({
+  "description": "The general chat room",
+  "name": "general"
+})
+	console.log(rsp)
+	
+}
+
+createAnewChat()
+```
+## Invite
+
+Invite a user to a chat room
+
+
+[https://m3o.com/chat/api#Invite](https://m3o.com/chat/api#Invite)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Invite a user to a chat room
+async function inviteAuser() {
+	const rsp = await chatService.invite({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+inviteAuser()
+```
+## Join
+
+Join a chat room
+
+
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Join a chat room
+async function joinAroom() {
+	const rsp = await chatService.join({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-2"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+joinAroom()
 ```

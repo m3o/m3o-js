@@ -37,6 +37,10 @@ export interface Forecast {
   max_temp_c?: number;
   // max temp in fahrenheit
   max_temp_f?: number;
+  // max wind speed kph
+  max_wind_kph?: number;
+  // max wind speed mph
+  max_wind_mph?: number;
   // minimum temp in celsius
   min_temp_c?: number;
   // minimum temp in fahrenheit
