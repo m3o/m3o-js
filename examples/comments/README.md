@@ -4,54 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Comments/api](
 
 Endpoints:
 
-## Events
-
-Subscribe to comments events
-
-
-[https://m3o.com/comments/api#Events](https://m3o.com/comments/api#Events)
-
-```js
-const { CommentsService } = require('m3o/comments');
-
-const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
-
-// Subscribe to comments events
-async function subscribeToEvents() {
-	const rsp = await commentsService.events({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-subscribeToEvents()
-```
-## Create
-
-Create a new comment
-
-
-[https://m3o.com/comments/api#Create](https://m3o.com/comments/api#Create)
-
-```js
-const { CommentsService } = require('m3o/comments');
-
-const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
-
-// Create a new comment
-async function createAcomment() {
-	const rsp = await commentsService.create({
-  "text": "This is my comment",
-  "title": "New Comment"
-})
-	console.log(rsp)
-	
-}
-
-createAcomment()
-```
 ## Read
 
 Read a comment
@@ -145,4 +97,52 @@ async function deleteAcomment() {
 }
 
 deleteAcomment()
+```
+## Events
+
+Subscribe to comments events
+
+
+[https://m3o.com/comments/api#Events](https://m3o.com/comments/api#Events)
+
+```js
+const { CommentsService } = require('m3o/comments');
+
+const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
+
+// Subscribe to comments events
+async function subscribeToEvents() {
+	const rsp = await commentsService.events({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+subscribeToEvents()
+```
+## Create
+
+Create a new comment
+
+
+[https://m3o.com/comments/api#Create](https://m3o.com/comments/api#Create)
+
+```js
+const { CommentsService } = require('m3o/comments');
+
+const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
+
+// Create a new comment
+async function createAcomment() {
+	const rsp = await commentsService.create({
+  "text": "This is my comment",
+  "title": "New Comment"
+})
+	console.log(rsp)
+	
+}
+
+createAcomment()
 ```
