@@ -1,7 +1,7 @@
 // npm install m3o
-const { Url } = require("m3o/url");
+const { UrlService } = require("m3o/url");
 
-const urlService = new Url(process.env.M3O_API_TOKEN);
+const urlService = new UrlService(process.env.M3O_API_TOKEN);
 
 // Shorten a long URL
 async function shortenAlongUrl() {

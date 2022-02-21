@@ -1,7 +1,7 @@
 // npm install m3o
-const { Image } = require("m3o/image");
+const { ImageService } = require("m3o/image");
 
-const imageService = new Image(process.env.M3O_API_TOKEN);
+const imageService = new ImageService(process.env.M3O_API_TOKEN);
 
 // Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
 // If one of width or height is 0, the image aspect ratio is preserved.

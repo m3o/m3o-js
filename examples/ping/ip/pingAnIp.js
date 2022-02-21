@@ -1,7 +1,7 @@
 // npm install m3o
-const { Ping } = require("m3o/ping");
+const { PingService } = require("m3o/ping");
 
-const pingService = new Ping(process.env.M3O_API_TOKEN);
+const pingService = new PingService(process.env.M3O_API_TOKEN);
 
 // Ping an IP address
 async function pingAnIp() {

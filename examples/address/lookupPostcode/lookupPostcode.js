@@ -1,7 +1,7 @@
 // npm install m3o
-const { Address } = require("m3o/address");
+const { AddressService } = require("m3o/address");
 
-const addressService = new Address(process.env.M3O_API_TOKEN);
+const addressService = new AddressService(process.env.M3O_API_TOKEN);
 
 // Lookup a list of UK addresses by postcode
 async function lookupPostcode() {

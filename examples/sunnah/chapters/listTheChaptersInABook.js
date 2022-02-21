@@ -1,7 +1,7 @@
 // npm install m3o
-const { Sunnah } = require("m3o/sunnah");
+const { SunnahService } = require("m3o/sunnah");
 
-const sunnahService = new Sunnah(process.env.M3O_API_TOKEN);
+const sunnahService = new SunnahService(process.env.M3O_API_TOKEN);
 
 // Get all the chapters of a given book within a collection.
 async function listTheChaptersInAbook() {

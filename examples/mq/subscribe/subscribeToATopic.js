@@ -1,7 +1,7 @@
 // npm install m3o
-const { Mq } = require("m3o/mq");
+const { MqService } = require("m3o/mq");
 
-const mqService = new Mq(process.env.M3O_API_TOKEN);
+const mqService = new MqService(process.env.M3O_API_TOKEN);
 
 // Subscribe to messages for a given topic.
 async function subscribeToAtopic() {

@@ -1,7 +1,7 @@
 // npm install m3o
-const { Helloworld } = require("m3o/helloworld");
+const { HelloworldService } = require("m3o/helloworld");
 
-const helloworldService = new Helloworld(process.env.M3O_API_TOKEN);
+const helloworldService = new HelloworldService(process.env.M3O_API_TOKEN);
 
 // Stream returns a stream of "Hello $name" responses
 async function streamsResponsesFromTheServerUsingWebsockets() {

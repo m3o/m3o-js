@@ -1,7 +1,7 @@
 // npm install m3o
-const { User } = require("m3o/user");
+const { UserService } = require("m3o/user");
 
-const userService = new User(process.env.M3O_API_TOKEN);
+const userService = new UserService(process.env.M3O_API_TOKEN);
 
 // Send a verification email to a user.
 // Email "from" will be 'noreply@email.m3ocontent.com'.

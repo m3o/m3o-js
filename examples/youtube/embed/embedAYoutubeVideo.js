@@ -1,7 +1,7 @@
 // npm install m3o
-const { Youtube } = require("m3o/youtube");
+const { YoutubeService } = require("m3o/youtube");
 
-const youtubeService = new Youtube(process.env.M3O_API_TOKEN);
+const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN);
 
 // Embed a YouTube video
 async function embedAyoutubeVideo() {

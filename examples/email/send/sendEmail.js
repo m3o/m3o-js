@@ -1,7 +1,7 @@
 // npm install m3o
-const { Email } = require("m3o/email");
+const { EmailService } = require("m3o/email");
 
-const emailService = new Email(process.env.M3O_API_TOKEN);
+const emailService = new EmailService(process.env.M3O_API_TOKEN);
 
 // Send an email by passing in from, to, subject, and a text or html body
 async function sendEmail() {

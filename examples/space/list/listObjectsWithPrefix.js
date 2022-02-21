@@ -1,7 +1,7 @@
 // npm install m3o
-const { Space } = require("m3o/space");
+const { SpaceService } = require("m3o/space");
 
-const spaceService = new Space(process.env.M3O_API_TOKEN);
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN);
 
 // List the objects in space
 async function listObjectsWithPrefix() {

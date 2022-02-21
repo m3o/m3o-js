@@ -1,7 +1,7 @@
 // npm install m3o
-const { Thumbnail } = require("m3o/thumbnail");
+const { ThumbnailService } = require("m3o/thumbnail");
 
-const thumbnailService = new Thumbnail(process.env.M3O_API_TOKEN);
+const thumbnailService = new ThumbnailService(process.env.M3O_API_TOKEN);
 
 // Create a thumbnail screenshot by passing in a url, height and width
 async function takeScreenshotOfAurl() {

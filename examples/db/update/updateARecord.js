@@ -1,7 +1,7 @@
 // npm install m3o
-const { Db } = require("m3o/db");
+const { DbService } = require("m3o/db");
 
-const dbService = new Db(process.env.M3O_API_TOKEN);
+const dbService = new DbService(process.env.M3O_API_TOKEN);
 
 // Update a record in the database. Include an "id" in the record to update.
 async function updateArecord() {

@@ -1,7 +1,7 @@
 // npm install m3o
-const { Evchargers } = require("m3o/evchargers");
+const { EvchargersService } = require("m3o/evchargers");
 
-const evchargersService = new Evchargers(process.env.M3O_API_TOKEN);
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN);
 
 // Search by giving a coordinate and a max distance, or bounding box and optional filters
 async function searchByLocation() {

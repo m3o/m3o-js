@@ -1,7 +1,7 @@
 // npm install m3o
-const { Db } = require("m3o/db");
+const { DbService } = require("m3o/db");
 
-const dbService = new Db(process.env.M3O_API_TOKEN);
+const dbService = new DbService(process.env.M3O_API_TOKEN);
 
 // Drop a table in the DB
 async function dropTable() {

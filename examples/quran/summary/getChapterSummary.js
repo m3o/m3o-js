@@ -1,7 +1,7 @@
 // npm install m3o
-const { Quran } = require("m3o/quran");
+const { QuranService } = require("m3o/quran");
 
-const quranService = new Quran(process.env.M3O_API_TOKEN);
+const quranService = new QuranService(process.env.M3O_API_TOKEN);
 
 // Get a summary for a given chapter (surah)
 async function getChapterSummary() {

@@ -1,7 +1,7 @@
 // npm install m3o
-const { Translate } = require("m3o/translate");
+const { TranslateService } = require("m3o/translate");
 
-const translateService = new Translate(process.env.M3O_API_TOKEN);
+const translateService = new TranslateService(process.env.M3O_API_TOKEN);
 
 // Basic text translation
 async function translateText() {

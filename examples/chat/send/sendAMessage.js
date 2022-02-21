@@ -1,7 +1,7 @@
 // npm install m3o
-const { Chat } = require("m3o/chat");
+const { ChatService } = require("m3o/chat");
 
-const chatService = new Chat(process.env.M3O_API_TOKEN);
+const chatService = new ChatService(process.env.M3O_API_TOKEN);
 
 // Connect to a chat to receive a stream of messages
 // Send a message to a chat

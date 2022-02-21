@@ -1,7 +1,7 @@
 // npm install m3o
-const { Comments } = require("m3o/comments");
+const { CommentsService } = require("m3o/comments");
 
-const commentsService = new Comments(process.env.M3O_API_TOKEN);
+const commentsService = new CommentsService(process.env.M3O_API_TOKEN);
 
 // Read a comment
 async function readAcomment() {

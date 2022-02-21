@@ -1,7 +1,7 @@
 // npm install m3o
-const { File } = require("m3o/file");
+const { FileService } = require("m3o/file");
 
-const fileService = new File(process.env.M3O_API_TOKEN);
+const fileService = new FileService(process.env.M3O_API_TOKEN);
 
 // Read a file by path
 async function readFile() {

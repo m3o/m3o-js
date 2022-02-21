@@ -1,7 +1,7 @@
 // npm install m3o
-const { Sentiment } = require("m3o/sentiment");
+const { SentimentService } = require("m3o/sentiment");
 
-const sentimentService = new Sentiment(process.env.M3O_API_TOKEN);
+const sentimentService = new SentimentService(process.env.M3O_API_TOKEN);
 
 // Analyze and score a piece of text
 async function analyzeApieceOfText() {

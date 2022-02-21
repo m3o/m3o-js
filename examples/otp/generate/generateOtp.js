@@ -1,7 +1,7 @@
 // npm install m3o
-const { Otp } = require("m3o/otp");
+const { OtpService } = require("m3o/otp");
 
-const otpService = new Otp(process.env.M3O_API_TOKEN);
+const otpService = new OtpService(process.env.M3O_API_TOKEN);
 
 // Generate an OTP (one time pass) code
 async function generateOtp() {

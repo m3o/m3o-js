@@ -1,7 +1,7 @@
 // npm install m3o
-const { Cache } = require("m3o/cache");
+const { CacheService } = require("m3o/cache");
 
-const cacheService = new Cache(process.env.M3O_API_TOKEN);
+const cacheService = new CacheService(process.env.M3O_API_TOKEN);
 
 // List all the available keys
 async function listTheKeys() {

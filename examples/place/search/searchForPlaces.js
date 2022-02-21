@@ -1,7 +1,7 @@
 // npm install m3o
-const { Place } = require("m3o/place");
+const { PlaceService } = require("m3o/place");
 
-const placeService = new Place(process.env.M3O_API_TOKEN);
+const placeService = new PlaceService(process.env.M3O_API_TOKEN);
 
 // Search for places by text query
 async function searchForPlaces() {

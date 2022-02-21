@@ -1,7 +1,7 @@
 // npm install m3o
-const { Sunnah } = require("m3o/sunnah");
+const { SunnahService } = require("m3o/sunnah");
 
-const sunnahService = new Sunnah(process.env.M3O_API_TOKEN);
+const sunnahService = new SunnahService(process.env.M3O_API_TOKEN);
 
 // Hadiths returns a list of hadiths and their corresponding text for a
 // given book within a collection.

@@ -1,7 +1,7 @@
 // npm install m3o
-const { User } = require("m3o/user");
+const { UserService } = require("m3o/user");
 
-const userService = new User(process.env.M3O_API_TOKEN);
+const userService = new UserService(process.env.M3O_API_TOKEN);
 
 // Check whether the token attached to MagicLink is valid or not.
 // Ideally, you need to call this endpoint from your http request

@@ -1,7 +1,7 @@
 // npm install m3o
-const { Geocoding } = require("m3o/geocoding");
+const { GeocodingService } = require("m3o/geocoding");
 
-const geocodingService = new Geocoding(process.env.M3O_API_TOKEN);
+const geocodingService = new GeocodingService(process.env.M3O_API_TOKEN);
 
 // Reverse lookup an address from gps coordinates
 async function reverseGeocodeLocation() {

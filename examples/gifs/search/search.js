@@ -1,7 +1,7 @@
 // npm install m3o
-const { Gifs } = require("m3o/gifs");
+const { GifsService } = require("m3o/gifs");
 
-const gifsService = new Gifs(process.env.M3O_API_TOKEN);
+const gifsService = new GifsService(process.env.M3O_API_TOKEN);
 
 // Search for a GIF
 async function search() {
