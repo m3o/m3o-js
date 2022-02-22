@@ -52,6 +52,29 @@ async function deleteArecord() {
 
 deleteArecord()
 ```
+## Count
+
+Count records in a table
+
+
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Count records in a table
+async function countEntriesInAtable() {
+	const rsp = await dbService.count({
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+countEntriesInAtable()
+```
 ## Create
 
 Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
@@ -80,33 +103,6 @@ async function createArecord() {
 }
 
 createArecord()
-```
-## Update
-
-Update a record in the database. Include an "id" in the record to update.
-
-
-[https://m3o.com/db/api#Update](https://m3o.com/db/api#Update)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Update a record in the database. Include an "id" in the record to update.
-async function updateArecord() {
-	const rsp = await dbService.update({
-  "record": {
-    "age": 43,
-    "id": "1"
-  },
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-updateArecord()
 ```
 ## Truncate
 
@@ -154,29 +150,6 @@ async function dropTable() {
 
 dropTable()
 ```
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Count records in a table
-async function countEntriesInAtable() {
-	const rsp = await dbService.count({
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-countEntriesInAtable()
-```
 ## ListTables
 
 List tables in the DB
@@ -221,4 +194,31 @@ async function renameTable() {
 }
 
 renameTable()
+```
+## Update
+
+Update a record in the database. Include an "id" in the record to update.
+
+
+[https://m3o.com/db/api#Update](https://m3o.com/db/api#Update)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Update a record in the database. Include an "id" in the record to update.
+async function updateArecord() {
+	const rsp = await dbService.update({
+  "record": {
+    "age": 43,
+    "id": "1"
+  },
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+updateArecord()
 ```
