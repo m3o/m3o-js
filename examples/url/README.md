@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Url/api](https
 
 Endpoints:
 
+## Proxy
+
+Proxy returns the destination URL of a short URL.
+
+
+[https://m3o.com/url/api#Proxy](https://m3o.com/url/api#Proxy)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Proxy returns the destination URL of a short URL.
+async function resolveAshortUrlToAlongDestinationUrl() {
+	const rsp = await urlService.proxy({
+  "shortURL": "https://m3o.one/u/ck6SGVkYp"
+})
+	console.log(rsp)
+	
+}
+
+resolveAshortUrlToAlongDestinationUrl()
+```
 ## List
 
 List all the shortened URLs
@@ -47,27 +70,4 @@ async function shortenAlongUrl() {
 }
 
 shortenAlongUrl()
-```
-## Proxy
-
-Proxy returns the destination URL of a short URL.
-
-
-[https://m3o.com/url/api#Proxy](https://m3o.com/url/api#Proxy)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Proxy returns the destination URL of a short URL.
-async function resolveAshortUrlToAlongDestinationUrl() {
-	const rsp = await urlService.proxy({
-  "shortURL": "https://m3o.one/u/ck6SGVkYp"
-})
-	console.log(rsp)
-	
-}
-
-resolveAshortUrlToAlongDestinationUrl()
 ```
