@@ -3,7 +3,7 @@ const { ContactService } = require("m3o/contact");
 
 const contactService = new ContactService(process.env.M3O_API_TOKEN);
 
-//
+// Update a contact
 async function updateAcontact() {
   const rsp = await contactService.update({
     addresses: [

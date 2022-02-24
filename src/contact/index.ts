@@ -6,7 +6,7 @@ export class ContactService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Create a contact
   create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
       "contact",
@@ -14,7 +14,7 @@ export class ContactService {
       request
     ) as Promise<CreateResponse>;
   }
-  //
+  // Delete a contact
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       "contact",
@@ -22,7 +22,7 @@ export class ContactService {
       request
     ) as Promise<DeleteResponse>;
   }
-  //
+  // List contacts
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call(
       "contact",
@@ -30,7 +30,7 @@ export class ContactService {
       request
     ) as Promise<ListResponse>;
   }
-  //
+  // Read contact details
   read(request: ReadRequest): Promise<ReadResponse> {
     return this.client.call(
       "contact",
@@ -38,7 +38,7 @@ export class ContactService {
       request
     ) as Promise<ReadResponse>;
   }
-  //
+  // Update a contact
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       "contact",
