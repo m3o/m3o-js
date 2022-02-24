@@ -6,6 +6,14 @@ export class ChatService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
+  // Create a new chat room
+  create(request: CreateRequest): Promise<CreateResponse> {
+    return this.client.call(
+      "chat",
+      "Create",
+      request
+    ) as Promise<CreateResponse>;
+  }
   // Delete a chat room
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
@@ -46,15 +54,27 @@ export class ChatService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("chat", "List", request) as Promise<ListResponse>;
   }
-  // Create a new chat room
-  new(request: NewRequest): Promise<NewResponse> {
-    return this.client.call("chat", "New", request) as Promise<NewResponse>;
-  }
   // Connect to a chat to receive a stream of messages
   // Send a message to a chat
   send(request: SendRequest): Promise<SendResponse> {
     return this.client.call("chat", "Send", request) as Promise<SendResponse>;
   }
+}
+
+export interface CreateRequest {
+  // chat description
+  description?: string;
+  // name of the room
+  name?: string;
+  // whether its a private room
+  private?: boolean;
+  // optional list of user ids
+  user_ids?: string;
+}
+
+export interface CreateResponse {
+  // the unique chat room
+  room?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
@@ -144,22 +164,6 @@ export interface Message {
   text?: string;
   // id of the user who sent the message
   user_id?: string;
-}
-
-export interface NewRequest {
-  // chat description
-  description?: string;
-  // name of the room
-  name?: string;
-  // whether its a private room
-  private?: boolean;
-  // optional list of user ids
-  user_ids?: string;
-}
-
-export interface NewResponse {
-  // the unique chat room
-  room?: { [key: string]: any };
 }
 
 export interface Room {
