@@ -6,6 +6,10 @@ export class NftService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
+  //
+  asset(request: AssetRequest): Promise<AssetResponse> {
+    return this.client.call("nft", "Asset", request) as Promise<AssetResponse>;
+  }
   // Return a list of assets
   assets(request: AssetsRequest): Promise<AssetsResponse> {
     return this.client.call(
@@ -13,6 +17,14 @@ export class NftService {
       "Assets",
       request
     ) as Promise<AssetsResponse>;
+  }
+  //
+  collection(request: CollectionRequest): Promise<CollectionResponse> {
+    return this.client.call(
+      "nft",
+      "Collection",
+      request
+    ) as Promise<CollectionResponse>;
   }
   // Get a list of collections
   collections(request: CollectionsRequest): Promise<CollectionsResponse> {
@@ -61,6 +73,17 @@ export interface Asset {
   sales?: number;
   // the token id
   token_id?: string;
+  // traits associated with the item
+  traits?: { [key: string]: any }[];
+}
+
+export interface AssetRequest {
+  contract_address?: string;
+  token_id?: string;
+}
+
+export interface AssetResponse {
+  asset?: { [key: string]: any };
 }
 
 export interface AssetsRequest {
@@ -82,12 +105,44 @@ export interface AssetsResponse {
 }
 
 export interface Collection {
+  // image used in the banner for the collection
+  banner_image_url?: string;
+  // creation time
   created_at?: string;
+  // description of the collection
   description?: string;
+  // approved editors for this collection
+  editors?: string[];
+  // external link to the original website for the collection
+  external_link?: string;
+  // an image for the collection
   image_url?: string;
+  // name of the collection
   name?: string;
+  // the payment tokens accepted for this collection
+  payment_tokens?: Token;
+  // payout address for the collection's royalties
   payout_address?: string;
+  // a list of the contracts associated with this collection
+  primary_asset_contracts?: Contract;
+  // the collection's approval status on OpenSea
+  safelist_request_status?: string;
+  // the fees that get paid out when a sale is made
+  seller_fees?: string;
+  // collection slug
   slug?: string;
+  // sales statistics associated with the collection
+  stats?: { [key: string]: any };
+  // listing of all the trait types available within this collection
+  traits?: { [key: string]: any };
+}
+
+export interface CollectionRequest {
+  slug?: string;
+}
+
+export interface CollectionResponse {
+  collection?: { [key: string]: any };
 }
 
 export interface CollectionsRequest {
