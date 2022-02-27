@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Image/api](htt
 
 Endpoints:
 
-## Delete
-
-Delete an image previously uploaded.
-
-
-[https://m3o.com/image/api#Delete](https://m3o.com/image/api#Delete)
-
-```js
-const { ImageService } = require('m3o/image');
-
-const imageService = new ImageService(process.env.M3O_API_TOKEN)
-
-// Delete an image previously uploaded.
-async function deleteAnUploadedImage() {
-	const rsp = await imageService.delete({
-  "url": "https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.png"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnUploadedImage()
-```
 ## Resize
 
 Resize an image on the fly without storing it (by sending and receiving a base64 encoded image), or resize and upload depending on parameters.
@@ -222,4 +199,27 @@ async function uploadAnImageFromAurlToMicrosCdn() {
 }
 
 uploadAnImageFromAurlToMicrosCdn()
+```
+## Delete
+
+Delete an image previously uploaded.
+
+
+[https://m3o.com/image/api#Delete](https://m3o.com/image/api#Delete)
+
+```js
+const { ImageService } = require('m3o/image');
+
+const imageService = new ImageService(process.env.M3O_API_TOKEN)
+
+// Delete an image previously uploaded.
+async function deleteAnUploadedImage() {
+	const rsp = await imageService.delete({
+  "url": "https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.png"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnUploadedImage()
 ```
