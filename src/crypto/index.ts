@@ -34,6 +34,14 @@ export class CryptoService {
       request
     ) as Promise<QuoteResponse>;
   }
+  // Returns the full list of supported symbols
+  symbols(request: SymbolsRequest): Promise<SymbolsResponse> {
+    return this.client.call(
+      "crypto",
+      "Symbols",
+      request
+    ) as Promise<SymbolsResponse>;
+  }
 }
 
 export interface Article {
@@ -113,4 +121,15 @@ export interface QuoteResponse {
   symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
+}
+
+export interface Symbol {
+  name?: string;
+  symbol?: string;
+}
+
+export interface SymbolsRequest {}
+
+export interface SymbolsResponse {
+  symbols?: Symbol[];
 }

@@ -96,3 +96,24 @@ async function getPreviousClose() {
 
 getPreviousClose()
 ```
+## Symbols
+
+Returns the full list of supported symbols
+
+
+[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
+
+```js
+const { CryptoService } = require('m3o/crypto');
+
+const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
+
+// Returns the full list of supported symbols
+async function getListOfAllSupportedSymbols() {
+	const rsp = await cryptoService.symbols({})
+	console.log(rsp)
+	
+}
+
+getListOfAllSupportedSymbols()
+```
