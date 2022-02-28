@@ -25,12 +25,12 @@ export class YoutubeService {
 }
 
 export interface EmbedRequest {
-  // provide the youtube url e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
+  // provide the youtube url
   url?: string;
 }
 
 export interface EmbedResponse {
-  // the embeddable link e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
+  // the embeddable link
   embed_url?: string;
   // the script code
   html_script?: string;
@@ -51,7 +51,7 @@ export interface SearchResponse {
 }
 
 export interface SearchResult {
-  // if live broadcast then indicates activity.
+  // if live broadcast then indicates activity:
   // none, upcoming, live, completed
   broadcasting?: string;
   // the channel id
@@ -62,7 +62,7 @@ export interface SearchResult {
   description?: string;
   // id of the result
   id?: string;
-  // kind of result; "video", "channel", "playlist"
+  // kind of result: "video", "channel", "playlist"
   kind?: string;
   // published at time
   published_at?: string;
