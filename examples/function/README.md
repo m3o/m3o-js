@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Describe
-
-Get the info for a deployed function
-
-
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Get the info for a deployed function
-async function describeFunctionStatus() {
-	const rsp = await functionService.describe({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-describeFunctionStatus()
-```
 ## Regions
 
 Return a list of supported regions
@@ -126,6 +103,29 @@ async function deleteAfunction() {
 
 deleteAfunction()
 ```
+## Reserve
+
+Reserve function names and resources beyond free quota
+
+
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Reserve function names and resources beyond free quota
+async function reserveAfunction() {
+	const rsp = await functionService.reserve({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+reserveAfunction()
+```
 ## Runtimes
 
 Return a list of supported runtimes
@@ -214,26 +214,26 @@ async function listFunctions() {
 
 listFunctions()
 ```
-## Reserve
+## Describe
 
-Reserve function names and resources beyond free quota
+Get the info for a deployed function
 
 
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Reserve function names and resources beyond free quota
-async function reserveAfunction() {
-	const rsp = await functionService.reserve({
+// Get the info for a deployed function
+async function describeFunctionStatus() {
+	const rsp = await functionService.describe({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-reserveAfunction()
+describeFunctionStatus()
 ```
