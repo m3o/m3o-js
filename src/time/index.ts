@@ -54,6 +54,8 @@ export interface ZoneResponse {
   location?: string;
   // e.g -0.37
   longitude?: number;
+  // UTC offset in hours
+  offset?: number;
   // region of timezone
   region?: string;
   // the timezone e.g Europe/London
