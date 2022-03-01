@@ -70,6 +70,14 @@ export class FunctionService {
       request
     ) as Promise<ReserveResponse>;
   }
+  // Return a list of supported runtimes
+  runtimes(request: RuntimesRequest): Promise<RuntimesResponse> {
+    return this.client.call(
+      "function",
+      "Runtimes",
+      request
+    ) as Promise<RuntimesResponse>;
+  }
   // Update a function. Downloads the source, builds and redeploys
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
@@ -213,6 +221,12 @@ export interface ReserveRequest {
 export interface ReserveResponse {
   // The app reservation
   reservation?: { [key: string]: any };
+}
+
+export interface RuntimesRequest {}
+
+export interface RuntimesResponse {
+  runtimes?: string[];
 }
 
 export interface UpdateRequest {
