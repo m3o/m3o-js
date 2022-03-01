@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Nft/api](https
 
 Endpoints:
 
+## Collection
+
+
+
+
+[https://m3o.com/nft/api#Collection](https://m3o.com/nft/api#Collection)
+
+```js
+const { NftService } = require('m3o/nft');
+
+const nftService = new NftService(process.env.M3O_API_TOKEN)
+
+// 
+async function getAsingleCollection() {
+	const rsp = await nftService.collection({
+  "slug": "doodles-official"
+})
+	console.log(rsp)
+	
+}
+
+getAsingleCollection()
+```
 ## Assets
 
 Return a list of assets
@@ -98,27 +121,4 @@ async function getAsingleAsset() {
 }
 
 getAsingleAsset()
-```
-## Collection
-
-
-
-
-[https://m3o.com/nft/api#Collection](https://m3o.com/nft/api#Collection)
-
-```js
-const { NftService } = require('m3o/nft');
-
-const nftService = new NftService(process.env.M3O_API_TOKEN)
-
-// 
-async function getAsingleCollection() {
-	const rsp = await nftService.collection({
-  "slug": "doodles-official"
-})
-	console.log(rsp)
-	
-}
-
-getAsingleCollection()
 ```
