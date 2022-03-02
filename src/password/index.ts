@@ -6,7 +6,7 @@ export class PasswordService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Generate a strong random password
+  // Generate a strong random password. Use the switches to control which character types are included, defaults to using all of them
   generate(request: GenerateRequest): Promise<GenerateResponse> {
     return this.client.call(
       "password",
@@ -17,8 +17,16 @@ export class PasswordService {
 }
 
 export interface GenerateRequest {
-  // password length; defaults to 16 chars
+  // password length; defaults to 8 chars
   length?: number;
+  // include lowercase letters
+  lowercase?: boolean;
+  // include numbers
+  numbers?: boolean;
+  // include special characters (!@#$%&*)
+  special?: boolean;
+  // include uppercase letters
+  uppercase?: boolean;
 }
 
 export interface GenerateResponse {
