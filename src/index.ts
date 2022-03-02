@@ -36,6 +36,7 @@ import * as news from "./news";
 import * as nft from "./nft";
 import * as notes from "./notes";
 import * as otp from "./otp";
+import * as password from "./password";
 import * as ping from "./ping";
 import * as place from "./place";
 import * as postcode from "./postcode";
@@ -102,6 +103,7 @@ export class Client {
     this.nft = new nft.NftService(token);
     this.notes = new notes.NotesService(token);
     this.otp = new otp.OtpService(token);
+    this.password = new password.PasswordService(token);
     this.ping = new ping.PingService(token);
     this.place = new place.PlaceService(token);
     this.postcode = new postcode.PostcodeService(token);
@@ -167,6 +169,7 @@ export class Client {
   nft: nft.NftService;
   notes: notes.NotesService;
   otp: otp.OtpService;
+  password: password.PasswordService;
   ping: ping.PingService;
   place: place.PlaceService;
   postcode: postcode.PostcodeService;
@@ -234,6 +237,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     nft: new nft.NftService(token),
     notes: new notes.NotesService(token),
     otp: new otp.OtpService(token),
+    password: new password.PasswordService(token),
     ping: new ping.PingService(token),
     place: new place.PlaceService(token),
     postcode: new postcode.PostcodeService(token),
