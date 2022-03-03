@@ -119,13 +119,15 @@ export interface DeployRequest {
   name?: string;
   // region to deploy in. defaults to europe-west1
   region?: string;
-  // github url to repo
+  // github url for a repo
   repo?: string;
   // runtime/lanaguage of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
+  // inline source code
+  source?: string;
   // optional subfolder path
   subfolder?: string;
 }
@@ -167,6 +169,8 @@ export interface Func {
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
+  // the source code
+  source?: string;
   // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
   status?: string;
   // subfolder path to entrypoint
@@ -232,6 +236,8 @@ export interface RuntimesResponse {
 export interface UpdateRequest {
   // function name
   name?: string;
+  // inline source code
+  source?: string;
 }
 
 export interface UpdateResponse {}
