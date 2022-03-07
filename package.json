@@ -94,6 +94,6 @@
   "clean": "rimraf ./tmp",
   "prepare": "npm run build"
  },
- "types": "index.d.ts",
- "version": "1.0.1404"
+ "typings": "index.d.ts",
+ "version": "1.0.1405"
 }
