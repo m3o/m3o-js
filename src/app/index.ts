@@ -175,6 +175,8 @@ export interface StatusResponse {
 }
 
 export interface UpdateRequest {
+  // Additional env vars to update
+  env_vars?: { [key: string]: string };
   // name of the app
   name?: string;
 }
