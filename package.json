@@ -95,5 +95,5 @@
   "prepare": "npm run build"
  },
  "types": "index.d.ts",
- "version": "1.0.1403"
+ "version": "1.0.1404"
 }
