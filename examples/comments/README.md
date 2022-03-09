@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Comments/api](
 
 Endpoints:
 
+## Create
+
+Create a new comment
+
+
+[https://m3o.com/comments/api#Create](https://m3o.com/comments/api#Create)
+
+```js
+const { CommentsService } = require('m3o/comments');
+
+const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
+
+// Create a new comment
+async function createAcomment() {
+	const rsp = await commentsService.create({
+  "text": "This is my comment",
+  "title": "New Comment"
+})
+	console.log(rsp)
+	
+}
+
+createAcomment()
+```
 ## Read
 
 Read a comment
@@ -121,28 +145,4 @@ async function subscribeToEvents() {
 }
 
 subscribeToEvents()
-```
-## Create
-
-Create a new comment
-
-
-[https://m3o.com/comments/api#Create](https://m3o.com/comments/api#Create)
-
-```js
-const { CommentsService } = require('m3o/comments');
-
-const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
-
-// Create a new comment
-async function createAcomment() {
-	const rsp = await commentsService.create({
-  "text": "This is my comment",
-  "title": "New Comment"
-})
-	console.log(rsp)
-	
-}
-
-createAcomment()
 ```
