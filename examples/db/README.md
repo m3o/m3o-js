@@ -4,6 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
+## Delete
+
+Delete a record in the database by id.
+
+
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Delete a record in the database by id.
+async function deleteArecord() {
+	const rsp = await dbService.delete({
+  "id": "1",
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+deleteArecord()
+```
+## ListTables
+
+List tables in the DB
+
+
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// List tables in the DB
+async function listTables() {
+	const rsp = await dbService.listTables({})
+	console.log(rsp)
+	
+}
+
+listTables()
+```
 ## Create
 
 Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
@@ -32,6 +77,33 @@ async function createArecord() {
 }
 
 createArecord()
+```
+## Update
+
+Update a record in the database. Include an "id" in the record to update.
+
+
+[https://m3o.com/db/api#Update](https://m3o.com/db/api#Update)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Update a record in the database. Include an "id" in the record to update.
+async function updateArecord() {
+	const rsp = await dbService.update({
+  "record": {
+    "age": 43,
+    "id": "1"
+  },
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+updateArecord()
 ```
 ## Read
 
@@ -80,6 +152,29 @@ async function truncateTable() {
 
 truncateTable()
 ```
+## DropTable
+
+Drop a table in the DB
+
+
+[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Drop a table in the DB
+async function dropTable() {
+	const rsp = await dbService.dropTable({
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+dropTable()
+```
 ## Count
 
 Count records in a table
@@ -102,27 +197,6 @@ async function countEntriesInAtable() {
 }
 
 countEntriesInAtable()
-```
-## ListTables
-
-List tables in the DB
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// List tables in the DB
-async function listTables() {
-	const rsp = await dbService.listTables({})
-	console.log(rsp)
-	
-}
-
-listTables()
 ```
 ## RenameTable
 
@@ -147,78 +221,4 @@ async function renameTable() {
 }
 
 renameTable()
-```
-## Update
-
-Update a record in the database. Include an "id" in the record to update.
-
-
-[https://m3o.com/db/api#Update](https://m3o.com/db/api#Update)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Update a record in the database. Include an "id" in the record to update.
-async function updateArecord() {
-	const rsp = await dbService.update({
-  "record": {
-    "age": 43,
-    "id": "1"
-  },
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-updateArecord()
-```
-## Delete
-
-Delete a record in the database by id.
-
-
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Delete a record in the database by id.
-async function deleteArecord() {
-	const rsp = await dbService.delete({
-  "id": "1",
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-deleteArecord()
-```
-## DropTable
-
-Drop a table in the DB
-
-
-[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Drop a table in the DB
-async function dropTable() {
-	const rsp = await dbService.dropTable({
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-dropTable()
 ```
