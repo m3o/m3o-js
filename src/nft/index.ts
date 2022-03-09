@@ -6,7 +6,7 @@ export class NftService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Get a single asset by the contract
   asset(request: AssetRequest): Promise<AssetResponse> {
     return this.client.call("nft", "Asset", request) as Promise<AssetResponse>;
   }
@@ -18,7 +18,7 @@ export class NftService {
       request
     ) as Promise<AssetsResponse>;
   }
-  //
+  // Get a collection by its slug
   collection(request: CollectionRequest): Promise<CollectionResponse> {
     return this.client.call(
       "nft",
