@@ -89,9 +89,11 @@ export interface AssetResponse {
 export interface AssetsRequest {
   // limit to members of a collection by slug name (case sensitive)
   collection?: string;
+  // A cursor pointing to the page to retrieve
+  cursor?: string;
   // limit returned assets
   limit?: number;
-  // offset for pagination
+  // DEPRECATED offset for pagination, please use cursor instead
   offset?: number;
   // order "asc" or "desc"
   order?: string;
@@ -102,6 +104,10 @@ export interface AssetsRequest {
 export interface AssetsResponse {
   // list of assets
   assets?: Asset[];
+  // A cursor to be supplied to retrieve the next page of results
+  next?: string;
+  // A cursor to be supplied to retrieve the previous page of results
+  previous?: string;
 }
 
 export interface Collection {
