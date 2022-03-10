@@ -52,6 +52,30 @@ async function leaveAroom() {
 
 leaveAroom()
 ```
+## Create
+
+Create a new chat room
+
+
+[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Create a new chat room
+async function createAnewChat() {
+	const rsp = await chatService.create({
+  "description": "The general chat room",
+  "name": "general"
+})
+	console.log(rsp)
+	
+}
+
+createAnewChat()
+```
 ## List
 
 List available chats
@@ -120,55 +144,6 @@ async function inviteAuser() {
 
 inviteAuser()
 ```
-## Join
-
-Join a chat room
-
-
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Join a chat room
-async function joinAroom() {
-	const rsp = await chatService.join({
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-joinAroom()
-```
-## Create
-
-Create a new chat room
-
-
-[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Create a new chat room
-async function createAnewChat() {
-	const rsp = await chatService.create({
-  "description": "The general chat room",
-  "name": "general"
-})
-	console.log(rsp)
-	
-}
-
-createAnewChat()
-```
 ## Send
 
 Connect to a chat to receive a stream of messages
@@ -197,6 +172,31 @@ async function sendAmessage() {
 }
 
 sendAmessage()
+```
+## Join
+
+Join a chat room
+
+
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Join a chat room
+async function joinAroom() {
+	const rsp = await chatService.join({
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-2"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+joinAroom()
 ```
 ## History
 
