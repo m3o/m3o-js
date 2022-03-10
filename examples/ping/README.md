@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ping/api](http
 
 Endpoints:
 
+## Url
+
+Ping a HTTP URL
+
+
+[https://m3o.com/ping/api#Url](https://m3o.com/ping/api#Url)
+
+```js
+const { PingService } = require('m3o/ping');
+
+const pingService = new PingService(process.env.M3O_API_TOKEN)
+
+// Ping a HTTP URL
+async function checkAurl() {
+	const rsp = await pingService.url({
+  "address": "google.com"
+})
+	console.log(rsp)
+	
+}
+
+checkAurl()
+```
 ## Ip
 
 Ping an IP address
@@ -49,27 +72,4 @@ async function dialAtcpAddress() {
 }
 
 dialAtcpAddress()
-```
-## Url
-
-Ping a HTTP URL
-
-
-[https://m3o.com/ping/api#Url](https://m3o.com/ping/api#Url)
-
-```js
-const { PingService } = require('m3o/ping');
-
-const pingService = new PingService(process.env.M3O_API_TOKEN)
-
-// Ping a HTTP URL
-async function checkAurl() {
-	const rsp = await pingService.url({
-  "address": "google.com"
-})
-	console.log(rsp)
-	
-}
-
-checkAurl()
 ```
