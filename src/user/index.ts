@@ -31,6 +31,14 @@ export class UserService {
   login(request: LoginRequest): Promise<LoginResponse> {
     return this.client.call("user", "Login", request) as Promise<LoginResponse>;
   }
+  // Logout of all user's sessions
+  logoutAll(request: LogoutAllRequest): Promise<LogoutAllResponse> {
+    return this.client.call(
+      "user",
+      "LogoutAll",
+      request
+    ) as Promise<LogoutAllResponse>;
+  }
   // Logout a user account
   logout(request: LogoutRequest): Promise<LogoutResponse> {
     return this.client.call(
@@ -200,6 +208,13 @@ export interface LoginResponse {
   // The session of the logged in  user
   session?: { [key: string]: any };
 }
+
+export interface LogoutAllRequest {
+  // the user to logout
+  user_id?: string;
+}
+
+export interface LogoutAllResponse {}
 
 export interface LogoutRequest {
   // the session id for the user to logout
