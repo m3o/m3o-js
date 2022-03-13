@@ -4,6 +4,33 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Quran/api](htt
 
 Endpoints:
 
+## Verses
+
+Lookup the verses (ayahs) for a chapter including
+translation, interpretation and breakdown by individual
+words.
+
+
+[https://m3o.com/quran/api#Verses](https://m3o.com/quran/api#Verses)
+
+```js
+const { QuranService } = require('m3o/quran');
+
+const quranService = new QuranService(process.env.M3O_API_TOKEN)
+
+// Lookup the verses (ayahs) for a chapter including
+// translation, interpretation and breakdown by individual
+// words.
+async function getVersesOfAchapter() {
+	const rsp = await quranService.verses({
+  "chapter": 1
+})
+	console.log(rsp)
+	
+}
+
+getVersesOfAchapter()
+```
 ## Search
 
 Search the Quran for any form of query or questions
@@ -72,31 +99,4 @@ async function getChapterSummary() {
 }
 
 getChapterSummary()
-```
-## Verses
-
-Lookup the verses (ayahs) for a chapter including
-translation, interpretation and breakdown by individual
-words.
-
-
-[https://m3o.com/quran/api#Verses](https://m3o.com/quran/api#Verses)
-
-```js
-const { QuranService } = require('m3o/quran');
-
-const quranService = new QuranService(process.env.M3O_API_TOKEN)
-
-// Lookup the verses (ayahs) for a chapter including
-// translation, interpretation and breakdown by individual
-// words.
-async function getVersesOfAchapter() {
-	const rsp = await quranService.verses({
-  "chapter": 1
-})
-	console.log(rsp)
-	
-}
-
-getVersesOfAchapter()
 ```
