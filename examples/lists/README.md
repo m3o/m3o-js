@@ -4,6 +4,53 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Lists/api](htt
 
 Endpoints:
 
+## Delete
+
+Delete a list
+
+
+[https://m3o.com/lists/api#Delete](https://m3o.com/lists/api#Delete)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Delete a list
+async function deleteAlist() {
+	const rsp = await listsService.delete({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	console.log(rsp)
+	
+}
+
+deleteAlist()
+```
+## Events
+
+Subscribe to lists events
+
+
+[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Subscribe to lists events
+async function subscribeToEvents() {
+	const rsp = await listsService.events({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+subscribeToEvents()
+```
 ## Create
 
 Create a new list
@@ -98,51 +145,4 @@ async function updateAlist() {
 }
 
 updateAlist()
-```
-## Delete
-
-Delete a list
-
-
-[https://m3o.com/lists/api#Delete](https://m3o.com/lists/api#Delete)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Delete a list
-async function deleteAlist() {
-	const rsp = await listsService.delete({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	console.log(rsp)
-	
-}
-
-deleteAlist()
-```
-## Events
-
-Subscribe to lists events
-
-
-[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Subscribe to lists events
-async function subscribeToEvents() {
-	const rsp = await listsService.events({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-subscribeToEvents()
 ```
