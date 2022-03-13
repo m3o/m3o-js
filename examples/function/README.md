@@ -4,77 +4,26 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Update
+## List
 
-Update a function. Downloads the source, builds and redeploys
-
-
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Update a function. Downloads the source, builds and redeploys
-async function updateAfunction() {
-	const rsp = await functionService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAfunction()
-```
-## Call
-
-Call a function by name
+List all the deployed functions
 
 
-[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
+[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Call a function by name
-async function callAfunction() {
-	const rsp = await functionService.call({
-  "name": "helloworld",
-  "request": {
-    "name": "Alice"
-  }
-})
+// List all the deployed functions
+async function listFunctions() {
+	const rsp = await functionService.list({})
 	console.log(rsp)
 	
 }
 
-callAfunction()
-```
-## Delete
-
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAfunction()
+listFunctions()
 ```
 ## Describe
 
@@ -149,26 +98,77 @@ async function deployAfunction() {
 
 deployAfunction()
 ```
-## List
+## Update
 
-List all the deployed functions
+Update a function. Downloads the source, builds and redeploys
 
 
-[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// List all the deployed functions
-async function listFunctions() {
-	const rsp = await functionService.list({})
+// Update a function. Downloads the source, builds and redeploys
+async function updateAfunction() {
+	const rsp = await functionService.update({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listFunctions()
+updateAfunction()
+```
+## Call
+
+Call a function by name
+
+
+[https://m3o.com/function/api#Call](https://m3o.com/function/api#Call)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Call a function by name
+async function callAfunction() {
+	const rsp = await functionService.call({
+  "name": "helloworld",
+  "request": {
+    "name": "Alice"
+  }
+})
+	console.log(rsp)
+	
+}
+
+callAfunction()
+```
+## Delete
+
+Delete a function by name
+
+
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAfunction()
 ```
 ## Regions
 
