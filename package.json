@@ -20,6 +20,7 @@
   "answer",
   "app",
   "avatar",
+  "bitcoin",
   "cache",
   "carbon",
   "chat",
@@ -95,5 +96,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1451"
+ "version": "1.0.1452"
 }

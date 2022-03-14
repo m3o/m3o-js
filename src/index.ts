@@ -2,6 +2,7 @@ import * as address from "./address";
 import * as answer from "./answer";
 import * as app from "./app";
 import * as avatar from "./avatar";
+import * as bitcoin from "./bitcoin";
 import * as cache from "./cache";
 import * as carbon from "./carbon";
 import * as chat from "./chat";
@@ -69,6 +70,7 @@ export class Client {
     this.answer = new answer.AnswerService(token);
     this.app = new app.AppService(token);
     this.avatar = new avatar.AvatarService(token);
+    this.bitcoin = new bitcoin.BitcoinService(token);
     this.cache = new cache.CacheService(token);
     this.carbon = new carbon.CarbonService(token);
     this.chat = new chat.ChatService(token);
@@ -135,6 +137,7 @@ export class Client {
   answer: answer.AnswerService;
   app: app.AppService;
   avatar: avatar.AvatarService;
+  bitcoin: bitcoin.BitcoinService;
   cache: cache.CacheService;
   carbon: carbon.CarbonService;
   chat: chat.ChatService;
@@ -203,6 +206,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     answer: new answer.AnswerService(token),
     app: new app.AppService(token),
     avatar: new avatar.AvatarService(token),
+    bitcoin: new bitcoin.BitcoinService(token),
     cache: new cache.CacheService(token),
     carbon: new carbon.CarbonService(token),
     chat: new chat.ChatService(token),

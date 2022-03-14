@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
+## Read
+
+Read an object in space
+
+
+[https://m3o.com/space/api#Read](https://m3o.com/space/api#Read)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Read an object in space
+async function readAnObject() {
+	const rsp = await spaceService.read({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+readAnObject()
+```
 ## Download
 
 Download an object via a presigned url
@@ -168,27 +191,4 @@ async function headAnObject() {
 }
 
 headAnObject()
-```
-## Read
-
-Read an object in space
-
-
-[https://m3o.com/space/api#Read](https://m3o.com/space/api#Read)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Read an object in space
-async function readAnObject() {
-	const rsp = await spaceService.read({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-readAnObject()
 ```
