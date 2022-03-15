@@ -4,6 +4,55 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Currency/api](
 
 Endpoints:
 
+## Convert
+
+Convert returns the currency conversion rate between two pairs e.g USD/GBP
+
+
+[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
+
+```js
+const { CurrencyService } = require('m3o/currency');
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
+// Convert returns the currency conversion rate between two pairs e.g USD/GBP
+async function convertUsdToGbp() {
+	const rsp = await currencyService.convert({
+  "from": "USD",
+  "to": "GBP"
+})
+	console.log(rsp)
+	
+}
+
+convertUsdToGbp()
+```
+## Convert
+
+Convert returns the currency conversion rate between two pairs e.g USD/GBP
+
+
+[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
+
+```js
+const { CurrencyService } = require('m3o/currency');
+
+const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
+
+// Convert returns the currency conversion rate between two pairs e.g USD/GBP
+async function convert10usdToGbp() {
+	const rsp = await currencyService.convert({
+  "amount": 10,
+  "from": "USD",
+  "to": "GBP"
+})
+	console.log(rsp)
+	
+}
+
+convert10usdToGbp()
+```
 ## History
 
 Returns the historic rates for a currency on a given date
@@ -71,53 +120,4 @@ async function getRatesForUsd() {
 }
 
 getRatesForUsd()
-```
-## Convert
-
-Convert returns the currency conversion rate between two pairs e.g USD/GBP
-
-
-[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
-
-```js
-const { CurrencyService } = require('m3o/currency');
-
-const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-
-// Convert returns the currency conversion rate between two pairs e.g USD/GBP
-async function convertUsdToGbp() {
-	const rsp = await currencyService.convert({
-  "from": "USD",
-  "to": "GBP"
-})
-	console.log(rsp)
-	
-}
-
-convertUsdToGbp()
-```
-## Convert
-
-Convert returns the currency conversion rate between two pairs e.g USD/GBP
-
-
-[https://m3o.com/currency/api#Convert](https://m3o.com/currency/api#Convert)
-
-```js
-const { CurrencyService } = require('m3o/currency');
-
-const currencyService = new CurrencyService(process.env.M3O_API_TOKEN)
-
-// Convert returns the currency conversion rate between two pairs e.g USD/GBP
-async function convert10usdToGbp() {
-	const rsp = await currencyService.convert({
-  "amount": 10,
-  "from": "USD",
-  "to": "GBP"
-})
-	console.log(rsp)
-	
-}
-
-convert10usdToGbp()
 ```

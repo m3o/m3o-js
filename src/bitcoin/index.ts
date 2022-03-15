@@ -22,6 +22,8 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
+  // The price of bitcoin
   price?: number;
+  // The symbol of pricing e.g BTCUSD
   symbol?: string;
 }
