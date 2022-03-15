@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Crypto/api](ht
 
 Endpoints:
 
-## Symbols
-
-Returns the full list of supported symbols
-
-
-[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
-
-```js
-const { CryptoService } = require('m3o/crypto');
-
-const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
-
-// Returns the full list of supported symbols
-async function getListOfAllSupportedSymbols() {
-	const rsp = await cryptoService.symbols({})
-	console.log(rsp)
-	
-}
-
-getListOfAllSupportedSymbols()
-```
-## News
-
-Get news related to a currency
-
-
-[https://m3o.com/crypto/api#News](https://m3o.com/crypto/api#News)
-
-```js
-const { CryptoService } = require('m3o/crypto');
-
-const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
-
-// Get news related to a currency
-async function getCryptocurrencyNews() {
-	const rsp = await cryptoService.news({
-  "symbol": "BTCUSD"
-})
-	console.log(rsp)
-	
-}
-
-getCryptocurrencyNews()
-```
 ## Price
 
 Get the last price for a given crypto ticker
@@ -116,4 +72,48 @@ async function getPreviousClose() {
 }
 
 getPreviousClose()
+```
+## Symbols
+
+Returns the full list of supported symbols
+
+
+[https://m3o.com/crypto/api#Symbols](https://m3o.com/crypto/api#Symbols)
+
+```js
+const { CryptoService } = require('m3o/crypto');
+
+const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
+
+// Returns the full list of supported symbols
+async function getListOfAllSupportedSymbols() {
+	const rsp = await cryptoService.symbols({})
+	console.log(rsp)
+	
+}
+
+getListOfAllSupportedSymbols()
+```
+## News
+
+Get news related to a currency
+
+
+[https://m3o.com/crypto/api#News](https://m3o.com/crypto/api#News)
+
+```js
+const { CryptoService } = require('m3o/crypto');
+
+const cryptoService = new CryptoService(process.env.M3O_API_TOKEN)
+
+// Get news related to a currency
+async function getCryptocurrencyNews() {
+	const rsp = await cryptoService.news({
+  "symbol": "BTCUSD"
+})
+	console.log(rsp)
+	
+}
+
+getCryptocurrencyNews()
 ```
