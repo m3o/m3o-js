@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Convert returns the currency conversion rate between two pairs e.g USD/GBP
 async function main() {
   let rsp = await m3o.currency.convert({
     from: "USD",

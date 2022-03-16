@@ -1,7 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Connect to a chat to receive a stream of messages
-// Send a message to a chat
 async function main() {
   let rsp = await m3o.chat.send({
     client: "web",

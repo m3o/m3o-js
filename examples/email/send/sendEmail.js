@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Send an email by passing in from, to, subject, and a text or html body
 async function main() {
   let rsp = await m3o.email.send({
     from: "Awesome Dot Com",

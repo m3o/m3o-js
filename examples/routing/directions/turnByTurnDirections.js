@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Turn by turn directions from a start point to an end point including maneuvers and bearings
 async function main() {
   let rsp = await m3o.routing.directions({
     destination: {

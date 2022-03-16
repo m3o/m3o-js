@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
 async function main() {
   let rsp = await m3o.db.create({
     record: {

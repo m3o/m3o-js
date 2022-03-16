@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Search for movies by simple text search
 async function main() {
   let rsp = await m3o.movie.search({
     language: "en-US",

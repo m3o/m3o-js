@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Download an object via a presigned url
 async function main() {
   let rsp = await m3o.space.download({
     name: "images/file.jpg",

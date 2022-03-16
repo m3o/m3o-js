@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Generate a meme using a template
 async function main() {
   let rsp = await m3o.memegen.generate({
     bottom_text: "Huh?",

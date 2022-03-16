@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Find places nearby using a location
 async function main() {
   let rsp = await m3o.place.nearby({
     keyword: "tesco",

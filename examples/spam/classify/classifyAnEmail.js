@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Check whether an email is likely to be spam based on its attributes
 async function main() {
   let rsp = await m3o.spam.classify({
     from: "noreply@m3o.com",

@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Read a file by path
 async function main() {
   let rsp = await m3o.file.read({
     path: "/document/text-files/file.txt",

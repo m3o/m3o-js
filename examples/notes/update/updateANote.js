@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Update a note
 async function main() {
   let rsp = await m3o.notes.update({
     note: {

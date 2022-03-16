@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Read a session by the session id. In the event it has expired or is not found and error is returned.
 async function main() {
   let rsp = await m3o.user.readSession({
     sessionId: "df91a612-5b24-4634-99ff-240220ab8f55",

@@ -1,6 +1,5 @@
 const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
-// Get the latest news headlines
 async function main() {
   let rsp = await m3o.news.headlines({
     date: "2021-11-24",
