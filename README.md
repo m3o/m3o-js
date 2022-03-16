@@ -13,16 +13,15 @@ npm install m3o
 ## Usage
 
 ```js
-const { HelloworldService } = require("m3o/helloworld");
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Call returns a personalised "Hello $name" response
-async function callTheHelloworldService() {
-  let helloworldService = new HelloworldService(process.env.MICRO_API_TOKEN);
-  let rsp = await helloworldService.call({
+async function main() {
+  let rsp = await m3o.helloworld.call({
     name: "John",
   });
   console.log(rsp);
 }
 
-callTheHelloworldService();
+main();
 ```
