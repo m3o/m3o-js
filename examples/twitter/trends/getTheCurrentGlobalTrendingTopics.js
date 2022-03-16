@@ -1,12 +1,9 @@
-// npm install m3o
-const { TwitterService } = require("m3o/twitter");
-
-const twitterService = new TwitterService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get the current global trending topics
-async function getTheCurrentGlobalTrendingTopics() {
-  const rsp = await twitterService.trends({});
+async function main() {
+  let rsp = await m3o.twitter.trends({});
   console.log(rsp);
 }
 
-getTheCurrentGlobalTrendingTopics();
+main();

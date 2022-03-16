@@ -1,12 +1,9 @@
-// npm install m3o
-const { CommentsService } = require("m3o/comments");
-
-const commentsService = new CommentsService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // List all the comments
-async function listAllComments() {
-  const rsp = await commentsService.list({});
+async function main() {
+  let rsp = await m3o.comments.list({});
   console.log(rsp);
 }
 
-listAllComments();
+main();

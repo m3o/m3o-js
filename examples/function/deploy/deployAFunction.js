@@ -1,11 +1,8 @@
-// npm install m3o
-const { FunctionService } = require("m3o/function");
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Deploy a group of functions
-async function deployAfunction() {
-  const rsp = await functionService.deploy({
+async function main() {
+  let rsp = await m3o.function.deploy({
     branch: "main",
     entrypoint: "Helloworld",
     name: "helloworld",
@@ -17,4 +14,4 @@ async function deployAfunction() {
   console.log(rsp);
 }
 
-deployAfunction();
+main();

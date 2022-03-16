@@ -1,12 +1,9 @@
-// npm install m3o
-const { AppService } = require("m3o/app");
-
-const appService = new AppService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // List all the apps
-async function listTheApps() {
-  const rsp = await appService.list({});
+async function main() {
+  let rsp = await m3o.app.list({});
   console.log(rsp);
 }
 
-listTheApps();
+main();

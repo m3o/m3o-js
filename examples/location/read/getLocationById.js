@@ -1,14 +1,11 @@
-// npm install m3o
-const { LocationService } = require("m3o/location");
-
-const locationService = new LocationService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Read an entity by its ID
-async function getLocationById() {
-  const rsp = await locationService.read({
+async function main() {
+  let rsp = await m3o.location.read({
     id: "1",
   });
   console.log(rsp);
 }
 
-getLocationById();
+main();

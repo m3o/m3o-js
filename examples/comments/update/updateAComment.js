@@ -1,11 +1,8 @@
-// npm install m3o
-const { CommentsService } = require("m3o/comments");
-
-const commentsService = new CommentsService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Update a comment
-async function updateAcomment() {
-  const rsp = await commentsService.update({
+async function main() {
+  let rsp = await m3o.comments.update({
     comment: {
       id: "63c0cdf8-2121-11ec-a881-0242e36f037a",
       subject: "Update Comment",
@@ -15,4 +12,4 @@ async function updateAcomment() {
   console.log(rsp);
 }
 
-updateAcomment();
+main();

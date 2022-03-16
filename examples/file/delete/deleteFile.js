@@ -1,15 +1,12 @@
-// npm install m3o
-const { FileService } = require("m3o/file");
-
-const fileService = new FileService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Delete a file by project name/path
-async function deleteFile() {
-  const rsp = await fileService.delete({
+async function main() {
+  let rsp = await m3o.file.delete({
     path: "/document/text-files/file.txt",
     project: "examples",
   });
   console.log(rsp);
 }
 
-deleteFile();
+main();

@@ -1,11 +1,8 @@
-// npm install m3o
-const { AppService } = require("m3o/app");
-
-const appService = new AppService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Run an app from source
-async function runAnApp() {
-  const rsp = await appService.run({
+async function main() {
+  let rsp = await m3o.app.run({
     branch: "master",
     name: "helloworld",
     port: 8080,
@@ -15,4 +12,4 @@ async function runAnApp() {
   console.log(rsp);
 }
 
-runAnApp();
+main();

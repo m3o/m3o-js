@@ -1,14 +1,11 @@
-// npm install m3o
-const { GoogleService } = require("m3o/google");
-
-const googleService = new GoogleService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Search for videos on Google
-async function searchForVideos() {
-  const rsp = await googleService.search({
+async function main() {
+  let rsp = await m3o.google.search({
     query: "how to make donuts",
   });
   console.log(rsp);
 }
 
-searchForVideos();
+main();

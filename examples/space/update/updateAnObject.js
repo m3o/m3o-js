@@ -1,11 +1,8 @@
-// npm install m3o
-const { SpaceService } = require("m3o/space");
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Update an object. If an object with this name does not exist, creates a new one.
-async function updateAnObject() {
-  const rsp = await spaceService.update({
+async function main() {
+  let rsp = await m3o.space.update({
     name: "images/file.jpg",
     object: "\u003cfile bytes\u003e",
     visibility: "public",
@@ -13,4 +10,4 @@ async function updateAnObject() {
   console.log(rsp);
 }
 
-updateAnObject();
+main();

@@ -1,11 +1,8 @@
-// npm install m3o
-const { RoutingService } = require("m3o/routing");
-
-const routingService = new RoutingService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get the eta for a route from origin to destination. The eta is an estimated time based on car routes
-async function etaFromPointAtoPointB() {
-  const rsp = await routingService.eta({
+async function main() {
+  let rsp = await m3o.routing.eta({
     destination: {
       latitude: 52.529407,
       longitude: 13.397634,
@@ -18,4 +15,4 @@ async function etaFromPointAtoPointB() {
   console.log(rsp);
 }
 
-etaFromPointAtoPointB();
+main();

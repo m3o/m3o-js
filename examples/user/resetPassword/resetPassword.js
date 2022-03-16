@@ -1,11 +1,8 @@
-// npm install m3o
-const { UserService } = require("m3o/user");
-
-const userService = new UserService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Reset password with the code sent by the "SendPasswordResetEmail" endpoint.
-async function resetPassword() {
-  const rsp = await userService.resetPassword({
+async function main() {
+  let rsp = await m3o.user.resetPassword({
     code: "012345",
     confirmPassword: "NewPassword1",
     email: "joe@example.com",
@@ -14,4 +11,4 @@ async function resetPassword() {
   console.log(rsp);
 }
 
-resetPassword();
+main();

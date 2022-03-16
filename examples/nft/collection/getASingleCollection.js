@@ -1,14 +1,11 @@
-// npm install m3o
-const { NftService } = require("m3o/nft");
-
-const nftService = new NftService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get a collection by its slug
-async function getAsingleCollection() {
-  const rsp = await nftService.collection({
+async function main() {
+  let rsp = await m3o.nft.collection({
     slug: "doodles-official",
   });
   console.log(rsp);
 }
 
-getAsingleCollection();
+main();

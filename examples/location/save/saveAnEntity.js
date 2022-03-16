@@ -1,11 +1,8 @@
-// npm install m3o
-const { LocationService } = require("m3o/location");
-
-const locationService = new LocationService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Save an entity's current position
-async function saveAnEntity() {
-  const rsp = await locationService.save({
+async function main() {
+  let rsp = await m3o.location.save({
     entity: {
       id: "1",
       location: {
@@ -19,4 +16,4 @@ async function saveAnEntity() {
   console.log(rsp);
 }
 
-saveAnEntity();
+main();

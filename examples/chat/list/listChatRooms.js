@@ -1,12 +1,9 @@
-// npm install m3o
-const { ChatService } = require("m3o/chat");
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // List available chats
-async function listChatRooms() {
-  const rsp = await chatService.list({});
+async function main() {
+  let rsp = await m3o.chat.list({});
   console.log(rsp);
 }
 
-listChatRooms();
+main();

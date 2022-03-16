@@ -1,11 +1,8 @@
-// npm install m3o
-const { HelloworldService } = require("m3o/helloworld");
-
-const helloworldService = new HelloworldService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Stream returns a stream of "Hello $name" responses
-async function streamHelloworld() {
-  const rsp = await helloworldService.stream({
+async function main() {
+  let rsp = await m3o.helloworld.stream({
     messages: 10,
     name: "John",
   });
@@ -14,4 +11,4 @@ async function streamHelloworld() {
   });
 }
 
-streamHelloworld();
+main();

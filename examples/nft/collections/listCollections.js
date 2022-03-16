@@ -1,14 +1,11 @@
-// npm install m3o
-const { NftService } = require("m3o/nft");
-
-const nftService = new NftService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get a list of collections
-async function listCollections() {
-  const rsp = await nftService.collections({
+async function main() {
+  let rsp = await m3o.nft.collections({
     limit: 1,
   });
   console.log(rsp);
 }
 
-listCollections();
+main();

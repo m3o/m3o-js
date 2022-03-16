@@ -1,14 +1,11 @@
-// npm install m3o
-const { FunctionService } = require("m3o/function");
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get the info for a deployed function
-async function describeFunctionStatus() {
-  const rsp = await functionService.describe({
+async function main() {
+  let rsp = await m3o.function.describe({
     name: "helloworld",
   });
   console.log(rsp);
 }
 
-describeFunctionStatus();
+main();

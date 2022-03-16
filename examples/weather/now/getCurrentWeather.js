@@ -1,14 +1,11 @@
-// npm install m3o
-const { WeatherService } = require("m3o/weather");
-
-const weatherService = new WeatherService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get the current weather report for a location by postcode, city, zip code, ip address
-async function getCurrentWeather() {
-  const rsp = await weatherService.now({
+async function main() {
+  let rsp = await m3o.weather.now({
     location: "london",
   });
   console.log(rsp);
 }
 
-getCurrentWeather();
+main();

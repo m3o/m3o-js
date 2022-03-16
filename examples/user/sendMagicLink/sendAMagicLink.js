@@ -1,11 +1,8 @@
-// npm install m3o
-const { UserService } = require("m3o/user");
-
-const userService = new UserService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Login using email only - Passwordless
-async function sendAmagicLink() {
-  const rsp = await userService.sendMagicLink({
+async function main() {
+  let rsp = await m3o.user.sendMagicLink({
     address: "www.example.com",
     email: "joe@example.com",
     endpoint: "verifytoken",
@@ -17,4 +14,4 @@ async function sendAmagicLink() {
   console.log(rsp);
 }
 
-sendAmagicLink();
+main();

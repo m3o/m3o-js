@@ -1,11 +1,8 @@
-// npm install m3o
-const { RoutingService } = require("m3o/routing");
-
-const routingService = new RoutingService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Turn by turn directions from a start point to an end point including maneuvers and bearings
-async function turnByTurnDirections() {
-  const rsp = await routingService.directions({
+async function main() {
+  let rsp = await m3o.routing.directions({
     destination: {
       latitude: 52.529407,
       longitude: 13.397634,
@@ -18,4 +15,4 @@ async function turnByTurnDirections() {
   console.log(rsp);
 }
 
-turnByTurnDirections();
+main();

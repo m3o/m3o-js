@@ -1,12 +1,9 @@
-// npm install m3o
-const { PostcodeService } = require("m3o/postcode");
-
-const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Return a random postcode and its related info
-async function returnArandomPostcodeAndItsInformation() {
-  const rsp = await postcodeService.random({});
+async function main() {
+  let rsp = await m3o.postcode.random({});
   console.log(rsp);
 }
 
-returnArandomPostcodeAndItsInformation();
+main();

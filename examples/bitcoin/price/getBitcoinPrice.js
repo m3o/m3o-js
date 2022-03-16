@@ -1,14 +1,11 @@
-// npm install m3o
-const { BitcoinService } = require("m3o/bitcoin");
-
-const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get the price of bitcoin
-async function getBitcoinPrice() {
-  const rsp = await bitcoinService.price({
+async function main() {
+  let rsp = await m3o.bitcoin.price({
     symbol: "BTCUSD",
   });
   console.log(rsp);
 }
 
-getBitcoinPrice();
+main();

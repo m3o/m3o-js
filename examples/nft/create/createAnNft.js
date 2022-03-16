@@ -1,15 +1,12 @@
-// npm install m3o
-const { NftService } = require("m3o/nft");
-
-const nftService = new NftService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Create your own NFT (coming soon)
-async function createAnNft() {
-  const rsp = await nftService.create({
+async function main() {
+  let rsp = await m3o.nft.create({
     description: "The epic monkey island character",
     name: "Guybrush Threepwood",
   });
   console.log(rsp);
 }
 
-createAnNft();
+main();

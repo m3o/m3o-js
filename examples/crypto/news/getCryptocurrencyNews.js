@@ -1,14 +1,11 @@
-// npm install m3o
-const { CryptoService } = require("m3o/crypto");
-
-const cryptoService = new CryptoService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Get news related to a currency
-async function getCryptocurrencyNews() {
-  const rsp = await cryptoService.news({
+async function main() {
+  let rsp = await m3o.crypto.news({
     symbol: "BTCUSD",
   });
   console.log(rsp);
 }
 
-getCryptocurrencyNews();
+main();

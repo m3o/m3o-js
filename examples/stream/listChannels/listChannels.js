@@ -1,12 +1,9 @@
-// npm install m3o
-const { StreamService } = require("m3o/stream");
-
-const streamService = new StreamService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // List all the active channels
-async function listChannels() {
-  const rsp = await streamService.listChannels({});
+async function main() {
+  let rsp = await m3o.stream.listChannels({});
   console.log(rsp);
 }
 
-listChannels();
+main();

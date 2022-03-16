@@ -1,11 +1,8 @@
-// npm install m3o
-const { MqService } = require("m3o/mq");
-
-const mqService = new MqService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Publish a message. Specify a topic to group messages for a specific topic.
-async function publishAmessage() {
-  const rsp = await mqService.publish({
+async function main() {
+  let rsp = await m3o.mq.publish({
     message: {
       id: "1",
       type: "signup",
@@ -16,4 +13,4 @@ async function publishAmessage() {
   console.log(rsp);
 }
 
-publishAmessage();
+main();

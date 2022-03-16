@@ -1,14 +1,11 @@
-// npm install m3o
-const { SpaceService } = require("m3o/space");
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // List the objects in space
-async function listObjectsWithPrefix() {
-  const rsp = await spaceService.list({
+async function main() {
+  let rsp = await m3o.space.list({
     prefix: "images/",
   });
   console.log(rsp);
 }
 
-listObjectsWithPrefix();
+main();

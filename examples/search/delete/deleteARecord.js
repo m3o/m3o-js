@@ -1,15 +1,12 @@
-// npm install m3o
-const { SearchService } = require("m3o/search");
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Delete a record given its ID
-async function deleteArecord() {
-  const rsp = await searchService.delete({
+async function main() {
+  let rsp = await m3o.search.delete({
     id: "1234",
     index: "customers",
   });
   console.log(rsp);
 }
 
-deleteArecord();
+main();

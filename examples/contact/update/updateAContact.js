@@ -1,11 +1,8 @@
-// npm install m3o
-const { ContactService } = require("m3o/contact");
-
-const contactService = new ContactService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Update a contact
-async function updateAcontact() {
-  const rsp = await contactService.update({
+async function main() {
+  let rsp = await m3o.contact.update({
     addresses: [
       {
         label: "company address",
@@ -56,4 +53,4 @@ async function updateAcontact() {
   console.log(rsp);
 }
 
-updateAcontact();
+main();

@@ -1,15 +1,12 @@
-// npm install m3o
-const { DbService } = require("m3o/db");
-
-const dbService = new DbService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Rename a table
-async function renameTable() {
-  const rsp = await dbService.renameTable({
+async function main() {
+  let rsp = await m3o.db.renameTable({
     from: "examples2",
     to: "examples3",
   });
   console.log(rsp);
 }
 
-renameTable();
+main();

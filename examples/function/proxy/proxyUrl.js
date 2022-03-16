@@ -1,14 +1,11 @@
-// npm install m3o
-const { FunctionService } = require("m3o/function");
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN);
+const m3o = require("m3o")(process.env.M3O_API_TOKEN);
 
 // Return the backend url for proxying
-async function proxyUrl() {
-  const rsp = await functionService.proxy({
+async function main() {
+  let rsp = await m3o.function.proxy({
     id: "helloworld",
   });
   console.log(rsp);
 }
 
-proxyUrl();
+main();
