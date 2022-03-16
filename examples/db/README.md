@@ -60,49 +60,29 @@ async function updateArecord() {
 
 updateArecord()
 ```
-## Truncate
+## RenameTable
 
-Truncate the records in a table
+Rename a table
 
 
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Truncate the records in a table
-async function truncateTable() {
-	const rsp = await dbService.truncate({
-  "table": "example"
+// Rename a table
+async function renameTable() {
+	const rsp = await dbService.renameTable({
+  "from": "examples2",
+  "to": "examples3"
 })
 	console.log(rsp)
 	
 }
 
-truncateTable()
-```
-## ListTables
-
-List tables in the DB
-
-
-[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// List tables in the DB
-async function listTables() {
-	const rsp = await dbService.listTables({})
-	console.log(rsp)
-	
-}
-
-listTables()
+renameTable()
 ```
 ## Read
 
@@ -152,6 +132,29 @@ async function deleteArecord() {
 
 deleteArecord()
 ```
+## Truncate
+
+Truncate the records in a table
+
+
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Truncate the records in a table
+async function truncateTable() {
+	const rsp = await dbService.truncate({
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+truncateTable()
+```
 ## DropTable
 
 Drop a table in the DB
@@ -198,27 +201,24 @@ async function countEntriesInAtable() {
 
 countEntriesInAtable()
 ```
-## RenameTable
+## ListTables
 
-Rename a table
+List tables in the DB
 
 
-[https://m3o.com/db/api#RenameTable](https://m3o.com/db/api#RenameTable)
+[https://m3o.com/db/api#ListTables](https://m3o.com/db/api#ListTables)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Rename a table
-async function renameTable() {
-	const rsp = await dbService.renameTable({
-  "from": "examples2",
-  "to": "examples3"
-})
+// List tables in the DB
+async function listTables() {
+	const rsp = await dbService.listTables({})
 	console.log(rsp)
 	
 }
 
-renameTable()
+listTables()
 ```
