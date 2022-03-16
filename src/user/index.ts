@@ -87,12 +87,6 @@ export class UserService {
     ) as Promise<SendPasswordResetEmailResponse>;
   }
   // Send a verification email to a user.
-  // Email "from" will be 'noreply@email.m3ocontent.com'.
-  // The verification link will be injected in the email
-  // as a template variable, $micro_verification_link e.g
-  // 'Welcome to M3O! Use the link below to verify your email: $micro_verification_link'
-  // The variable will be replaced with a url similar to:
-  // 'https://user.m3o.com/user/verify?token=a-verification-token&redirectUrl=your-redir-url'
   sendVerificationEmail(
     request: SendVerificationEmailRequest
   ): Promise<SendVerificationEmailResponse> {
@@ -305,8 +299,7 @@ export interface SendVerificationEmailRequest {
   redirect_url?: string;
   // subject of the email
   subject?: string;
-  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-  // HTML emails are not available currently.
+  // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
   text_content?: string;
 }
 

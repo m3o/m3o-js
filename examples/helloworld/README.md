@@ -6,7 +6,7 @@ Endpoints:
 
 ## Call
 
-Call returns a personalised "Hello $name" response
+Return a personalised Hello message
 
 
 [https://m3o.com/helloworld/api#Call](https://m3o.com/helloworld/api#Call)
@@ -16,7 +16,7 @@ const { HelloworldService } = require('m3o/helloworld');
 
 const helloworldService = new HelloworldService(process.env.M3O_API_TOKEN)
 
-// Call returns a personalised "Hello $name" response
+// Return a personalised Hello message
 async function callHelloworld() {
 	const rsp = await helloworldService.call({
   "name": "John"
@@ -29,7 +29,7 @@ callHelloworld()
 ```
 ## Stream
 
-Stream returns a stream of "Hello $name" responses
+Stream a personalised Hello message
 
 
 [https://m3o.com/helloworld/api#Stream](https://m3o.com/helloworld/api#Stream)
@@ -39,7 +39,7 @@ const { HelloworldService } = require('m3o/helloworld');
 
 const helloworldService = new HelloworldService(process.env.M3O_API_TOKEN)
 
-// Stream returns a stream of "Hello $name" responses
+// Stream a personalised Hello message
 async function streamHelloworld() {
 	const rsp = await helloworldService.stream({
   "messages": 10,

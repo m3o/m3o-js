@@ -6,7 +6,7 @@ export class HelloworldService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Call returns a personalised "Hello $name" response
+  // Return a personalised Hello message
   call(request: CallRequest): Promise<CallResponse> {
     return this.client.call(
       "helloworld",
@@ -14,7 +14,7 @@ export class HelloworldService {
       request
     ) as Promise<CallResponse>;
   }
-  // Stream returns a stream of "Hello $name" responses
+  // Stream a personalised Hello message
   stream(
     request: StreamRequest
   ): Promise<m3o.Stream<StreamRequest, StreamResponse>> {
@@ -23,19 +23,23 @@ export class HelloworldService {
 }
 
 export interface CallRequest {
+  // name to append to the message e.g Alice
   name?: string;
 }
 
 export interface CallResponse {
+  // message including name e.g Hello Alice
   message?: string;
 }
 
 export interface StreamRequest {
   // the number of messages to send back
   messages?: number;
+  // name to append to the message e.g Alice
   name?: string;
 }
 
 export interface StreamResponse {
+  // message including name e.g Hello Alice
   message?: string;
 }
