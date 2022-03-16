@@ -1,4 +1,5 @@
 import * as address from "./address";
+import * as analytics from "./analytics";
 import * as answer from "./answer";
 import * as app from "./app";
 import * as avatar from "./avatar";
@@ -67,6 +68,7 @@ import * as youtube from "./youtube";
 export class Client {
   constructor(token: string) {
     this.address = new address.AddressService(token);
+    this.analytics = new analytics.AnalyticsService(token);
     this.answer = new answer.AnswerService(token);
     this.app = new app.AppService(token);
     this.avatar = new avatar.AvatarService(token);
@@ -134,6 +136,7 @@ export class Client {
   }
 
   address: address.AddressService;
+  analytics: analytics.AnalyticsService;
   answer: answer.AnswerService;
   app: app.AppService;
   avatar: avatar.AvatarService;
@@ -203,6 +206,7 @@ export class Client {
 export default (token = process.env.M3O_API_TOKEN as string) => {
   return {
     address: new address.AddressService(token),
+    analytics: new analytics.AnalyticsService(token),
     answer: new answer.AnswerService(token),
     app: new app.AppService(token),
     avatar: new avatar.AvatarService(token),

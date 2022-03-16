@@ -17,6 +17,7 @@
   "index.js",
   "index.d.ts",
   "address",
+  "analytics",
   "answer",
   "app",
   "avatar",
@@ -96,5 +97,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1461"
+ "version": "1.0.1462"
 }
