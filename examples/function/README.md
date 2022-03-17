@@ -59,29 +59,6 @@ async function callAfunction() {
 
 callAfunction()
 ```
-## Delete
-
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAfunction()
-```
 ## Describe
 
 Get the info for a deployed function
@@ -105,28 +82,26 @@ async function describeFunctionStatus() {
 
 describeFunctionStatus()
 ```
-## Reserve
+## Regions
 
-Reserve function names and resources beyond free quota
+Return a list of supported regions
 
 
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Reserve function names and resources beyond free quota
-async function reserveAfunction() {
-	const rsp = await functionService.reserve({
-  "name": "helloworld"
-})
+// Return a list of supported regions
+async function listRegions() {
+	const rsp = await functionService.regions({})
 	console.log(rsp)
 	
 }
 
-reserveAfunction()
+listRegions()
 ```
 ## Proxy
 
@@ -195,26 +170,51 @@ async function listFunctions() {
 
 listFunctions()
 ```
-## Regions
+## Delete
 
-Return a list of supported regions
+Delete a function by name
 
 
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return a list of supported regions
-async function listRegions() {
-	const rsp = await functionService.regions({})
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listRegions()
+deleteAfunction()
+```
+## Reserve
+
+Reserve function names and resources beyond free quota
+
+
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Reserve function names and resources beyond free quota
+async function reserveAfunction() {
+	const rsp = await functionService.reserve({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+reserveAfunction()
 ```
 ## Runtimes
 
