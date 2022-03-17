@@ -46,6 +46,14 @@ export class FunctionService {
       request
     ) as Promise<ListResponse>;
   }
+  // Get the logs for a function
+  logs(request: LogsRequest): Promise<LogsResponse> {
+    return this.client.call(
+      "function",
+      "Logs",
+      request
+    ) as Promise<LogsResponse>;
+  }
   // Return the backend url for proxying
   proxy(request: ProxyRequest): Promise<ProxyResponse> {
     return this.client.call(
@@ -186,6 +194,17 @@ export interface ListRequest {}
 export interface ListResponse {
   // List of functions deployed
   functions?: Func[];
+}
+
+export interface LogsRequest {
+  // type of logs to retrieve, currently supported options - "build"
+  logs_type?: string;
+  // the name of the function
+  name?: string;
+}
+
+export interface LogsResponse {
+  logs?: string;
 }
 
 export interface ProxyRequest {
