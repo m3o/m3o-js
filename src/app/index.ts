@@ -18,6 +18,10 @@ export class AppService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("app", "List", request) as Promise<ListResponse>;
   }
+  // Get the logs for an app
+  logs(request: LogsRequest): Promise<LogsResponse> {
+    return this.client.call("app", "Logs", request) as Promise<LogsResponse>;
+  }
   // Return the support regions
   regions(request: RegionsRequest): Promise<RegionsResponse> {
     return this.client.call(
@@ -76,6 +80,17 @@ export interface ListRequest {}
 export interface ListResponse {
   // all the apps
   services?: Service[];
+}
+
+export interface LogsRequest {
+  // type of logs to retrieve, currently supported options - "build"
+  logs_type?: string;
+  // name of the app
+  name?: string;
+}
+
+export interface LogsResponse {
+  logs?: string;
 }
 
 export interface RegionsRequest {}
