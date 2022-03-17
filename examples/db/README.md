@@ -28,28 +28,28 @@ async function deleteArecord() {
 
 deleteArecord()
 ```
-## Truncate
+## DropTable
 
-Truncate the records in a table
+Drop a table in the DB
 
 
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Truncate the records in a table
-async function truncateTable() {
-	const rsp = await dbService.truncate({
+// Drop a table in the DB
+async function dropTable() {
+	const rsp = await dbService.dropTable({
   "table": "example"
 })
 	console.log(rsp)
 	
 }
 
-truncateTable()
+dropTable()
 ```
 ## ListTables
 
@@ -176,28 +176,28 @@ async function readRecords() {
 
 readRecords()
 ```
-## DropTable
+## Truncate
 
-Drop a table in the DB
+Truncate the records in a table
 
 
-[https://m3o.com/db/api#DropTable](https://m3o.com/db/api#DropTable)
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Drop a table in the DB
-async function dropTable() {
-	const rsp = await dbService.dropTable({
+// Truncate the records in a table
+async function truncateTable() {
+	const rsp = await dbService.truncate({
   "table": "example"
 })
 	console.log(rsp)
 	
 }
 
-dropTable()
+truncateTable()
 ```
 ## Count
 
