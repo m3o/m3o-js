@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Space/api](htt
 
 Endpoints:
 
+## Download
+
+Download an object via a presigned url
+
+
+[https://m3o.com/space/api#Download](https://m3o.com/space/api#Download)
+
+```js
+const { SpaceService } = require('m3o/space');
+
+const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
+
+// Download an object via a presigned url
+async function downloadAnObject() {
+	const rsp = await spaceService.download({
+  "name": "images/file.jpg"
+})
+	console.log(rsp)
+	
+}
+
+downloadAnObject()
+```
 ## Upload
 
 Upload a large object (> 10MB). Returns a time limited presigned URL to be used for uploading the object
@@ -168,27 +191,4 @@ async function readAnObject() {
 }
 
 readAnObject()
-```
-## Download
-
-Download an object via a presigned url
-
-
-[https://m3o.com/space/api#Download](https://m3o.com/space/api#Download)
-
-```js
-const { SpaceService } = require('m3o/space');
-
-const spaceService = new SpaceService(process.env.M3O_API_TOKEN)
-
-// Download an object via a presigned url
-async function downloadAnObject() {
-	const rsp = await spaceService.download({
-  "name": "images/file.jpg"
-})
-	console.log(rsp)
-	
-}
-
-downloadAnObject()
 ```
