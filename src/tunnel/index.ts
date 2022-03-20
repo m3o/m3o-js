@@ -25,14 +25,14 @@ export interface SendRequest {
   params?: { [key: string]: string };
   // path to request e.g /news
   path?: string;
-  // full url e.g https://www.google.com/news
+  // alternatively specify a full url e.g https://www.google.com/news
   url?: string;
 }
 
 export interface SendResponse {
   // body of the response
   body?: string;
-  // headers to include e.g Content-Type: application/json
+  // headers included
   headers?: { [key: string]: string };
   // the status
   status?: string;
