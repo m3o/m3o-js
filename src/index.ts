@@ -58,6 +58,7 @@ import * as sunnah from "./sunnah";
 import * as thumbnail from "./thumbnail";
 import * as time from "./time";
 import * as translate from "./translate";
+import * as tunnel from "./tunnel";
 import * as twitter from "./twitter";
 import * as url from "./url";
 import * as user from "./user";
@@ -127,6 +128,7 @@ export class Client {
     this.thumbnail = new thumbnail.ThumbnailService(token);
     this.time = new time.TimeService(token);
     this.translate = new translate.TranslateService(token);
+    this.tunnel = new tunnel.TunnelService(token);
     this.twitter = new twitter.TwitterService(token);
     this.url = new url.UrlService(token);
     this.user = new user.UserService(token);
@@ -195,6 +197,7 @@ export class Client {
   thumbnail: thumbnail.ThumbnailService;
   time: time.TimeService;
   translate: translate.TranslateService;
+  tunnel: tunnel.TunnelService;
   twitter: twitter.TwitterService;
   url: url.UrlService;
   user: user.UserService;
@@ -265,6 +268,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     thumbnail: new thumbnail.ThumbnailService(token),
     time: new time.TimeService(token),
     translate: new translate.TranslateService(token),
+    tunnel: new tunnel.TunnelService(token),
     twitter: new twitter.TwitterService(token),
     url: new url.UrlService(token),
     user: new user.UserService(token),

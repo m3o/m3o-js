@@ -76,6 +76,7 @@
   "thumbnail",
   "time",
   "translate",
+  "tunnel",
   "twitter",
   "url",
   "user",
@@ -97,5 +98,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1487"
+ "version": "1.0.1488"
 }
