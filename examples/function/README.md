@@ -100,26 +100,28 @@ async function describeFunctionStatus() {
 
 describeFunctionStatus()
 ```
-## Regions
+## Proxy
 
-Return a list of supported regions
+Return the backend url for proxying
 
 
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return a list of supported regions
-async function listRegions() {
-	const rsp = await functionService.regions({})
+// Return the backend url for proxying
+async function proxyUrl() {
+	const rsp = await functionService.proxy({
+  "id": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listRegions()
+proxyUrl()
 ```
 ## Logs
 
@@ -194,6 +196,27 @@ async function deleteAfunction() {
 
 deleteAfunction()
 ```
+## Regions
+
+Return a list of supported regions
+
+
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return a list of supported regions
+async function listRegions() {
+	const rsp = await functionService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
 ## Reserve
 
 Reserve function names and resources beyond free quota
@@ -237,27 +260,4 @@ async function listRuntimes() {
 }
 
 listRuntimes()
-```
-## Proxy
-
-Return the backend url for proxying
-
-
-[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Return the backend url for proxying
-async function proxyUrl() {
-	const rsp = await functionService.proxy({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-proxyUrl()
 ```
