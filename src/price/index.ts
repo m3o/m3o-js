@@ -26,15 +26,27 @@ export class PriceService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("price", "List", request) as Promise<ListResponse>;
   }
+  // Report an invalid price
+  report(request: ReportRequest): Promise<ReportResponse> {
+    return this.client.call(
+      "price",
+      "Report",
+      request
+    ) as Promise<ReportResponse>;
+  }
 }
 
 export interface AddRequest {
+  // author of the price
+  author?: string;
   // currency e.g USD
   currency?: string;
   // name of the thing e.g bitcoin
   name?: string;
   // price of the thing e.g 10001.00
   price?: number;
+  // source of the price
+  source?: string;
   // symbol of value
   symbol?: string;
 }
@@ -84,13 +96,35 @@ export interface ListResponse {
   values?: Value[];
 }
 
+export interface Report {
+  author?: string;
+  comment?: string;
+  name?: string;
+  symbol?: string;
+}
+
+export interface ReportRequest {
+  // additional comment
+  comment?: string;
+  // name of value
+  name?: string;
+  // symbol of value
+  symbol?: string;
+}
+
+export interface ReportResponse {}
+
 export interface Value {
+  // who added it
+  author?: string;
   // currency of thing
   currency?: string;
   // name of thing
   name?: string;
   // price of thing
   price?: number;
+  // where it came from
+  source?: string;
   // symbol of value
   symbol?: string;
   // time it was added
