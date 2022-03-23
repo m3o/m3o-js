@@ -61,6 +61,7 @@
   "place",
   "postcode",
   "prayer",
+  "price",
   "qr",
   "quran",
   "routing",
@@ -98,5 +99,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1503"
+ "version": "1.0.1504"
 }

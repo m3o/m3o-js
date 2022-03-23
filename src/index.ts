@@ -43,6 +43,7 @@ import * as ping from "./ping";
 import * as place from "./place";
 import * as postcode from "./postcode";
 import * as prayer from "./prayer";
+import * as price from "./price";
 import * as qr from "./qr";
 import * as quran from "./quran";
 import * as routing from "./routing";
@@ -113,6 +114,7 @@ export class Client {
     this.place = new place.PlaceService(token);
     this.postcode = new postcode.PostcodeService(token);
     this.prayer = new prayer.PrayerService(token);
+    this.price = new price.PriceService(token);
     this.qr = new qr.QrService(token);
     this.quran = new quran.QuranService(token);
     this.routing = new routing.RoutingService(token);
@@ -182,6 +184,7 @@ export class Client {
   place: place.PlaceService;
   postcode: postcode.PostcodeService;
   prayer: prayer.PrayerService;
+  price: price.PriceService;
   qr: qr.QrService;
   quran: quran.QuranService;
   routing: routing.RoutingService;
@@ -253,6 +256,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     place: new place.PlaceService(token),
     postcode: new postcode.PostcodeService(token),
     prayer: new prayer.PrayerService(token),
+    price: new price.PriceService(token),
     qr: new qr.QrService(token),
     quran: new quran.QuranService(token),
     routing: new routing.RoutingService(token),

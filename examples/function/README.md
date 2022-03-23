@@ -4,58 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Deploy
-
-Deploy a group of functions
-
-
-[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Deploy a group of functions
-async function deployAfunction() {
-	const rsp = await functionService.deploy({
-  "branch": "main",
-  "entrypoint": "Helloworld",
-  "name": "helloworld",
-  "region": "europe-west1",
-  "repo": "https://github.com/m3o/m3o",
-  "runtime": "go116",
-  "subfolder": "examples/go-function"
-})
-	console.log(rsp)
-	
-}
-
-deployAfunction()
-```
-## Delete
-
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAfunction()
-```
 ## Reserve
 
 Reserve function names and resources beyond free quota
@@ -123,29 +71,34 @@ async function proxyUrl() {
 
 proxyUrl()
 ```
-## Logs
+## Deploy
 
-Get the logs for a function
+Deploy a group of functions
 
 
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Get the logs for a function
-async function retrieveBuildLogsForAfunction() {
-	const rsp = await functionService.logs({
-  "logs_type": "build",
-  "name": "helloworld"
+// Deploy a group of functions
+async function deployAfunction() {
+	const rsp = await functionService.deploy({
+  "branch": "main",
+  "entrypoint": "Helloworld",
+  "name": "helloworld",
+  "region": "europe-west1",
+  "repo": "https://github.com/m3o/m3o",
+  "runtime": "go116",
+  "subfolder": "examples/go-function"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAfunction()
+deployAfunction()
 ```
 ## Update
 
@@ -217,6 +170,50 @@ async function listFunctions() {
 
 listFunctions()
 ```
+## Regions
+
+Return a list of supported regions
+
+
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return a list of supported regions
+async function listRegions() {
+	const rsp = await functionService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
+## Delete
+
+Delete a function by name
+
+
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAfunction()
+```
 ## Describe
 
 Get the info for a deployed function
@@ -240,24 +237,27 @@ async function describeFunctionStatus() {
 
 describeFunctionStatus()
 ```
-## Regions
+## Logs
 
-Return a list of supported regions
+Get the logs for a function
 
 
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return a list of supported regions
-async function listRegions() {
-	const rsp = await functionService.regions({})
+// Get the logs for a function
+async function retrieveBuildLogsForAfunction() {
+	const rsp = await functionService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listRegions()
+retrieveBuildLogsForAfunction()
 ```
