@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Regions
-
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Return the support regions
-async function listRegions() {
-	const rsp = await appService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
-```
 ## Update
 
 Update the app. The latest source code will be downloaded, built and deployed.
@@ -48,28 +27,28 @@ async function updateAnApp() {
 
 updateAnApp()
 ```
-## Reserve
+## Delete
 
-Reserve apps beyond the free quota. Call Run after.
+Delete an app
 
 
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Reserve apps beyond the free quota. Call Run after.
-async function reserveAppName() {
-	const rsp = await appService.reserve({
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-reserveAppName()
+deleteAnApp()
 ```
 ## List
 
@@ -119,28 +98,26 @@ async function runAnApp() {
 
 runAnApp()
 ```
-## Status
+## Regions
 
-Get the status of an app
+Return the support regions
 
 
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Get the status of an app
-async function getTheStatusOfAnApp() {
-	const rsp = await appService.status({
-  "name": "helloworld"
-})
+// Return the support regions
+async function listRegions() {
+	const rsp = await appService.regions({})
 	console.log(rsp)
 	
 }
 
-getTheStatusOfAnApp()
+listRegions()
 ```
 ## Resolve
 
@@ -165,28 +142,51 @@ async function resolveAppById() {
 
 resolveAppById()
 ```
-## Delete
+## Reserve
 
-Delete an app
+Reserve apps beyond the free quota. Call Run after.
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
+// Reserve apps beyond the free quota. Call Run after.
+async function reserveAppName() {
+	const rsp = await appService.reserve({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAnApp()
+reserveAppName()
+```
+## Status
+
+Get the status of an app
+
+
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the status of an app
+async function getTheStatusOfAnApp() {
+	const rsp = await appService.status({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+getTheStatusOfAnApp()
 ```
 ## Logs
 
