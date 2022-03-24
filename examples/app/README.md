@@ -48,75 +48,6 @@ async function listTheApps() {
 
 listTheApps()
 ```
-## Status
-
-Get the status of an app
-
-
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get the status of an app
-async function getTheStatusOfAnApp() {
-	const rsp = await appService.status({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getTheStatusOfAnApp()
-```
-## Resolve
-
-Resolve an app by id to its raw backend endpoint
-
-
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Resolve an app by id to its raw backend endpoint
-async function resolveAppById() {
-	const rsp = await appService.resolve({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-resolveAppById()
-```
-## Delete
-
-Delete an app
-
-
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnApp()
-```
 ## Run
 
 Run an app from source
@@ -164,6 +95,75 @@ async function listRegions() {
 }
 
 listRegions()
+```
+## Status
+
+Get the status of an app
+
+
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the status of an app
+async function getTheStatusOfAnApp() {
+	const rsp = await appService.status({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+getTheStatusOfAnApp()
+```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnApp()
+```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Resolve an app by id to its raw backend endpoint
+async function resolveAppById() {
+	const rsp = await appService.resolve({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+resolveAppById()
 ```
 ## Update
 
