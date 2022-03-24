@@ -27,74 +27,6 @@ async function reserveAppName() {
 
 reserveAppName()
 ```
-## Regions
-
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Return the support regions
-async function listRegions() {
-	const rsp = await appService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
-```
-## Update
-
-Update the app. The latest source code will be downloaded, built and deployed.
-
-
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Update the app. The latest source code will be downloaded, built and deployed.
-async function updateAnApp() {
-	const rsp = await appService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAnApp()
-```
-## Logs
-
-Get the logs for an app
-
-
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-retrieveBuildLogsForAnApp()
-```
 ## List
 
 List all the apps
@@ -115,33 +47,6 @@ async function listTheApps() {
 }
 
 listTheApps()
-```
-## Run
-
-Run an app from source
-
-
-[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Run an app from source
-async function runAnApp() {
-	const rsp = await appService.run({
-  "branch": "master",
-  "name": "helloworld",
-  "port": 8080,
-  "region": "europe-west1",
-  "repo": "github.com/asim/helloworld"
-})
-	console.log(rsp)
-	
-}
-
-runAnApp()
 ```
 ## Status
 
@@ -211,4 +116,99 @@ async function deleteAnApp() {
 }
 
 deleteAnApp()
+```
+## Run
+
+Run an app from source
+
+
+[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Run an app from source
+async function runAnApp() {
+	const rsp = await appService.run({
+  "branch": "master",
+  "name": "helloworld",
+  "port": 8080,
+  "region": "europe-west1",
+  "repo": "github.com/asim/helloworld"
+})
+	console.log(rsp)
+	
+}
+
+runAnApp()
+```
+## Regions
+
+Return the support regions
+
+
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Return the support regions
+async function listRegions() {
+	const rsp = await appService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
+## Update
+
+Update the app. The latest source code will be downloaded, built and deployed.
+
+
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Update the app. The latest source code will be downloaded, built and deployed.
+async function updateAnApp() {
+	const rsp = await appService.update({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+updateAnApp()
+```
+## Logs
+
+Get the logs for an app
+
+
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+retrieveBuildLogsForAnApp()
 ```
