@@ -4,6 +4,27 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Price/api](htt
 
 Endpoints:
 
+## Index
+
+Get the index for available prices
+
+
+[https://m3o.com/price/api#Index](https://m3o.com/price/api#Index)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// Get the index for available prices
+async function getTheIndex() {
+	const rsp = await priceService.index({})
+	console.log(rsp)
+	
+}
+
+getTheIndex()
+```
 ## Report
 
 Report an invalid price
@@ -100,25 +121,4 @@ async function listPrices() {
 }
 
 listPrices()
-```
-## Index
-
-Get the index for available prices
-
-
-[https://m3o.com/price/api#Index](https://m3o.com/price/api#Index)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// Get the index for available prices
-async function getTheIndex() {
-	const rsp = await priceService.index({})
-	console.log(rsp)
-	
-}
-
-getTheIndex()
 ```
