@@ -69,7 +69,7 @@ export interface CreateRequest {
   // whether its a private room
   private?: boolean;
   // optional list of user ids
-  user_ids?: string;
+  user_ids?: string[];
 }
 
 export interface CreateResponse {
@@ -178,7 +178,7 @@ export interface Room {
   // whether its a private room
   private?: boolean;
   // list of users
-  user_ids?: string;
+  user_ids?: string[];
 }
 
 export interface SendRequest {

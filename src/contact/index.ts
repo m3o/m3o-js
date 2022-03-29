@@ -75,7 +75,7 @@ export interface ContactInfo {
   // the phone numbers
   phones?: Phone[];
   // the social media username
-  social_medias?: SocialMedia;
+  social_medias?: SocialMedia[];
   // update date string in RFC3339
   updated_at?: string;
 }
@@ -96,7 +96,7 @@ export interface CreateRequest {
   // optional, phone numbers
   phones?: Phone[];
   // optional, social media
-  social_medias?: SocialMedia;
+  social_medias?: SocialMedia[];
 }
 
 export interface CreateResponse {
@@ -175,7 +175,7 @@ export interface UpdateRequest {
   // optional, phone number
   phones?: Phone[];
   // optional, social media
-  social_medias?: SocialMedia;
+  social_medias?: SocialMedia[];
 }
 
 export interface UpdateResponse {

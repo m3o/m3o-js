@@ -159,34 +159,34 @@ export interface ReferenceDataRequest {}
 
 export interface ReferenceDataResponse {
   // The types of charger
-  charger_types?: ChargerType;
+  charger_types?: ChargerType[];
   // The types of checkin status
-  checkin_status_types?: CheckinStatusType;
+  checkin_status_types?: CheckinStatusType[];
   // The types of connection
-  connection_types?: ConnectionType;
+  connection_types?: ConnectionType[];
   // The countries
   countries?: Country[];
   // The types of current
-  current_types?: CurrentType;
+  current_types?: CurrentType[];
   // The providers of the charger data
-  data_providers?: DataProvider;
+  data_providers?: DataProvider[];
   // The companies operating the chargers
   operators?: Operator[];
   // The status of the charger
-  status_types?: StatusType;
+  status_types?: StatusType[];
   // The status of a submission
-  submission_status_types?: SubmissionStatusType;
+  submission_status_types?: SubmissionStatusType[];
   // The different types of usage
-  usage_types?: UsageType;
+  usage_types?: UsageType[];
   // The types of user comment
-  user_comment_types?: UserCommentType;
+  user_comment_types?: UserCommentType[];
 }
 
 export interface SearchRequest {
   // Bounding box to search within (top left and bottom right coordinates)
   box?: BoundingBox;
   // IDs of the connection type
-  connection_types?: string;
+  connection_types?: string[];
   // Country ID
   country_id?: string;
   // Search distance from point in metres, defaults to 5000m
@@ -202,7 +202,7 @@ export interface SearchRequest {
   // IDs of the the EV charger operator
   operators?: string[];
   // Usage of the charge point (is it public, membership required, etc)
-  usage_types?: string;
+  usage_types?: string[];
 }
 
 export interface SearchResponse {

@@ -158,7 +158,7 @@ export interface Service {
   // time of creation
   created?: string;
   // custom domains
-  custom_domains?: string;
+  custom_domains?: string[];
   // associated env vars
   env_vars?: { [key: string]: string };
   // unique id

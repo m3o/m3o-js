@@ -126,11 +126,11 @@ export interface Collection {
   // name of the collection
   name?: string;
   // the payment tokens accepted for this collection
-  payment_tokens?: Token;
+  payment_tokens?: Token[];
   // payout address for the collection's royalties
   payout_address?: string;
   // a list of the contracts associated with this collection
-  primary_asset_contracts?: Contract;
+  primary_asset_contracts?: Contract[];
   // the collection's approval status on OpenSea
   safelist_request_status?: string;
   // the fees that get paid out when a sale is made

@@ -59,7 +59,7 @@ export interface Result {
   // open now
   open_now?: boolean;
   // opening hours
-  opening_hours?: string;
+  opening_hours?: string[];
   // rating from 1.0 to 5.0
   rating?: number;
   // type of location
