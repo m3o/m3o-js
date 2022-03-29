@@ -4,6 +4,53 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Nft/api](https
 
 Endpoints:
 
+## Collection
+
+Get a collection by its slug
+
+
+[https://m3o.com/nft/api#Collection](https://m3o.com/nft/api#Collection)
+
+```js
+const { NftService } = require('m3o/nft');
+
+const nftService = new NftService(process.env.M3O_API_TOKEN)
+
+// Get a collection by its slug
+async function getAsingleCollection() {
+	const rsp = await nftService.collection({
+  "slug": "doodles-official"
+})
+	console.log(rsp)
+	
+}
+
+getAsingleCollection()
+```
+## Assets
+
+Return a list of assets
+
+
+[https://m3o.com/nft/api#Assets](https://m3o.com/nft/api#Assets)
+
+```js
+const { NftService } = require('m3o/nft');
+
+const nftService = new NftService(process.env.M3O_API_TOKEN)
+
+// Return a list of assets
+async function getAlistOfAssets() {
+	const rsp = await nftService.assets({
+  "limit": 1,
+  "order_by": "sale_date"
+})
+	console.log(rsp)
+	
+}
+
+getAlistOfAssets()
+```
 ## Create
 
 Create your own NFT (coming soon)
@@ -74,51 +121,4 @@ async function getAsingleAsset() {
 }
 
 getAsingleAsset()
-```
-## Collection
-
-Get a collection by its slug
-
-
-[https://m3o.com/nft/api#Collection](https://m3o.com/nft/api#Collection)
-
-```js
-const { NftService } = require('m3o/nft');
-
-const nftService = new NftService(process.env.M3O_API_TOKEN)
-
-// Get a collection by its slug
-async function getAsingleCollection() {
-	const rsp = await nftService.collection({
-  "slug": "doodles-official"
-})
-	console.log(rsp)
-	
-}
-
-getAsingleCollection()
-```
-## Assets
-
-Return a list of assets
-
-
-[https://m3o.com/nft/api#Assets](https://m3o.com/nft/api#Assets)
-
-```js
-const { NftService } = require('m3o/nft');
-
-const nftService = new NftService(process.env.M3O_API_TOKEN)
-
-// Return a list of assets
-async function getAlistOfAssets() {
-	const rsp = await nftService.assets({
-  "limit": 1,
-  "order_by": "sale_date"
-})
-	console.log(rsp)
-	
-}
-
-getAlistOfAssets()
 ```
