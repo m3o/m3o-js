@@ -4,26 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## List
+## Reserve
 
-List all the apps
+Reserve apps beyond the free quota. Call Run after.
 
 
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// List all the apps
-async function listTheApps() {
-	const rsp = await appService.list({})
+// Reserve apps beyond the free quota. Call Run after.
+async function reserveAppName() {
+	const rsp = await appService.reserve({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listTheApps()
+reserveAppName()
 ```
 ## Run
 
@@ -73,6 +75,29 @@ async function listRegions() {
 
 listRegions()
 ```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Resolve an app by id to its raw backend endpoint
+async function resolveAppById() {
+	const rsp = await appService.resolve({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+resolveAppById()
+```
 ## Logs
 
 Get the logs for an app
@@ -97,28 +122,26 @@ async function retrieveBuildLogsForAnApp() {
 
 retrieveBuildLogsForAnApp()
 ```
-## Reserve
+## List
 
-Reserve apps beyond the free quota. Call Run after.
+List all the apps
 
 
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Reserve apps beyond the free quota. Call Run after.
-async function reserveAppName() {
-	const rsp = await appService.reserve({
-  "name": "helloworld"
-})
+// List all the apps
+async function listTheApps() {
+	const rsp = await appService.list({})
 	console.log(rsp)
 	
 }
 
-reserveAppName()
+listTheApps()
 ```
 ## Status
 
@@ -142,29 +165,6 @@ async function getTheStatusOfAnApp() {
 }
 
 getTheStatusOfAnApp()
-```
-## Resolve
-
-Resolve an app by id to its raw backend endpoint
-
-
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Resolve an app by id to its raw backend endpoint
-async function resolveAppById() {
-	const rsp = await appService.resolve({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-resolveAppById()
 ```
 ## Update
 
