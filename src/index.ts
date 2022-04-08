@@ -12,6 +12,7 @@ import * as contact from "./contact";
 import * as crypto from "./crypto";
 import * as currency from "./currency";
 import * as db from "./db";
+import * as dns from "./dns";
 import * as email from "./email";
 import * as emoji from "./emoji";
 import * as evchargers from "./evchargers";
@@ -83,6 +84,7 @@ export class Client {
     this.crypto = new crypto.CryptoService(token);
     this.currency = new currency.CurrencyService(token);
     this.db = new db.DbService(token);
+    this.dns = new dns.DnsService(token);
     this.email = new email.EmailService(token);
     this.emoji = new emoji.EmojiService(token);
     this.evchargers = new evchargers.EvchargersService(token);
@@ -153,6 +155,7 @@ export class Client {
   crypto: crypto.CryptoService;
   currency: currency.CurrencyService;
   db: db.DbService;
+  dns: dns.DnsService;
   email: email.EmailService;
   emoji: emoji.EmojiService;
   evchargers: evchargers.EvchargersService;
@@ -225,6 +228,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     crypto: new crypto.CryptoService(token),
     currency: new currency.CurrencyService(token),
     db: new db.DbService(token),
+    dns: new dns.DnsService(token),
     email: new email.EmailService(token),
     emoji: new emoji.EmojiService(token),
     evchargers: new evchargers.EvchargersService(token),
