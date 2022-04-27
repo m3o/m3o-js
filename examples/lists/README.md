@@ -4,53 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Lists/api](htt
 
 Endpoints:
 
-## Create
-
-Create a new list
-
-
-[https://m3o.com/lists/api#Create](https://m3o.com/lists/api#Create)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Create a new list
-async function createAlist() {
-	const rsp = await listsService.create({
-  "text": "This is my list",
-  "title": "New List"
-})
-	console.log(rsp)
-	
-}
-
-createAlist()
-```
-## Read
-
-Read a list
-
-
-[https://m3o.com/lists/api#Read](https://m3o.com/lists/api#Read)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Read a list
-async function readAlist() {
-	const rsp = await listsService.read({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	console.log(rsp)
-	
-}
-
-readAlist()
-```
 ## List
 
 List all the lists
@@ -145,4 +98,51 @@ async function subscribeToEvents() {
 }
 
 subscribeToEvents()
+```
+## Create
+
+Create a new list
+
+
+[https://m3o.com/lists/api#Create](https://m3o.com/lists/api#Create)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Create a new list
+async function createAlist() {
+	const rsp = await listsService.create({
+  "text": "This is my list",
+  "title": "New List"
+})
+	console.log(rsp)
+	
+}
+
+createAlist()
+```
+## Read
+
+Read a list
+
+
+[https://m3o.com/lists/api#Read](https://m3o.com/lists/api#Read)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Read a list
+async function readAlist() {
+	const rsp = await listsService.read({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	console.log(rsp)
+	
+}
+
+readAlist()
 ```
