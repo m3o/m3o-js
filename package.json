@@ -84,6 +84,7 @@
   "user",
   "vehicle",
   "weather",
+  "wordle",
   "youtube"
  ],
  "license": "ISC",
@@ -100,5 +101,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1550"
+ "version": "1.0.1551"
 }

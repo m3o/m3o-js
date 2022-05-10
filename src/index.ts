@@ -66,6 +66,7 @@ import * as url from "./url";
 import * as user from "./user";
 import * as vehicle from "./vehicle";
 import * as weather from "./weather";
+import * as wordle from "./wordle";
 import * as youtube from "./youtube";
 
 export class Client {
@@ -138,6 +139,7 @@ export class Client {
     this.user = new user.UserService(token);
     this.vehicle = new vehicle.VehicleService(token);
     this.weather = new weather.WeatherService(token);
+    this.wordle = new wordle.WordleService(token);
     this.youtube = new youtube.YoutubeService(token);
   }
 
@@ -209,6 +211,7 @@ export class Client {
   user: user.UserService;
   vehicle: vehicle.VehicleService;
   weather: weather.WeatherService;
+  wordle: wordle.WordleService;
   youtube: youtube.YoutubeService;
 }
 
@@ -282,6 +285,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     user: new user.UserService(token),
     vehicle: new vehicle.VehicleService(token),
     weather: new weather.WeatherService(token),
+    wordle: new wordle.WordleService(token),
     youtube: new youtube.YoutubeService(token),
   };
 };
