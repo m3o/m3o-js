@@ -1,28 +1,63 @@
-name: Test Clients
+name: Build TS Clients and Examples
 on:
-  push:
-    branches:
-      - main
-      - beta
-      - ci
+  repository_dispatch:
+    types: [build_publish_ts]
 
 jobs:
   generate:
-    name: Test Clients
+    name: build TS clients and examples
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
+      - name: Check m3o-js repo
+        uses: actions/checkout@v3
         with:
-          path: clients
-          #ref: main
+          path: m3o-js
 
-      - name: Test
-        working-directory: clients
-        env:
-          M3O_API_TOKEN: ${{ secrets.M3O_API_TOKEN }}
+      - name: Check micro/services repo
+        uses: actions/checkout@v3
+        with:
+          repository: 'micro/services'
+          path: services
+
+      - name: Generate m3o-js clients
+        uses: m3o/m3o-generator-action@main
+        with:
+          target: 'ts'
+          services_path: services
+
+      - name: Adjust generated things before pushing
+        working-directory: services
+        
         run: |
-          cd examples/helloworld/call
-          npm init -y
-          npm install --save m3o
-          node callTheHelloworldService.js
+          # sync the clients to m3o-js/
+          rsync -avz clients/ts/ ../m3o-js/
+          # sync the examples to m3o-js/examples
+          rsync -avz examples/js/ ../m3o-js/examples/
+
+      - name: update version number
+        working-directory: m3o-js
+        run: |
+          oldver=$(cat package.json | grep version | head -1) 
+          patch=$(echo $oldver | awk -F. '{ print $3}' | sed 's/"//g')
+          newpatch=$(($patch+1))\" 
+          seg1=$(echo $oldver | awk -F. '{ print $1}') 
+          seg2=$(echo $oldver | awk -F. '{ print $2}') 
+          newver="$seg1.$seg2.$newpatch" 
+          sed -i "s/$oldver/$newver/" package.json
+          echo "old $oldver"
+          echo "new $newver"
+          cat package.json
+
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v9.0.0
+        with:
+          cwd: m3o-js
+          message: Push to M3O-JS repo
+          pathspec_error_handling: exitImmediately
+
+      - name: Publish m3o-js clients
+        uses: m3o/m3o-publish-ts-action@main
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      
