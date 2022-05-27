@@ -34,14 +34,14 @@ export interface TextRequest {
 
 export interface TextResponse {
   // The translated text
-  translation?: { [key: string]: any };
+  translation?: Translation;
 }
 
 export interface Translation {
-  // The model used in translation
-  model?: string;
   // The source of the query string
   source?: string;
   // The translation result
   text?: string;
+  // The model used in translation
+  model?: string;
 }

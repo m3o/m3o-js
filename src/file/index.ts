@@ -38,13 +38,13 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface ListRequest {
+  // Project, required for listing.
+  project?: string;
   // Defaults to '/', ie. lists all files in a project.
   // Supply path to a folder if you want to list
   // files inside that folder
   // eg. '/docs'
   path?: string;
-  // Project, required for listing.
-  project?: string;
 }
 
 export interface ListResponse {

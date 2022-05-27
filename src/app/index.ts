@@ -119,7 +119,7 @@ export interface ReserveRequest {
 
 export interface ReserveResponse {
   // The app reservation
-  reservation?: { [key: string]: any };
+  reservation?: Reservation;
 }
 
 export interface ResolveRequest {
@@ -133,50 +133,50 @@ export interface ResolveResponse {
 }
 
 export interface RunRequest {
-  // branch. defaults to master
-  branch?: string;
-  // associated env vars to pass in
-  env_vars?: { [key: string]: string };
-  // name of the app
-  name?: string;
   // port to run on
   port?: number;
   // region to run in
   region?: string;
   // source repository
   repo?: string;
+  // branch. defaults to master
+  branch?: string;
+  // associated env vars to pass in
+  env_vars?: { [key: string]: string };
+  // name of the app
+  name?: string;
 }
 
 export interface RunResponse {
   // The running service
-  service?: { [key: string]: any };
+  service?: Service;
 }
 
 export interface Service {
+  // port running on
+  port?: number;
+  // status of the app
+  status?: string;
+  // app url
+  url?: string;
   // branch of code
   branch?: string;
   // time of creation
   created?: string;
-  // custom domains
-  custom_domains?: string[];
   // associated env vars
   env_vars?: { [key: string]: string };
   // unique id
   id?: string;
+  // last updated
+  updated?: string;
+  // custom domains
+  custom_domains?: string[];
   // name of the app
   name?: string;
-  // port running on
-  port?: number;
   // region running in
   region?: string;
   // source repository
   repo?: string;
-  // status of the app
-  status?: string;
-  // last updated
-  updated?: string;
-  // app url
-  url?: string;
 }
 
 export interface StatusRequest {
@@ -186,7 +186,7 @@ export interface StatusRequest {
 
 export interface StatusResponse {
   // running service info
-  service?: { [key: string]: any };
+  service?: Service;
 }
 
 export interface UpdateRequest {

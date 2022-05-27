@@ -42,10 +42,6 @@ export interface AddRequest {
 export interface AddResponse {}
 
 export interface Entry {
-  // article content
-  content?: string;
-  // data of the entry
-  date?: string;
   // the rss feed where it came from
   feed?: string;
   // unique id of the entry
@@ -56,6 +52,10 @@ export interface Entry {
   summary?: string;
   // title of the entry
   title?: string;
+  // article content
+  content?: string;
+  // data of the entry
+  date?: string;
 }
 
 export interface Feed {

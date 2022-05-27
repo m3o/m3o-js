@@ -81,12 +81,12 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // The rate for the day as code:rate
+  rates?: { [key: string]: number };
   // The code of the request
   code?: string;
   // The date requested
   date?: string;
-  // The rate for the day as code:rate
-  rates?: { [key: string]: number };
 }
 
 export interface RatesRequest {

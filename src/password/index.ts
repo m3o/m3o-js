@@ -17,16 +17,16 @@ export class PasswordService {
 }
 
 export interface GenerateRequest {
+  // include special characters (!@#$%&*)
+  special?: boolean;
+  // include uppercase letters
+  uppercase?: boolean;
   // password length; defaults to 8 chars
   length?: number;
   // include lowercase letters
   lowercase?: boolean;
   // include numbers
   numbers?: boolean;
-  // include special characters (!@#$%&*)
-  special?: boolean;
-  // include uppercase letters
-  uppercase?: boolean;
 }
 
 export interface GenerateResponse {

@@ -38,6 +38,8 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
+  // e.g St James's
+  ward?: string;
   // country e.g United Kingdom
   country?: string;
   // e.g Westminster
@@ -50,13 +52,13 @@ export interface LookupResponse {
   postcode?: string;
   // related region e.g London
   region?: string;
-  // e.g St James's
-  ward?: string;
 }
 
 export interface RandomRequest {}
 
 export interface RandomResponse {
+  // e.g St James's
+  ward?: string;
   // country e.g United Kingdom
   country?: string;
   // e.g Westminster
@@ -69,8 +71,6 @@ export interface RandomResponse {
   postcode?: string;
   // related region e.g London
   region?: string;
-  // e.g St James's
-  ward?: string;
 }
 
 export interface ValidateRequest {

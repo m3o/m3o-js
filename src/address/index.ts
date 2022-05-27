@@ -30,24 +30,24 @@ export interface LookupPostcodeResponse {
 export interface Record {
   // building name
   building_name?: string;
-  // the county
-  county?: string;
   // line one of address
   line_one?: string;
-  // line two of address
-  line_two?: string;
-  // dependent locality
-  locality?: string;
   // organisation if present
   organisation?: string;
   // the postcode
   postcode?: string;
+  // post town
+  town?: string;
+  // the complete address
+  summary?: string;
+  // the county
+  county?: string;
+  // line two of address
+  line_two?: string;
+  // dependent locality
+  locality?: string;
   // the premise
   premise?: string;
   // street name
   street?: string;
-  // the complete address
-  summary?: string;
-  // post town
-  town?: string;
 }

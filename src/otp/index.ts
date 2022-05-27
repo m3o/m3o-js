@@ -25,12 +25,12 @@ export class OtpService {
 }
 
 export interface GenerateRequest {
+  // number of characters (default: 6)
+  size?: number;
   // expiration in seconds (default: 60)
   expiry?: number;
   // unique id, email or user to generate an OTP for
   id?: string;
-  // number of characters (default: 6)
-  size?: number;
 }
 
 export interface GenerateResponse {

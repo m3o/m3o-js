@@ -34,30 +34,30 @@ export interface PrayerTime {
 }
 
 export interface TimesRequest {
+  // location to retrieve prayer times for.
+  // this can be a specific address, city, etc
+  location?: string;
+  // optional longitude used in place of location
+  longitude?: number;
   // optional date in YYYY-MM-DD format, otherwise uses today
   date?: string;
   // number of days to request times for
   days?: number;
   // optional latitude used in place of location
   latitude?: number;
-  // location to retrieve prayer times for.
-  // this can be a specific address, city, etc
-  location?: string;
-  // optional longitude used in place of location
-  longitude?: number;
 }
 
 export interface TimesResponse {
-  // date of request
-  date?: string;
-  // number of days
-  days?: number;
-  // latitude of location
-  latitude?: number;
   // location for the request
   location?: string;
   // longitude of location
   longitude?: number;
   // prayer times for the given location
   times?: PrayerTime[];
+  // date of request
+  date?: string;
+  // number of days
+  days?: number;
+  // latitude of location
+  latitude?: number;
 }

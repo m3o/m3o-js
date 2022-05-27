@@ -76,7 +76,7 @@ export interface CreateRequest {
 
 export interface CreateResponse {
   // The created comment
-  comment?: { [key: string]: any };
+  comment?: Comment;
 }
 
 export interface DeleteRequest {
@@ -85,7 +85,7 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  comment?: { [key: string]: any };
+  comment?: Comment;
 }
 
 export interface EventsRequest {
@@ -95,7 +95,7 @@ export interface EventsRequest {
 
 export interface EventsResponse {
   // the comment which the operation occured on
-  comment?: { [key: string]: any };
+  comment?: Comment;
   // the event which occured; create, delete, update
   event?: string;
 }
@@ -114,13 +114,13 @@ export interface ReadRequest {
 
 export interface ReadResponse {
   // The comment
-  comment?: { [key: string]: any };
+  comment?: Comment;
 }
 
 export interface UpdateRequest {
-  comment?: { [key: string]: any };
+  comment?: Comment;
 }
 
 export interface UpdateResponse {
-  comment?: { [key: string]: any };
+  comment?: Comment;
 }

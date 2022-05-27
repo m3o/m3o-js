@@ -33,9 +33,9 @@ export class LocationService {
 }
 
 export interface Entity {
+  type?: string;
   id?: string;
   location?: Point;
-  type?: string;
 }
 
 export interface Point {
@@ -50,11 +50,11 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  entity?: { [key: string]: any };
+  entity?: Entity;
 }
 
 export interface SaveRequest {
-  entity?: { [key: string]: any };
+  entity?: Entity;
 }
 
 export interface SaveResponse {}

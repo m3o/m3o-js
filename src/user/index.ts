@@ -136,6 +136,10 @@ export class UserService {
 }
 
 export interface Account {
+  // date of verification
+  verification_date?: number;
+  // if the account is verified
+  verified?: boolean;
   // unix timestamp
   created?: number;
   // an email address
@@ -148,10 +152,6 @@ export interface Account {
   updated?: number;
   // alphanumeric username
   username?: string;
-  // date of verification
-  verification_date?: number;
-  // if the account is verified
-  verified?: boolean;
 }
 
 export interface CreateRequest {
@@ -168,7 +168,7 @@ export interface CreateRequest {
 }
 
 export interface CreateResponse {
-  account?: { [key: string]: any };
+  account?: Account;
 }
 
 export interface DeleteRequest {
@@ -200,7 +200,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   // The session of the logged in  user
-  session?: { [key: string]: any };
+  session?: Session;
 }
 
 export interface LogoutAllRequest {
@@ -227,7 +227,7 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  account?: { [key: string]: any };
+  account?: Account;
 }
 
 export interface ReadSessionRequest {
@@ -237,25 +237,23 @@ export interface ReadSessionRequest {
 
 export interface ReadSessionResponse {
   // the session for the user
-  session?: { [key: string]: any };
+  session?: Session;
 }
 
 export interface ResetPasswordRequest {
-  // The code from the verification email
-  code?: string;
-  // confirm new password
-  confirm_password?: string;
   // the email to reset the password for
   email?: string;
   // the new password
   new_password?: string;
+  // The code from the verification email
+  code?: string;
+  // confirm new password
+  confirm_password?: string;
 }
 
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
-  // Your web site address, example www.example.com or user.example.com
-  address?: string;
   // the email address of the user
   email?: string;
   // Endpoint name where your http request handler handles MagicLink by
@@ -268,6 +266,8 @@ export interface SendMagicLinkRequest {
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -289,31 +289,31 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // email address to send the verification code
-  email?: string;
-  // The url to redirect to incase of failure
-  failure_redirect_url?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
   // The url to redirect to after successful verification
   redirect_url?: string;
   // subject of the email
   subject?: string;
   // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
   text_content?: string;
+  // email address to send the verification code
+  email?: string;
+  // The url to redirect to incase of failure
+  failure_redirect_url?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
-  // unix timestamp
-  created?: number;
-  // unix timestamp
-  expires?: number;
   // the session id
   id?: string;
   // the associated user id
   userId?: string;
+  // unix timestamp
+  created?: number;
+  // unix timestamp
+  expires?: number;
 }
 
 export interface UpdatePasswordRequest {
@@ -330,14 +330,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the new email address
-  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
+  // the new email address
+  email?: string;
 }
 
 export interface UpdateResponse {}
@@ -356,5 +356,5 @@ export interface VerifyTokenRequest {
 export interface VerifyTokenResponse {
   is_valid?: boolean;
   message?: string;
-  session?: { [key: string]: any };
+  session?: Session;
 }

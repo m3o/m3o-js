@@ -107,12 +107,12 @@ export interface ListKeysResponse {
 }
 
 export interface SetRequest {
+  // The value to set
+  value?: string;
   // The key to update
   key?: string;
   // Time to live in seconds
   ttl?: number;
-  // The value to set
-  value?: string;
 }
 
 export interface SetResponse {

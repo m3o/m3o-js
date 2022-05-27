@@ -49,16 +49,16 @@ export interface GuessRequest {
 }
 
 export interface GuessResponse {
-  // the actual word if failed
-  answer?: string;
-  // whether it was correct
-  correct?: boolean;
   // the guess words tried
   guesses?: Guess[];
   // informational message
   status?: string;
   // number of tries left
   tries_left?: number;
+  // the actual word if failed
+  answer?: string;
+  // whether it was correct
+  correct?: boolean;
 }
 
 export interface NextRequest {}

@@ -98,6 +98,7 @@ export interface Rectangle {
 }
 
 export interface ResizeRequest {
+  width?: number;
   // base64 encoded image to resize,
   base64?: string;
   // optional crop options
@@ -113,7 +114,6 @@ export interface ResizeRequest {
   outputURL?: boolean;
   // url of the image to resize
   url?: string;
-  width?: number;
 }
 
 export interface ResizeResponse {

@@ -45,7 +45,7 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  event?: { [key: string]: any };
+  event?: Event;
 }
 
 export interface Event {
@@ -68,7 +68,7 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  event?: { [key: string]: any };
+  event?: Event;
 }
 
 export interface TrackRequest {

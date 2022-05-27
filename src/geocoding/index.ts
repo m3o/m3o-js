@@ -45,8 +45,8 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  address?: { [key: string]: any };
-  location?: { [key: string]: any };
+  address?: Address;
+  location?: Location;
 }
 
 export interface ReverseRequest {
@@ -55,6 +55,6 @@ export interface ReverseRequest {
 }
 
 export interface ReverseResponse {
-  address?: { [key: string]: any };
-  location?: { [key: string]: any };
+  location?: Location;
+  address?: Address;
 }

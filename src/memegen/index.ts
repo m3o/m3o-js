@@ -42,16 +42,16 @@ export interface Box {
 }
 
 export interface GenerateRequest {
+  // font size; defaults to 50px
+  max_font_size?: string;
+  // top text
+  top_text?: string;
   // bottom text
   bottom_text?: string;
   // font: arial or impact
   font?: string;
   // the template id to use
   id?: string;
-  // font size; defaults to 50px
-  max_font_size?: string;
-  // top text
-  top_text?: string;
 }
 
 export interface GenerateResponse {
@@ -60,10 +60,6 @@ export interface GenerateResponse {
 }
 
 export interface Template {
-  // number of boxes used
-  box_count?: number;
-  // height in pixels
-  height?: number;
   // id of the memegen
   id?: string;
   // name of the memegen
@@ -72,6 +68,10 @@ export interface Template {
   url?: string;
   // width in pixels
   width?: number;
+  // number of boxes used
+  box_count?: number;
+  // height in pixels
+  height?: number;
 }
 
 export interface TemplatesRequest {}

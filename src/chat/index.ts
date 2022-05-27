@@ -62,19 +62,19 @@ export class ChatService {
 }
 
 export interface CreateRequest {
-  // chat description
-  description?: string;
   // name of the room
   name?: string;
   // whether its a private room
   private?: boolean;
   // optional list of user ids
   user_ids?: string[];
+  // chat description
+  description?: string;
 }
 
 export interface CreateResponse {
   // the unique chat room
-  room?: { [key: string]: any };
+  room?: Room;
 }
 
 export interface DeleteRequest {
@@ -83,7 +83,7 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  room?: { [key: string]: any };
+  room?: Room;
 }
 
 export interface HistoryRequest {
@@ -104,7 +104,7 @@ export interface InviteRequest {
 }
 
 export interface InviteResponse {
-  room?: { [key: string]: any };
+  room?: Room;
 }
 
 export interface JoinRequest {
@@ -115,7 +115,7 @@ export interface JoinRequest {
 }
 
 export interface JoinResponse {
-  message?: { [key: string]: any };
+  message?: Message;
 }
 
 export interface KickRequest {
@@ -126,7 +126,7 @@ export interface KickRequest {
 }
 
 export interface KickResponse {
-  room?: { [key: string]: any };
+  room?: Room;
 }
 
 export interface LeaveRequest {
@@ -137,7 +137,7 @@ export interface LeaveRequest {
 }
 
 export interface LeaveResponse {
-  room?: { [key: string]: any };
+  room?: Room;
 }
 
 export interface ListRequest {
@@ -150,8 +150,6 @@ export interface ListResponse {
 }
 
 export interface Message {
-  // a client side id, should be validated by the server to make the request retry safe
-  client?: string;
   // id of the message, allocated by the server
   id?: string;
   // id of the chat the message is being sent to / from
@@ -164,11 +162,11 @@ export interface Message {
   text?: string;
   // id of the user who sent the message
   user_id?: string;
+  // a client side id, should be validated by the server to make the request retry safe
+  client?: string;
 }
 
 export interface Room {
-  // time of creation
-  created_at?: string;
   // description of the that
   description?: string;
   // unique room id
@@ -179,9 +177,13 @@ export interface Room {
   private?: boolean;
   // list of users
   user_ids?: string[];
+  // time of creation
+  created_at?: string;
 }
 
 export interface SendRequest {
+  // id of the user who sent the message
+  user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
   // id of the chat room the message is being sent to / from
@@ -190,11 +192,9 @@ export interface SendRequest {
   subject?: string;
   // text of the message
   text?: string;
-  // id of the user who sent the message
-  user_id?: string;
 }
 
 export interface SendResponse {
   // the message which was created
-  message?: { [key: string]: any };
+  message?: Message;
 }
