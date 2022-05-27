@@ -136,6 +136,8 @@ export class UserService {
 }
 
 export interface Account {
+  // alphanumeric username
+  username?: string;
   // date of verification
   verification_date?: number;
   // if the account is verified
@@ -150,8 +152,6 @@ export interface Account {
   profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
-  // alphanumeric username
-  username?: string;
 }
 
 export interface CreateRequest {
@@ -218,12 +218,12 @@ export interface LogoutRequest {
 export interface LogoutResponse {}
 
 export interface ReadRequest {
-  // the account email
-  email?: string;
   // the account id
   id?: string;
   // the account username
   username?: string;
+  // the account email
+  email?: string;
 }
 
 export interface ReadResponse {
@@ -241,19 +241,21 @@ export interface ReadSessionResponse {
 }
 
 export interface ResetPasswordRequest {
-  // the email to reset the password for
-  email?: string;
-  // the new password
-  new_password?: string;
   // The code from the verification email
   code?: string;
   // confirm new password
   confirm_password?: string;
+  // the email to reset the password for
+  email?: string;
+  // the new password
+  new_password?: string;
 }
 
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
   // the email address of the user
   email?: string;
   // Endpoint name where your http request handler handles MagicLink by
@@ -266,8 +268,6 @@ export interface SendMagicLinkRequest {
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
-  // Your web site address, example www.example.com or user.example.com
-  address?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -306,14 +306,14 @@ export interface SendVerificationEmailRequest {
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
+  // unix timestamp
+  expires?: number;
   // the session id
   id?: string;
   // the associated user id
   userId?: string;
   // unix timestamp
   created?: number;
-  // unix timestamp
-  expires?: number;
 }
 
 export interface UpdatePasswordRequest {
@@ -330,14 +330,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the account id
-  id?: string;
-  // the user profile as map<string,string>
-  profile?: { [key: string]: string };
   // the new username
   username?: string;
   // the new email address
   email?: string;
+  // the account id
+  id?: string;
+  // the user profile as map<string,string>
+  profile?: { [key: string]: string };
 }
 
 export interface UpdateResponse {}

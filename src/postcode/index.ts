@@ -38,6 +38,8 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
+  // related region e.g London
+  region?: string;
   // e.g St James's
   ward?: string;
   // country e.g United Kingdom
@@ -50,8 +52,6 @@ export interface LookupResponse {
   longitude?: number;
   // UK postcode e.g SW1A 2AA
   postcode?: string;
-  // related region e.g London
-  region?: string;
 }
 
 export interface RandomRequest {}

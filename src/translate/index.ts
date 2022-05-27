@@ -17,8 +17,6 @@ export class TranslateService {
 }
 
 export interface TextRequest {
-  // The contents to be translated
-  content?: string;
   // The string format, `text` or `html`
   format?: string;
   // The model to use for translation, `nmt` or `base`,
@@ -30,6 +28,8 @@ export interface TextRequest {
   // Target language, format in ISO-639-1 codes
   // See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   target?: string;
+  // The contents to be translated
+  content?: string;
 }
 
 export interface TextResponse {
@@ -38,10 +38,10 @@ export interface TextResponse {
 }
 
 export interface Translation {
+  // The model used in translation
+  model?: string;
   // The source of the query string
   source?: string;
   // The translation result
   text?: string;
-  // The model used in translation
-  model?: string;
 }

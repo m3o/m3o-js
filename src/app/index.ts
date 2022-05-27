@@ -133,18 +133,18 @@ export interface ResolveResponse {
 }
 
 export interface RunRequest {
-  // port to run on
-  port?: number;
-  // region to run in
-  region?: string;
-  // source repository
-  repo?: string;
   // branch. defaults to master
   branch?: string;
   // associated env vars to pass in
   env_vars?: { [key: string]: string };
   // name of the app
   name?: string;
+  // port to run on
+  port?: number;
+  // region to run in
+  region?: string;
+  // source repository
+  repo?: string;
 }
 
 export interface RunResponse {
@@ -153,30 +153,30 @@ export interface RunResponse {
 }
 
 export interface Service {
+  // unique id
+  id?: string;
+  // name of the app
+  name?: string;
   // port running on
   port?: number;
-  // status of the app
-  status?: string;
+  // region running in
+  region?: string;
+  // source repository
+  repo?: string;
   // app url
   url?: string;
   // branch of code
   branch?: string;
   // time of creation
   created?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // unique id
-  id?: string;
-  // last updated
-  updated?: string;
   // custom domains
   custom_domains?: string[];
-  // name of the app
-  name?: string;
-  // region running in
-  region?: string;
-  // source repository
-  repo?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // status of the app
+  status?: string;
+  // last updated
+  updated?: string;
 }
 
 export interface StatusRequest {
@@ -190,10 +190,10 @@ export interface StatusResponse {
 }
 
 export interface UpdateRequest {
-  // Additional env vars to update
-  env_vars?: { [key: string]: string };
   // name of the app
   name?: string;
+  // Additional env vars to update
+  env_vars?: { [key: string]: string };
 }
 
 export interface UpdateResponse {}

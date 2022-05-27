@@ -33,9 +33,9 @@ export class LocationService {
 }
 
 export interface Entity {
-  type?: string;
   id?: string;
   location?: Point;
+  type?: string;
 }
 
 export interface Point {

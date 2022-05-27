@@ -17,10 +17,6 @@ export class NewsService {
 }
 
 export interface Article {
-  // article title
-  title?: string;
-  // categories
-  categories?: string[];
   // article id
   id?: string;
   // the article language
@@ -29,10 +25,8 @@ export interface Article {
   published_at?: string;
   // source of news
   source?: string;
-  // url of the article
-  url?: string;
-  // article description
-  description?: string;
+  // categories
+  categories?: string[];
   // image url
   image_url?: string;
   // related keywords
@@ -41,6 +35,12 @@ export interface Article {
   locale?: string;
   // first 60 characters of article body
   snippet?: string;
+  // article title
+  title?: string;
+  // url of the article
+  url?: string;
+  // article description
+  description?: string;
 }
 
 export interface HeadlinesRequest {

@@ -33,17 +33,17 @@ export interface IpResponse {
 }
 
 export interface TcpRequest {
-  // optional data to send
-  data?: string;
   // address to dial
   address?: string;
+  // optional data to send
+  data?: string;
 }
 
 export interface TcpResponse {
-  // response data if any
-  data?: string;
   // response status
   status?: string;
+  // response data if any
+  data?: string;
 }
 
 export interface UrlRequest {

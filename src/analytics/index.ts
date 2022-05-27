@@ -49,12 +49,12 @@ export interface DeleteResponse {
 }
 
 export interface Event {
+  // the amount of times the event was triggered
+  value?: number;
   // time at which the event was created
   created?: string;
   // event name
   name?: string;
-  // the amount of times the event was triggered
-  value?: number;
 }
 
 export interface ListRequest {}

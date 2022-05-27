@@ -29,14 +29,14 @@ export class RssService {
 }
 
 export interface AddRequest {
-  // category to add e.g news
-  category?: string;
   // rss feed name
   // eg. a16z
   name?: string;
   // rss feed url
   // eg. http://a16z.com/feed/
   url?: string;
+  // category to add e.g news
+  category?: string;
 }
 
 export interface AddResponse {}

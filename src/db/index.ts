@@ -71,12 +71,12 @@ export interface CountResponse {
 }
 
 export interface CreateRequest {
+  // optional record id to use
+  id?: string;
   // JSON encoded record or records (can be array or object)
   record?: { [key: string]: any };
   // Optional table name. Defaults to 'default'
   table?: string;
-  // optional record id to use
-  id?: string;
 }
 
 export interface CreateResponse {
@@ -85,10 +85,10 @@ export interface CreateResponse {
 }
 
 export interface DeleteRequest {
-  // Optional table name. Defaults to 'default'
-  table?: string;
   // id of the record
   id?: string;
+  // Optional table name. Defaults to 'default'
+  table?: string;
 }
 
 export interface DeleteResponse {}

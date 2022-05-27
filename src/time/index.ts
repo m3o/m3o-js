@@ -22,16 +22,16 @@ export interface NowRequest {
 }
 
 export interface NowResponse {
-  // the timezone as BST
-  timezone?: string;
-  // the unix timestamp
-  unix?: number;
   // the current time as HH:MM:SS
   localtime?: string;
   // the location as Europe/London
   location?: string;
   // timestamp as 2006-01-02T15:04:05.999999999Z07:00
   timestamp?: string;
+  // the timezone as BST
+  timezone?: string;
+  // the unix timestamp
+  unix?: number;
 }
 
 export interface ZoneRequest {
@@ -40,14 +40,14 @@ export interface ZoneRequest {
 }
 
 export interface ZoneResponse {
-  // e.g -0.37
-  longitude?: number;
-  // the timezone e.g Europe/London
-  timezone?: string;
-  // the local time
-  localtime?: string;
   // location requested
   location?: string;
+  // e.g 51.42
+  latitude?: number;
+  // the local time
+  localtime?: string;
+  // e.g -0.37
+  longitude?: number;
   // UTC offset in hours
   offset?: number;
   // region of timezone
@@ -58,6 +58,6 @@ export interface ZoneResponse {
   country?: string;
   // is daylight savings
   dst?: boolean;
-  // e.g 51.42
-  latitude?: number;
+  // the timezone e.g Europe/London
+  timezone?: string;
 }

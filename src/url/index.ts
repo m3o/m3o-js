@@ -54,12 +54,12 @@ export interface ShortenResponse {
 }
 
 export interface URLPair {
+  // shortened url
+  shortURL?: string;
   // time of creation
   created?: string;
   // destination url
   destinationURL?: string;
   // The number of times the short URL has been resolved
   hitCount?: number;
-  // shortened url
-  shortURL?: string;
 }

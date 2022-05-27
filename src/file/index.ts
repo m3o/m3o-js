@@ -64,8 +64,6 @@ export interface ReadResponse {
 }
 
 export interface Record {
-  // File contents
-  content?: string;
   // Time the file was created e.g 2021-05-20T13:37:21Z
   created?: string;
   // Any other associated metadata as a map of key-value pairs
@@ -77,6 +75,8 @@ export interface Record {
   project?: string;
   // Time the file was updated e.g 2021-05-20T13:37:21Z
   updated?: string;
+  // File contents
+  content?: string;
 }
 
 export interface SaveRequest {
