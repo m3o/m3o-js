@@ -38,15 +38,15 @@ export interface Location {
 }
 
 export interface LookupRequest {
+  address?: string;
   city?: string;
   country?: string;
   postcode?: string;
-  address?: string;
 }
 
 export interface LookupResponse {
-  address?: Address;
-  location?: Location;
+  address?: { [key: string]: any };
+  location?: { [key: string]: any };
 }
 
 export interface ReverseRequest {
@@ -55,6 +55,6 @@ export interface ReverseRequest {
 }
 
 export interface ReverseResponse {
-  address?: Address;
-  location?: Location;
+  address?: { [key: string]: any };
+  location?: { [key: string]: any };
 }

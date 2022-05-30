@@ -19,14 +19,14 @@ export class CarbonService {
 export interface OffsetRequest {}
 
 export interface OffsetResponse {
+  // the metric used e.g KG or Tonnes
+  metric?: string;
   // projects it was allocated to
   projects?: Project[];
   // number of tonnes
   tonnes?: number;
   // number of units purchased
   units?: number;
-  // the metric used e.g KG or Tonnes
-  metric?: string;
 }
 
 export interface Project {

@@ -17,23 +17,25 @@ export class MovieService {
 }
 
 export interface MovieInfo {
-  original_language?: string;
-  video?: boolean;
   adult?: boolean;
-  original_title?: string;
-  release_date?: string;
-  vote_average?: number;
+  backdrop_path?: string;
   genre_ids?: number[];
+  id?: number;
+  original_language?: string;
+  original_title?: string;
+  overview?: string;
   popularity?: number;
   poster_path?: string;
+  release_date?: string;
   title?: string;
+  video?: boolean;
+  vote_average?: number;
   vote_count?: number;
-  backdrop_path?: string;
-  id?: number;
-  overview?: string;
 }
 
 export interface SearchRequest {
+  // a ISO 639-1 value to display translated data
+  language?: string;
   // page to query
   page?: number;
   // year of release
@@ -44,8 +46,6 @@ export interface SearchRequest {
   region?: string;
   // year of making
   year?: number;
-  // a ISO 639-1 value to display translated data
-  language?: string;
 }
 
 export interface SearchResponse {

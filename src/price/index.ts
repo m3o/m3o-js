@@ -52,7 +52,7 @@ export interface AddRequest {
 }
 
 export interface AddResponse {
-  value?: Value;
+  value?: { [key: string]: any };
 }
 
 export interface GetRequest {
@@ -80,16 +80,16 @@ export interface Index {
 export interface IndexRequest {}
 
 export interface IndexResponse {
-  index?: Index[];
+  index?: { [key: string]: any }[];
 }
 
 export interface ListRequest {
-  // offset to read from
-  offset?: number;
   // currency to get
   currency?: string;
   // limit number of values
   limit?: number;
+  // offset to read from
+  offset?: number;
 }
 
 export interface ListResponse {
@@ -97,10 +97,10 @@ export interface ListResponse {
 }
 
 export interface Report {
-  symbol?: string;
   author?: string;
   comment?: string;
   name?: string;
+  symbol?: string;
 }
 
 export interface ReportRequest {

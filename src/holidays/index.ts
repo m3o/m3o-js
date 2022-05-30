@@ -31,10 +31,10 @@ export interface CountriesResponse {
 }
 
 export interface Country {
-  // The English name of the country
-  name?: string;
   // The 2 letter country code (as defined in ISO 3166-1 alpha-2)
   code?: string;
+  // The English name of the country
+  name?: string;
 }
 
 export interface Holiday {

@@ -38,7 +38,7 @@ export interface Direction {
   // intersections on route
   intersections?: Intersection[];
   // maneuver to take
-  maneuver?: Maneuver;
+  maneuver?: { [key: string]: any };
   // street name or location
   name?: string;
   // alternative reference
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
+  action?: string;
+  bearing_after?: number;
   bearing_before?: number;
   direction?: string;
   location?: Point;
-  action?: string;
-  bearing_after?: number;
 }
 
 export interface Point {
@@ -107,12 +107,12 @@ export interface RouteRequest {
 }
 
 export interface RouteResponse {
-  // waypoints on the route
-  waypoints?: Waypoint[];
   // estimated distance in meters
   distance?: number;
   // estimated duration in seconds
   duration?: number;
+  // waypoints on the route
+  waypoints?: Waypoint[];
 }
 
 export interface Waypoint {

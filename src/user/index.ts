@@ -136,12 +136,6 @@ export class UserService {
 }
 
 export interface Account {
-  // alphanumeric username
-  username?: string;
-  // date of verification
-  verification_date?: number;
-  // if the account is verified
-  verified?: boolean;
   // unix timestamp
   created?: number;
   // an email address
@@ -152,6 +146,12 @@ export interface Account {
   profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
+  // alphanumeric username
+  username?: string;
+  // date of verification
+  verification_date?: number;
+  // if the account is verified
+  verified?: boolean;
 }
 
 export interface CreateRequest {
@@ -168,7 +168,7 @@ export interface CreateRequest {
 }
 
 export interface CreateResponse {
-  account?: Account;
+  account?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
@@ -200,7 +200,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   // The session of the logged in  user
-  session?: Session;
+  session?: { [key: string]: any };
 }
 
 export interface LogoutAllRequest {
@@ -218,16 +218,16 @@ export interface LogoutRequest {
 export interface LogoutResponse {}
 
 export interface ReadRequest {
+  // the account email
+  email?: string;
   // the account id
   id?: string;
   // the account username
   username?: string;
-  // the account email
-  email?: string;
 }
 
 export interface ReadResponse {
-  account?: Account;
+  account?: { [key: string]: any };
 }
 
 export interface ReadSessionRequest {
@@ -237,7 +237,7 @@ export interface ReadSessionRequest {
 
 export interface ReadSessionResponse {
   // the session for the user
-  session?: Session;
+  session?: { [key: string]: any };
 }
 
 export interface ResetPasswordRequest {
@@ -289,31 +289,31 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // The url to redirect to after successful verification
-  redirect_url?: string;
-  // subject of the email
-  subject?: string;
-  // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
-  text_content?: string;
   // email address to send the verification code
   email?: string;
   // The url to redirect to incase of failure
   failure_redirect_url?: string;
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   from_name?: string;
+  // The url to redirect to after successful verification
+  redirect_url?: string;
+  // subject of the email
+  subject?: string;
+  // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
+  text_content?: string;
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
   // unix timestamp
+  created?: number;
+  // unix timestamp
   expires?: number;
   // the session id
   id?: string;
   // the associated user id
   userId?: string;
-  // unix timestamp
-  created?: number;
 }
 
 export interface UpdatePasswordRequest {
@@ -330,14 +330,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the new username
-  username?: string;
   // the new email address
   email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
+  // the new username
+  username?: string;
 }
 
 export interface UpdateResponse {}
@@ -356,5 +356,5 @@ export interface VerifyTokenRequest {
 export interface VerifyTokenResponse {
   is_valid?: boolean;
   message?: string;
-  session?: Session;
+  session?: { [key: string]: any };
 }

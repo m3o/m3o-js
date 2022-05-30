@@ -34,10 +34,10 @@ export interface ParseRequest {
 }
 
 export interface ParseResponse {
-  // associated name e.g Joe Blogs
-  name?: string;
   // the email address
   address?: string;
+  // associated name e.g Joe Blogs
+  name?: string;
 }
 
 export interface SendRequest {

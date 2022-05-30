@@ -40,24 +40,24 @@ export interface ZoneRequest {
 }
 
 export interface ZoneResponse {
-  // location requested
-  location?: string;
-  // e.g 51.42
-  latitude?: number;
-  // the local time
-  localtime?: string;
-  // e.g -0.37
-  longitude?: number;
-  // UTC offset in hours
-  offset?: number;
-  // region of timezone
-  region?: string;
   // the abbreviated code e.g BST
   abbreviation?: string;
   // country of the timezone
   country?: string;
   // is daylight savings
   dst?: boolean;
+  // e.g 51.42
+  latitude?: number;
+  // the local time
+  localtime?: string;
+  // location requested
+  location?: string;
+  // e.g -0.37
+  longitude?: number;
+  // UTC offset in hours
+  offset?: number;
+  // region of timezone
+  region?: string;
   // the timezone e.g Europe/London
   timezone?: string;
 }

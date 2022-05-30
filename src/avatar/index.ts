@@ -30,8 +30,8 @@ export interface GenerateRequest {
 }
 
 export interface GenerateResponse {
-  // M3O's CDN url of the avatar image
-  url?: string;
   // base64 encoded string of the avatar image
   base64?: string;
+  // M3O's CDN url of the avatar image
+  url?: string;
 }

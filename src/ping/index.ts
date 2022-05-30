@@ -40,10 +40,10 @@ export interface TcpRequest {
 }
 
 export interface TcpResponse {
-  // response status
-  status?: string;
   // response data if any
   data?: string;
+  // response status
+  status?: string;
 }
 
 export interface UrlRequest {

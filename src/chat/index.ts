@@ -62,19 +62,19 @@ export class ChatService {
 }
 
 export interface CreateRequest {
-  // optional list of user ids
-  user_ids?: string[];
   // chat description
   description?: string;
   // name of the room
   name?: string;
   // whether its a private room
   private?: boolean;
+  // optional list of user ids
+  user_ids?: string[];
 }
 
 export interface CreateResponse {
   // the unique chat room
-  room?: Room;
+  room?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
@@ -83,7 +83,7 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  room?: Room;
+  room?: { [key: string]: any };
 }
 
 export interface HistoryRequest {
@@ -104,7 +104,7 @@ export interface InviteRequest {
 }
 
 export interface InviteResponse {
-  room?: Room;
+  room?: { [key: string]: any };
 }
 
 export interface JoinRequest {
@@ -115,7 +115,7 @@ export interface JoinRequest {
 }
 
 export interface JoinResponse {
-  message?: Message;
+  message?: { [key: string]: any };
 }
 
 export interface KickRequest {
@@ -126,7 +126,7 @@ export interface KickRequest {
 }
 
 export interface KickResponse {
-  room?: Room;
+  room?: { [key: string]: any };
 }
 
 export interface LeaveRequest {
@@ -137,7 +137,7 @@ export interface LeaveRequest {
 }
 
 export interface LeaveResponse {
-  room?: Room;
+  room?: { [key: string]: any };
 }
 
 export interface ListRequest {
@@ -182,19 +182,19 @@ export interface Room {
 }
 
 export interface SendRequest {
+  // a client side id, should be validated by the server to make the request retry safe
+  client?: string;
+  // id of the chat room the message is being sent to / from
+  room_id?: string;
   // subject of the message
   subject?: string;
   // text of the message
   text?: string;
   // id of the user who sent the message
   user_id?: string;
-  // a client side id, should be validated by the server to make the request retry safe
-  client?: string;
-  // id of the chat room the message is being sent to / from
-  room_id?: string;
 }
 
 export interface SendResponse {
   // the message which was created
-  message?: Message;
+  message?: { [key: string]: any };
 }

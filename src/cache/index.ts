@@ -56,10 +56,10 @@ export interface DecrementRequest {
 }
 
 export interface DecrementResponse {
-  // The new value
-  value?: number;
   // The key decremented
   key?: string;
+  // The new value
+  value?: number;
 }
 
 export interface DeleteRequest {

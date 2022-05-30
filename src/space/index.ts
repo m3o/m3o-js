@@ -92,8 +92,6 @@ export interface DownloadResponse {
 }
 
 export interface HeadObject {
-  // is this public or private
-  visibility?: string;
   // when was this created
   created?: string;
   // when was this last modified
@@ -101,6 +99,8 @@ export interface HeadObject {
   name?: string;
   // URL to access the object if it is public
   url?: string;
+  // is this public or private
+  visibility?: string;
 }
 
 export interface HeadRequest {
@@ -170,9 +170,9 @@ export interface UpdateResponse {
 }
 
 export interface UploadRequest {
+  name?: string;
   // is this object public or private
   visibility?: string;
-  name?: string;
 }
 
 export interface UploadResponse {

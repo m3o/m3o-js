@@ -40,6 +40,10 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the close price
+  close?: number;
+  // the date
+  date?: string;
   // the peak price
   high?: number;
   // the low price
@@ -50,10 +54,6 @@ export interface HistoryResponse {
   symbol?: string;
   // the volume
   volume?: number;
-  // the close price
-  close?: number;
-  // the date
-  date?: string;
 }
 
 export interface PriceRequest {

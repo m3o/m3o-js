@@ -44,14 +44,14 @@ export class SunnahService {
 }
 
 export interface Book {
+  // arabic name of the book
+  arabic_name?: string;
   // number of hadiths in the book
   hadiths?: number;
   // number of the book e.g 1
   id?: number;
   // name of the book
   name?: string;
-  // arabic name of the book
-  arabic_name?: string;
 }
 
 export interface BooksRequest {
@@ -64,8 +64,6 @@ export interface BooksRequest {
 }
 
 export interface BooksResponse {
-  // The total overall books
-  total?: number;
   // A list of books
   books?: Book[];
   // Name of the collection
@@ -74,11 +72,11 @@ export interface BooksResponse {
   limit?: number;
   // The page requested
   page?: number;
+  // The total overall books
+  total?: number;
 }
 
 export interface Chapter {
-  // title of the chapter
-  title?: string;
   // arabic title
   arabic_title?: string;
   // the book number
@@ -87,6 +85,8 @@ export interface Chapter {
   id?: number;
   // the chapter key e.g 1.00
   key?: string;
+  // title of the chapter
+  title?: string;
 }
 
 export interface ChaptersRequest {
@@ -140,6 +140,8 @@ export interface CollectionsResponse {
 }
 
 export interface Hadith {
+  // the arabic chapter title
+  arabic_chapter_title?: string;
   // the arabic text
   arabic_text?: string;
   // the chapter id
@@ -152,8 +154,6 @@ export interface Hadith {
   id?: number;
   // hadith text
   text?: string;
-  // the arabic chapter title
-  arabic_chapter_title?: string;
 }
 
 export interface HadithsRequest {
@@ -168,6 +168,10 @@ export interface HadithsRequest {
 }
 
 export interface HadithsResponse {
+  // number of the book
+  book?: number;
+  // name of the collection
+  collection?: string;
   // The hadiths of the book
   hadiths?: Hadith[];
   // Limit the number of hadiths returned
@@ -176,8 +180,4 @@ export interface HadithsResponse {
   page?: number;
   // Total hadiths in the  book
   total?: number;
-  // number of the book
-  book?: number;
-  // name of the collection
-  collection?: string;
 }

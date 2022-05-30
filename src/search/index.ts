@@ -89,7 +89,7 @@ export interface IndexRequest {
 
 export interface IndexResponse {
   // the indexed record
-  record?: Record;
+  record?: { [key: string]: any };
 }
 
 export interface Record {

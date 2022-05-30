@@ -119,7 +119,7 @@ export interface ReserveRequest {
 
 export interface ReserveResponse {
   // The app reservation
-  reservation?: Reservation;
+  reservation?: { [key: string]: any };
 }
 
 export interface ResolveRequest {
@@ -149,10 +149,18 @@ export interface RunRequest {
 
 export interface RunResponse {
   // The running service
-  service?: Service;
+  service?: { [key: string]: any };
 }
 
 export interface Service {
+  // branch of code
+  branch?: string;
+  // time of creation
+  created?: string;
+  // custom domains
+  custom_domains?: string[];
+  // associated env vars
+  env_vars?: { [key: string]: string };
   // unique id
   id?: string;
   // name of the app
@@ -163,20 +171,12 @@ export interface Service {
   region?: string;
   // source repository
   repo?: string;
-  // app url
-  url?: string;
-  // branch of code
-  branch?: string;
-  // time of creation
-  created?: string;
-  // custom domains
-  custom_domains?: string[];
-  // associated env vars
-  env_vars?: { [key: string]: string };
   // status of the app
   status?: string;
   // last updated
   updated?: string;
+  // app url
+  url?: string;
 }
 
 export interface StatusRequest {
@@ -186,14 +186,14 @@ export interface StatusRequest {
 
 export interface StatusResponse {
   // running service info
-  service?: Service;
+  service?: { [key: string]: any };
 }
 
 export interface UpdateRequest {
-  // name of the app
-  name?: string;
   // Additional env vars to update
   env_vars?: { [key: string]: string };
+  // name of the app
+  name?: string;
 }
 
 export interface UpdateResponse {}

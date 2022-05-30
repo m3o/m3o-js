@@ -55,7 +55,7 @@ export interface CreateRequest {
 
 export interface CreateResponse {
   // The created list
-  list?: List;
+  list?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
@@ -64,7 +64,7 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  list?: List;
+  list?: { [key: string]: any };
 }
 
 export interface EventsRequest {
@@ -76,7 +76,7 @@ export interface EventsResponse {
   // the event which occured; create, delete, update
   event?: string;
   // the list which the operation occured on
-  list?: List;
+  list?: { [key: string]: any };
 }
 
 export interface List {
@@ -106,13 +106,13 @@ export interface ReadRequest {
 
 export interface ReadResponse {
   // The list
-  list?: List;
+  list?: { [key: string]: any };
 }
 
 export interface UpdateRequest {
-  list?: List;
+  list?: { [key: string]: any };
 }
 
 export interface UpdateResponse {
-  list?: List;
+  list?: { [key: string]: any };
 }

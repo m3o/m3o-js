@@ -25,12 +25,6 @@ export class MemegenService {
 }
 
 export interface Box {
-  // width in pixels
-  width?: number;
-  // x axis position
-  x?: number;
-  // y axis position
-  y?: number;
   // colour hex code
   color?: string;
   // height in pixels
@@ -39,6 +33,12 @@ export interface Box {
   outline?: string;
   // text to display
   text?: string;
+  // width in pixels
+  width?: number;
+  // x axis position
+  x?: number;
+  // y axis position
+  y?: number;
 }
 
 export interface GenerateRequest {

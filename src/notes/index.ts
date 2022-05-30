@@ -55,7 +55,7 @@ export interface CreateRequest {
 
 export interface CreateResponse {
   // The created note
-  note?: Note;
+  note?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
@@ -64,7 +64,7 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  note?: Note;
+  note?: { [key: string]: any };
 }
 
 export interface EventsRequest {
@@ -76,7 +76,7 @@ export interface EventsResponse {
   // the event which occured; create, delete, update
   event?: string;
   // the note which the operation occured on
-  note?: Note;
+  note?: { [key: string]: any };
 }
 
 export interface ListRequest {}
@@ -106,13 +106,13 @@ export interface ReadRequest {
 
 export interface ReadResponse {
   // The note
-  note?: Note;
+  note?: { [key: string]: any };
 }
 
 export interface UpdateRequest {
-  note?: Note;
+  note?: { [key: string]: any };
 }
 
 export interface UpdateResponse {
-  note?: Note;
+  note?: { [key: string]: any };
 }

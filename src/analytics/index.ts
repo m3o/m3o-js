@@ -45,16 +45,16 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {
-  event?: Event;
+  event?: { [key: string]: any };
 }
 
 export interface Event {
-  // the amount of times the event was triggered
-  value?: number;
   // time at which the event was created
   created?: string;
   // event name
   name?: string;
+  // the amount of times the event was triggered
+  value?: number;
 }
 
 export interface ListRequest {}
@@ -68,7 +68,7 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  event?: Event;
+  event?: { [key: string]: any };
 }
 
 export interface TrackRequest {

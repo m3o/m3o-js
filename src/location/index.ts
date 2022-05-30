@@ -50,11 +50,11 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  entity?: Entity;
+  entity?: { [key: string]: any };
 }
 
 export interface SaveRequest {
-  entity?: Entity;
+  entity?: { [key: string]: any };
 }
 
 export interface SaveResponse {}
