@@ -4,30 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Twitter/api](h
 
 Endpoints:
 
-## Timeline
-
-Get the timeline for a given user
-
-
-[https://m3o.com/twitter/api#Timeline](https://m3o.com/twitter/api#Timeline)
-
-```js
-const { TwitterService } = require('m3o/twitter');
-
-const twitterService = new TwitterService(process.env.M3O_API_TOKEN)
-
-// Get the timeline for a given user
-async function getAtwitterTimeline() {
-	const rsp = await twitterService.timeline({
-  "limit": 1,
-  "username": "m3oservices"
-})
-	console.log(rsp)
-	
-}
-
-getAtwitterTimeline()
-```
 ## Search
 
 Search for tweets with a simple query
@@ -94,4 +70,28 @@ async function getAusersTwitterProfile() {
 }
 
 getAusersTwitterProfile()
+```
+## Timeline
+
+Get the timeline for a given user
+
+
+[https://m3o.com/twitter/api#Timeline](https://m3o.com/twitter/api#Timeline)
+
+```js
+const { TwitterService } = require('m3o/twitter');
+
+const twitterService = new TwitterService(process.env.M3O_API_TOKEN)
+
+// Get the timeline for a given user
+async function getAtwitterTimeline() {
+	const rsp = await twitterService.timeline({
+  "limit": 1,
+  "username": "m3oservices"
+})
+	console.log(rsp)
+	
+}
+
+getAtwitterTimeline()
 ```
