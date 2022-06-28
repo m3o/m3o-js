@@ -4,56 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Lists/api](htt
 
 Endpoints:
 
-## Events
-
-Subscribe to lists events
-
-
-[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Subscribe to lists events
-async function subscribeToEvents() {
-	const rsp = await listsService.events({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-subscribeToEvents()
-```
-## Create
-
-Create a new list
-
-
-[https://m3o.com/lists/api#Create](https://m3o.com/lists/api#Create)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Create a new list
-async function createAlist() {
-	const rsp = await listsService.create({
-  "items": [
-    "This is my list"
-  ],
-  "title": "New List"
-})
-	console.log(rsp)
-	
-}
-
-createAlist()
-```
 ## Read
 
 Read a list
@@ -149,4 +99,54 @@ async function deleteAlist() {
 }
 
 deleteAlist()
+```
+## Events
+
+Subscribe to lists events
+
+
+[https://m3o.com/lists/api#Events](https://m3o.com/lists/api#Events)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Subscribe to lists events
+async function subscribeToEvents() {
+	const rsp = await listsService.events({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+subscribeToEvents()
+```
+## Create
+
+Create a new list
+
+
+[https://m3o.com/lists/api#Create](https://m3o.com/lists/api#Create)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Create a new list
+async function createAlist() {
+	const rsp = await listsService.create({
+  "items": [
+    "This is my list"
+  ],
+  "title": "New List"
+})
+	console.log(rsp)
+	
+}
+
+createAlist()
 ```

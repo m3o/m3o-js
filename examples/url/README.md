@@ -71,3 +71,26 @@ async function resolveAshortUrlToAlongDestinationUrl() {
 
 resolveAshortUrlToAlongDestinationUrl()
 ```
+## Delete
+
+
+
+
+[https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// 
+async function deleteAshortenedUrl() {
+	const rsp = await urlService.delete({
+  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
+})
+	console.log(rsp)
+	
+}
+
+deleteAshortenedUrl()
+```

@@ -6,6 +6,14 @@ export class UrlService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
+  //
+  delete(request: DeleteRequest): Promise<DeleteResponse> {
+    return this.client.call(
+      "url",
+      "Delete",
+      request
+    ) as Promise<DeleteResponse>;
+  }
   // List all the shortened URLs
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("url", "List", request) as Promise<ListResponse>;
@@ -23,6 +31,12 @@ export class UrlService {
     ) as Promise<ShortenResponse>;
   }
 }
+
+export interface DeleteRequest {
+  shortURL?: string;
+}
+
+export interface DeleteResponse {}
 
 export interface ListRequest {
   // filter by short URL, optional
