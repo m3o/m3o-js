@@ -6,7 +6,7 @@ export class UrlService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  //
+  // Delete a URL
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       "url",

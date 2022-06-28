@@ -73,7 +73,7 @@ resolveAshortUrlToAlongDestinationUrl()
 ```
 ## Delete
 
-
+Delete a URL
 
 
 [https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)
@@ -83,7 +83,7 @@ const { UrlService } = require('m3o/url');
 
 const urlService = new UrlService(process.env.M3O_API_TOKEN)
 
-// 
+// Delete a URL
 async function deleteAshortenedUrl() {
 	const rsp = await urlService.delete({
   "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
