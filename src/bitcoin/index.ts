@@ -22,6 +22,14 @@ export class BitcoinService {
       request
     ) as Promise<PriceResponse>;
   }
+  // Get the details of a transaction
+  transaction(request: TransactionRequest): Promise<TransactionResponse> {
+    return this.client.call(
+      "bitcoin",
+      "Transaction",
+      request
+    ) as Promise<TransactionResponse>;
+  }
 }
 
 export interface BalanceRequest {
@@ -34,6 +42,30 @@ export interface BalanceResponse {
   balance?: number;
 }
 
+export interface Input {
+  prev_out?: Prev;
+  script?: string;
+}
+
+export interface Output {
+  address?: string;
+  hash?: string;
+  script?: string;
+  spent?: boolean;
+  tx_index?: number;
+  value?: number;
+}
+
+export interface Prev {
+  address?: string;
+  hash?: string;
+  n?: string;
+  script?: string;
+  spent?: boolean;
+  tx_index?: number;
+  value?: number;
+}
+
 export interface PriceRequest {
   // symbol to use e.g BTCUSD
   symbol?: string;
@@ -44,4 +76,42 @@ export interface PriceResponse {
   price?: number;
   // The symbol of pricing e.g BTCUSD
   symbol?: string;
+}
+
+export interface TransactionRequest {
+  // the transaction hash
+  hash?: string;
+}
+
+export interface TransactionResponse {
+  // block height
+  block_height?: number;
+  // blck index
+  block_index?: number;
+  // double spend
+  double_spend?: boolean;
+  // fees
+  fee?: number;
+  // transaction hash
+  hash?: string;
+  // inputs
+  inputs?: Input[];
+  // lock time
+  lock_time?: number;
+  // outputs
+  outputs?: Output[];
+  // relay
+  relay?: string;
+  // transaction size
+  size?: number;
+  // tx index
+  tx_index?: number;
+  // the version
+  version?: number;
+  // vin
+  vin_sz?: number;
+  // vout
+  vout_sz?: number;
+  // weight
+  weight?: number;
 }
