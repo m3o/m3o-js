@@ -58,7 +58,7 @@ export interface Output {
 
 export interface Prev {
   address?: string;
-  n?: string;
+  n?: number;
   script?: string;
   spent?: boolean;
   tx_index?: number;
