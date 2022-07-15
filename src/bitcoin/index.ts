@@ -58,7 +58,6 @@ export interface Output {
 
 export interface Prev {
   address?: string;
-  hash?: string;
   n?: string;
   script?: string;
   spent?: boolean;
