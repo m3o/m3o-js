@@ -99,6 +99,8 @@ export interface AssetsRequest {
   order?: string;
   // order by "sale_date", "sale_count", "sale_price", "total_price"
   order_by?: string;
+  // owner wallet address
+  owner?: string;
 }
 
 export interface AssetsResponse {
@@ -154,6 +156,8 @@ export interface CollectionResponse {
 export interface CollectionsRequest {
   limit?: number;
   offset?: number;
+  // owner wallet address
+  owner?: string;
 }
 
 export interface CollectionsResponse {

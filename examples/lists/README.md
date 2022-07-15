@@ -4,35 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Lists/api](htt
 
 Endpoints:
 
-## Update
-
-Update a list
-
-
-[https://m3o.com/lists/api#Update](https://m3o.com/lists/api#Update)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Update a list
-async function updateAlist() {
-	const rsp = await listsService.update({
-  "list": {
-    "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
-    "items": [
-      "Updated list text"
-    ],
-    "title": "Update List"
-  }
-})
-	console.log(rsp)
-	
-}
-
-updateAlist()
-```
 ## Delete
 
 Delete a list
@@ -149,4 +120,33 @@ async function listAllLists() {
 }
 
 listAllLists()
+```
+## Update
+
+Update a list
+
+
+[https://m3o.com/lists/api#Update](https://m3o.com/lists/api#Update)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Update a list
+async function updateAlist() {
+	const rsp = await listsService.update({
+  "list": {
+    "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
+    "items": [
+      "Updated list text"
+    ],
+    "title": "Update List"
+  }
+})
+	console.log(rsp)
+	
+}
+
+updateAlist()
 ```
