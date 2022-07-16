@@ -14,14 +14,14 @@ export class IdService {
       request
     ) as Promise<GenerateResponse>;
   }
-  // List the types of IDs available. No query params needed.
+  // List the types of IDs available.
   types(request: TypesRequest): Promise<TypesResponse> {
     return this.client.call("id", "Types", request) as Promise<TypesResponse>;
   }
 }
 
 export interface GenerateRequest {
-  // type of id e.g uuid, shortid, snowflake (64 bit), bigflake (128 bit)
+  // type of id; call 'Types' endpoint for available types
   type?: string;
 }
 

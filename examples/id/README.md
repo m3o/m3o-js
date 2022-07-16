@@ -17,7 +17,7 @@ const { IdService } = require('m3o/id');
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
 // Generate a unique ID. Defaults to uuid.
-async function generateAuniqueId() {
+async function generateAnUniversallyUniqueId() {
 	const rsp = await idService.generate({
   "type": "uuid"
 })
@@ -25,7 +25,99 @@ async function generateAuniqueId() {
 	
 }
 
-generateAuniqueId()
+generateAnUniversallyUniqueId()
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```js
+const { IdService } = require('m3o/id');
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
+// Generate a unique ID. Defaults to uuid.
+async function generateAnUniqueLexicographicallyId() {
+	const rsp = await idService.generate({
+  "type": "ulid"
+})
+	console.log(rsp)
+	
+}
+
+generateAnUniqueLexicographicallyId()
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```js
+const { IdService } = require('m3o/id');
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
+// Generate a unique ID. Defaults to uuid.
+async function generateAnUniqueKsortableId() {
+	const rsp = await idService.generate({
+  "type": "ksuid"
+})
+	console.log(rsp)
+	
+}
+
+generateAnUniqueKsortableId()
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```js
+const { IdService } = require('m3o/id');
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
+// Generate a unique ID. Defaults to uuid.
+async function generateAwebOrientedGloballyUniqueId() {
+	const rsp = await idService.generate({
+  "type": "xid"
+})
+	console.log(rsp)
+	
+}
+
+generateAwebOrientedGloballyUniqueId()
+```
+## Generate
+
+Generate a unique ID. Defaults to uuid.
+
+
+[https://m3o.com/id/api#Generate](https://m3o.com/id/api#Generate)
+
+```js
+const { IdService } = require('m3o/id');
+
+const idService = new IdService(process.env.M3O_API_TOKEN)
+
+// Generate a unique ID. Defaults to uuid.
+async function generateAurlFriendlyUniqueId() {
+	const rsp = await idService.generate({
+  "type": "nanoid"
+})
+	console.log(rsp)
+	
+}
+
+generateAurlFriendlyUniqueId()
 ```
 ## Generate
 
@@ -98,7 +190,7 @@ generateAbigflakeId()
 ```
 ## Types
 
-List the types of IDs available. No query params needed.
+List the types of IDs available.
 
 
 [https://m3o.com/id/api#Types](https://m3o.com/id/api#Types)
@@ -108,7 +200,7 @@ const { IdService } = require('m3o/id');
 
 const idService = new IdService(process.env.M3O_API_TOKEN)
 
-// List the types of IDs available. No query params needed.
+// List the types of IDs available.
 async function listTheTypesOfIdsAvailable() {
 	const rsp = await idService.types({})
 	console.log(rsp)
