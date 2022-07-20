@@ -6,7 +6,7 @@ export class ChatService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Create a new chat room
+  // Create a new chat group
   create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
       "chat",
@@ -14,7 +14,7 @@ export class ChatService {
       request
     ) as Promise<CreateResponse>;
   }
-  // Delete a chat room
+  // Delete a chat group
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       "chat",
@@ -30,7 +30,7 @@ export class ChatService {
       request
     ) as Promise<HistoryResponse>;
   }
-  // Invite a user to a chat room
+  // Invite a user to a chat group
   invite(request: InviteRequest): Promise<InviteResponse> {
     return this.client.call(
       "chat",
@@ -38,15 +38,15 @@ export class ChatService {
       request
     ) as Promise<InviteResponse>;
   }
-  // Join a chat room
+  // Join a chat group
   join(request: JoinRequest): Promise<m3o.Stream<JoinRequest, JoinResponse>> {
     return this.client.stream("chat", "Join", request);
   }
-  // Kick a user from a chat room
+  // Kick a user from a chat group
   kick(request: KickRequest): Promise<KickResponse> {
     return this.client.call("chat", "Kick", request) as Promise<KickResponse>;
   }
-  // Leave a chat room
+  // Leave a chat group
   leave(request: LeaveRequest): Promise<LeaveResponse> {
     return this.client.call("chat", "Leave", request) as Promise<LeaveResponse>;
   }
@@ -64,52 +64,67 @@ export class ChatService {
 export interface CreateRequest {
   // chat description
   description?: string;
-  // name of the room
+  // name of the group
   name?: string;
-  // whether its a private room
+  // whether its a private group
   private?: boolean;
   // optional list of user ids
   user_ids?: string[];
 }
 
 export interface CreateResponse {
-  // the unique chat room
-  room?: { [key: string]: any };
+  // the unique chat group
+  group?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
-  // the chat room id to delete
-  room_id?: string;
+  // the chat group id to delete
+  group_id?: string;
 }
 
 export interface DeleteResponse {
-  room?: { [key: string]: any };
+  group?: { [key: string]: any };
+}
+
+export interface Group {
+  // time of creation
+  created_at?: string;
+  // description of the that
+  description?: string;
+  // unique group id
+  id?: string;
+  // name of the chat
+  name?: string;
+  // whether its a private group
+  private?: boolean;
+  // list of users
+  user_ids?: string[];
 }
 
 export interface HistoryRequest {
-  // the chat room id to get
-  room_id?: string;
+  // the chat group id to get
+  group_id?: string;
 }
 
 export interface HistoryResponse {
-  // messages in the chat room
+  // messages in the chat group
   messages?: Message[];
 }
 
 export interface InviteRequest {
-  // the room id
-  room_id?: string;
+  // the group id
+  group_id?: string;
   // the user id
   user_id?: string;
 }
 
 export interface InviteResponse {
-  room?: { [key: string]: any };
+  group?: { [key: string]: any };
 }
 
 export interface JoinRequest {
-  // chat room to join
-  room_id?: string;
+  // chat group to join
+  group_id?: string;
   // user id joining
   user_id?: string;
 }
@@ -119,25 +134,25 @@ export interface JoinResponse {
 }
 
 export interface KickRequest {
-  // the chat room id
-  room_id?: string;
+  // the chat group id
+  group_id?: string;
   // the user id
   user_id?: string;
 }
 
 export interface KickResponse {
-  room?: { [key: string]: any };
+  group?: { [key: string]: any };
 }
 
 export interface LeaveRequest {
-  // the chat room id
-  room_id?: string;
+  // the chat group id
+  group_id?: string;
   // the user id
   user_id?: string;
 }
 
 export interface LeaveResponse {
-  room?: { [key: string]: any };
+  group?: { [key: string]: any };
 }
 
 export interface ListRequest {
@@ -146,16 +161,16 @@ export interface ListRequest {
 }
 
 export interface ListResponse {
-  rooms?: Room[];
+  groups?: Group[];
 }
 
 export interface Message {
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
+  // id of the chat the message is being sent to / from
+  group_id?: string;
   // id of the message, allocated by the server
   id?: string;
-  // id of the chat the message is being sent to / from
-  room_id?: string;
   // time the message was sent in RFC3339 format
   sent_at?: string;
   // subject of the message
@@ -166,26 +181,11 @@ export interface Message {
   user_id?: string;
 }
 
-export interface Room {
-  // time of creation
-  created_at?: string;
-  // description of the that
-  description?: string;
-  // unique room id
-  id?: string;
-  // name of the chat
-  name?: string;
-  // whether its a private room
-  private?: boolean;
-  // list of users
-  user_ids?: string[];
-}
-
 export interface SendRequest {
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
-  // id of the chat room the message is being sent to / from
-  room_id?: string;
+  // id of the chat group the message is being sent to / from
+  group_id?: string;
   // subject of the message
   subject?: string;
   // text of the message

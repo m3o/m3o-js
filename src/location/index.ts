@@ -63,7 +63,7 @@ export interface SearchRequest {
   // Central position to search from
   center?: Point;
   // Maximum number of entities to return
-  numEntities?: number;
+  limit?: number;
   // radius in meters
   radius?: number;
   // type of entities to filter
