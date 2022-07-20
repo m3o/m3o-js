@@ -17,13 +17,36 @@ const { TimeService } = require('m3o/time');
 const timeService = new TimeService(process.env.M3O_API_TOKEN)
 
 // Get the current time
-async function returnsCurrentTimeOptionallyWithLocation() {
+async function returnsCurrentUtcTime() {
 	const rsp = await timeService.now({})
 	console.log(rsp)
 	
 }
 
-returnsCurrentTimeOptionallyWithLocation()
+returnsCurrentUtcTime()
+```
+## Now
+
+Get the current time
+
+
+[https://m3o.com/time/api#Now](https://m3o.com/time/api#Now)
+
+```js
+const { TimeService } = require('m3o/time');
+
+const timeService = new TimeService(process.env.M3O_API_TOKEN)
+
+// Get the current time
+async function returnsCurrentTimeForGivenLocation() {
+	const rsp = await timeService.now({
+  "location": "London"
+})
+	console.log(rsp)
+	
+}
+
+returnsCurrentTimeForGivenLocation()
 ```
 ## Zone
 
