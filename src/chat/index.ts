@@ -6,7 +6,7 @@ export class ChatService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Create a new chat group
+  // Create a new group
   create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
       "chat",
@@ -14,7 +14,7 @@ export class ChatService {
       request
     ) as Promise<CreateResponse>;
   }
-  // Delete a chat group
+  // Delete a group
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
       "chat",
@@ -30,7 +30,7 @@ export class ChatService {
       request
     ) as Promise<HistoryResponse>;
   }
-  // Invite a user to a chat group
+  // Invite a user to a group
   invite(request: InviteRequest): Promise<InviteResponse> {
     return this.client.call(
       "chat",
@@ -38,15 +38,15 @@ export class ChatService {
       request
     ) as Promise<InviteResponse>;
   }
-  // Join a chat group
+  // Join a group
   join(request: JoinRequest): Promise<m3o.Stream<JoinRequest, JoinResponse>> {
     return this.client.stream("chat", "Join", request);
   }
-  // Kick a user from a chat group
+  // Kick a user from a group
   kick(request: KickRequest): Promise<KickResponse> {
     return this.client.call("chat", "Kick", request) as Promise<KickResponse>;
   }
-  // Leave a chat group
+  // Leave a group
   leave(request: LeaveRequest): Promise<LeaveResponse> {
     return this.client.call("chat", "Leave", request) as Promise<LeaveResponse>;
   }
@@ -73,12 +73,12 @@ export interface CreateRequest {
 }
 
 export interface CreateResponse {
-  // the unique chat group
+  // the unique group
   group?: { [key: string]: any };
 }
 
 export interface DeleteRequest {
-  // the chat group id to delete
+  // the group id to delete
   group_id?: string;
 }
 
@@ -102,12 +102,12 @@ export interface Group {
 }
 
 export interface HistoryRequest {
-  // the chat group id to get
+  // the group id to get
   group_id?: string;
 }
 
 export interface HistoryResponse {
-  // messages in the chat group
+  // messages in the group
   messages?: Message[];
 }
 
@@ -123,7 +123,7 @@ export interface InviteResponse {
 }
 
 export interface JoinRequest {
-  // chat group to join
+  // group to join
   group_id?: string;
   // user id joining
   user_id?: string;
@@ -134,7 +134,7 @@ export interface JoinResponse {
 }
 
 export interface KickRequest {
-  // the chat group id
+  // the group id
   group_id?: string;
   // the user id
   user_id?: string;
@@ -145,7 +145,7 @@ export interface KickResponse {
 }
 
 export interface LeaveRequest {
-  // the chat group id
+  // the group id
   group_id?: string;
   // the user id
   user_id?: string;
@@ -184,7 +184,7 @@ export interface Message {
 export interface SendRequest {
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
-  // id of the chat group the message is being sent to / from
+  // id of the group the message is being sent to / from
   group_id?: string;
   // subject of the message
   subject?: string;
