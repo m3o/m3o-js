@@ -84,8 +84,6 @@ export interface URLPair {
   created?: string;
   // destination url
   destinationURL?: string;
-  // The number of times the short URL has been resolved
-  hitCount?: number;
   // shortened url
   shortURL?: string;
 }
