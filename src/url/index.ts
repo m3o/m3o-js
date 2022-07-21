@@ -30,6 +30,14 @@ export class UrlService {
       request
     ) as Promise<ShortenResponse>;
   }
+  // Update the destination for a short url
+  update(request: UpdateRequest): Promise<UpdateResponse> {
+    return this.client.call(
+      "url",
+      "Update",
+      request
+    ) as Promise<UpdateResponse>;
+  }
 }
 
 export interface DeleteRequest {
@@ -77,3 +85,12 @@ export interface URLPair {
   // shortened url
   shortURL?: string;
 }
+
+export interface UpdateRequest {
+  // the destination to update to
+  destinationURL?: string;
+  // the short url to update
+  shortURL?: string;
+}
+
+export interface UpdateResponse {}
