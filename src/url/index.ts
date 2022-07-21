@@ -6,6 +6,14 @@ export class UrlService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
+  // Create a URL
+  create(request: CreateRequest): Promise<CreateResponse> {
+    return this.client.call(
+      "url",
+      "Create",
+      request
+    ) as Promise<CreateResponse>;
+  }
   // Delete a URL
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
@@ -42,6 +50,17 @@ export class UrlService {
       request
     ) as Promise<UpdateResponse>;
   }
+}
+
+export interface CreateRequest {
+  // destination url
+  destinationURL?: string;
+  // a unique id e.g uuid or my-url
+  id?: string;
+}
+
+export interface CreateResponse {
+  url?: URLPair;
 }
 
 export interface DeleteRequest {
@@ -84,6 +103,10 @@ export interface URLPair {
   created?: string;
   // destination url
   destinationURL?: string;
+  // The number of times the short URL has been resolved
+  hitCount?: number;
+  // url id
+  id?: string;
   // shortened url
   shortURL?: string;
 }
