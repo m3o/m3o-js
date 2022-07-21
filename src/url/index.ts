@@ -64,6 +64,9 @@ export interface CreateResponse {
 }
 
 export interface DeleteRequest {
+  // specify id or shortURL
+  id?: string;
+  // optional shortURL
   shortURL?: string;
 }
 
@@ -79,8 +82,7 @@ export interface ListResponse {
 }
 
 export interface ResolveRequest {
-  // short url ID, without the domain, eg. if your short URL is
-  // `m3o.one/u/someshorturlid` then pass in `someshorturlid`
+  // short url to resolve
   shortURL?: string;
 }
 
@@ -114,7 +116,9 @@ export interface URLPair {
 export interface UpdateRequest {
   // the destination to update to
   destinationURL?: string;
-  // the short url to update
+  // update by id
+  id?: string;
+  // update by short url
   shortURL?: string;
 }
 
