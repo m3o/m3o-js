@@ -27,7 +27,7 @@ listYourShortenedUrls()
 ```
 ## Update
 
-Update the destination for a short url
+Update the destination for a short URL
 
 
 [https://m3o.com/url/api#Update](https://m3o.com/url/api#Update)
@@ -37,7 +37,7 @@ const { UrlService } = require('m3o/url');
 
 const urlService = new UrlService(process.env.M3O_API_TOKEN)
 
-// Update the destination for a short url
+// Update the destination for a short URL
 async function updateAshortUrl() {
 	const rsp = await urlService.update({
   "destinationURL": "https://mynewsite.com/this-is-a-rather-long-web-address",
@@ -72,21 +72,21 @@ async function shortenAlongUrl() {
 
 shortenAlongUrl()
 ```
-## Proxy
+## Resolve
 
-Proxy returns the destination URL of a short URL.
+Resolve returns the destination URL of a short URL.
 
 
-[https://m3o.com/url/api#Proxy](https://m3o.com/url/api#Proxy)
+[https://m3o.com/url/api#Resolve](https://m3o.com/url/api#Resolve)
 
 ```js
 const { UrlService } = require('m3o/url');
 
 const urlService = new UrlService(process.env.M3O_API_TOKEN)
 
-// Proxy returns the destination URL of a short URL.
+// Resolve returns the destination URL of a short URL.
 async function resolveAshortUrlToAlongDestinationUrl() {
-	const rsp = await urlService.proxy({
+	const rsp = await urlService.resolve({
   "shortURL": "https://m3o.one/u/ck6SGVkYp"
 })
 	console.log(rsp)

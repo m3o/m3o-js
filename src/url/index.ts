@@ -18,9 +18,13 @@ export class UrlService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("url", "List", request) as Promise<ListResponse>;
   }
-  // Proxy returns the destination URL of a short URL.
-  proxy(request: ProxyRequest): Promise<ProxyResponse> {
-    return this.client.call("url", "Proxy", request) as Promise<ProxyResponse>;
+  // Resolve returns the destination URL of a short URL.
+  resolve(request: ResolveRequest): Promise<ResolveResponse> {
+    return this.client.call(
+      "url",
+      "Resolve",
+      request
+    ) as Promise<ResolveResponse>;
   }
   // Shorten a URL
   shorten(request: ShortenRequest): Promise<ShortenResponse> {
@@ -30,7 +34,7 @@ export class UrlService {
       request
     ) as Promise<ShortenResponse>;
   }
-  // Update the destination for a short url
+  // Update the destination for a short URL
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
       "url",
@@ -55,13 +59,13 @@ export interface ListResponse {
   urlPairs?: URLPair;
 }
 
-export interface ProxyRequest {
+export interface ResolveRequest {
   // short url ID, without the domain, eg. if your short URL is
   // `m3o.one/u/someshorturlid` then pass in `someshorturlid`
   shortURL?: string;
 }
 
-export interface ProxyResponse {
+export interface ResolveResponse {
   destinationURL?: string;
 }
 
