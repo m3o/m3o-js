@@ -22,7 +22,7 @@ export class UrlService {
   proxy(request: ProxyRequest): Promise<ProxyResponse> {
     return this.client.call("url", "Proxy", request) as Promise<ProxyResponse>;
   }
-  // Shorten a long URL
+  // Shorten a URL
   shorten(request: ShortenRequest): Promise<ShortenResponse> {
     return this.client.call(
       "url",
