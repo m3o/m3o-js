@@ -64,9 +64,9 @@ export interface CreateResponse {
 }
 
 export interface DeleteRequest {
-  // specify id or shortURL
+  // delete by id
   id?: string;
-  // optional shortURL
+  // delete by shortURL
   shortURL?: string;
 }
 
