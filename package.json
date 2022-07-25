@@ -101,5 +101,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1587"
+ "version": "1.0.1588"
 }
