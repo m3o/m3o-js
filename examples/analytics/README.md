@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Analytics/api]
 
 Endpoints:
 
-## List
-
-List all events
-
-
-[https://m3o.com/analytics/api#List](https://m3o.com/analytics/api#List)
-
-```js
-const { AnalyticsService } = require('m3o/analytics');
-
-const analyticsService = new AnalyticsService(process.env.M3O_API_TOKEN)
-
-// List all events
-async function listAllEvents() {
-	const rsp = await analyticsService.list({})
-	console.log(rsp)
-	
-}
-
-listAllEvents()
-```
 ## Delete
 
 Delete an event
@@ -93,4 +72,25 @@ async function readAnEvent() {
 }
 
 readAnEvent()
+```
+## List
+
+List all events
+
+
+[https://m3o.com/analytics/api#List](https://m3o.com/analytics/api#List)
+
+```js
+const { AnalyticsService } = require('m3o/analytics');
+
+const analyticsService = new AnalyticsService(process.env.M3O_API_TOKEN)
+
+// List all events
+async function listAllEvents() {
+	const rsp = await analyticsService.list({})
+	console.log(rsp)
+	
+}
+
+listAllEvents()
 ```
