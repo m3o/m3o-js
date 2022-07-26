@@ -177,11 +177,11 @@ export interface TransactionsResponse {
 export interface TransferRequest {
   // amount to transfer
   amount?: number;
-  // from email
+  // from wallet id
   from_id?: string;
   // reference
   reference?: string;
-  // to email
+  // to wallet id
   to_id?: string;
   // visible?
   visible?: boolean;

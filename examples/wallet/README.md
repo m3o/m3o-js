@@ -4,6 +4,27 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Wallet/api](ht
 
 Endpoints:
 
+## List
+
+List your wallets
+
+
+[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
+
+```js
+const { WalletService } = require('m3o/wallet');
+
+const walletService = new WalletService(process.env.M3O_API_TOKEN)
+
+// List your wallets
+async function listWallets() {
+	const rsp = await walletService.list({})
+	console.log(rsp)
+	
+}
+
+listWallets()
+```
 ## Transfer
 
 Make a transfer from one wallet to another
@@ -175,25 +196,4 @@ async function debitWallet() {
 }
 
 debitWallet()
-```
-## List
-
-List your wallets
-
-
-[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
-
-```js
-const { WalletService } = require('m3o/wallet');
-
-const walletService = new WalletService(process.env.M3O_API_TOKEN)
-
-// List your wallets
-async function listWallets() {
-	const rsp = await walletService.list({})
-	console.log(rsp)
-	
-}
-
-listWallets()
 ```

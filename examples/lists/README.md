@@ -4,79 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Lists/api](htt
 
 Endpoints:
 
-## List
-
-List all the lists
-
-
-[https://m3o.com/lists/api#List](https://m3o.com/lists/api#List)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// List all the lists
-async function listAllLists() {
-	const rsp = await listsService.list({})
-	console.log(rsp)
-	
-}
-
-listAllLists()
-```
-## Update
-
-Update a list
-
-
-[https://m3o.com/lists/api#Update](https://m3o.com/lists/api#Update)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Update a list
-async function updateAlist() {
-	const rsp = await listsService.update({
-  "list": {
-    "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
-    "items": [
-      "Updated list text"
-    ],
-    "name": "Update List"
-  }
-})
-	console.log(rsp)
-	
-}
-
-updateAlist()
-```
-## Delete
-
-Delete a list
-
-
-[https://m3o.com/lists/api#Delete](https://m3o.com/lists/api#Delete)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// Delete a list
-async function deleteAlist() {
-	const rsp = await listsService.delete({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	console.log(rsp)
-	
-}
-
-deleteAlist()
-```
 ## Events
 
 Subscribe to lists events
@@ -149,4 +76,77 @@ async function readAlist() {
 }
 
 readAlist()
+```
+## List
+
+List all the lists
+
+
+[https://m3o.com/lists/api#List](https://m3o.com/lists/api#List)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// List all the lists
+async function listAllLists() {
+	const rsp = await listsService.list({})
+	console.log(rsp)
+	
+}
+
+listAllLists()
+```
+## Update
+
+Update a list
+
+
+[https://m3o.com/lists/api#Update](https://m3o.com/lists/api#Update)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Update a list
+async function updateAlist() {
+	const rsp = await listsService.update({
+  "list": {
+    "id": "63c0cdf8-2121-11ec-a881-0242e36f037a",
+    "items": [
+      "Updated list text"
+    ],
+    "name": "Update List"
+  }
+})
+	console.log(rsp)
+	
+}
+
+updateAlist()
+```
+## Delete
+
+Delete a list
+
+
+[https://m3o.com/lists/api#Delete](https://m3o.com/lists/api#Delete)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// Delete a list
+async function deleteAlist() {
+	const rsp = await listsService.delete({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	console.log(rsp)
+	
+}
+
+deleteAlist()
 ```
