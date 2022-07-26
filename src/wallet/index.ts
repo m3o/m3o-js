@@ -75,8 +75,6 @@ export class WalletService {
 export interface Account {
   // current balance
   balance?: number;
-  // currency of balance
-  currency?: string;
   // description of the wallet
   description?: string;
   // wallet id
@@ -96,8 +94,6 @@ export interface BalanceResponse {
 }
 
 export interface CreateRequest {
-  // specify a currency
-  currency?: string;
   // description for wallet
   description?: string;
   // optional id
