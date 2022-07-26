@@ -50,6 +50,10 @@ export class WalletService {
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("wallet", "List", request) as Promise<ListResponse>;
   }
+  // Get wallet by id
+  read(request: ReadRequest): Promise<ReadResponse> {
+    return this.client.call("wallet", "Read", request) as Promise<ReadResponse>;
+  }
   // List the transactions for a wallet
   transactions(request: TransactionsRequest): Promise<TransactionsResponse> {
     return this.client.call(
@@ -71,6 +75,8 @@ export class WalletService {
 export interface Account {
   // current balance
   balance?: number;
+  // currency of balance
+  currency?: string;
   // description of the wallet
   description?: string;
   // wallet id
@@ -90,6 +96,8 @@ export interface BalanceResponse {
 }
 
 export interface CreateRequest {
+  // specify a currency
+  currency?: string;
   // description for wallet
   description?: string;
   // optional id
@@ -149,6 +157,15 @@ export interface ListRequest {}
 
 export interface ListResponse {
   accounts?: Account[];
+}
+
+export interface ReadRequest {
+  // wallet id
+  id?: string;
+}
+
+export interface ReadResponse {
+  account?: { [key: string]: any };
 }
 
 export interface Transaction {
