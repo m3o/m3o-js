@@ -65,6 +65,7 @@ import * as twitter from "./twitter";
 import * as url from "./url";
 import * as user from "./user";
 import * as vehicle from "./vehicle";
+import * as wallet from "./wallet";
 import * as weather from "./weather";
 import * as wordle from "./wordle";
 import * as youtube from "./youtube";
@@ -138,6 +139,7 @@ export class Client {
     this.url = new url.UrlService(token);
     this.user = new user.UserService(token);
     this.vehicle = new vehicle.VehicleService(token);
+    this.wallet = new wallet.WalletService(token);
     this.weather = new weather.WeatherService(token);
     this.wordle = new wordle.WordleService(token);
     this.youtube = new youtube.YoutubeService(token);
@@ -210,6 +212,7 @@ export class Client {
   url: url.UrlService;
   user: user.UserService;
   vehicle: vehicle.VehicleService;
+  wallet: wallet.WalletService;
   weather: weather.WeatherService;
   wordle: wordle.WordleService;
   youtube: youtube.YoutubeService;
@@ -284,6 +287,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     url: new url.UrlService(token),
     user: new user.UserService(token),
     vehicle: new vehicle.VehicleService(token),
+    wallet: new wallet.WalletService(token),
     weather: new weather.WeatherService(token),
     wordle: new wordle.WordleService(token),
     youtube: new youtube.YoutubeService(token),

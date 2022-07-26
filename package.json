@@ -83,6 +83,7 @@
   "url",
   "user",
   "vehicle",
+  "wallet",
   "weather",
   "wordle",
   "youtube"
@@ -101,5 +102,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1592"
+ "version": "1.0.1593"
 }
