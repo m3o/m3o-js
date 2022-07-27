@@ -4,6 +4,27 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Postcode/api](
 
 Endpoints:
 
+## Random
+
+Return a random postcode and its related info
+
+
+[https://m3o.com/postcode/api#Random](https://m3o.com/postcode/api#Random)
+
+```js
+const { PostcodeService } = require('m3o/postcode');
+
+const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
+
+// Return a random postcode and its related info
+async function returnArandomPostcodeAndItsInformation() {
+	const rsp = await postcodeService.random({})
+	console.log(rsp)
+	
+}
+
+returnArandomPostcodeAndItsInformation()
+```
 ## Validate
 
 Validate a postcode.
@@ -49,25 +70,4 @@ async function lookupPostcode() {
 }
 
 lookupPostcode()
-```
-## Random
-
-Return a random postcode and its related info
-
-
-[https://m3o.com/postcode/api#Random](https://m3o.com/postcode/api#Random)
-
-```js
-const { PostcodeService } = require('m3o/postcode');
-
-const postcodeService = new PostcodeService(process.env.M3O_API_TOKEN)
-
-// Return a random postcode and its related info
-async function returnArandomPostcodeAndItsInformation() {
-	const rsp = await postcodeService.random({})
-	console.log(rsp)
-	
-}
-
-returnArandomPostcodeAndItsInformation()
 ```
