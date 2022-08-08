@@ -46,7 +46,6 @@
   "id",
   "image",
   "ip",
-  "joke",
   "lists",
   "location",
   "memegen",
@@ -102,5 +101,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1600"
+ "version": "1.0.1601"
 }
