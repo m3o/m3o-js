@@ -28,6 +28,7 @@ import * as holidays from "./holidays";
 import * as id from "./id";
 import * as image from "./image";
 import * as ip from "./ip";
+import * as joke from "./joke";
 import * as lists from "./lists";
 import * as location from "./location";
 import * as memegen from "./memegen";
@@ -101,6 +102,7 @@ export class Client {
     this.id = new id.IdService(token);
     this.image = new image.ImageService(token);
     this.ip = new ip.IpService(token);
+    this.joke = new joke.JokeService(token);
     this.lists = new lists.ListsService(token);
     this.location = new location.LocationService(token);
     this.memegen = new memegen.MemegenService(token);
@@ -173,6 +175,7 @@ export class Client {
   id: id.IdService;
   image: image.ImageService;
   ip: ip.IpService;
+  joke: joke.JokeService;
   lists: lists.ListsService;
   location: location.LocationService;
   memegen: memegen.MemegenService;
@@ -247,6 +250,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     id: new id.IdService(token),
     image: new image.ImageService(token),
     ip: new ip.IpService(token),
+    joke: new joke.JokeService(token),
     lists: new lists.ListsService(token),
     location: new location.LocationService(token),
     memegen: new memegen.MemegenService(token),
