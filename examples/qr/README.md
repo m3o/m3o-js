@@ -28,3 +28,24 @@ async function generateAqrCode() {
 
 generateAqrCode()
 ```
+## Codes
+
+List your QR codes
+
+
+[https://m3o.com/qr/api#Codes](https://m3o.com/qr/api#Codes)
+
+```js
+const { QrService } = require('m3o/qr');
+
+const qrService = new QrService(process.env.M3O_API_TOKEN)
+
+// List your QR codes
+async function listCodes() {
+	const rsp = await qrService.codes({})
+	console.log(rsp)
+	
+}
+
+listCodes()
+```
