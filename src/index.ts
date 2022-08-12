@@ -15,6 +15,7 @@ import * as db from "./db";
 import * as dns from "./dns";
 import * as email from "./email";
 import * as emoji from "./emoji";
+import * as ethereum from "./ethereum";
 import * as evchargers from "./evchargers";
 import * as event from "./event";
 import * as file from "./file";
@@ -89,6 +90,7 @@ export class Client {
     this.dns = new dns.DnsService(token);
     this.email = new email.EmailService(token);
     this.emoji = new emoji.EmojiService(token);
+    this.ethereum = new ethereum.EthereumService(token);
     this.evchargers = new evchargers.EvchargersService(token);
     this.event = new event.EventService(token);
     this.file = new file.FileService(token);
@@ -162,6 +164,7 @@ export class Client {
   dns: dns.DnsService;
   email: email.EmailService;
   emoji: emoji.EmojiService;
+  ethereum: ethereum.EthereumService;
   evchargers: evchargers.EvchargersService;
   event: event.EventService;
   file: file.FileService;
@@ -237,6 +240,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     dns: new dns.DnsService(token),
     email: new email.EmailService(token),
     emoji: new emoji.EmojiService(token),
+    ethereum: new ethereum.EthereumService(token),
     evchargers: new evchargers.EvchargersService(token),
     event: new event.EventService(token),
     file: new file.FileService(token),

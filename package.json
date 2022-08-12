@@ -33,6 +33,7 @@
   "dns",
   "email",
   "emoji",
+  "ethereum",
   "evchargers",
   "event",
   "file",
@@ -102,5 +103,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1609"
+ "version": "1.0.1610"
 }
