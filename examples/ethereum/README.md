@@ -27,6 +27,29 @@ async function getAethereumAddressBalance() {
 
 getAethereumAddressBalance()
 ```
+## Broadcast
+
+Broadcast presigned transaction to ethereum network
+
+
+[https://m3o.com/ethereum/api#Broadcast](https://m3o.com/ethereum/api#Broadcast)
+
+```js
+const { EthereumService } = require('m3o/ethereum');
+
+const ethereumService = new EthereumService(process.env.M3O_API_TOKEN)
+
+// Broadcast presigned transaction to ethereum network
+async function broadcastAtransaction() {
+	const rsp = await ethereumService.broadcast({
+  "hex": "0xf904808000831cfde080"
+})
+	console.log(rsp)
+	
+}
+
+broadcastAtransaction()
+```
 ## Transaction
 
 Get transaction details by hash

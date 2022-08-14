@@ -14,6 +14,14 @@ export class EthereumService {
       request
     ) as Promise<BalanceResponse>;
   }
+  // Broadcast presigned transaction to ethereum network
+  broadcast(request: BroadcastRequest): Promise<BroadcastResponse> {
+    return this.client.call(
+      "ethereum",
+      "Broadcast",
+      request
+    ) as Promise<BroadcastResponse>;
+  }
   // Get transaction details by hash
   transaction(request: TransactionRequest): Promise<TransactionResponse> {
     return this.client.call(
@@ -32,6 +40,16 @@ export interface BalanceRequest {
 export interface BalanceResponse {
   // the account balance (in wei)
   balance?: number;
+}
+
+export interface BroadcastRequest {
+  // raw transaction data to broadcast
+  hex?: string;
+}
+
+export interface BroadcastResponse {
+  // the transaction hash
+  hash?: string;
 }
 
 export interface TransactionRequest {
