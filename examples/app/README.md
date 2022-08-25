@@ -4,56 +4,53 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Delete
+## Regions
 
-Delete an app
+Return the support regions
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
-  "name": "helloworld"
-})
+// Return the support regions
+async function listRegions() {
+	const rsp = await appService.regions({})
 	console.log(rsp)
 	
 }
 
-deleteAnApp()
+listRegions()
 ```
-## Logs
+## Update
 
-Get the logs for an app
+Update the app. The latest source code will be downloaded, built and deployed.
 
 
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
+// Update the app. The latest source code will be downloaded, built and deployed.
+async function updateAnApp() {
+	const rsp = await appService.update({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAnApp()
+updateAnApp()
 ```
 ## Reserve
 
-Reserve apps beyond the free quota. Call Run after.
+Reserve app names
 
 
 [https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
@@ -63,7 +60,7 @@ const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Reserve apps beyond the free quota. Call Run after.
+// Reserve app names
 async function reserveAppName() {
 	const rsp = await appService.reserve({
   "name": "helloworld"
@@ -122,49 +119,29 @@ async function runAnApp() {
 
 runAnApp()
 ```
-## Update
+## Logs
 
-Update the app. The latest source code will be downloaded, built and deployed.
+Get the logs for an app
 
 
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Update the app. The latest source code will be downloaded, built and deployed.
-async function updateAnApp() {
-	const rsp = await appService.update({
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-updateAnApp()
-```
-## Regions
-
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Return the support regions
-async function listRegions() {
-	const rsp = await appService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
+retrieveBuildLogsForAnApp()
 ```
 ## Status
 
@@ -211,4 +188,27 @@ async function resolveAppById() {
 }
 
 resolveAppById()
+```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnApp()
 ```

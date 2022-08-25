@@ -30,7 +30,7 @@ export class AppService {
       request
     ) as Promise<RegionsResponse>;
   }
-  // Reserve apps beyond the free quota. Call Run after.
+  // Reserve app names
   reserve(request: ReserveRequest): Promise<ReserveResponse> {
     return this.client.call(
       "app",
