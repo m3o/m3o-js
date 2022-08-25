@@ -4,6 +4,52 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Url/api](https
 
 Endpoints:
 
+## Resolve
+
+Resolve returns the destination URL of a short URL.
+
+
+[https://m3o.com/url/api#Resolve](https://m3o.com/url/api#Resolve)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Resolve returns the destination URL of a short URL.
+async function resolveAshortUrlToAlongDestinationUrl() {
+	const rsp = await urlService.resolve({
+  "shortURL": "https://m3o.one/u/ck6SGVkYp"
+})
+	console.log(rsp)
+	
+}
+
+resolveAshortUrlToAlongDestinationUrl()
+```
+## Delete
+
+Delete a URL
+
+
+[https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Delete a URL
+async function deleteAshortenedUrl() {
+	const rsp = await urlService.delete({
+  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
+})
+	console.log(rsp)
+	
+}
+
+deleteAshortenedUrl()
+```
 ## Create
 
 Create a URL
@@ -95,50 +141,4 @@ async function shortenAlongUrl() {
 }
 
 shortenAlongUrl()
-```
-## Resolve
-
-Resolve returns the destination URL of a short URL.
-
-
-[https://m3o.com/url/api#Resolve](https://m3o.com/url/api#Resolve)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Resolve returns the destination URL of a short URL.
-async function resolveAshortUrlToAlongDestinationUrl() {
-	const rsp = await urlService.resolve({
-  "shortURL": "https://m3o.one/u/ck6SGVkYp"
-})
-	console.log(rsp)
-	
-}
-
-resolveAshortUrlToAlongDestinationUrl()
-```
-## Delete
-
-Delete a URL
-
-
-[https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Delete a URL
-async function deleteAshortenedUrl() {
-	const rsp = await urlService.delete({
-  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
-})
-	console.log(rsp)
-	
-}
-
-deleteAshortenedUrl()
 ```
