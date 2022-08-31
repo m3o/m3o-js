@@ -31,29 +31,6 @@ async function transferMoney() {
 
 transferMoney()
 ```
-## Balance
-
-Get the balance of a wallet
-
-
-[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
-
-```js
-const { WalletService } = require('m3o/wallet');
-
-const walletService = new WalletService(process.env.M3O_API_TOKEN)
-
-// Get the balance of a wallet
-async function getBalance() {
-	const rsp = await walletService.balance({
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-})
-	console.log(rsp)
-	
-}
-
-getBalance()
-```
 ## Transactions
 
 List the transactions for a wallet
@@ -124,6 +101,29 @@ async function createAnewWallet() {
 
 createAnewWallet()
 ```
+## Read
+
+Get wallet by id
+
+
+[https://m3o.com/wallet/api#Read](https://m3o.com/wallet/api#Read)
+
+```js
+const { WalletService } = require('m3o/wallet');
+
+const walletService = new WalletService(process.env.M3O_API_TOKEN)
+
+// Get wallet by id
+async function readAwallet() {
+	const rsp = await walletService.read({
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
+})
+	console.log(rsp)
+	
+}
+
+readAwallet()
+```
 ## Debit
 
 Debit a wallet
@@ -171,29 +171,6 @@ async function listWallets() {
 
 listWallets()
 ```
-## Read
-
-Get wallet by id
-
-
-[https://m3o.com/wallet/api#Read](https://m3o.com/wallet/api#Read)
-
-```js
-const { WalletService } = require('m3o/wallet');
-
-const walletService = new WalletService(process.env.M3O_API_TOKEN)
-
-// Get wallet by id
-async function readAwallet() {
-	const rsp = await walletService.read({
-  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
-})
-	console.log(rsp)
-	
-}
-
-readAwallet()
-```
 ## Credit
 
 Add credit to a wallet
@@ -219,4 +196,27 @@ async function creditWallet() {
 }
 
 creditWallet()
+```
+## Balance
+
+Get the balance of a wallet
+
+
+[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
+
+```js
+const { WalletService } = require('m3o/wallet');
+
+const walletService = new WalletService(process.env.M3O_API_TOKEN)
+
+// Get the balance of a wallet
+async function getBalance() {
+	const rsp = await walletService.balance({
+  "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
+})
+	console.log(rsp)
+	
+}
+
+getBalance()
 ```
