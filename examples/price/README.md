@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Price/api](htt
 
 Endpoints:
 
-## List
-
-List prices for a given currency
-
-
-[https://m3o.com/price/api#List](https://m3o.com/price/api#List)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// List prices for a given currency
-async function listPrices() {
-	const rsp = await priceService.list({
-  "currency": "GBP"
-})
-	console.log(rsp)
-	
-}
-
-listPrices()
-```
-## Index
-
-Get the index for available prices
-
-
-[https://m3o.com/price/api#Index](https://m3o.com/price/api#Index)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// Get the index for available prices
-async function getTheIndex() {
-	const rsp = await priceService.index({})
-	console.log(rsp)
-	
-}
-
-getTheIndex()
-```
 ## Report
 
 Report an invalid price
@@ -121,4 +77,48 @@ async function getThePrice() {
 }
 
 getThePrice()
+```
+## List
+
+List prices for a given currency
+
+
+[https://m3o.com/price/api#List](https://m3o.com/price/api#List)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// List prices for a given currency
+async function listPrices() {
+	const rsp = await priceService.list({
+  "currency": "GBP"
+})
+	console.log(rsp)
+	
+}
+
+listPrices()
+```
+## Index
+
+Get the index for available prices
+
+
+[https://m3o.com/price/api#Index](https://m3o.com/price/api#Index)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// Get the index for available prices
+async function getTheIndex() {
+	const rsp = await priceService.index({})
+	console.log(rsp)
+	
+}
+
+getTheIndex()
 ```
