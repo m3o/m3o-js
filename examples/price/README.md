@@ -4,55 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Price/api](htt
 
 Endpoints:
 
-## Add
-
-Add a price
-
-
-[https://m3o.com/price/api#Add](https://m3o.com/price/api#Add)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// Add a price
-async function addAprice() {
-	const rsp = await priceService.add({
-  "currency": "USD",
-  "name": "bitcoin",
-  "price": 39037.97
-})
-	console.log(rsp)
-	
-}
-
-addAprice()
-```
-## Get
-
-Get the price of anything
-
-
-[https://m3o.com/price/api#Get](https://m3o.com/price/api#Get)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// Get the price of anything
-async function getThePrice() {
-	const rsp = await priceService.get({
-  "currency": "USD",
-  "name": "bitcoin"
-})
-	console.log(rsp)
-	
-}
-
-getThePrice()
-```
 ## List
 
 List prices for a given currency
@@ -121,4 +72,53 @@ async function reportAprice() {
 }
 
 reportAprice()
+```
+## Add
+
+Add a price
+
+
+[https://m3o.com/price/api#Add](https://m3o.com/price/api#Add)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// Add a price
+async function addAprice() {
+	const rsp = await priceService.add({
+  "currency": "USD",
+  "name": "bitcoin",
+  "price": 39037.97
+})
+	console.log(rsp)
+	
+}
+
+addAprice()
+```
+## Get
+
+Get the price of anything
+
+
+[https://m3o.com/price/api#Get](https://m3o.com/price/api#Get)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// Get the price of anything
+async function getThePrice() {
+	const rsp = await priceService.get({
+  "currency": "USD",
+  "name": "bitcoin"
+})
+	console.log(rsp)
+	
+}
+
+getThePrice()
 ```
