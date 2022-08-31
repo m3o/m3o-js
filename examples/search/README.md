@@ -4,6 +4,53 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
+## Delete
+
+Delete a record given its ID
+
+
+[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Delete a record given its ID
+async function deleteArecord() {
+	const rsp = await searchService.delete({
+  "id": "1234",
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+deleteArecord()
+```
+## CreateIndex
+
+Create an index by name
+
+
+[https://m3o.com/search/api#CreateIndex](https://m3o.com/search/api#CreateIndex)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Create an index by name
+async function createAnIndex() {
+	const rsp = await searchService.createIndex({
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+createAnIndex()
+```
 ## DeleteIndex
 
 Delete an index by name
@@ -126,51 +173,4 @@ async function searchOnMultipleFieldsor() {
 }
 
 searchOnMultipleFieldsor()
-```
-## Delete
-
-Delete a record given its ID
-
-
-[https://m3o.com/search/api#Delete](https://m3o.com/search/api#Delete)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Delete a record given its ID
-async function deleteArecord() {
-	const rsp = await searchService.delete({
-  "id": "1234",
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-deleteArecord()
-```
-## CreateIndex
-
-Create an index by name
-
-
-[https://m3o.com/search/api#CreateIndex](https://m3o.com/search/api#CreateIndex)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Create an index by name
-async function createAnIndex() {
-	const rsp = await searchService.createIndex({
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-createAnIndex()
 ```
