@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Nft/api](https
 
 Endpoints:
 
+## Collections
+
+Get a list of collections
+
+
+[https://m3o.com/nft/api#Collections](https://m3o.com/nft/api#Collections)
+
+```js
+const { NftService } = require('m3o/nft');
+
+const nftService = new NftService(process.env.M3O_API_TOKEN)
+
+// Get a list of collections
+async function listCollections() {
+	const rsp = await nftService.collections({
+  "limit": 1
+})
+	console.log(rsp)
+	
+}
+
+listCollections()
+```
 ## Asset
 
 Get a single asset by the contract
@@ -98,27 +121,4 @@ async function createAnNft() {
 }
 
 createAnNft()
-```
-## Collections
-
-Get a list of collections
-
-
-[https://m3o.com/nft/api#Collections](https://m3o.com/nft/api#Collections)
-
-```js
-const { NftService } = require('m3o/nft');
-
-const nftService = new NftService(process.env.M3O_API_TOKEN)
-
-// Get a list of collections
-async function listCollections() {
-	const rsp = await nftService.collections({
-  "limit": 1
-})
-	console.log(rsp)
-	
-}
-
-listCollections()
 ```
