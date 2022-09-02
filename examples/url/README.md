@@ -4,53 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Url/api](https
 
 Endpoints:
 
-## Delete
-
-Delete a URL
-
-
-[https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Delete a URL
-async function deleteAshortenedUrl() {
-	const rsp = await urlService.delete({
-  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
-})
-	console.log(rsp)
-	
-}
-
-deleteAshortenedUrl()
-```
-## Create
-
-Create a URL
-
-
-[https://m3o.com/url/api#Create](https://m3o.com/url/api#Create)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Create a URL
-async function createAurl() {
-	const rsp = await urlService.create({
-  "destinationURL": "https://mysite.com/this-is-a-rather-long-web-address",
-  "id": "my-site"
-})
-	console.log(rsp)
-	
-}
-
-createAurl()
-```
 ## List
 
 List all the shortened URLs
@@ -141,4 +94,51 @@ async function resolveAshortUrlToAlongDestinationUrl() {
 }
 
 resolveAshortUrlToAlongDestinationUrl()
+```
+## Delete
+
+Delete a URL
+
+
+[https://m3o.com/url/api#Delete](https://m3o.com/url/api#Delete)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Delete a URL
+async function deleteAshortenedUrl() {
+	const rsp = await urlService.delete({
+  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
+})
+	console.log(rsp)
+	
+}
+
+deleteAshortenedUrl()
+```
+## Create
+
+Create a URL
+
+
+[https://m3o.com/url/api#Create](https://m3o.com/url/api#Create)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Create a URL
+async function createAurl() {
+	const rsp = await urlService.create({
+  "destinationURL": "https://mysite.com/this-is-a-rather-long-web-address",
+  "id": "my-site"
+})
+	console.log(rsp)
+	
+}
+
+createAurl()
 ```
