@@ -4,35 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Chat/api](http
 
 Endpoints:
 
-## Send
-
-Connect to a chat to receive a stream of messages
-Send a message to a chat
-
-
-[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Connect to a chat to receive a stream of messages
-// Send a message to a chat
-async function sendAmessage() {
-	const rsp = await chatService.send({
-  "client": "web",
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "subject": "Random",
-  "text": "Hey whats up?",
-  "user_id": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-sendAmessage()
-```
 ## History
 
 List the messages in a chat
@@ -129,26 +100,29 @@ async function leaveAgroup() {
 
 leaveAgroup()
 ```
-## List
+## Create
 
-List available chats
+Create a new group
 
 
-[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// List available chats
-async function listGroups() {
-	const rsp = await chatService.list({})
+// Create a new group
+async function createAnewChat() {
+	const rsp = await chatService.create({
+  "description": "The general group",
+  "name": "general"
+})
 	console.log(rsp)
 	
 }
 
-listGroups()
+createAnewChat()
 ```
 ## Delete
 
@@ -173,29 +147,55 @@ async function deleteAchat() {
 
 deleteAchat()
 ```
-## Create
+## Send
 
-Create a new group
+Connect to a chat to receive a stream of messages
+Send a message to a chat
 
 
-[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
+[https://m3o.com/chat/api#Send](https://m3o.com/chat/api#Send)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// Create a new group
-async function createAnewChat() {
-	const rsp = await chatService.create({
-  "description": "The general group",
-  "name": "general"
+// Connect to a chat to receive a stream of messages
+// Send a message to a chat
+async function sendAmessage() {
+	const rsp = await chatService.send({
+  "client": "web",
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "subject": "Random",
+  "text": "Hey whats up?",
+  "user_id": "user-1"
 })
 	console.log(rsp)
 	
 }
 
-createAnewChat()
+sendAmessage()
+```
+## List
+
+List available chats
+
+
+[https://m3o.com/chat/api#List](https://m3o.com/chat/api#List)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// List available chats
+async function listGroups() {
+	const rsp = await chatService.list({})
+	console.log(rsp)
+	
+}
+
+listGroups()
 ```
 ## Invite
 
