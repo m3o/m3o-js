@@ -4,73 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Wallet/api](ht
 
 Endpoints:
 
-## Create
+## Transactions
 
-Create a new wallet
-
-
-[https://m3o.com/wallet/api#Create](https://m3o.com/wallet/api#Create)
-
-```js
-const { WalletService } = require('m3o/wallet');
-
-const walletService = new WalletService(process.env.M3O_API_TOKEN)
-
-// Create a new wallet
-async function createAnewWallet() {
-	const rsp = await walletService.create({
-  "description": "No explanation needed",
-  "name": "Greatness"
-})
-	console.log(rsp)
-	
-}
-
-createAnewWallet()
-```
-## List
-
-List your wallets
+List the transactions for a wallet
 
 
-[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
+[https://m3o.com/wallet/api#Transactions](https://m3o.com/wallet/api#Transactions)
 
 ```js
 const { WalletService } = require('m3o/wallet');
 
 const walletService = new WalletService(process.env.M3O_API_TOKEN)
 
-// List your wallets
-async function listWallets() {
-	const rsp = await walletService.list({})
-	console.log(rsp)
-	
-}
-
-listWallets()
-```
-## Balance
-
-Get the balance of a wallet
-
-
-[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
-
-```js
-const { WalletService } = require('m3o/wallet');
-
-const walletService = new WalletService(process.env.M3O_API_TOKEN)
-
-// Get the balance of a wallet
-async function getBalance() {
-	const rsp = await walletService.balance({
+// List the transactions for a wallet
+async function listTransactions() {
+	const rsp = await walletService.transactions({
   "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
 })
 	console.log(rsp)
 	
 }
 
-getBalance()
+listTransactions()
 ```
 ## Read
 
@@ -147,6 +102,27 @@ async function debitWallet() {
 
 debitWallet()
 ```
+## List
+
+List your wallets
+
+
+[https://m3o.com/wallet/api#List](https://m3o.com/wallet/api#List)
+
+```js
+const { WalletService } = require('m3o/wallet');
+
+const walletService = new WalletService(process.env.M3O_API_TOKEN)
+
+// List your wallets
+async function listWallets() {
+	const rsp = await walletService.list({})
+	console.log(rsp)
+	
+}
+
+listWallets()
+```
 ## Transfer
 
 Make a transfer from one wallet to another
@@ -174,28 +150,28 @@ async function transferMoney() {
 
 transferMoney()
 ```
-## Transactions
+## Balance
 
-List the transactions for a wallet
+Get the balance of a wallet
 
 
-[https://m3o.com/wallet/api#Transactions](https://m3o.com/wallet/api#Transactions)
+[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
 
 ```js
 const { WalletService } = require('m3o/wallet');
 
 const walletService = new WalletService(process.env.M3O_API_TOKEN)
 
-// List the transactions for a wallet
-async function listTransactions() {
-	const rsp = await walletService.transactions({
+// Get the balance of a wallet
+async function getBalance() {
+	const rsp = await walletService.balance({
   "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
 })
 	console.log(rsp)
 	
 }
 
-listTransactions()
+getBalance()
 ```
 ## Delete
 
@@ -219,4 +195,28 @@ async function deleteAwallet() {
 }
 
 deleteAwallet()
+```
+## Create
+
+Create a new wallet
+
+
+[https://m3o.com/wallet/api#Create](https://m3o.com/wallet/api#Create)
+
+```js
+const { WalletService } = require('m3o/wallet');
+
+const walletService = new WalletService(process.env.M3O_API_TOKEN)
+
+// Create a new wallet
+async function createAnewWallet() {
+	const rsp = await walletService.create({
+  "description": "No explanation needed",
+  "name": "Greatness"
+})
+	console.log(rsp)
+	
+}
+
+createAnewWallet()
 ```
