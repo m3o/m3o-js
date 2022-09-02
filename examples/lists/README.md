@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Lists/api](htt
 
 Endpoints:
 
-## List
-
-List all the lists
-
-
-[https://m3o.com/lists/api#List](https://m3o.com/lists/api#List)
-
-```js
-const { ListsService } = require('m3o/lists');
-
-const listsService = new ListsService(process.env.M3O_API_TOKEN)
-
-// List all the lists
-async function listAllLists() {
-	const rsp = await listsService.list({})
-	console.log(rsp)
-	
-}
-
-listAllLists()
-```
 ## Update
 
 Update a list
@@ -149,4 +128,25 @@ async function readAlist() {
 }
 
 readAlist()
+```
+## List
+
+List all the lists
+
+
+[https://m3o.com/lists/api#List](https://m3o.com/lists/api#List)
+
+```js
+const { ListsService } = require('m3o/lists');
+
+const listsService = new ListsService(process.env.M3O_API_TOKEN)
+
+// List all the lists
+async function listAllLists() {
+	const rsp = await listsService.list({})
+	console.log(rsp)
+	
+}
+
+listAllLists()
 ```
