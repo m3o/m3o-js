@@ -82,6 +82,8 @@ export interface ListResponse {
 }
 
 export interface ResolveRequest {
+  // resolve by id
+  id?: string;
   // short url to resolve
   shortURL?: string;
 }

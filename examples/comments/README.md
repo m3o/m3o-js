@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Comments/api](
 
 Endpoints:
 
+## Read
+
+Read a comment
+
+
+[https://m3o.com/comments/api#Read](https://m3o.com/comments/api#Read)
+
+```js
+const { CommentsService } = require('m3o/comments');
+
+const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
+
+// Read a comment
+async function readAcomment() {
+	const rsp = await commentsService.read({
+  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
+})
+	console.log(rsp)
+	
+}
+
+readAcomment()
+```
 ## List
 
 List all the comments
@@ -122,27 +145,4 @@ async function createAcomment() {
 }
 
 createAcomment()
-```
-## Read
-
-Read a comment
-
-
-[https://m3o.com/comments/api#Read](https://m3o.com/comments/api#Read)
-
-```js
-const { CommentsService } = require('m3o/comments');
-
-const commentsService = new CommentsService(process.env.M3O_API_TOKEN)
-
-// Read a comment
-async function readAcomment() {
-	const rsp = await commentsService.read({
-  "id": "63c0cdf8-2121-11ec-a881-0242e36f037a"
-})
-	console.log(rsp)
-	
-}
-
-readAcomment()
 ```
