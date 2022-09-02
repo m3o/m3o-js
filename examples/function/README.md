@@ -4,28 +4,49 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Delete
+## Update
 
-Delete a function by name
+Update a function. Downloads the source, builds and redeploys
 
 
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
+// Update a function. Downloads the source, builds and redeploys
+async function updateAfunction() {
+	const rsp = await functionService.update({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAfunction()
+updateAfunction()
+```
+## List
+
+List all the deployed functions
+
+
+[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// List all the deployed functions
+async function listFunctions() {
+	const rsp = await functionService.list({})
+	console.log(rsp)
+	
+}
+
+listFunctions()
 ```
 ## Regions
 
@@ -71,27 +92,6 @@ async function reserveAfunction() {
 
 reserveAfunction()
 ```
-## Runtimes
-
-Return a list of supported runtimes
-
-
-[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Return a list of supported runtimes
-async function listRuntimes() {
-	const rsp = await functionService.runtimes({})
-	console.log(rsp)
-	
-}
-
-listRuntimes()
-```
 ## Deploy
 
 Deploy a group of functions
@@ -121,29 +121,6 @@ async function deployAfunction() {
 
 deployAfunction()
 ```
-## Update
-
-Update a function. Downloads the source, builds and redeploys
-
-
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Update a function. Downloads the source, builds and redeploys
-async function updateAfunction() {
-	const rsp = await functionService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAfunction()
-```
 ## Call
 
 Call a function by name
@@ -170,26 +147,28 @@ async function callAfunction() {
 
 callAfunction()
 ```
-## List
+## Delete
 
-List all the deployed functions
+Delete a function by name
 
 
-[https://m3o.com/function/api#List](https://m3o.com/function/api#List)
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// List all the deployed functions
-async function listFunctions() {
-	const rsp = await functionService.list({})
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listFunctions()
+deleteAfunction()
 ```
 ## Describe
 
@@ -213,6 +192,27 @@ async function describeFunctionStatus() {
 }
 
 describeFunctionStatus()
+```
+## Runtimes
+
+Return a list of supported runtimes
+
+
+[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return a list of supported runtimes
+async function listRuntimes() {
+	const rsp = await functionService.runtimes({})
+	console.log(rsp)
+	
+}
+
+listRuntimes()
 ```
 ## Proxy
 
