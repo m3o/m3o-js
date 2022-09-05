@@ -227,7 +227,7 @@ export interface Token {
 
 export interface Transaction {
   block_hash?: string;
-  block_number?: string;
+  block_number?: number;
   from_account?: User;
   id?: number;
   timestamp?: string;
