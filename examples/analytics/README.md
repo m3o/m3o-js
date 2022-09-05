@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Analytics/api]
 
 Endpoints:
 
+## Track
+
+Track an event, it will be created if it doesn't exist
+
+
+[https://m3o.com/analytics/api#Track](https://m3o.com/analytics/api#Track)
+
+```js
+const { AnalyticsService } = require('m3o/analytics');
+
+const analyticsService = new AnalyticsService(process.env.M3O_API_TOKEN)
+
+// Track an event, it will be created if it doesn't exist
+async function trackAnEvent() {
+	const rsp = await analyticsService.track({
+  "name": "click"
+})
+	console.log(rsp)
+	
+}
+
+trackAnEvent()
+```
 ## Read
 
 Get a single event
@@ -70,27 +93,4 @@ async function deleteAnEvent() {
 }
 
 deleteAnEvent()
-```
-## Track
-
-Track an event, it will be created if it doesn't exist
-
-
-[https://m3o.com/analytics/api#Track](https://m3o.com/analytics/api#Track)
-
-```js
-const { AnalyticsService } = require('m3o/analytics');
-
-const analyticsService = new AnalyticsService(process.env.M3O_API_TOKEN)
-
-// Track an event, it will be created if it doesn't exist
-async function trackAnEvent() {
-	const rsp = await analyticsService.track({
-  "name": "click"
-})
-	console.log(rsp)
-	
-}
-
-trackAnEvent()
 ```

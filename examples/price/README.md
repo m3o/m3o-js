@@ -4,6 +4,56 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Price/api](htt
 
 Endpoints:
 
+## Report
+
+Report an invalid price
+
+
+[https://m3o.com/price/api#Report](https://m3o.com/price/api#Report)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// Report an invalid price
+async function reportAprice() {
+	const rsp = await priceService.report({
+  "comment": "Price is not up to date",
+  "name": "bitcoin",
+  "symbol": "BTC"
+})
+	console.log(rsp)
+	
+}
+
+reportAprice()
+```
+## Add
+
+Add a price
+
+
+[https://m3o.com/price/api#Add](https://m3o.com/price/api#Add)
+
+```js
+const { PriceService } = require('m3o/price');
+
+const priceService = new PriceService(process.env.M3O_API_TOKEN)
+
+// Add a price
+async function addAprice() {
+	const rsp = await priceService.add({
+  "currency": "USD",
+  "name": "bitcoin",
+  "price": 39037.97
+})
+	console.log(rsp)
+	
+}
+
+addAprice()
+```
 ## Get
 
 Get the price of anything
@@ -71,54 +121,4 @@ async function getTheIndex() {
 }
 
 getTheIndex()
-```
-## Report
-
-Report an invalid price
-
-
-[https://m3o.com/price/api#Report](https://m3o.com/price/api#Report)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// Report an invalid price
-async function reportAprice() {
-	const rsp = await priceService.report({
-  "comment": "Price is not up to date",
-  "name": "bitcoin",
-  "symbol": "BTC"
-})
-	console.log(rsp)
-	
-}
-
-reportAprice()
-```
-## Add
-
-Add a price
-
-
-[https://m3o.com/price/api#Add](https://m3o.com/price/api#Add)
-
-```js
-const { PriceService } = require('m3o/price');
-
-const priceService = new PriceService(process.env.M3O_API_TOKEN)
-
-// Add a price
-async function addAprice() {
-	const rsp = await priceService.add({
-  "currency": "USD",
-  "name": "bitcoin",
-  "price": 39037.97
-})
-	console.log(rsp)
-	
-}
-
-addAprice()
 ```
