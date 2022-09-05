@@ -233,7 +233,7 @@ export interface Transaction {
   timestamp?: string;
   to_account?: User;
   transaction_hash?: string;
-  transaction_index?: string;
+  transaction_index?: number;
 }
 
 export interface User {
