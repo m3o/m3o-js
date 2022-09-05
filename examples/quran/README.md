@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Quran/api](htt
 
 Endpoints:
 
-## Chapters
-
-List the Chapters (surahs) of the Quran
-
-
-[https://m3o.com/quran/api#Chapters](https://m3o.com/quran/api#Chapters)
-
-```js
-const { QuranService } = require('m3o/quran');
-
-const quranService = new QuranService(process.env.M3O_API_TOKEN)
-
-// List the Chapters (surahs) of the Quran
-async function listChapters() {
-	const rsp = await quranService.chapters({
-  "language": "en"
-})
-	console.log(rsp)
-	
-}
-
-listChapters()
-```
 ## Summary
 
 Get a summary for a given chapter (surah)
@@ -99,4 +76,27 @@ async function searchTheQuran() {
 }
 
 searchTheQuran()
+```
+## Chapters
+
+List the Chapters (surahs) of the Quran
+
+
+[https://m3o.com/quran/api#Chapters](https://m3o.com/quran/api#Chapters)
+
+```js
+const { QuranService } = require('m3o/quran');
+
+const quranService = new QuranService(process.env.M3O_API_TOKEN)
+
+// List the Chapters (surahs) of the Quran
+async function listChapters() {
+	const rsp = await quranService.chapters({
+  "language": "en"
+})
+	console.log(rsp)
+	
+}
+
+listChapters()
 ```

@@ -136,7 +136,7 @@ export interface Collection {
   // the collection's approval status on OpenSea
   safelist_request_status?: string;
   // the fees that get paid out when a sale is made
-  seller_fees?: number;
+  seller_fees?: string;
   // collection slug
   slug?: string;
   // sales statistics associated with the collection
@@ -180,7 +180,7 @@ export interface Contract {
   // aka "ERC1155"
   schema?: string;
   // seller fees
-  seller_fees?: number;
+  seller_fees?: string;
   // related symbol
   symbol?: string;
   // type of contract e.g "semi-fungible"
@@ -227,13 +227,13 @@ export interface Token {
 
 export interface Transaction {
   block_hash?: string;
-  block_number?: number;
+  block_number?: string;
   from_account?: User;
   id?: number;
   timestamp?: string;
   to_account?: User;
   transaction_hash?: string;
-  transaction_index?: number;
+  transaction_index?: string;
 }
 
 export interface User {
