@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
+## Reserve
+
+Reserve app names
+
+
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Reserve app names
+async function reserveAppName() {
+	const rsp = await appService.reserve({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+reserveAppName()
+```
 ## List
 
 List all the apps
@@ -96,52 +119,28 @@ async function resolveAppById() {
 
 resolveAppById()
 ```
-## Logs
+## Delete
 
-Get the logs for an app
-
-
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-retrieveBuildLogsForAnApp()
-```
-## Reserve
-
-Reserve app names
+Delete an app
 
 
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Reserve app names
-async function reserveAppName() {
-	const rsp = await appService.reserve({
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-reserveAppName()
+deleteAnApp()
 ```
 ## Status
 
@@ -189,26 +188,27 @@ async function updateAnApp() {
 
 updateAnApp()
 ```
-## Delete
+## Logs
 
-Delete an app
+Get the logs for an app
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAnApp()
+retrieveBuildLogsForAnApp()
 ```
