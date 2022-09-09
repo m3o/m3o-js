@@ -4,28 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Reserve
+## Status
 
-Reserve app names
+Get the status of an app
 
 
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Reserve app names
-async function reserveAppName() {
-	const rsp = await appService.reserve({
+// Get the status of an app
+async function getTheStatusOfAnApp() {
+	const rsp = await appService.status({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-reserveAppName()
+getTheStatusOfAnApp()
 ```
 ## Resolve
 
@@ -73,29 +73,28 @@ async function deleteAnApp() {
 
 deleteAnApp()
 ```
-## Logs
+## Reserve
 
-Get the logs for an app
+Reserve app names
 
 
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
+// Reserve app names
+async function reserveAppName() {
+	const rsp = await appService.reserve({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAnApp()
+reserveAppName()
 ```
 ## List
 
@@ -166,29 +165,6 @@ async function listRegions() {
 
 listRegions()
 ```
-## Status
-
-Get the status of an app
-
-
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get the status of an app
-async function getTheStatusOfAnApp() {
-	const rsp = await appService.status({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getTheStatusOfAnApp()
-```
 ## Update
 
 Update the app. The latest source code will be downloaded, built and deployed.
@@ -211,4 +187,28 @@ async function updateAnApp() {
 }
 
 updateAnApp()
+```
+## Logs
+
+Get the logs for an app
+
+
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+retrieveBuildLogsForAnApp()
 ```
