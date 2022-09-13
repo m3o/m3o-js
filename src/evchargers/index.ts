@@ -73,6 +73,8 @@ export interface Connection {
   // The power in KW
   power?: number;
   reference?: string;
+  // status of the connection
+  status?: StatusType;
   // The voltage offered
   voltage?: number;
 }
