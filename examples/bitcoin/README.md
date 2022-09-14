@@ -52,7 +52,7 @@ getAbitcoinAddressBalance()
 ```
 ## Transaction
 
-Get the details of a transaction
+Get transaction details by hash
 
 
 [https://m3o.com/bitcoin/api#Transaction](https://m3o.com/bitcoin/api#Transaction)
@@ -62,7 +62,7 @@ const { BitcoinService } = require('m3o/bitcoin');
 
 const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN)
 
-// Get the details of a transaction
+// Get transaction details by hash
 async function getAbitcoinTransaction() {
 	const rsp = await bitcoinService.transaction({
   "hash": "f854aebae95150b379cc1187d848d58225f3c4157fe992bcd166f58bd5063449"

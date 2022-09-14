@@ -14,6 +14,14 @@ export class BitcoinService {
       request
     ) as Promise<BalanceResponse>;
   }
+  // Get details for a bitcoin address
+  lookup(request: LookupRequest): Promise<LookupResponse> {
+    return this.client.call(
+      "bitcoin",
+      "Lookup",
+      request
+    ) as Promise<LookupResponse>;
+  }
   // Get the price of bitcoin
   price(request: PriceRequest): Promise<PriceResponse> {
     return this.client.call(
@@ -22,7 +30,7 @@ export class BitcoinService {
       request
     ) as Promise<PriceResponse>;
   }
-  // Get the details of a transaction
+  // Get transaction details by hash
   transaction(request: TransactionRequest): Promise<TransactionResponse> {
     return this.client.call(
       "bitcoin",
@@ -45,6 +53,34 @@ export interface BalanceResponse {
 export interface Input {
   prev_out?: Prev;
   script?: string;
+}
+
+export interface LookupRequest {
+  // bitcoin address
+  address?: string;
+  // limit num transactions (max: 50)
+  limit?: number;
+  // offset transactions
+  offset?: number;
+}
+
+export interface LookupResponse {
+  // address requested
+  address?: string;
+  // final balanace
+  final_balance?: number;
+  // hash160
+  hash?: string;
+  // number of transactions
+  num_tx?: number;
+  // number of unredeemed
+  num_unredeemed?: number;
+  // total received
+  total_received?: number;
+  // total sent
+  total_sent?: number;
+  // list of transactions
+  transactions?: Transaction[];
 }
 
 export interface Output {
@@ -75,6 +111,43 @@ export interface PriceResponse {
   price?: number;
   // The symbol of pricing e.g BTCUSD
   symbol?: string;
+}
+
+export interface Transaction {
+  // balance after transaction
+  balance?: number;
+  // block height
+  block_height?: number;
+  // blck index
+  block_index?: number;
+  // double spend
+  double_spend?: boolean;
+  // fees
+  fee?: number;
+  // transaction hash
+  hash?: string;
+  // inputs
+  inputs?: Input[];
+  // lock time
+  lock_time?: number;
+  // outputs
+  outputs?: Output[];
+  // relay
+  relay?: string;
+  // result of transaction
+  result?: number;
+  // transaction size
+  size?: number;
+  // tx index
+  tx_index?: number;
+  // the version
+  version?: number;
+  // vin
+  vin_sz?: number;
+  // vout
+  vout_sz?: number;
+  // weight
+  weight?: number;
 }
 
 export interface TransactionRequest {
