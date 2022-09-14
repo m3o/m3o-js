@@ -50,6 +50,29 @@ async function getAbitcoinAddressBalance() {
 
 getAbitcoinAddressBalance()
 ```
+## Lookup
+
+Get details for a bitcoin address
+
+
+[https://m3o.com/bitcoin/api#Lookup](https://m3o.com/bitcoin/api#Lookup)
+
+```js
+const { BitcoinService } = require('m3o/bitcoin');
+
+const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN)
+
+// Get details for a bitcoin address
+async function lookupTransactionsByAddress() {
+	const rsp = await bitcoinService.lookup({
+  "address": "1MDUoxL1bGvMxhuoDYx6i11ePytECAk9QK"
+})
+	console.log(rsp)
+	
+}
+
+lookupTransactionsByAddress()
+```
 ## Transaction
 
 Get transaction details by hash

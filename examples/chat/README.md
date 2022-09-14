@@ -4,55 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Chat/api](http
 
 Endpoints:
 
-## Join
-
-Join a group
-
-
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Join a group
-async function joinAgroup() {
-	const rsp = await chatService.join({
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-joinAgroup()
-```
-## Leave
-
-Leave a group
-
-
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Leave a group
-async function leaveAgroup() {
-	const rsp = await chatService.leave({
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-leaveAgroup()
-```
 ## Send
 
 Connect to a chat to receive a stream of messages
@@ -81,6 +32,77 @@ async function sendAmessage() {
 }
 
 sendAmessage()
+```
+## History
+
+List the messages in a chat
+
+
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// List the messages in a chat
+async function getChatHistory() {
+	const rsp = await chatService.history({
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+})
+	console.log(rsp)
+	
+}
+
+getChatHistory()
+```
+## Leave
+
+Leave a group
+
+
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Leave a group
+async function leaveAgroup() {
+	const rsp = await chatService.leave({
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+leaveAgroup()
+```
+## Create
+
+Create a new group
+
+
+[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Create a new group
+async function createAnewChat() {
+	const rsp = await chatService.create({
+  "description": "The general group",
+  "name": "general"
+})
+	console.log(rsp)
+	
+}
+
+createAnewChat()
 ```
 ## List
 
@@ -150,28 +172,30 @@ async function inviteAuser() {
 
 inviteAuser()
 ```
-## History
+## Join
 
-List the messages in a chat
+Join a group
 
 
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
 
 ```js
 const { ChatService } = require('m3o/chat');
 
 const chatService = new ChatService(process.env.M3O_API_TOKEN)
 
-// List the messages in a chat
-async function getChatHistory() {
-	const rsp = await chatService.history({
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+// Join a group
+async function joinAgroup() {
+	const rsp = await chatService.join({
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-2"
 })
-	console.log(rsp)
-	
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
 }
 
-getChatHistory()
+joinAgroup()
 ```
 ## Kick
 
@@ -196,28 +220,4 @@ async function kickAuserFromAgroup() {
 }
 
 kickAuserFromAgroup()
-```
-## Create
-
-Create a new group
-
-
-[https://m3o.com/chat/api#Create](https://m3o.com/chat/api#Create)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Create a new group
-async function createAnewChat() {
-	const rsp = await chatService.create({
-  "description": "The general group",
-  "name": "general"
-})
-	console.log(rsp)
-	
-}
-
-createAnewChat()
 ```
