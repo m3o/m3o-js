@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Analytics/api]
 
 Endpoints:
 
-## Delete
-
-Delete an event
-
-
-[https://m3o.com/analytics/api#Delete](https://m3o.com/analytics/api#Delete)
-
-```js
-const { AnalyticsService } = require('m3o/analytics');
-
-const analyticsService = new AnalyticsService(process.env.M3O_API_TOKEN)
-
-// Delete an event
-async function deleteAnEvent() {
-	const rsp = await analyticsService.delete({
-  "name": "click"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnEvent()
-```
 ## Track
 
 Track an event, it will be created if it doesn't exist
@@ -93,4 +70,27 @@ async function listAllEvents() {
 }
 
 listAllEvents()
+```
+## Delete
+
+Delete an event
+
+
+[https://m3o.com/analytics/api#Delete](https://m3o.com/analytics/api#Delete)
+
+```js
+const { AnalyticsService } = require('m3o/analytics');
+
+const analyticsService = new AnalyticsService(process.env.M3O_API_TOKEN)
+
+// Delete an event
+async function deleteAnEvent() {
+	const rsp = await analyticsService.delete({
+  "name": "click"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnEvent()
 ```
