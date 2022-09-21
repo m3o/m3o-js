@@ -4,6 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Url/api](https
 
 Endpoints:
 
+## List
+
+List all the shortened URLs
+
+
+[https://m3o.com/url/api#List](https://m3o.com/url/api#List)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// List all the shortened URLs
+async function listYourShortenedUrls() {
+	const rsp = await urlService.list({})
+	console.log(rsp)
+	
+}
+
+listYourShortenedUrls()
+```
+## Update
+
+Update the destination for a short URL
+
+
+[https://m3o.com/url/api#Update](https://m3o.com/url/api#Update)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Update the destination for a short URL
+async function updateAshortUrl() {
+	const rsp = await urlService.update({
+  "destinationURL": "https://mynewsite.com/this-is-a-rather-long-web-address",
+  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
+})
+	console.log(rsp)
+	
+}
+
+updateAshortUrl()
+```
 ## Shorten
 
 Shorten a URL
@@ -96,49 +141,4 @@ async function createAurl() {
 }
 
 createAurl()
-```
-## List
-
-List all the shortened URLs
-
-
-[https://m3o.com/url/api#List](https://m3o.com/url/api#List)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// List all the shortened URLs
-async function listYourShortenedUrls() {
-	const rsp = await urlService.list({})
-	console.log(rsp)
-	
-}
-
-listYourShortenedUrls()
-```
-## Update
-
-Update the destination for a short URL
-
-
-[https://m3o.com/url/api#Update](https://m3o.com/url/api#Update)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Update the destination for a short URL
-async function updateAshortUrl() {
-	const rsp = await urlService.update({
-  "destinationURL": "https://mynewsite.com/this-is-a-rather-long-web-address",
-  "shortURL": "https://m3o.one/u/f8f3f83f3f83g"
-})
-	console.log(rsp)
-	
-}
-
-updateAshortUrl()
 ```

@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stream/api](ht
 
 Endpoints:
 
+## SendMessage
+
+Send a message to the stream.
+
+
+[https://m3o.com/stream/api#SendMessage](https://m3o.com/stream/api#SendMessage)
+
+```js
+const { StreamService } = require('m3o/stream');
+
+const streamService = new StreamService(process.env.M3O_API_TOKEN)
+
+// Send a message to the stream.
+async function sendMessage() {
+	const rsp = await streamService.sendMessage({
+  "channel": "general",
+  "text": "Hey checkout this tweet https://twitter.com/m3oservices/status/1455291054295498752"
+})
+	console.log(rsp)
+	
+}
+
+sendMessage()
+```
 ## ListMessages
 
 List messages for a given channel
@@ -71,28 +95,4 @@ async function createChannel() {
 }
 
 createChannel()
-```
-## SendMessage
-
-Send a message to the stream.
-
-
-[https://m3o.com/stream/api#SendMessage](https://m3o.com/stream/api#SendMessage)
-
-```js
-const { StreamService } = require('m3o/stream');
-
-const streamService = new StreamService(process.env.M3O_API_TOKEN)
-
-// Send a message to the stream.
-async function sendMessage() {
-	const rsp = await streamService.sendMessage({
-  "channel": "general",
-  "text": "Hey checkout this tweet https://twitter.com/m3oservices/status/1455291054295498752"
-})
-	console.log(rsp)
-	
-}
-
-sendMessage()
 ```
