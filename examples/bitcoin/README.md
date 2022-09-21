@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Bitcoin/api](h
 
 Endpoints:
 
-## Transaction
-
-Get transaction details by hash
-
-
-[https://m3o.com/bitcoin/api#Transaction](https://m3o.com/bitcoin/api#Transaction)
-
-```js
-const { BitcoinService } = require('m3o/bitcoin');
-
-const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN)
-
-// Get transaction details by hash
-async function getAbitcoinTransaction() {
-	const rsp = await bitcoinService.transaction({
-  "hash": "f854aebae95150b379cc1187d848d58225f3c4157fe992bcd166f58bd5063449"
-})
-	console.log(rsp)
-	
-}
-
-getAbitcoinTransaction()
-```
-## Price
-
-Get the price of bitcoin
-
-
-[https://m3o.com/bitcoin/api#Price](https://m3o.com/bitcoin/api#Price)
-
-```js
-const { BitcoinService } = require('m3o/bitcoin');
-
-const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN)
-
-// Get the price of bitcoin
-async function getBitcoinPrice() {
-	const rsp = await bitcoinService.price({
-  "symbol": "USD"
-})
-	console.log(rsp)
-	
-}
-
-getBitcoinPrice()
-```
 ## Balance
 
 Get the BTC balance of an address
@@ -95,4 +49,50 @@ async function lookupTransactionsByAddress() {
 }
 
 lookupTransactionsByAddress()
+```
+## Transaction
+
+Get transaction details by hash
+
+
+[https://m3o.com/bitcoin/api#Transaction](https://m3o.com/bitcoin/api#Transaction)
+
+```js
+const { BitcoinService } = require('m3o/bitcoin');
+
+const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN)
+
+// Get transaction details by hash
+async function getAbitcoinTransaction() {
+	const rsp = await bitcoinService.transaction({
+  "hash": "f854aebae95150b379cc1187d848d58225f3c4157fe992bcd166f58bd5063449"
+})
+	console.log(rsp)
+	
+}
+
+getAbitcoinTransaction()
+```
+## Price
+
+Get the price of bitcoin
+
+
+[https://m3o.com/bitcoin/api#Price](https://m3o.com/bitcoin/api#Price)
+
+```js
+const { BitcoinService } = require('m3o/bitcoin');
+
+const bitcoinService = new BitcoinService(process.env.M3O_API_TOKEN)
+
+// Get the price of bitcoin
+async function getBitcoinPrice() {
+	const rsp = await bitcoinService.price({
+  "symbol": "USD"
+})
+	console.log(rsp)
+	
+}
+
+getBitcoinPrice()
 ```
