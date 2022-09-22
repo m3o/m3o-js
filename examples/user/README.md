@@ -29,88 +29,6 @@ async function updateAnAccount() {
 
 updateAnAccount()
 ```
-## UpdatePassword
-
-Update the account password
-
-
-[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Update the account password
-async function updateTheAccountPassword() {
-	const rsp = await userService.updatePassword({
-  "confirmPassword": "Password2",
-  "newPassword": "Password2",
-  "oldPassword": "Password1",
-  "userId": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-updateTheAccountPassword()
-```
-## SendVerificationEmail
-
-Send a verification email to a user.
-
-
-[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Send a verification email to a user.
-async function sendVerificationEmail() {
-	const rsp = await userService.sendVerificationEmail({
-  "email": "joe@example.com",
-  "failureRedirectUrl": "https://m3o.com/verification-failed",
-  "fromName": "Awesome Dot Com",
-  "redirectUrl": "https://m3o.com",
-  "subject": "Email verification",
-  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
-})
-	console.log(rsp)
-	
-}
-
-sendVerificationEmail()
-```
-## SendPasswordResetEmail
-
-Send an email with a verification code to reset password.
-Call "ResetPassword" endpoint once user provides the code.
-
-
-[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Send an email with a verification code to reset password.
-// Call "ResetPassword" endpoint once user provides the code.
-async function sendPasswordResetEmail() {
-	const rsp = await userService.sendPasswordResetEmail({
-  "email": "joe@example.com",
-  "fromName": "Awesome Dot Com",
-  "subject": "Password reset",
-  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
-})
-	console.log(rsp)
-	
-}
-
-sendPasswordResetEmail()
-```
 ## ReadSession
 
 Read a session by the session id. In the event it has expired or is not found and error is returned.
@@ -134,57 +52,56 @@ async function readAsessionByTheSessionId() {
 
 readAsessionByTheSessionId()
 ```
-## Logout
+## SendMagicLink
 
-Logout a user account
+Login using email only - Passwordless
 
 
-[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
+[https://m3o.com/user/api#SendMagicLink](https://m3o.com/user/api#SendMagicLink)
 
 ```js
 const { UserService } = require('m3o/user');
 
 const userService = new UserService(process.env.M3O_API_TOKEN)
 
-// Logout a user account
-async function logAuserOut() {
-	const rsp = await userService.logout({
-  "sessionId": "df91a612-5b24-4634-99ff-240220ab8f55"
+// Login using email only - Passwordless
+async function sendAmagicLink() {
+	const rsp = await userService.sendMagicLink({
+  "address": "www.example.com",
+  "email": "joe@example.com",
+  "endpoint": "verifytoken",
+  "fromName": "Awesome Dot Com",
+  "subject": "MagicLink to access your account",
+  "textContent": "Hi there,\n\nClick here to access your account $micro_verification_link"
 })
 	console.log(rsp)
 	
 }
 
-logAuserOut()
+sendAmagicLink()
 ```
-## VerifyToken
+## LogoutAll
 
-Check whether the token attached to MagicLink is valid or not.
-Ideally, you need to call this endpoint from your http request
-handler that handles the endpoint which is specified in the
-SendMagicLink request.
+Logout of all user's sessions
 
 
-[https://m3o.com/user/api#VerifyToken](https://m3o.com/user/api#VerifyToken)
+[https://m3o.com/user/api#LogoutAll](https://m3o.com/user/api#LogoutAll)
 
 ```js
 const { UserService } = require('m3o/user');
 
 const userService = new UserService(process.env.M3O_API_TOKEN)
 
-// Check whether the token attached to MagicLink is valid or not.
-// Ideally, you need to call this endpoint from your http request
-// handler that handles the endpoint which is specified in the
-// SendMagicLink request.
-async function verifyAtoken() {
-	const rsp = await userService.verifyToken({
-  "token": "EdsUiidouJJJLldjlloofUiorkojflsWWdld"
+// Logout of all user's sessions
+async function logoutAllSessionsForAuser() {
+	const rsp = await userService.logoutAll({
+  "user_id": "user-1"
 })
 	console.log(rsp)
 	
 }
 
-verifyAtoken()
+logoutAllSessionsForAuser()
 ```
 ## Create
 
@@ -211,6 +128,32 @@ async function createAnAccount() {
 }
 
 createAnAccount()
+```
+## UpdatePassword
+
+Update the account password
+
+
+[https://m3o.com/user/api#UpdatePassword](https://m3o.com/user/api#UpdatePassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Update the account password
+async function updateTheAccountPassword() {
+	const rsp = await userService.updatePassword({
+  "confirmPassword": "Password2",
+  "newPassword": "Password2",
+  "oldPassword": "Password1",
+  "userId": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+updateTheAccountPassword()
 ```
 ## Read
 
@@ -281,31 +224,33 @@ async function readAccountByEmail() {
 
 readAccountByEmail()
 ```
-## ResetPassword
+## SendVerificationEmail
 
-Reset password with the code sent by the "SendPasswordResetEmail" endpoint.
+Send a verification email to a user.
 
 
-[https://m3o.com/user/api#ResetPassword](https://m3o.com/user/api#ResetPassword)
+[https://m3o.com/user/api#SendVerificationEmail](https://m3o.com/user/api#SendVerificationEmail)
 
 ```js
 const { UserService } = require('m3o/user');
 
 const userService = new UserService(process.env.M3O_API_TOKEN)
 
-// Reset password with the code sent by the "SendPasswordResetEmail" endpoint.
-async function resetPassword() {
-	const rsp = await userService.resetPassword({
-  "code": "012345",
-  "confirmPassword": "NewPassword1",
+// Send a verification email to a user.
+async function sendVerificationEmail() {
+	const rsp = await userService.sendVerificationEmail({
   "email": "joe@example.com",
-  "newPassword": "NewPassword1"
+  "failureRedirectUrl": "https://m3o.com/verification-failed",
+  "fromName": "Awesome Dot Com",
+  "redirectUrl": "https://m3o.com",
+  "subject": "Email verification",
+  "textContent": "Hi there,\n\nPlease verify your email by clicking this link: $micro_verification_link"
 })
 	console.log(rsp)
 	
 }
 
-resetPassword()
+sendVerificationEmail()
 ```
 ## VerifyEmail
 
@@ -354,6 +299,32 @@ async function deleteUserAccount() {
 
 deleteUserAccount()
 ```
+## ResetPassword
+
+Reset password with the code sent by the "SendPasswordResetEmail" endpoint.
+
+
+[https://m3o.com/user/api#ResetPassword](https://m3o.com/user/api#ResetPassword)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Reset password with the code sent by the "SendPasswordResetEmail" endpoint.
+async function resetPassword() {
+	const rsp = await userService.resetPassword({
+  "code": "012345",
+  "confirmPassword": "NewPassword1",
+  "email": "joe@example.com",
+  "newPassword": "NewPassword1"
+})
+	console.log(rsp)
+	
+}
+
+resetPassword()
+```
 ## Login
 
 Login using username or email. The response will return a new session for successful login,
@@ -380,6 +351,57 @@ async function logAuserIn() {
 
 logAuserIn()
 ```
+## Logout
+
+Logout a user account
+
+
+[https://m3o.com/user/api#Logout](https://m3o.com/user/api#Logout)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Logout a user account
+async function logAuserOut() {
+	const rsp = await userService.logout({
+  "sessionId": "df91a612-5b24-4634-99ff-240220ab8f55"
+})
+	console.log(rsp)
+	
+}
+
+logAuserOut()
+```
+## SendPasswordResetEmail
+
+Send an email with a verification code to reset password.
+Call "ResetPassword" endpoint once user provides the code.
+
+
+[https://m3o.com/user/api#SendPasswordResetEmail](https://m3o.com/user/api#SendPasswordResetEmail)
+
+```js
+const { UserService } = require('m3o/user');
+
+const userService = new UserService(process.env.M3O_API_TOKEN)
+
+// Send an email with a verification code to reset password.
+// Call "ResetPassword" endpoint once user provides the code.
+async function sendPasswordResetEmail() {
+	const rsp = await userService.sendPasswordResetEmail({
+  "email": "joe@example.com",
+  "fromName": "Awesome Dot Com",
+  "subject": "Password reset",
+  "textContent": "Hi there,\n click here to reset your password: myapp.com/reset/code?=$code"
+})
+	console.log(rsp)
+	
+}
+
+sendPasswordResetEmail()
+```
 ## List
 
 List all users. Returns a paged list of results
@@ -404,54 +426,32 @@ async function listAllUsers() {
 
 listAllUsers()
 ```
-## SendMagicLink
+## VerifyToken
 
-Login using email only - Passwordless
-
-
-[https://m3o.com/user/api#SendMagicLink](https://m3o.com/user/api#SendMagicLink)
-
-```js
-const { UserService } = require('m3o/user');
-
-const userService = new UserService(process.env.M3O_API_TOKEN)
-
-// Login using email only - Passwordless
-async function sendAmagicLink() {
-	const rsp = await userService.sendMagicLink({
-  "address": "www.example.com",
-  "email": "joe@example.com",
-  "endpoint": "verifytoken",
-  "fromName": "Awesome Dot Com",
-  "subject": "MagicLink to access your account",
-  "textContent": "Hi there,\n\nClick here to access your account $micro_verification_link"
-})
-	console.log(rsp)
-	
-}
-
-sendAmagicLink()
-```
-## LogoutAll
-
-Logout of all user's sessions
+Check whether the token attached to MagicLink is valid or not.
+Ideally, you need to call this endpoint from your http request
+handler that handles the endpoint which is specified in the
+SendMagicLink request.
 
 
-[https://m3o.com/user/api#LogoutAll](https://m3o.com/user/api#LogoutAll)
+[https://m3o.com/user/api#VerifyToken](https://m3o.com/user/api#VerifyToken)
 
 ```js
 const { UserService } = require('m3o/user');
 
 const userService = new UserService(process.env.M3O_API_TOKEN)
 
-// Logout of all user's sessions
-async function logoutAllSessionsForAuser() {
-	const rsp = await userService.logoutAll({
-  "user_id": "user-1"
+// Check whether the token attached to MagicLink is valid or not.
+// Ideally, you need to call this endpoint from your http request
+// handler that handles the endpoint which is specified in the
+// SendMagicLink request.
+async function verifyAtoken() {
+	const rsp = await userService.verifyToken({
+  "token": "EdsUiidouJJJLldjlloofUiorkojflsWWdld"
 })
 	console.log(rsp)
 	
 }
 
-logoutAllSessionsForAuser()
+verifyAtoken()
 ```

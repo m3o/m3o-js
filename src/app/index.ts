@@ -153,6 +153,8 @@ export interface RunResponse {
 }
 
 export interface Service {
+  // raw backend endpoint
+  backend?: string;
   // branch of code
   branch?: string;
   // time of creation

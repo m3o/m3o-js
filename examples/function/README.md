@@ -4,28 +4,117 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Update
+## Reserve
 
-Update a function. Downloads the source, builds and redeploys
+Reserve function names and resources beyond free quota
 
 
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Update a function. Downloads the source, builds and redeploys
-async function updateAfunction() {
-	const rsp = await functionService.update({
+// Reserve function names and resources beyond free quota
+async function reserveAfunction() {
+	const rsp = await functionService.reserve({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-updateAfunction()
+reserveAfunction()
+```
+## Runtimes
+
+Return a list of supported runtimes
+
+
+[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return a list of supported runtimes
+async function listRuntimes() {
+	const rsp = await functionService.runtimes({})
+	console.log(rsp)
+	
+}
+
+listRuntimes()
+```
+## Logs
+
+Get the logs for a function
+
+
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Get the logs for a function
+async function retrieveBuildLogsForAfunction() {
+	const rsp = await functionService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+retrieveBuildLogsForAfunction()
+```
+## Describe
+
+Get the info for a deployed function
+
+
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Get the info for a deployed function
+async function describeFunctionStatus() {
+	const rsp = await functionService.describe({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+describeFunctionStatus()
+```
+## Regions
+
+Return a list of supported regions
+
+
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return a list of supported regions
+async function listRegions() {
+	const rsp = await functionService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
 ```
 ## Call
 
@@ -74,26 +163,28 @@ async function listFunctions() {
 
 listFunctions()
 ```
-## Runtimes
+## Delete
 
-Return a list of supported runtimes
+Delete a function by name
 
 
-[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return a list of supported runtimes
-async function listRuntimes() {
-	const rsp = await functionService.runtimes({})
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listRuntimes()
+deleteAfunction()
 ```
 ## Proxy
 
@@ -117,30 +208,6 @@ async function proxyUrl() {
 }
 
 proxyUrl()
-```
-## Logs
-
-Get the logs for a function
-
-
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Get the logs for a function
-async function retrieveBuildLogsForAfunction() {
-	const rsp = await functionService.logs({
-  "logs_type": "build",
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-retrieveBuildLogsForAfunction()
 ```
 ## Deploy
 
@@ -171,93 +238,26 @@ async function deployAfunction() {
 
 deployAfunction()
 ```
-## Delete
+## Update
 
-Delete a function by name
+Update a function. Downloads the source, builds and redeploys
 
 
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
+// Update a function. Downloads the source, builds and redeploys
+async function updateAfunction() {
+	const rsp = await functionService.update({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAfunction()
-```
-## Describe
-
-Get the info for a deployed function
-
-
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Get the info for a deployed function
-async function describeFunctionStatus() {
-	const rsp = await functionService.describe({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-describeFunctionStatus()
-```
-## Regions
-
-Return a list of supported regions
-
-
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Return a list of supported regions
-async function listRegions() {
-	const rsp = await functionService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
-```
-## Reserve
-
-Reserve function names and resources beyond free quota
-
-
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Reserve function names and resources beyond free quota
-async function reserveAfunction() {
-	const rsp = await functionService.reserve({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-reserveAfunction()
+updateAfunction()
 ```
