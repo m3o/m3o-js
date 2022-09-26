@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ping/api](http
 
 Endpoints:
 
-## Url
-
-Ping a HTTP URL
-
-
-[https://m3o.com/ping/api#Url](https://m3o.com/ping/api#Url)
-
-```js
-const { PingService } = require('m3o/ping');
-
-const pingService = new PingService(process.env.M3O_API_TOKEN)
-
-// Ping a HTTP URL
-async function checkAurl() {
-	const rsp = await pingService.url({
-  "address": "google.com"
-})
-	console.log(rsp)
-	
-}
-
-checkAurl()
-```
 ## Ip
 
 Ping an IP address
@@ -52,7 +29,7 @@ pingAnIp()
 ```
 ## Tcp
 
-Ping a TCP port is open
+Ping a TCP port to check if it's open
 
 
 [https://m3o.com/ping/api#Tcp](https://m3o.com/ping/api#Tcp)
@@ -62,7 +39,7 @@ const { PingService } = require('m3o/ping');
 
 const pingService = new PingService(process.env.M3O_API_TOKEN)
 
-// Ping a TCP port is open
+// Ping a TCP port to check if it's open
 async function dialAtcpAddress() {
 	const rsp = await pingService.tcp({
   "address": "google.com:80"
@@ -72,4 +49,27 @@ async function dialAtcpAddress() {
 }
 
 dialAtcpAddress()
+```
+## Url
+
+Ping a HTTP URL
+
+
+[https://m3o.com/ping/api#Url](https://m3o.com/ping/api#Url)
+
+```js
+const { PingService } = require('m3o/ping');
+
+const pingService = new PingService(process.env.M3O_API_TOKEN)
+
+// Ping a HTTP URL
+async function checkAurl() {
+	const rsp = await pingService.url({
+  "address": "google.com"
+})
+	console.log(rsp)
+	
+}
+
+checkAurl()
 ```

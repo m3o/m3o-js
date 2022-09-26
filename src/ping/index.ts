@@ -10,7 +10,7 @@ export class PingService {
   ip(request: IpRequest): Promise<IpResponse> {
     return this.client.call("ping", "Ip", request) as Promise<IpResponse>;
   }
-  // Ping a TCP port is open
+  // Ping a TCP port to check if it's open
   tcp(request: TcpRequest): Promise<TcpResponse> {
     return this.client.call("ping", "Tcp", request) as Promise<TcpResponse>;
   }
