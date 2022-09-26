@@ -92,51 +92,29 @@ async function getTheStatusOfAnApp() {
 
 getTheStatusOfAnApp()
 ```
-## Resolve
+## Logs
 
-Resolve an app by id to its raw backend endpoint
-
-
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Resolve an app by id to its raw backend endpoint
-async function resolveAppById() {
-	const rsp = await appService.resolve({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-resolveAppById()
-```
-## Delete
-
-Delete an app
+Get the logs for an app
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAnApp()
+retrieveBuildLogsForAnApp()
 ```
 ## Run
 
@@ -165,6 +143,29 @@ async function runAnApp() {
 
 runAnApp()
 ```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Resolve an app by id to its raw backend endpoint
+async function resolveAppById() {
+	const rsp = await appService.resolve({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+resolveAppById()
+```
 ## Update
 
 Update the app. The latest source code will be downloaded, built and deployed.
@@ -188,27 +189,26 @@ async function updateAnApp() {
 
 updateAnApp()
 ```
-## Logs
+## Delete
 
-Get the logs for an app
+Delete an app
 
 
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAnApp()
+deleteAnApp()
 ```
