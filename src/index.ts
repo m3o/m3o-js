@@ -9,6 +9,7 @@ import * as carbon from "./carbon";
 import * as chat from "./chat";
 import * as comments from "./comments";
 import * as contact from "./contact";
+import * as cron from "./cron";
 import * as crypto from "./crypto";
 import * as currency from "./currency";
 import * as db from "./db";
@@ -84,6 +85,7 @@ export class Client {
     this.chat = new chat.ChatService(token);
     this.comments = new comments.CommentsService(token);
     this.contact = new contact.ContactService(token);
+    this.cron = new cron.CronService(token);
     this.crypto = new crypto.CryptoService(token);
     this.currency = new currency.CurrencyService(token);
     this.db = new db.DbService(token);
@@ -158,6 +160,7 @@ export class Client {
   chat: chat.ChatService;
   comments: comments.CommentsService;
   contact: contact.ContactService;
+  cron: cron.CronService;
   crypto: crypto.CryptoService;
   currency: currency.CurrencyService;
   db: db.DbService;
@@ -234,6 +237,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     chat: new chat.ChatService(token),
     comments: new comments.CommentsService(token),
     contact: new contact.ContactService(token),
+    cron: new cron.CronService(token),
     crypto: new crypto.CryptoService(token),
     currency: new currency.CurrencyService(token),
     db: new db.DbService(token),
