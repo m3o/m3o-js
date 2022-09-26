@@ -17,13 +17,18 @@ const { CronService } = require('m3o/cron');
 const cronService = new CronService(process.env.M3O_API_TOKEN)
 
 // Schedule a cron job
-async function listJobs() {
-	const rsp = await cronService.schedule({})
+async function scheduleAjob() {
+	const rsp = await cronService.schedule({
+  "callback": "https://google.com",
+  "description": "testing",
+  "interval": "* * * * *",
+  "name": "test"
+})
 	console.log(rsp)
 	
 }
 
-listJobs()
+scheduleAjob()
 ```
 ## Delete
 
@@ -47,4 +52,25 @@ async function deleteAjob() {
 }
 
 deleteAjob()
+```
+## Jobs
+
+List all cron jobs
+
+
+[https://m3o.com/cron/api#Jobs](https://m3o.com/cron/api#Jobs)
+
+```js
+const { CronService } = require('m3o/cron');
+
+const cronService = new CronService(process.env.M3O_API_TOKEN)
+
+// List all cron jobs
+async function listJobs() {
+	const rsp = await cronService.jobs({})
+	console.log(rsp)
+	
+}
+
+listJobs()
 ```
