@@ -4,27 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Cron/api](http
 
 Endpoints:
 
-## Jobs
-
-List all cron jobs
-
-
-[https://m3o.com/cron/api#Jobs](https://m3o.com/cron/api#Jobs)
-
-```js
-const { CronService } = require('m3o/cron');
-
-const cronService = new CronService(process.env.M3O_API_TOKEN)
-
-// List all cron jobs
-async function listJobs() {
-	const rsp = await cronService.jobs({})
-	console.log(rsp)
-	
-}
-
-listJobs()
-```
 ## Schedule
 
 Schedule a cron job
@@ -73,4 +52,25 @@ async function deleteAjob() {
 }
 
 deleteAjob()
+```
+## Jobs
+
+List all cron jobs
+
+
+[https://m3o.com/cron/api#Jobs](https://m3o.com/cron/api#Jobs)
+
+```js
+const { CronService } = require('m3o/cron');
+
+const cronService = new CronService(process.env.M3O_API_TOKEN)
+
+// List all cron jobs
+async function listJobs() {
+	const rsp = await cronService.jobs({})
+	console.log(rsp)
+	
+}
+
+listJobs()
 ```
