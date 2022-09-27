@@ -51,6 +51,7 @@ export interface Job {
 export interface JobsRequest {}
 
 export interface JobsResponse {
+  // the list of scheduled jobs
   jobs?: Job[];
 }
 
