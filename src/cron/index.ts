@@ -36,7 +36,7 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface Job {
-  // callback url
+  // callback url e.g https://google.com
   callback?: string;
   // description
   description?: string;
@@ -55,18 +55,19 @@ export interface JobsResponse {
 }
 
 export interface ScheduleRequest {
-  // callback url
+  // callback url e.g https://google.com
   callback?: string;
   // description
   description?: string;
-  // unique id of job
+  // unique id of job (optional)
   id?: string;
-  // interval e.g * * * *
+  // interval e.g * * * * *
   interval?: string;
   // name of cron
   name?: string;
 }
 
 export interface ScheduleResponse {
+  // the scheduled job
   job?: { [key: string]: any };
 }
