@@ -4,6 +4,57 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
+## DeleteIndex
+
+Delete an index by name
+
+
+[https://m3o.com/search/api#DeleteIndex](https://m3o.com/search/api#DeleteIndex)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Delete an index by name
+async function deleteAnIndex() {
+	const rsp = await searchService.deleteIndex({
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnIndex()
+```
+## Index
+
+Index a record i.e. insert a document to search for.
+
+
+[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Index a record i.e. insert a document to search for.
+async function indexArecord() {
+	const rsp = await searchService.index({
+  "data": {
+    "age": 37,
+    "name": "John Doe",
+    "starsign": "Leo"
+  },
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+indexArecord()
+```
 ## Search
 
 Search for records in a given in index
@@ -122,55 +173,4 @@ async function createAnIndex() {
 }
 
 createAnIndex()
-```
-## DeleteIndex
-
-Delete an index by name
-
-
-[https://m3o.com/search/api#DeleteIndex](https://m3o.com/search/api#DeleteIndex)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Delete an index by name
-async function deleteAnIndex() {
-	const rsp = await searchService.deleteIndex({
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnIndex()
-```
-## Index
-
-Index a record i.e. insert a document to search for.
-
-
-[https://m3o.com/search/api#Index](https://m3o.com/search/api#Index)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Index a record i.e. insert a document to search for.
-async function indexArecord() {
-	const rsp = await searchService.index({
-  "data": {
-    "age": 37,
-    "name": "John Doe",
-    "starsign": "Leo"
-  },
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-indexArecord()
 ```

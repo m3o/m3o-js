@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Contact/api](h
 
 Endpoints:
 
-## Read
-
-Read contact details
-
-
-[https://m3o.com/contact/api#Read](https://m3o.com/contact/api#Read)
-
-```js
-const { ContactService } = require('m3o/contact');
-
-const contactService = new ContactService(process.env.M3O_API_TOKEN)
-
-// Read contact details
-async function getAcontact() {
-	const rsp = await contactService.read({
-  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
-})
-	console.log(rsp)
-	
-}
-
-getAcontact()
-```
-## Delete
-
-Delete a contact
-
-
-[https://m3o.com/contact/api#Delete](https://m3o.com/contact/api#Delete)
-
-```js
-const { ContactService } = require('m3o/contact');
-
-const contactService = new ContactService(process.env.M3O_API_TOKEN)
-
-// Delete a contact
-async function deleteAcontact() {
-	const rsp = await contactService.delete({
-  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
-})
-	console.log(rsp)
-	
-}
-
-deleteAcontact()
-```
 ## List
 
 List contacts
@@ -229,4 +183,50 @@ async function updateAcontact() {
 }
 
 updateAcontact()
+```
+## Read
+
+Read contact details
+
+
+[https://m3o.com/contact/api#Read](https://m3o.com/contact/api#Read)
+
+```js
+const { ContactService } = require('m3o/contact');
+
+const contactService = new ContactService(process.env.M3O_API_TOKEN)
+
+// Read contact details
+async function getAcontact() {
+	const rsp = await contactService.read({
+  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
+})
+	console.log(rsp)
+	
+}
+
+getAcontact()
+```
+## Delete
+
+Delete a contact
+
+
+[https://m3o.com/contact/api#Delete](https://m3o.com/contact/api#Delete)
+
+```js
+const { ContactService } = require('m3o/contact');
+
+const contactService = new ContactService(process.env.M3O_API_TOKEN)
+
+// Delete a contact
+async function deleteAcontact() {
+	const rsp = await contactService.delete({
+  "id": "42e48a3c-6221-11ec-96d2-acde48001122"
+})
+	console.log(rsp)
+	
+}
+
+deleteAcontact()
 ```
