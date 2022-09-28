@@ -4,50 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Regions
-
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Return the support regions
-async function listRegions() {
-	const rsp = await appService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
-```
-## Update
-
-Update the app. The latest source code will be downloaded, built and deployed.
-
-
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Update the app. The latest source code will be downloaded, built and deployed.
-async function updateAnApp() {
-	const rsp = await appService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAnApp()
-```
 ## List
 
 List all the apps
@@ -96,6 +52,73 @@ async function runAnApp() {
 
 runAnApp()
 ```
+## Regions
+
+Return the support regions
+
+
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Return the support regions
+async function listRegions() {
+	const rsp = await appService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnApp()
+```
+## Reserve
+
+Reserve app names
+
+
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Reserve app names
+async function reserveAppName() {
+	const rsp = await appService.reserve({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+reserveAppName()
+```
 ## Status
 
 Get the status of an app
@@ -142,28 +165,28 @@ async function resolveAppById() {
 
 resolveAppById()
 ```
-## Delete
+## Update
 
-Delete an app
+Update the app. The latest source code will be downloaded, built and deployed.
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
+// Update the app. The latest source code will be downloaded, built and deployed.
+async function updateAnApp() {
+	const rsp = await appService.update({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAnApp()
+updateAnApp()
 ```
 ## Logs
 
@@ -188,27 +211,4 @@ async function retrieveBuildLogsForAnApp() {
 }
 
 retrieveBuildLogsForAnApp()
-```
-## Reserve
-
-Reserve app names
-
-
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Reserve app names
-async function reserveAppName() {
-	const rsp = await appService.reserve({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-reserveAppName()
 ```
