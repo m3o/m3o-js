@@ -29,6 +29,30 @@ async function joinAgroup() {
 
 joinAgroup()
 ```
+## Leave
+
+Leave a group
+
+
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+
+```js
+const { ChatService } = require('m3o/chat');
+
+const chatService = new ChatService(process.env.M3O_API_TOKEN)
+
+// Leave a group
+async function leaveAgroup() {
+	const rsp = await chatService.leave({
+  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-1"
+})
+	console.log(rsp)
+	
+}
+
+leaveAgroup()
+```
 ## List
 
 List available chats
@@ -149,30 +173,6 @@ async function kickAuserFromAgroup() {
 }
 
 kickAuserFromAgroup()
-```
-## Leave
-
-Leave a group
-
-
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
-
-```js
-const { ChatService } = require('m3o/chat');
-
-const chatService = new ChatService(process.env.M3O_API_TOKEN)
-
-// Leave a group
-async function leaveAgroup() {
-	const rsp = await chatService.leave({
-  "group_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-1"
-})
-	console.log(rsp)
-	
-}
-
-leaveAgroup()
 ```
 ## Create
 
