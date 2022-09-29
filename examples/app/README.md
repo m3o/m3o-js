@@ -4,28 +4,32 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Update
+## Run
 
-Update the app. The latest source code will be downloaded, built and deployed.
+Run an app from source
 
 
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
+[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Update the app. The latest source code will be downloaded, built and deployed.
-async function updateAnApp() {
-	const rsp = await appService.update({
-  "name": "helloworld"
+// Run an app from source
+async function runAnApp() {
+	const rsp = await appService.run({
+  "branch": "master",
+  "name": "helloworld",
+  "port": 8080,
+  "region": "europe-west1",
+  "repo": "github.com/asim/helloworld"
 })
 	console.log(rsp)
 	
 }
 
-updateAnApp()
+runAnApp()
 ```
 ## Delete
 
@@ -73,6 +77,50 @@ async function retrieveBuildLogsForAnApp() {
 }
 
 retrieveBuildLogsForAnApp()
+```
+## Reserve
+
+Reserve app names
+
+
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Reserve app names
+async function reserveAppName() {
+	const rsp = await appService.reserve({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+reserveAppName()
+```
+## List
+
+List all the apps
+
+
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// List all the apps
+async function listTheApps() {
+	const rsp = await appService.list({})
+	console.log(rsp)
+	
+}
+
+listTheApps()
 ```
 ## Regions
 
@@ -141,74 +189,26 @@ async function resolveAppById() {
 
 resolveAppById()
 ```
-## Reserve
+## Update
 
-Reserve app names
+Update the app. The latest source code will be downloaded, built and deployed.
 
 
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Reserve app names
-async function reserveAppName() {
-	const rsp = await appService.reserve({
+// Update the app. The latest source code will be downloaded, built and deployed.
+async function updateAnApp() {
+	const rsp = await appService.update({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-reserveAppName()
-```
-## List
-
-List all the apps
-
-
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// List all the apps
-async function listTheApps() {
-	const rsp = await appService.list({})
-	console.log(rsp)
-	
-}
-
-listTheApps()
-```
-## Run
-
-Run an app from source
-
-
-[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Run an app from source
-async function runAnApp() {
-	const rsp = await appService.run({
-  "branch": "master",
-  "name": "helloworld",
-  "port": 8080,
-  "region": "europe-west1",
-  "repo": "github.com/asim/helloworld"
-})
-	console.log(rsp)
-	
-}
-
-runAnApp()
+updateAnApp()
 ```
