@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Search/api](ht
 
 Endpoints:
 
+## CreateIndex
+
+Create an index by name
+
+
+[https://m3o.com/search/api#CreateIndex](https://m3o.com/search/api#CreateIndex)
+
+```js
+const { SearchService } = require('m3o/search');
+
+const searchService = new SearchService(process.env.M3O_API_TOKEN)
+
+// Create an index by name
+async function createAnIndex() {
+	const rsp = await searchService.createIndex({
+  "index": "customers"
+})
+	console.log(rsp)
+	
+}
+
+createAnIndex()
+```
 ## DeleteIndex
 
 Delete an index by name
@@ -150,27 +173,4 @@ async function deleteArecord() {
 }
 
 deleteArecord()
-```
-## CreateIndex
-
-Create an index by name
-
-
-[https://m3o.com/search/api#CreateIndex](https://m3o.com/search/api#CreateIndex)
-
-```js
-const { SearchService } = require('m3o/search');
-
-const searchService = new SearchService(process.env.M3O_API_TOKEN)
-
-// Create an index by name
-async function createAnIndex() {
-	const rsp = await searchService.createIndex({
-  "index": "customers"
-})
-	console.log(rsp)
-	
-}
-
-createAnIndex()
 ```
