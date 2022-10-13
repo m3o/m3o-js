@@ -4,51 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Runtimes
-
-Return a list of supported runtimes
-
-
-[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Return a list of supported runtimes
-async function listRuntimes() {
-	const rsp = await functionService.runtimes({})
-	console.log(rsp)
-	
-}
-
-listRuntimes()
-```
-## Logs
-
-Get the logs for a function
-
-
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Get the logs for a function
-async function retrieveBuildLogsForAfunction() {
-	const rsp = await functionService.logs({
-  "logs_type": "build",
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-retrieveBuildLogsForAfunction()
-```
 ## Call
 
 Call a function by name
@@ -96,26 +51,28 @@ async function listFunctions() {
 
 listFunctions()
 ```
-## Regions
+## Describe
 
-Return a list of supported regions
+Get the info for a deployed function
 
 
-[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
+[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return a list of supported regions
-async function listRegions() {
-	const rsp = await functionService.regions({})
+// Get the info for a deployed function
+async function describeFunctionStatus() {
+	const rsp = await functionService.describe({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listRegions()
+describeFunctionStatus()
 ```
 ## Reserve
 
@@ -140,28 +97,50 @@ async function reserveAfunction() {
 
 reserveAfunction()
 ```
-## Proxy
+## Runtimes
 
-Return the backend url for proxying
+Return a list of supported runtimes
 
 
-[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
+[https://m3o.com/function/api#Runtimes](https://m3o.com/function/api#Runtimes)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Return the backend url for proxying
-async function proxyUrl() {
-	const rsp = await functionService.proxy({
-  "id": "helloworld"
+// Return a list of supported runtimes
+async function listRuntimes() {
+	const rsp = await functionService.runtimes({})
+	console.log(rsp)
+	
+}
+
+listRuntimes()
+```
+## Logs
+
+Get the logs for a function
+
+
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Get the logs for a function
+async function retrieveBuildLogsForAfunction() {
+	const rsp = await functionService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-proxyUrl()
+retrieveBuildLogsForAfunction()
 ```
 ## Deploy
 
@@ -238,26 +217,47 @@ async function deleteAfunction() {
 
 deleteAfunction()
 ```
-## Describe
+## Regions
 
-Get the info for a deployed function
+Return a list of supported regions
 
 
-[https://m3o.com/function/api#Describe](https://m3o.com/function/api#Describe)
+[https://m3o.com/function/api#Regions](https://m3o.com/function/api#Regions)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Get the info for a deployed function
-async function describeFunctionStatus() {
-	const rsp = await functionService.describe({
-  "name": "helloworld"
+// Return a list of supported regions
+async function listRegions() {
+	const rsp = await functionService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
+## Proxy
+
+Return the backend url for proxying
+
+
+[https://m3o.com/function/api#Proxy](https://m3o.com/function/api#Proxy)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Return the backend url for proxying
+async function proxyUrl() {
+	const rsp = await functionService.proxy({
+  "id": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-describeFunctionStatus()
+proxyUrl()
 ```
