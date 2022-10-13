@@ -4,6 +4,27 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Evchargers/api
 
 Endpoints:
 
+## ReferenceData
+
+Retrieve reference data as used by this API and in conjunction with the Search endpoint
+
+
+[https://m3o.com/evchargers/api#ReferenceData](https://m3o.com/evchargers/api#ReferenceData)
+
+```js
+const { EvchargersService } = require('m3o/evchargers');
+
+const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
+
+// Retrieve reference data as used by this API and in conjunction with the Search endpoint
+async function getReferenceData() {
+	const rsp = await evchargersService.referenceData({})
+	console.log(rsp)
+	
+}
+
+getReferenceData()
+```
 ## Search
 
 Search by giving a coordinate and a max distance, or bounding box and optional filters
@@ -95,25 +116,4 @@ async function searchWithFiltersFastChargersOnly() {
 }
 
 searchWithFiltersFastChargersOnly()
-```
-## ReferenceData
-
-Retrieve reference data as used by this API and in conjunction with the Search endpoint
-
-
-[https://m3o.com/evchargers/api#ReferenceData](https://m3o.com/evchargers/api#ReferenceData)
-
-```js
-const { EvchargersService } = require('m3o/evchargers');
-
-const evchargersService = new EvchargersService(process.env.M3O_API_TOKEN)
-
-// Retrieve reference data as used by this API and in conjunction with the Search endpoint
-async function getReferenceData() {
-	const rsp = await evchargersService.referenceData({})
-	console.log(rsp)
-	
-}
-
-getReferenceData()
 ```
