@@ -10,6 +10,10 @@ export class AiService {
   call(request: CallRequest): Promise<CallResponse> {
     return this.client.call("ai", "Call", request) as Promise<CallResponse>;
   }
+  // Check or edit text/code
+  check(request: CheckRequest): Promise<CheckResponse> {
+    return this.client.call("ai", "Check", request) as Promise<CheckResponse>;
+  }
   // Moderate hate speech
   moderate(request: ModerateRequest): Promise<ModerateResponse> {
     return this.client.call(
@@ -27,6 +31,18 @@ export interface CallRequest {
 
 export interface CallResponse {
   // text returned
+  text?: string;
+}
+
+export interface CheckRequest {
+  // instruction hint e.g check the grammar
+  instruction?: string;
+  // text/code to check
+  text?: string;
+}
+
+export interface CheckResponse {
+  // response output
   text?: string;
 }
 
