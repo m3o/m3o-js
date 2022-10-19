@@ -1,4 +1,5 @@
 import * as address from "./address";
+import * as ai from "./ai";
 import * as analytics from "./analytics";
 import * as answer from "./answer";
 import * as app from "./app";
@@ -75,6 +76,7 @@ import * as youtube from "./youtube";
 export class Client {
   constructor(token: string) {
     this.address = new address.AddressService(token);
+    this.ai = new ai.AiService(token);
     this.analytics = new analytics.AnalyticsService(token);
     this.answer = new answer.AnswerService(token);
     this.app = new app.AppService(token);
@@ -150,6 +152,7 @@ export class Client {
   }
 
   address: address.AddressService;
+  ai: ai.AiService;
   analytics: analytics.AnalyticsService;
   answer: answer.AnswerService;
   app: app.AppService;
@@ -227,6 +230,7 @@ export class Client {
 export default (token = process.env.M3O_API_TOKEN as string) => {
   return {
     address: new address.AddressService(token),
+    ai: new ai.AiService(token),
     analytics: new analytics.AnalyticsService(token),
     answer: new answer.AnswerService(token),
     app: new app.AppService(token),
