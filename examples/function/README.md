@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Delete
-
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAfunction()
-```
 ## Proxy
 
 Return the backend url for proxying
@@ -100,28 +77,28 @@ async function callAfunction() {
 
 callAfunction()
 ```
-## Update
+## Reserve
 
-Update a function. Downloads the source, builds and redeploys
+Reserve function names and resources beyond free quota
 
 
-[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Update a function. Downloads the source, builds and redeploys
-async function updateAfunction() {
-	const rsp = await functionService.update({
+// Reserve function names and resources beyond free quota
+async function reserveAfunction() {
+	const rsp = await functionService.reserve({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-updateAfunction()
+reserveAfunction()
 ```
 ## List
 
@@ -143,6 +120,29 @@ async function listFunctions() {
 }
 
 listFunctions()
+```
+## Delete
+
+Delete a function by name
+
+
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAfunction()
 ```
 ## Describe
 
@@ -187,29 +187,6 @@ async function listRegions() {
 }
 
 listRegions()
-```
-## Reserve
-
-Reserve function names and resources beyond free quota
-
-
-[https://m3o.com/function/api#Reserve](https://m3o.com/function/api#Reserve)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Reserve function names and resources beyond free quota
-async function reserveAfunction() {
-	const rsp = await functionService.reserve({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-reserveAfunction()
 ```
 ## Runtimes
 
@@ -260,4 +237,27 @@ async function deployAfunction() {
 }
 
 deployAfunction()
+```
+## Update
+
+Update a function. Downloads the source, builds and redeploys
+
+
+[https://m3o.com/function/api#Update](https://m3o.com/function/api#Update)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Update a function. Downloads the source, builds and redeploys
+async function updateAfunction() {
+	const rsp = await functionService.update({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+updateAfunction()
 ```

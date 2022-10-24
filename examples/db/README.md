@@ -4,34 +4,28 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Db/api](https:
 
 Endpoints:
 
-## Create
+## Count
 
-Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+Count records in a table
 
 
-[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
 
 ```js
 const { DbService } = require('m3o/db');
 
 const dbService = new DbService(process.env.M3O_API_TOKEN)
 
-// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-async function createArecord() {
-	const rsp = await dbService.create({
-  "record": {
-    "age": 42,
-    "id": "1",
-    "isActive": true,
-    "name": "Jane"
-  },
+// Count records in a table
+async function countEntriesInAtable() {
+	const rsp = await dbService.count({
   "table": "example"
 })
 	console.log(rsp)
 	
 }
 
-createArecord()
+countEntriesInAtable()
 ```
 ## Update
 
@@ -59,6 +53,30 @@ async function updateArecord() {
 }
 
 updateArecord()
+```
+## Delete
+
+Delete a record in the database by id.
+
+
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Delete a record in the database by id.
+async function deleteArecord() {
+	const rsp = await dbService.delete({
+  "id": "1",
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+deleteArecord()
 ```
 ## DropTable
 
@@ -128,6 +146,35 @@ async function renameTable() {
 
 renameTable()
 ```
+## Create
+
+Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+
+
+[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+async function createArecord() {
+	const rsp = await dbService.create({
+  "record": {
+    "age": 42,
+    "id": "1",
+    "isActive": true,
+    "name": "Jane"
+  },
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+createArecord()
+```
 ## Read
 
 Read data from a table. Lookup can be by ID or via querying any field in the record.
@@ -152,30 +199,6 @@ async function readRecords() {
 
 readRecords()
 ```
-## Delete
-
-Delete a record in the database by id.
-
-
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Delete a record in the database by id.
-async function deleteArecord() {
-	const rsp = await dbService.delete({
-  "id": "1",
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-deleteArecord()
-```
 ## Truncate
 
 Truncate the records in a table
@@ -198,27 +221,4 @@ async function truncateTable() {
 }
 
 truncateTable()
-```
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Count records in a table
-async function countEntriesInAtable() {
-	const rsp = await dbService.count({
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-countEntriesInAtable()
 ```

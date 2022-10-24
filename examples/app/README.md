@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
+## Logs
+
+Get the logs for an app
+
+
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+retrieveBuildLogsForAnApp()
+```
 ## Reserve
 
 Reserve app names
@@ -26,27 +50,6 @@ async function reserveAppName() {
 }
 
 reserveAppName()
-```
-## List
-
-List all the apps
-
-
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// List all the apps
-async function listTheApps() {
-	const rsp = await appService.list({})
-	console.log(rsp)
-	
-}
-
-listTheApps()
 ```
 ## Run
 
@@ -75,50 +78,6 @@ async function runAnApp() {
 
 runAnApp()
 ```
-## Delete
-
-Delete an app
-
-
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnApp()
-```
-## Regions
-
-Return the support regions
-
-
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Return the support regions
-async function listRegions() {
-	const rsp = await appService.regions({})
-	console.log(rsp)
-	
-}
-
-listRegions()
-```
 ## Status
 
 Get the status of an app
@@ -141,29 +100,6 @@ async function getTheStatusOfAnApp() {
 }
 
 getTheStatusOfAnApp()
-```
-## Resolve
-
-Resolve an app by id to its raw backend endpoint
-
-
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Resolve an app by id to its raw backend endpoint
-async function resolveAppById() {
-	const rsp = await appService.resolve({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-resolveAppById()
 ```
 ## Update
 
@@ -188,27 +124,91 @@ async function updateAnApp() {
 
 updateAnApp()
 ```
-## Logs
+## Delete
 
-Get the logs for an app
+Delete an app
 
 
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAnApp()
+deleteAnApp()
+```
+## List
+
+List all the apps
+
+
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// List all the apps
+async function listTheApps() {
+	const rsp = await appService.list({})
+	console.log(rsp)
+	
+}
+
+listTheApps()
+```
+## Regions
+
+Return the support regions
+
+
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Return the support regions
+async function listRegions() {
+	const rsp = await appService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Resolve an app by id to its raw backend endpoint
+async function resolveAppById() {
+	const rsp = await appService.resolve({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+resolveAppById()
 ```

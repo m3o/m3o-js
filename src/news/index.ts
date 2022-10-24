@@ -14,6 +14,14 @@ export class NewsService {
       request
     ) as Promise<HeadlinesResponse>;
   }
+  // Get the top stories
+  topStories(request: TopStoriesRequest): Promise<TopStoriesResponse> {
+    return this.client.call(
+      "news",
+      "TopStories",
+      request
+    ) as Promise<TopStoriesResponse>;
+  }
 }
 
 export interface Article {
@@ -53,5 +61,18 @@ export interface HeadlinesRequest {
 }
 
 export interface HeadlinesResponse {
+  articles?: Article[];
+}
+
+export interface TopStoriesRequest {
+  // date published on in YYYY-MM-DD format
+  date?: string;
+  // comma separated list of languages to retrieve in e.g en,es
+  language?: string;
+  // comma separated list of countries to include e.g us,ca
+  locale?: string;
+}
+
+export interface TopStoriesResponse {
   articles?: Article[];
 }
