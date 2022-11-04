@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ai/api](https:
 
 Endpoints:
 
+## Moderate
+
+Moderate hate speech
+
+
+[https://m3o.com/ai/api#Moderate](https://m3o.com/ai/api#Moderate)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Moderate hate speech
+async function moderateHateSpeech() {
+	const rsp = await aiService.moderate({
+  "text": "I want to kill him"
+})
+	console.log(rsp)
+	
+}
+
+moderateHateSpeech()
+```
 ## Call
 
 Make a request to the AI
@@ -49,27 +72,4 @@ async function checkText() {
 }
 
 checkText()
-```
-## Moderate
-
-Moderate hate speech
-
-
-[https://m3o.com/ai/api#Moderate](https://m3o.com/ai/api#Moderate)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Moderate hate speech
-async function moderateHateSpeech() {
-	const rsp = await aiService.moderate({
-  "text": "I want to kill him"
-})
-	console.log(rsp)
-	
-}
-
-moderateHateSpeech()
 ```
