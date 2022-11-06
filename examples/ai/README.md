@@ -4,6 +4,29 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ai/api](https:
 
 Endpoints:
 
+## Check
+
+Check or edit text/code
+
+
+[https://m3o.com/ai/api#Check](https://m3o.com/ai/api#Check)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Check or edit text/code
+async function checkText() {
+	const rsp = await aiService.check({
+  "text": "What day of the wek is it?"
+})
+	console.log(rsp)
+	
+}
+
+checkText()
+```
 ## Moderate
 
 Moderate hate speech
@@ -49,27 +72,4 @@ async function callTheAi() {
 }
 
 callTheAi()
-```
-## Check
-
-Check or edit text/code
-
-
-[https://m3o.com/ai/api#Check](https://m3o.com/ai/api#Check)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Check or edit text/code
-async function checkText() {
-	const rsp = await aiService.check({
-  "text": "What day of the wek is it?"
-})
-	console.log(rsp)
-	
-}
-
-checkText()
 ```
