@@ -42,7 +42,7 @@ const dnsService = new DnsService(process.env.M3O_API_TOKEN)
 // Check who owns a domain
 async function whoisQuery() {
 	const rsp = await dnsService.whois({
-  "name": "google.com"
+  "domaine": "x.com"
 })
 	console.log(rsp)
 	
