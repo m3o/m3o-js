@@ -27,3 +27,26 @@ async function makeAdnsQuery() {
 
 makeAdnsQuery()
 ```
+## Whois
+
+Check who owns a domain
+
+
+[https://m3o.com/dns/api#Whois](https://m3o.com/dns/api#Whois)
+
+```js
+const { DnsService } = require('m3o/dns');
+
+const dnsService = new DnsService(process.env.M3O_API_TOKEN)
+
+// Check who owns a domain
+async function whoisQuery() {
+	const rsp = await dnsService.whois({
+  "name": "google.com"
+})
+	console.log(rsp)
+	
+}
+
+whoisQuery()
+```
