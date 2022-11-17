@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Dns/api](https
 
 Endpoints:
 
-## Whois
-
-Check who owns a domain
-
-
-[https://m3o.com/dns/api#Whois](https://m3o.com/dns/api#Whois)
-
-```js
-const { DnsService } = require('m3o/dns');
-
-const dnsService = new DnsService(process.env.M3O_API_TOKEN)
-
-// Check who owns a domain
-async function whoisQuery() {
-	const rsp = await dnsService.whois({
-  "domain": "x.com"
-})
-	console.log(rsp)
-	
-}
-
-whoisQuery()
-```
 ## Query
 
 Query an addresss
@@ -49,4 +26,27 @@ async function makeAdnsQuery() {
 }
 
 makeAdnsQuery()
+```
+## Whois
+
+Check who owns a domain
+
+
+[https://m3o.com/dns/api#Whois](https://m3o.com/dns/api#Whois)
+
+```js
+const { DnsService } = require('m3o/dns');
+
+const dnsService = new DnsService(process.env.M3O_API_TOKEN)
+
+// Check who owns a domain
+async function whoisQuery() {
+	const rsp = await dnsService.whois({
+  "domain": "x.com"
+})
+	console.log(rsp)
+	
+}
+
+whoisQuery()
 ```
