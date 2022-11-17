@@ -4,34 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Event/api](htt
 
 Endpoints:
 
-## Publish
-
-Publish a event to the event stream.
-
-
-[https://m3o.com/event/api#Publish](https://m3o.com/event/api#Publish)
-
-```js
-const { EventService } = require('m3o/event');
-
-const eventService = new EventService(process.env.M3O_API_TOKEN)
-
-// Publish a event to the event stream.
-async function publishAnEvent() {
-	const rsp = await eventService.publish({
-  "message": {
-    "id": "1",
-    "type": "signup",
-    "user": "john"
-  },
-  "topic": "user"
-})
-	console.log(rsp)
-	
-}
-
-publishAnEvent()
-```
 ## Consume
 
 Consume events from a given topic.
@@ -78,4 +50,32 @@ async function readEventsOnAtopic() {
 }
 
 readEventsOnAtopic()
+```
+## Publish
+
+Publish a event to the event stream.
+
+
+[https://m3o.com/event/api#Publish](https://m3o.com/event/api#Publish)
+
+```js
+const { EventService } = require('m3o/event');
+
+const eventService = new EventService(process.env.M3O_API_TOKEN)
+
+// Publish a event to the event stream.
+async function publishAnEvent() {
+	const rsp = await eventService.publish({
+  "message": {
+    "id": "1",
+    "type": "signup",
+    "user": "john"
+  },
+  "topic": "user"
+})
+	console.log(rsp)
+	
+}
+
+publishAnEvent()
 ```

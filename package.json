@@ -71,6 +71,7 @@
   "routing",
   "rss",
   "search",
+  "secret",
   "sentiment",
   "sms",
   "space",
@@ -105,5 +106,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1725"
+ "version": "1.0.1726"
 }

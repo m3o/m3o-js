@@ -53,6 +53,7 @@ import * as quran from "./quran";
 import * as routing from "./routing";
 import * as rss from "./rss";
 import * as search from "./search";
+import * as secret from "./secret";
 import * as sentiment from "./sentiment";
 import * as sms from "./sms";
 import * as space from "./space";
@@ -130,6 +131,7 @@ export class Client {
     this.routing = new routing.RoutingService(token);
     this.rss = new rss.RssService(token);
     this.search = new search.SearchService(token);
+    this.secret = new secret.SecretService(token);
     this.sentiment = new sentiment.SentimentService(token);
     this.sms = new sms.SmsService(token);
     this.space = new space.SpaceService(token);
@@ -206,6 +208,7 @@ export class Client {
   routing: routing.RoutingService;
   rss: rss.RssService;
   search: search.SearchService;
+  secret: secret.SecretService;
   sentiment: sentiment.SentimentService;
   sms: sms.SmsService;
   space: space.SpaceService;
@@ -284,6 +287,7 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     routing: new routing.RoutingService(token),
     rss: new rss.RssService(token),
     search: new search.SearchService(token),
+    secret: new secret.SecretService(token),
     sentiment: new sentiment.SentimentService(token),
     sms: new sms.SmsService(token),
     space: new space.SpaceService(token),
