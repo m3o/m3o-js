@@ -4,6 +4,32 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Cron/api](http
 
 Endpoints:
 
+## Schedule
+
+Schedule a cron job
+
+
+[https://m3o.com/cron/api#Schedule](https://m3o.com/cron/api#Schedule)
+
+```js
+const { CronService } = require('m3o/cron');
+
+const cronService = new CronService(process.env.M3O_API_TOKEN)
+
+// Schedule a cron job
+async function scheduleAjob() {
+	const rsp = await cronService.schedule({
+  "callback": "https://google.com",
+  "description": "testing",
+  "interval": "* * * * *",
+  "name": "test"
+})
+	console.log(rsp)
+	
+}
+
+scheduleAjob()
+```
 ## Delete
 
 Delete a cron job
@@ -47,30 +73,4 @@ async function listJobs() {
 }
 
 listJobs()
-```
-## Schedule
-
-Schedule a cron job
-
-
-[https://m3o.com/cron/api#Schedule](https://m3o.com/cron/api#Schedule)
-
-```js
-const { CronService } = require('m3o/cron');
-
-const cronService = new CronService(process.env.M3O_API_TOKEN)
-
-// Schedule a cron job
-async function scheduleAjob() {
-	const rsp = await cronService.schedule({
-  "callback": "https://google.com",
-  "description": "testing",
-  "interval": "* * * * *",
-  "name": "test"
-})
-	console.log(rsp)
-	
-}
-
-scheduleAjob()
 ```
