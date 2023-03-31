@@ -4,6 +4,52 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ai/api](https:
 
 Endpoints:
 
+## Generate
+
+Generage an image from prompt
+
+
+[https://m3o.com/ai/api#Generate](https://m3o.com/ai/api#Generate)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Generage an image from prompt
+async function generateImage() {
+	const rsp = await aiService.generate({
+  "text": "a cat on a ball"
+})
+	console.log(rsp)
+	
+}
+
+generateImage()
+```
+## Moderate
+
+Moderate hate speech
+
+
+[https://m3o.com/ai/api#Moderate](https://m3o.com/ai/api#Moderate)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Moderate hate speech
+async function moderateHateSpeech() {
+	const rsp = await aiService.moderate({
+  "text": "I want to kill him"
+})
+	console.log(rsp)
+	
+}
+
+moderateHateSpeech()
+```
 ## Complete
 
 Make a request to the AI
@@ -49,50 +95,4 @@ async function editText() {
 }
 
 editText()
-```
-## Image
-
-Generage an image from prompt
-
-
-[https://m3o.com/ai/api#Image](https://m3o.com/ai/api#Image)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Generage an image from prompt
-async function generateImage() {
-	const rsp = await aiService.image({
-  "text": "a cat on a ball"
-})
-	console.log(rsp)
-	
-}
-
-generateImage()
-```
-## Moderate
-
-Moderate hate speech
-
-
-[https://m3o.com/ai/api#Moderate](https://m3o.com/ai/api#Moderate)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Moderate hate speech
-async function moderateHateSpeech() {
-	const rsp = await aiService.moderate({
-  "text": "I want to kill him"
-})
-	console.log(rsp)
-	
-}
-
-moderateHateSpeech()
 ```

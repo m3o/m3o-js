@@ -19,8 +19,12 @@ export class AiService {
     return this.client.call("ai", "Edit", request) as Promise<EditResponse>;
   }
   // Generage an image from prompt
-  image(request: ImageRequest): Promise<ImageResponse> {
-    return this.client.call("ai", "Image", request) as Promise<ImageResponse>;
+  generate(request: GenerateRequest): Promise<GenerateResponse> {
+    return this.client.call(
+      "ai",
+      "Generate",
+      request
+    ) as Promise<GenerateResponse>;
   }
   // Moderate hate speech
   moderate(request: ModerateRequest): Promise<ModerateResponse> {
@@ -54,14 +58,7 @@ export interface EditResponse {
   text?: string;
 }
 
-export interface Image {
-  // base64 encoded
-  base64?: string;
-  // image url
-  url?: string;
-}
-
-export interface ImageRequest {
+export interface GenerateRequest {
   // number of images to generate (max 10)
   limit?: number;
   // size of image 256x256, 512x512, 1024x1024
@@ -70,9 +67,16 @@ export interface ImageRequest {
   text?: string;
 }
 
-export interface ImageResponse {
+export interface GenerateResponse {
   // image urls
   images?: Image[];
+}
+
+export interface Image {
+  // base64 encoded
+  base64?: string;
+  // image url
+  url?: string;
 }
 
 export interface ModerateRequest {
