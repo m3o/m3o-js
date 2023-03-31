@@ -4,12 +4,12 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ai/api](https:
 
 Endpoints:
 
-## Call
+## Complete
 
 Make a request to the AI
 
 
-[https://m3o.com/ai/api#Call](https://m3o.com/ai/api#Call)
+[https://m3o.com/ai/api#Complete](https://m3o.com/ai/api#Complete)
 
 ```js
 const { AiService } = require('m3o/ai');
@@ -17,38 +17,61 @@ const { AiService } = require('m3o/ai');
 const aiService = new AiService(process.env.M3O_API_TOKEN)
 
 // Make a request to the AI
-async function callTheAi() {
-	const rsp = await aiService.call({
+async function completeTheText() {
+	const rsp = await aiService.complete({
   "text": "who is leonardo davinci"
 })
 	console.log(rsp)
 	
 }
 
-callTheAi()
+completeTheText()
 ```
-## Check
+## Edit
 
-Check or edit text/code
+Edit or edit prompt/code
 
 
-[https://m3o.com/ai/api#Check](https://m3o.com/ai/api#Check)
+[https://m3o.com/ai/api#Edit](https://m3o.com/ai/api#Edit)
 
 ```js
 const { AiService } = require('m3o/ai');
 
 const aiService = new AiService(process.env.M3O_API_TOKEN)
 
-// Check or edit text/code
-async function checkText() {
-	const rsp = await aiService.check({
+// Edit or edit prompt/code
+async function editText() {
+	const rsp = await aiService.edit({
   "text": "What day of the wek is it?"
 })
 	console.log(rsp)
 	
 }
 
-checkText()
+editText()
+```
+## Image
+
+Generage an image from prompt
+
+
+[https://m3o.com/ai/api#Image](https://m3o.com/ai/api#Image)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Generage an image from prompt
+async function generateImage() {
+	const rsp = await aiService.image({
+  "text": "a cat on a ball"
+})
+	console.log(rsp)
+	
+}
+
+generateImage()
 ```
 ## Moderate
 
