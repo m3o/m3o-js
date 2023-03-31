@@ -18,7 +18,7 @@ export class AiService {
   edit(request: EditRequest): Promise<EditResponse> {
     return this.client.call("ai", "Edit", request) as Promise<EditResponse>;
   }
-  // Generage an image from prompt
+  // Generate an image from prompt
   generate(request: GenerateRequest): Promise<GenerateResponse> {
     return this.client.call(
       "ai",

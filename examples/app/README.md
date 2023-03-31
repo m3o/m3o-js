@@ -4,102 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Reserve
-
-Reserve app names
-
-
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Reserve app names
-async function reserveAppName() {
-	const rsp = await appService.reserve({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-reserveAppName()
-```
-## Run
-
-Run an app from source
-
-
-[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Run an app from source
-async function runAnApp() {
-	const rsp = await appService.run({
-  "branch": "master",
-  "name": "helloworld",
-  "port": 8080,
-  "region": "europe-west1",
-  "repo": "github.com/asim/helloworld"
-})
-	console.log(rsp)
-	
-}
-
-runAnApp()
-```
-## Resolve
-
-Resolve an app by id to its raw backend endpoint
-
-
-[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Resolve an app by id to its raw backend endpoint
-async function resolveAppById() {
-	const rsp = await appService.resolve({
-  "id": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-resolveAppById()
-```
-## Delete
-
-Delete an app
-
-
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAnApp()
-```
 ## List
 
 List all the apps
@@ -165,6 +69,79 @@ async function getTheStatusOfAnApp() {
 
 getTheStatusOfAnApp()
 ```
+## Resolve
+
+Resolve an app by id to its raw backend endpoint
+
+
+[https://m3o.com/app/api#Resolve](https://m3o.com/app/api#Resolve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Resolve an app by id to its raw backend endpoint
+async function resolveAppById() {
+	const rsp = await appService.resolve({
+  "id": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+resolveAppById()
+```
+## Reserve
+
+Reserve app names
+
+
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Reserve app names
+async function reserveAppName() {
+	const rsp = await appService.reserve({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+reserveAppName()
+```
+## Run
+
+Run an app from source
+
+
+[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Run an app from source
+async function runAnApp() {
+	const rsp = await appService.run({
+  "branch": "master",
+  "name": "helloworld",
+  "port": 8080,
+  "region": "europe-west1",
+  "repo": "github.com/asim/helloworld"
+})
+	console.log(rsp)
+	
+}
+
+runAnApp()
+```
 ## Update
 
 Update the app. The latest source code will be downloaded, built and deployed.
@@ -187,6 +164,29 @@ async function updateAnApp() {
 }
 
 updateAnApp()
+```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnApp()
 ```
 ## Logs
 
