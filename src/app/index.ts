@@ -14,6 +14,10 @@ export class AppService {
       request
     ) as Promise<DeleteResponse>;
   }
+  // Get an app by name
+  get(request: GetRequest): Promise<GetResponse> {
+    return this.client.call("app", "Get", request) as Promise<GetResponse>;
+  }
   // List all the apps
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call("app", "List", request) as Promise<ListResponse>;
@@ -74,6 +78,14 @@ export interface DeleteRequest {
 }
 
 export interface DeleteResponse {}
+
+export interface GetRequest {
+  name?: string;
+}
+
+export interface GetResponse {
+  service?: { [key: string]: any };
+}
 
 export interface ListRequest {}
 
