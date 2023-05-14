@@ -151,6 +151,8 @@ export interface RunRequest {
   env_vars?: { [key: string]: string };
   // name of the app
   name?: string;
+  // path to code
+  path?: string;
   // port to run on
   port?: number;
   // region to run in
@@ -179,6 +181,8 @@ export interface Service {
   id?: string;
   // name of the app
   name?: string;
+  // path for the app
+  path?: string;
   // port running on
   port?: number;
   // region running in
