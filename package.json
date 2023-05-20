@@ -18,8 +18,6 @@
   "index.d.ts",
   "address",
   "ai",
-  "analytics",
-  "answer",
   "app",
   "avatar",
   "bitcoin",
@@ -34,7 +32,6 @@
   "db",
   "dns",
   "email",
-  "emoji",
   "ethereum",
   "evchargers",
   "event",
@@ -49,7 +46,6 @@
   "id",
   "image",
   "ip",
-  "joke",
   "lists",
   "location",
   "memegen",
@@ -89,7 +85,6 @@
   "vehicle",
   "wallet",
   "weather",
-  "wordle",
   "youtube"
  ],
  "license": "ISC",
@@ -106,5 +101,5 @@
   "prepare": "npm run build"
  },
  "typings": "index.d.ts",
- "version": "1.0.1740"
+ "version": "1.0.1741"
 }

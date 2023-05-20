@@ -1,7 +1,5 @@
 import * as address from "./address";
 import * as ai from "./ai";
-import * as analytics from "./analytics";
-import * as answer from "./answer";
 import * as app from "./app";
 import * as avatar from "./avatar";
 import * as bitcoin from "./bitcoin";
@@ -16,7 +14,6 @@ import * as currency from "./currency";
 import * as db from "./db";
 import * as dns from "./dns";
 import * as email from "./email";
-import * as emoji from "./emoji";
 import * as ethereum from "./ethereum";
 import * as evchargers from "./evchargers";
 import * as event from "./event";
@@ -31,7 +28,6 @@ import * as holidays from "./holidays";
 import * as id from "./id";
 import * as image from "./image";
 import * as ip from "./ip";
-import * as joke from "./joke";
 import * as lists from "./lists";
 import * as location from "./location";
 import * as memegen from "./memegen";
@@ -71,15 +67,12 @@ import * as user from "./user";
 import * as vehicle from "./vehicle";
 import * as wallet from "./wallet";
 import * as weather from "./weather";
-import * as wordle from "./wordle";
 import * as youtube from "./youtube";
 
 export class Client {
   constructor(token: string) {
     this.address = new address.AddressService(token);
     this.ai = new ai.AiService(token);
-    this.analytics = new analytics.AnalyticsService(token);
-    this.answer = new answer.AnswerService(token);
     this.app = new app.AppService(token);
     this.avatar = new avatar.AvatarService(token);
     this.bitcoin = new bitcoin.BitcoinService(token);
@@ -94,7 +87,6 @@ export class Client {
     this.db = new db.DbService(token);
     this.dns = new dns.DnsService(token);
     this.email = new email.EmailService(token);
-    this.emoji = new emoji.EmojiService(token);
     this.ethereum = new ethereum.EthereumService(token);
     this.evchargers = new evchargers.EvchargersService(token);
     this.event = new event.EventService(token);
@@ -109,7 +101,6 @@ export class Client {
     this.id = new id.IdService(token);
     this.image = new image.ImageService(token);
     this.ip = new ip.IpService(token);
-    this.joke = new joke.JokeService(token);
     this.lists = new lists.ListsService(token);
     this.location = new location.LocationService(token);
     this.memegen = new memegen.MemegenService(token);
@@ -149,14 +140,11 @@ export class Client {
     this.vehicle = new vehicle.VehicleService(token);
     this.wallet = new wallet.WalletService(token);
     this.weather = new weather.WeatherService(token);
-    this.wordle = new wordle.WordleService(token);
     this.youtube = new youtube.YoutubeService(token);
   }
 
   address: address.AddressService;
   ai: ai.AiService;
-  analytics: analytics.AnalyticsService;
-  answer: answer.AnswerService;
   app: app.AppService;
   avatar: avatar.AvatarService;
   bitcoin: bitcoin.BitcoinService;
@@ -171,7 +159,6 @@ export class Client {
   db: db.DbService;
   dns: dns.DnsService;
   email: email.EmailService;
-  emoji: emoji.EmojiService;
   ethereum: ethereum.EthereumService;
   evchargers: evchargers.EvchargersService;
   event: event.EventService;
@@ -186,7 +173,6 @@ export class Client {
   id: id.IdService;
   image: image.ImageService;
   ip: ip.IpService;
-  joke: joke.JokeService;
   lists: lists.ListsService;
   location: location.LocationService;
   memegen: memegen.MemegenService;
@@ -226,7 +212,6 @@ export class Client {
   vehicle: vehicle.VehicleService;
   wallet: wallet.WalletService;
   weather: weather.WeatherService;
-  wordle: wordle.WordleService;
   youtube: youtube.YoutubeService;
 }
 
@@ -234,8 +219,6 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
   return {
     address: new address.AddressService(token),
     ai: new ai.AiService(token),
-    analytics: new analytics.AnalyticsService(token),
-    answer: new answer.AnswerService(token),
     app: new app.AppService(token),
     avatar: new avatar.AvatarService(token),
     bitcoin: new bitcoin.BitcoinService(token),
@@ -250,7 +233,6 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     db: new db.DbService(token),
     dns: new dns.DnsService(token),
     email: new email.EmailService(token),
-    emoji: new emoji.EmojiService(token),
     ethereum: new ethereum.EthereumService(token),
     evchargers: new evchargers.EvchargersService(token),
     event: new event.EventService(token),
@@ -265,7 +247,6 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     id: new id.IdService(token),
     image: new image.ImageService(token),
     ip: new ip.IpService(token),
-    joke: new joke.JokeService(token),
     lists: new lists.ListsService(token),
     location: new location.LocationService(token),
     memegen: new memegen.MemegenService(token),
@@ -305,7 +286,6 @@ export default (token = process.env.M3O_API_TOKEN as string) => {
     vehicle: new vehicle.VehicleService(token),
     wallet: new wallet.WalletService(token),
     weather: new weather.WeatherService(token),
-    wordle: new wordle.WordleService(token),
     youtube: new youtube.YoutubeService(token),
   };
 };

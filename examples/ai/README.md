@@ -4,52 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ai/api](https:
 
 Endpoints:
 
-## Complete
-
-Make a request to the AI
-
-
-[https://m3o.com/ai/api#Complete](https://m3o.com/ai/api#Complete)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Make a request to the AI
-async function completeTheText() {
-	const rsp = await aiService.complete({
-  "text": "who is leonardo davinci"
-})
-	console.log(rsp)
-	
-}
-
-completeTheText()
-```
-## Edit
-
-Edit or edit prompt/code
-
-
-[https://m3o.com/ai/api#Edit](https://m3o.com/ai/api#Edit)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Edit or edit prompt/code
-async function editText() {
-	const rsp = await aiService.edit({
-  "text": "What day of the wek is it?"
-})
-	console.log(rsp)
-	
-}
-
-editText()
-```
 ## Generate
 
 Generate an image from prompt
@@ -95,4 +49,50 @@ async function moderateHateSpeech() {
 }
 
 moderateHateSpeech()
+```
+## Complete
+
+Make a request to the AI
+
+
+[https://m3o.com/ai/api#Complete](https://m3o.com/ai/api#Complete)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Make a request to the AI
+async function completeTheText() {
+	const rsp = await aiService.complete({
+  "text": "who is leonardo davinci"
+})
+	console.log(rsp)
+	
+}
+
+completeTheText()
+```
+## Edit
+
+Edit or edit prompt/code
+
+
+[https://m3o.com/ai/api#Edit](https://m3o.com/ai/api#Edit)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Edit or edit prompt/code
+async function editText() {
+	const rsp = await aiService.edit({
+  "text": "What day of the wek is it?"
+})
+	console.log(rsp)
+	
+}
+
+editText()
 ```
