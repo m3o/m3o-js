@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Location/api](
 
 Endpoints:
 
-## Read
-
-Read an entity by its ID
-
-
-[https://m3o.com/location/api#Read](https://m3o.com/location/api#Read)
-
-```js
-const { LocationService } = require('m3o/location');
-
-const locationService = new LocationService(process.env.M3O_API_TOKEN)
-
-// Read an entity by its ID
-async function getLocationById() {
-	const rsp = await locationService.read({
-  "id": "1"
-})
-	console.log(rsp)
-	
-}
-
-getLocationById()
-```
 ## Search
 
 Search for entities in a given radius
@@ -86,4 +63,27 @@ async function saveAnEntity() {
 }
 
 saveAnEntity()
+```
+## Read
+
+Read an entity by its ID
+
+
+[https://m3o.com/location/api#Read](https://m3o.com/location/api#Read)
+
+```js
+const { LocationService } = require('m3o/location');
+
+const locationService = new LocationService(process.env.M3O_API_TOKEN)
+
+// Read an entity by its ID
+async function getLocationById() {
+	const rsp = await locationService.read({
+  "id": "1"
+})
+	console.log(rsp)
+	
+}
+
+getLocationById()
 ```
