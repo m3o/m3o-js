@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
-## Status
-
-Get the status of an app
-
-
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get the status of an app
-async function getTheStatusOfAnApp() {
-	const rsp = await appService.status({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getTheStatusOfAnApp()
-```
 ## Reserve
 
 Reserve app names
@@ -50,26 +27,28 @@ async function reserveAppName() {
 
 reserveAppName()
 ```
-## List
+## Get
 
-List all the apps
+Get an app by name
 
 
-[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+[https://m3o.com/app/api#Get](https://m3o.com/app/api#Get)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// List all the apps
-async function listTheApps() {
-	const rsp = await appService.list({})
+// Get an app by name
+async function getAnApp() {
+	const rsp = await appService.get({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listTheApps()
+getAnApp()
 ```
 ## Run
 
@@ -98,6 +77,50 @@ async function runAnApp() {
 
 runAnApp()
 ```
+## Update
+
+Update the app. The latest source code will be downloaded, built and deployed.
+
+
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Update the app. The latest source code will be downloaded, built and deployed.
+async function updateAnApp() {
+	const rsp = await appService.update({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+updateAnApp()
+```
+## List
+
+List all the apps
+
+
+[https://m3o.com/app/api#List](https://m3o.com/app/api#List)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// List all the apps
+async function listTheApps() {
+	const rsp = await appService.list({})
+	console.log(rsp)
+	
+}
+
+listTheApps()
+```
 ## Regions
 
 Return the support regions
@@ -118,6 +141,29 @@ async function listRegions() {
 }
 
 listRegions()
+```
+## Status
+
+Get the status of an app
+
+
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the status of an app
+async function getTheStatusOfAnApp() {
+	const rsp = await appService.status({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+getTheStatusOfAnApp()
 ```
 ## Resolve
 
@@ -141,29 +187,6 @@ async function resolveAppById() {
 }
 
 resolveAppById()
-```
-## Update
-
-Update the app. The latest source code will be downloaded, built and deployed.
-
-
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Update the app. The latest source code will be downloaded, built and deployed.
-async function updateAnApp() {
-	const rsp = await appService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAnApp()
 ```
 ## Delete
 
@@ -211,27 +234,4 @@ async function retrieveBuildLogsForAnApp() {
 }
 
 retrieveBuildLogsForAnApp()
-```
-## Get
-
-Get an app by name
-
-
-[https://m3o.com/app/api#Get](https://m3o.com/app/api#Get)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get an app by name
-async function getAnApp() {
-	const rsp = await appService.get({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getAnApp()
 ```
