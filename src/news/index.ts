@@ -1,78 +1,78 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class NewsService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Get the latest news headlines
   headlines(request: HeadlinesRequest): Promise<HeadlinesResponse> {
     return this.client.call(
-      "news",
-      "Headlines",
+      'news',
+      'Headlines',
       request
-    ) as Promise<HeadlinesResponse>;
+    ) as Promise<HeadlinesResponse>
   }
   // Get the top stories
   topStories(request: TopStoriesRequest): Promise<TopStoriesResponse> {
     return this.client.call(
-      "news",
-      "TopStories",
+      'news',
+      'TopStories',
       request
-    ) as Promise<TopStoriesResponse>;
+    ) as Promise<TopStoriesResponse>
   }
 }
 
 export interface Article {
   // categories
-  categories?: string[];
+  categories?: string[]
   // article description
-  description?: string;
+  description?: string
   // article id
-  id?: string;
+  id?: string
   // image url
-  image_url?: string;
+  image_url?: string
   // related keywords
-  keywords?: string;
+  keywords?: string
   // the article language
-  language?: string;
+  language?: string
   // the locale
-  locale?: string;
+  locale?: string
   // time it was published
-  published_at?: string;
+  published_at?: string
   // first 60 characters of article body
-  snippet?: string;
+  snippet?: string
   // source of news
-  source?: string;
+  source?: string
   // article title
-  title?: string;
+  title?: string
   // url of the article
-  url?: string;
+  url?: string
 }
 
 export interface HeadlinesRequest {
   // date published on in YYYY-MM-DD format
-  date?: string;
+  date?: string
   // comma separated list of languages to retrieve in e.g en,es
-  language?: string;
+  language?: string
   // comma separated list of countries to include e.g us,ca
-  locale?: string;
+  locale?: string
 }
 
 export interface HeadlinesResponse {
-  articles?: Article[];
+  articles?: Article[]
 }
 
 export interface TopStoriesRequest {
   // date published on in YYYY-MM-DD format
-  date?: string;
+  date?: string
   // comma separated list of languages to retrieve in e.g en,es
-  language?: string;
+  language?: string
   // comma separated list of countries to include e.g us,ca
-  locale?: string;
+  locale?: string
 }
 
 export interface TopStoriesResponse {
-  articles?: Article[];
+  articles?: Article[]
 }

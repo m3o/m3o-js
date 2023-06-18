@@ -1,74 +1,74 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class CronService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Delete a cron job
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
-      "cron",
-      "Delete",
+      'cron',
+      'Delete',
       request
-    ) as Promise<DeleteResponse>;
+    ) as Promise<DeleteResponse>
   }
   // List all cron jobs
   jobs(request: JobsRequest): Promise<JobsResponse> {
-    return this.client.call("cron", "Jobs", request) as Promise<JobsResponse>;
+    return this.client.call('cron', 'Jobs', request) as Promise<JobsResponse>
   }
   // Schedule a cron job
   schedule(request: ScheduleRequest): Promise<ScheduleResponse> {
     return this.client.call(
-      "cron",
-      "Schedule",
+      'cron',
+      'Schedule',
       request
-    ) as Promise<ScheduleResponse>;
+    ) as Promise<ScheduleResponse>
   }
 }
 
 export interface DeleteRequest {
   // id of the cron job
-  id?: string;
+  id?: string
 }
 
 export interface DeleteResponse {}
 
 export interface Job {
   // callback url e.g https://google.com
-  callback?: string;
+  callback?: string
   // description
-  description?: string;
+  description?: string
   // job id
-  id?: string;
+  id?: string
   // scheduled interval
-  interval?: string;
+  interval?: string
   // name
-  name?: string;
+  name?: string
 }
 
 export interface JobsRequest {}
 
 export interface JobsResponse {
   // the list of scheduled jobs
-  jobs?: Job[];
+  jobs?: Job[]
 }
 
 export interface ScheduleRequest {
   // callback url e.g https://google.com
-  callback?: string;
+  callback?: string
   // description
-  description?: string;
+  description?: string
   // unique id of job (optional)
-  id?: string;
+  id?: string
   // interval e.g * * * * *
-  interval?: string;
+  interval?: string
   // name of cron
-  name?: string;
+  name?: string
 }
 
 export interface ScheduleResponse {
   // the scheduled job
-  job?: { [key: string]: any };
+  job?: { [key: string]: any }
 }

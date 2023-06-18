@@ -1,63 +1,63 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class PrayerService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Get the prayer (salah) times for a location on a given date
   times(request: TimesRequest): Promise<TimesResponse> {
     return this.client.call(
-      "prayer",
-      "Times",
+      'prayer',
+      'Times',
       request
-    ) as Promise<TimesResponse>;
+    ) as Promise<TimesResponse>
   }
 }
 
 export interface PrayerTime {
   // asr time
-  asr?: string;
+  asr?: string
   // date for prayer times in YYYY-MM-DD format
-  date?: string;
+  date?: string
   // fajr time
-  fajr?: string;
+  fajr?: string
   // isha time
-  isha?: string;
+  isha?: string
   // maghrib time
-  maghrib?: string;
+  maghrib?: string
   // time of sunrise
-  sunrise?: string;
+  sunrise?: string
   // zuhr time
-  zuhr?: string;
+  zuhr?: string
 }
 
 export interface TimesRequest {
   // optional date in YYYY-MM-DD format, otherwise uses today
-  date?: string;
+  date?: string
   // number of days to request times for
-  days?: number;
+  days?: number
   // optional latitude used in place of location
-  latitude?: number;
+  latitude?: number
   // location to retrieve prayer times for.
   // this can be a specific address, city, etc
-  location?: string;
+  location?: string
   // optional longitude used in place of location
-  longitude?: number;
+  longitude?: number
 }
 
 export interface TimesResponse {
   // date of request
-  date?: string;
+  date?: string
   // number of days
-  days?: number;
+  days?: number
   // latitude of location
-  latitude?: number;
+  latitude?: number
   // location for the request
-  location?: string;
+  location?: string
   // longitude of location
-  longitude?: number;
+  longitude?: number
   // prayer times for the given location
-  times?: PrayerTime[];
+  times?: PrayerTime[]
 }

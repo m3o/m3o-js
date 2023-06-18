@@ -1,11 +1,11 @@
-const m3o = require("m3o").default(process.env.M3O_API_TOKEN);
+const m3o = require('m3o').default(process.env.M3O_API_TOKEN)
 
 async function main() {
   let rsp = await m3o.user.login({
-    email: "joe@example.com",
-    password: "Password1",
-  });
-  console.log(rsp);
+    email: 'joe@example.com',
+    password: 'Password1'
+  })
+  console.log(rsp)
 }
 
-main();
+main()

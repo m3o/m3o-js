@@ -1,12 +1,12 @@
-const m3o = require("m3o").default(process.env.M3O_API_TOKEN);
+const m3o = require('m3o').default(process.env.M3O_API_TOKEN)
 
 async function main() {
   let rsp = await m3o.space.update({
-    name: "images/file.jpg",
-    object: "\u003cfile bytes\u003e",
-    visibility: "public",
-  });
-  console.log(rsp);
+    name: 'images/file.jpg',
+    object: '\u003cfile bytes\u003e',
+    visibility: 'public'
+  })
+  console.log(rsp)
 }
 
-main();
+main()

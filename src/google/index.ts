@@ -1,42 +1,42 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class GoogleService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Search for videos on Google
   search(request: SearchRequest): Promise<SearchResponse> {
     return this.client.call(
-      "google",
-      "Search",
+      'google',
+      'Search',
       request
-    ) as Promise<SearchResponse>;
+    ) as Promise<SearchResponse>
   }
 }
 
 export interface SearchRequest {
   // Query to search for
-  query?: string;
+  query?: string
 }
 
 export interface SearchResponse {
   // List of results for the query
-  results?: SearchResult[];
+  results?: SearchResult[]
 }
 
 export interface SearchResult {
   // abridged version of this search result’s URL, e.g. www.exampe.com
-  display_url?: string;
+  display_url?: string
   // id of the result
-  id?: string;
+  id?: string
   // kind of result; "search"
-  kind?: string;
+  kind?: string
   // the result snippet
-  snippet?: string;
+  snippet?: string
   // title of the result
-  title?: string;
+  title?: string
   // the full url for the result
-  url?: string;
+  url?: string
 }

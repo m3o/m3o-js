@@ -1,53 +1,53 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class AddressService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Lookup a list of UK addresses by postcode
   lookupPostcode(
     request: LookupPostcodeRequest
   ): Promise<LookupPostcodeResponse> {
     return this.client.call(
-      "address",
-      "LookupPostcode",
+      'address',
+      'LookupPostcode',
       request
-    ) as Promise<LookupPostcodeResponse>;
+    ) as Promise<LookupPostcodeResponse>
   }
 }
 
 export interface LookupPostcodeRequest {
   // UK postcode e.g SW1A 2AA
-  postcode?: string;
+  postcode?: string
 }
 
 export interface LookupPostcodeResponse {
-  addresses?: Record[];
+  addresses?: Record[]
 }
 
 export interface Record {
   // building name
-  building_name?: string;
+  building_name?: string
   // the county
-  county?: string;
+  county?: string
   // line one of address
-  line_one?: string;
+  line_one?: string
   // line two of address
-  line_two?: string;
+  line_two?: string
   // dependent locality
-  locality?: string;
+  locality?: string
   // organisation if present
-  organisation?: string;
+  organisation?: string
   // the postcode
-  postcode?: string;
+  postcode?: string
   // the premise
-  premise?: string;
+  premise?: string
   // street name
-  street?: string;
+  street?: string
   // the complete address
-  summary?: string;
+  summary?: string
   // post town
-  town?: string;
+  town?: string
 }

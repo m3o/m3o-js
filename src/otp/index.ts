@@ -1,51 +1,51 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class OtpService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Generate an OTP (one time pass) code
   generate(request: GenerateRequest): Promise<GenerateResponse> {
     return this.client.call(
-      "otp",
-      "Generate",
+      'otp',
+      'Generate',
       request
-    ) as Promise<GenerateResponse>;
+    ) as Promise<GenerateResponse>
   }
   // Validate the OTP code
   validate(request: ValidateRequest): Promise<ValidateResponse> {
     return this.client.call(
-      "otp",
-      "Validate",
+      'otp',
+      'Validate',
       request
-    ) as Promise<ValidateResponse>;
+    ) as Promise<ValidateResponse>
   }
 }
 
 export interface GenerateRequest {
   // expiration in seconds (default: 60)
-  expiry?: number;
+  expiry?: number
   // unique id, email or user to generate an OTP for
-  id?: string;
+  id?: string
   // number of characters (default: 6)
-  size?: number;
+  size?: number
 }
 
 export interface GenerateResponse {
   // one time pass code
-  code?: string;
+  code?: string
 }
 
 export interface ValidateRequest {
   // one time pass code to validate
-  code?: string;
+  code?: string
   // unique id, email or user for which the code was generated
-  id?: string;
+  id?: string
 }
 
 export interface ValidateResponse {
   // returns true if the code is valid for the ID
-  success?: boolean;
+  success?: boolean
 }

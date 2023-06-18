@@ -1,38 +1,38 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class FileService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Delete a file by project name/path
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
-      "file",
-      "Delete",
+      'file',
+      'Delete',
       request
-    ) as Promise<DeleteResponse>;
+    ) as Promise<DeleteResponse>
   }
   // List files by their project and optionally a path.
   list(request: ListRequest): Promise<ListResponse> {
-    return this.client.call("file", "List", request) as Promise<ListResponse>;
+    return this.client.call('file', 'List', request) as Promise<ListResponse>
   }
   // Read a file by path
   read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("file", "Read", request) as Promise<ReadResponse>;
+    return this.client.call('file', 'Read', request) as Promise<ReadResponse>
   }
   // Save a file
   save(request: SaveRequest): Promise<SaveResponse> {
-    return this.client.call("file", "Save", request) as Promise<SaveResponse>;
+    return this.client.call('file', 'Save', request) as Promise<SaveResponse>
   }
 }
 
 export interface DeleteRequest {
   // Path to the file
-  path?: string;
+  path?: string
   // The project name
-  project?: string;
+  project?: string
 }
 
 export interface DeleteResponse {}
@@ -42,51 +42,51 @@ export interface ListRequest {
   // Supply path to a folder if you want to list
   // files inside that folder
   // eg. '/docs'
-  path?: string;
+  path?: string
   // Project, required for listing.
-  project?: string;
+  project?: string
 }
 
 export interface ListResponse {
-  files?: Record[];
+  files?: Record[]
 }
 
 export interface ReadRequest {
   // Path to the file
-  path?: string;
+  path?: string
   // Project name
-  project?: string;
+  project?: string
 }
 
 export interface ReadResponse {
   // Returns the file
-  file?: Record;
+  file?: Record
 }
 
 export interface Record {
   // File contents
-  content?: string;
+  content?: string
   // Time the file was created e.g 2021-05-20T13:37:21Z
-  created?: string;
+  created?: string
   // Any other associated metadata as a map of key-value pairs
-  metadata?: { [key: string]: string };
+  metadata?: { [key: string]: string }
   // Path to file or folder eg. '/documents/text-files/file.txt'.
-  path?: string;
+  path?: string
   // A custom project to group files
   // eg. file-of-mywebsite.com
-  project?: string;
+  project?: string
   // Time the file was updated e.g 2021-05-20T13:37:21Z
-  updated?: string;
+  updated?: string
 }
 
 export interface SaveRequest {
   // The file to save
-  file?: Record;
+  file?: Record
   // Make the file public: true or false
-  public?: boolean;
+  public?: boolean
 }
 
 export interface SaveResponse {
   // The permalink for the file if made public
-  url?: string;
+  url?: string
 }

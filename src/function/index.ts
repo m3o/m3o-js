@@ -1,262 +1,262 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class FunctionService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Call a function by name
   call(request: CallRequest): Promise<CallResponse> {
     return this.client.call(
-      "function",
-      "Call",
+      'function',
+      'Call',
       request
-    ) as Promise<CallResponse>;
+    ) as Promise<CallResponse>
   }
   // Delete a function by name
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
-      "function",
-      "Delete",
+      'function',
+      'Delete',
       request
-    ) as Promise<DeleteResponse>;
+    ) as Promise<DeleteResponse>
   }
   // Deploy a group of functions
   deploy(request: DeployRequest): Promise<DeployResponse> {
     return this.client.call(
-      "function",
-      "Deploy",
+      'function',
+      'Deploy',
       request
-    ) as Promise<DeployResponse>;
+    ) as Promise<DeployResponse>
   }
   // Get the info for a deployed function
   describe(request: DescribeRequest): Promise<DescribeResponse> {
     return this.client.call(
-      "function",
-      "Describe",
+      'function',
+      'Describe',
       request
-    ) as Promise<DescribeResponse>;
+    ) as Promise<DescribeResponse>
   }
   // List all the deployed functions
   list(request: ListRequest): Promise<ListResponse> {
     return this.client.call(
-      "function",
-      "List",
+      'function',
+      'List',
       request
-    ) as Promise<ListResponse>;
+    ) as Promise<ListResponse>
   }
   // Get the logs for a function
   logs(request: LogsRequest): Promise<LogsResponse> {
     return this.client.call(
-      "function",
-      "Logs",
+      'function',
+      'Logs',
       request
-    ) as Promise<LogsResponse>;
+    ) as Promise<LogsResponse>
   }
   // Return the backend url for proxying
   proxy(request: ProxyRequest): Promise<ProxyResponse> {
     return this.client.call(
-      "function",
-      "Proxy",
+      'function',
+      'Proxy',
       request
-    ) as Promise<ProxyResponse>;
+    ) as Promise<ProxyResponse>
   }
   // Return a list of supported regions
   regions(request: RegionsRequest): Promise<RegionsResponse> {
     return this.client.call(
-      "function",
-      "Regions",
+      'function',
+      'Regions',
       request
-    ) as Promise<RegionsResponse>;
+    ) as Promise<RegionsResponse>
   }
   // Reserve function names and resources beyond free quota
   reserve(request: ReserveRequest): Promise<ReserveResponse> {
     return this.client.call(
-      "function",
-      "Reserve",
+      'function',
+      'Reserve',
       request
-    ) as Promise<ReserveResponse>;
+    ) as Promise<ReserveResponse>
   }
   // Return a list of supported runtimes
   runtimes(request: RuntimesRequest): Promise<RuntimesResponse> {
     return this.client.call(
-      "function",
-      "Runtimes",
+      'function',
+      'Runtimes',
       request
-    ) as Promise<RuntimesResponse>;
+    ) as Promise<RuntimesResponse>
   }
   // Update a function. Downloads the source, builds and redeploys
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
-      "function",
-      "Update",
+      'function',
+      'Update',
       request
-    ) as Promise<UpdateResponse>;
+    ) as Promise<UpdateResponse>
   }
 }
 
 export interface CallRequest {
   // Name of the function
-  name?: string;
+  name?: string
   // Request body that will be passed to the function
-  request?: { [key: string]: any };
+  request?: { [key: string]: any }
 }
 
 export interface CallResponse {
   // Response body that the function returned
-  response?: { [key: string]: any };
+  response?: { [key: string]: any }
 }
 
 export interface DeleteRequest {
   // The name of the function
-  name?: string;
+  name?: string
 }
 
 export interface DeleteResponse {}
 
 export interface DeployRequest {
   // branch to deploy. defaults to master
-  branch?: string;
+  branch?: string
   // entry point, ie. handler name in the source code
   // if not provided, defaults to the name parameter
-  entrypoint?: string;
+  entrypoint?: string
   // environment variables to pass in at runtime
-  env_vars?: { [key: string]: string };
+  env_vars?: { [key: string]: string }
   // function name
-  name?: string;
+  name?: string
   // region to deploy in. defaults to europe-west1
-  region?: string;
+  region?: string
   // github url for a repo
-  repo?: string;
+  repo?: string
   // runtime/lanaguage of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
-  runtime?: string;
+  runtime?: string
   // inline source code
-  source?: string;
+  source?: string
   // optional subfolder path
-  subfolder?: string;
+  subfolder?: string
 }
 
 export interface DeployResponse {
-  function?: Func;
+  function?: Func
 }
 
 export interface DescribeRequest {
   // The name of the function
-  name?: string;
+  name?: string
 }
 
 export interface DescribeResponse {
   // The function requested
-  function?: Func;
+  function?: Func
 }
 
 export interface Func {
   // branch to deploy. defaults to master
-  branch?: string;
+  branch?: string
   // time of creation
-  created?: string;
+  created?: string
   // name of handler in source code
-  entrypoint?: string;
+  entrypoint?: string
   // associated env vars
-  env_vars?: { [key: string]: string };
+  env_vars?: { [key: string]: string }
   // id of the function
-  id?: string;
+  id?: string
   // function name
   // limitation: must be unique across projects
-  name?: string;
+  name?: string
   // region to deploy in. defaults to europe-west1
-  region?: string;
+  region?: string
   // git repo address
-  repo?: string;
+  repo?: string
   // runtime/language of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
-  runtime?: string;
+  runtime?: string
   // the source code
-  source?: string;
+  source?: string
   // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
+  status?: string
   // subfolder path to entrypoint
-  subfolder?: string;
+  subfolder?: string
   // time it was updated
-  updated?: string;
+  updated?: string
   // unique url of the function
-  url?: string;
+  url?: string
 }
 
 export interface ListRequest {}
 
 export interface ListResponse {
   // List of functions deployed
-  functions?: Func[];
+  functions?: Func[]
 }
 
 export interface LogsRequest {
   // type of logs to retrieve, currently supported options - "build"
-  logs_type?: string;
+  logs_type?: string
   // the name of the function
-  name?: string;
+  name?: string
 }
 
 export interface LogsResponse {
-  logs?: string;
+  logs?: string
 }
 
 export interface ProxyRequest {
   // id of the function
-  id?: string;
+  id?: string
 }
 
 export interface ProxyResponse {
   // backend url
-  url?: string;
+  url?: string
 }
 
 export interface RegionsRequest {}
 
 export interface RegionsResponse {
-  regions?: string[];
+  regions?: string[]
 }
 
 export interface Reservation {
   // time of reservation
-  created?: string;
+  created?: string
   // time reservation expires
-  expires?: string;
+  expires?: string
   // name of the app
-  name?: string;
+  name?: string
   // owner id
-  owner?: string;
+  owner?: string
   // associated token
-  token?: string;
+  token?: string
 }
 
 export interface ReserveRequest {
   // name of your app e.g helloworld
-  name?: string;
+  name?: string
 }
 
 export interface ReserveResponse {
   // The app reservation
-  reservation?: { [key: string]: any };
+  reservation?: { [key: string]: any }
 }
 
 export interface RuntimesRequest {}
 
 export interface RuntimesResponse {
-  runtimes?: string[];
+  runtimes?: string[]
 }
 
 export interface UpdateRequest {
   // function name
-  name?: string;
+  name?: string
   // inline source code
-  source?: string;
+  source?: string
 }
 
 export interface UpdateResponse {}

@@ -1,112 +1,112 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class SearchService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Create an index by name
   createIndex(request: CreateIndexRequest): Promise<CreateIndexResponse> {
     return this.client.call(
-      "search",
-      "CreateIndex",
+      'search',
+      'CreateIndex',
       request
-    ) as Promise<CreateIndexResponse>;
+    ) as Promise<CreateIndexResponse>
   }
   // Delete an index by name
   deleteIndex(request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
     return this.client.call(
-      "search",
-      "DeleteIndex",
+      'search',
+      'DeleteIndex',
       request
-    ) as Promise<DeleteIndexResponse>;
+    ) as Promise<DeleteIndexResponse>
   }
   // Delete a record given its ID
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
-      "search",
-      "Delete",
+      'search',
+      'Delete',
       request
-    ) as Promise<DeleteResponse>;
+    ) as Promise<DeleteResponse>
   }
   // Index a record i.e. insert a document to search for.
   index(request: IndexRequest): Promise<IndexResponse> {
     return this.client.call(
-      "search",
-      "Index",
+      'search',
+      'Index',
       request
-    ) as Promise<IndexResponse>;
+    ) as Promise<IndexResponse>
   }
   // Search for records in a given in index
   search(request: SearchRequest): Promise<SearchResponse> {
     return this.client.call(
-      "search",
-      "Search",
+      'search',
+      'Search',
       request
-    ) as Promise<SearchResponse>;
+    ) as Promise<SearchResponse>
   }
 }
 
 export interface CreateIndexRequest {
   // The name of the index
-  index?: string;
+  index?: string
 }
 
 export interface CreateIndexResponse {}
 
 export interface DeleteIndexRequest {
   // The name of the index to delete
-  index?: string;
+  index?: string
 }
 
 export interface DeleteIndexResponse {}
 
 export interface DeleteRequest {
   // The ID of the record to delete
-  id?: string;
+  id?: string
   // The index the record belongs to
-  index?: string;
+  index?: string
 }
 
 export interface DeleteResponse {}
 
 export interface Field {
   // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-  name?: string;
+  name?: string
   // The type of the field - string, number
-  type?: string;
+  type?: string
 }
 
 export interface IndexRequest {
   // The data to index
-  data?: { [key: string]: any };
+  data?: { [key: string]: any }
   // Optional ID for the record
-  id?: string;
+  id?: string
   // The index this record belongs to
-  index?: string;
+  index?: string
 }
 
 export interface IndexResponse {
   // the indexed record
-  record?: { [key: string]: any };
+  record?: { [key: string]: any }
 }
 
 export interface Record {
   // The JSON contents of the record
-  data?: { [key: string]: any };
+  data?: { [key: string]: any }
   // The ID for this record. If blank, one will be generated
-  id?: string;
+  id?: string
 }
 
 export interface SearchRequest {
   // The index the record belongs to
-  index?: string;
+  index?: string
   // The query. See docs for query language examples
-  query?: string;
+  query?: string
 }
 
 export interface SearchResponse {
   // The matching records
-  records?: Record[];
+  records?: Record[]
 }

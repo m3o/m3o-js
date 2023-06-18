@@ -4,30 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Mq/api](https:
 
 Endpoints:
 
-## Subscribe
-
-Subscribe to messages for a given topic.
-
-
-[https://m3o.com/mq/api#Subscribe](https://m3o.com/mq/api#Subscribe)
-
-```js
-const { MqService } = require('m3o/mq');
-
-const mqService = new MqService(process.env.M3O_API_TOKEN)
-
-// Subscribe to messages for a given topic.
-async function subscribeToAtopic() {
-	const rsp = await mqService.subscribe({
-  "topic": "events"
-})
-	rsp.onMessage(msg => {
-		console.log(msg)
-	})
-}
-
-subscribeToAtopic()
-```
 ## Publish
 
 Publish a message. Specify a topic to group messages for a specific topic.
@@ -55,4 +31,28 @@ async function publishAmessage() {
 }
 
 publishAmessage()
+```
+## Subscribe
+
+Subscribe to messages for a given topic.
+
+
+[https://m3o.com/mq/api#Subscribe](https://m3o.com/mq/api#Subscribe)
+
+```js
+const { MqService } = require('m3o/mq');
+
+const mqService = new MqService(process.env.M3O_API_TOKEN)
+
+// Subscribe to messages for a given topic.
+async function subscribeToAtopic() {
+	const rsp = await mqService.subscribe({
+  "topic": "events"
+})
+	rsp.onMessage(msg => {
+		console.log(msg)
+	})
+}
+
+subscribeToAtopic()
 ```

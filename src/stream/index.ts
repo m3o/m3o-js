@@ -1,59 +1,59 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class StreamService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Create a channel by name
   createChannel(request: CreateChannelRequest): Promise<CreateChannelResponse> {
     return this.client.call(
-      "stream",
-      "CreateChannel",
+      'stream',
+      'CreateChannel',
       request
-    ) as Promise<CreateChannelResponse>;
+    ) as Promise<CreateChannelResponse>
   }
   // List all the active channels
   listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {
     return this.client.call(
-      "stream",
-      "ListChannels",
+      'stream',
+      'ListChannels',
       request
-    ) as Promise<ListChannelsResponse>;
+    ) as Promise<ListChannelsResponse>
   }
   // List messages for a given channel
   listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
     return this.client.call(
-      "stream",
-      "ListMessages",
+      'stream',
+      'ListMessages',
       request
-    ) as Promise<ListMessagesResponse>;
+    ) as Promise<ListMessagesResponse>
   }
   // Send a message to the stream.
   sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     return this.client.call(
-      "stream",
-      "SendMessage",
+      'stream',
+      'SendMessage',
       request
-    ) as Promise<SendMessageResponse>;
+    ) as Promise<SendMessageResponse>
   }
 }
 
 export interface Channel {
   // description for the channel
-  description?: string;
+  description?: string
   // last activity time
-  last_active?: string;
+  last_active?: string
   // name of the channel
-  name?: string;
+  name?: string
 }
 
 export interface CreateChannelRequest {
   // description for the channel
-  description?: string;
+  description?: string
   // name of the channel
-  name?: string;
+  name?: string
 }
 
 export interface CreateChannelResponse {}
@@ -61,41 +61,41 @@ export interface CreateChannelResponse {}
 export interface ListChannelsRequest {}
 
 export interface ListChannelsResponse {
-  channels?: Channel[];
+  channels?: Channel[]
 }
 
 export interface ListMessagesRequest {
   // The channel to subscribe to
-  channel?: string;
+  channel?: string
   // number of message to return
-  limit?: number;
+  limit?: number
 }
 
 export interface ListMessagesResponse {
   // The channel subscribed to
-  channel?: string;
+  channel?: string
   // Messages are chronological order
-  messages?: Message[];
+  messages?: Message[]
 }
 
 export interface Message {
   // the channel name
-  channel?: string;
+  channel?: string
   // id of the message
-  id?: string;
+  id?: string
   // the associated metadata
-  metadata?: { [key: string]: string };
+  metadata?: { [key: string]: string }
   // text of the message
-  text?: string;
+  text?: string
   // time of message creation
-  timestamp?: string;
+  timestamp?: string
 }
 
 export interface SendMessageRequest {
   // The channel to send to
-  channel?: string;
+  channel?: string
   // The message text to send
-  text?: string;
+  text?: string
 }
 
 export interface SendMessageResponse {}

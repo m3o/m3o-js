@@ -1,4 +1,4 @@
-const m3o = require("m3o").default(process.env.M3O_API_TOKEN);
+const m3o = require('m3o').default(process.env.M3O_API_TOKEN)
 
 async function main() {
   let rsp = await m3o.password.generate({
@@ -6,9 +6,9 @@ async function main() {
     lowercase: true,
     numbers: true,
     special: false,
-    uppercase: true,
-  });
-  console.log(rsp);
+    uppercase: true
+  })
+  console.log(rsp)
 }
 
-main();
+main()

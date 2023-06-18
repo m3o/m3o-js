@@ -1,15 +1,15 @@
-const m3o = require("m3o").default(process.env.M3O_API_TOKEN);
+const m3o = require('m3o').default(process.env.M3O_API_TOKEN)
 
 async function main() {
   let rsp = await m3o.event.publish({
     message: {
-      id: "1",
-      type: "signup",
-      user: "john",
+      id: '1',
+      type: 'signup',
+      user: 'john'
     },
-    topic: "user",
-  });
-  console.log(rsp);
+    topic: 'user'
+  })
+  console.log(rsp)
 }
 
-main();
+main()

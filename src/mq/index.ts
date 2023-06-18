@@ -1,44 +1,44 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class MqService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Publish a message. Specify a topic to group messages for a specific topic.
   publish(request: PublishRequest): Promise<PublishResponse> {
     return this.client.call(
-      "mq",
-      "Publish",
+      'mq',
+      'Publish',
       request
-    ) as Promise<PublishResponse>;
+    ) as Promise<PublishResponse>
   }
   // Subscribe to messages for a given topic.
   subscribe(
     request: SubscribeRequest
   ): Promise<m3o.Stream<SubscribeRequest, SubscribeResponse>> {
-    return this.client.stream("mq", "Subscribe", request);
+    return this.client.stream('mq', 'Subscribe', request)
   }
 }
 
 export interface PublishRequest {
   // The json message to publish
-  message?: { [key: string]: any };
+  message?: { [key: string]: any }
   // The topic to publish to
-  topic?: string;
+  topic?: string
 }
 
 export interface PublishResponse {}
 
 export interface SubscribeRequest {
   // The topic to subscribe to
-  topic?: string;
+  topic?: string
 }
 
 export interface SubscribeResponse {
   // The next json message on the topic
-  message?: { [key: string]: any };
+  message?: { [key: string]: any }
   // The topic subscribed to
-  topic?: string;
+  topic?: string
 }

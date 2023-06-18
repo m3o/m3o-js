@@ -1,18 +1,18 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class CarbonService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Purchase 1KG (0.001 tonne) of carbon offsets in a single request
   offset(request: OffsetRequest): Promise<OffsetResponse> {
     return this.client.call(
-      "carbon",
-      "Offset",
+      'carbon',
+      'Offset',
       request
-    ) as Promise<OffsetResponse>;
+    ) as Promise<OffsetResponse>
   }
 }
 
@@ -20,20 +20,20 @@ export interface OffsetRequest {}
 
 export interface OffsetResponse {
   // the metric used e.g KG or Tonnes
-  metric?: string;
+  metric?: string
   // projects it was allocated to
-  projects?: Project[];
+  projects?: Project[]
   // number of tonnes
-  tonnes?: number;
+  tonnes?: number
   // number of units purchased
-  units?: number;
+  units?: number
 }
 
 export interface Project {
   // name of the project
-  name?: string;
+  name?: string
   // percentage that went to this
-  percentage?: number;
+  percentage?: number
   // amount in tonnes
-  tonnes?: number;
+  tonnes?: number
 }

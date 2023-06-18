@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Secret/api](ht
 
 Endpoints:
 
-## Get
-
-Get a secret by key.
-
-
-[https://m3o.com/secret/api#Get](https://m3o.com/secret/api#Get)
-
-```js
-const { SecretService } = require('m3o/secret');
-
-const secretService = new SecretService(process.env.M3O_API_TOKEN)
-
-// Get a secret by key.
-async function getAvalue() {
-	const rsp = await secretService.get({
-  "key": "foo"
-})
-	console.log(rsp)
-	
-}
-
-getAvalue()
-```
 ## Delete
 
 Delete a secret. If key not found a success response is returned.
@@ -94,4 +71,27 @@ async function setAvalue() {
 }
 
 setAvalue()
+```
+## Get
+
+Get a secret by key.
+
+
+[https://m3o.com/secret/api#Get](https://m3o.com/secret/api#Get)
+
+```js
+const { SecretService } = require('m3o/secret');
+
+const secretService = new SecretService(process.env.M3O_API_TOKEN)
+
+// Get a secret by key.
+async function getAvalue() {
+	const rsp = await secretService.get({
+  "key": "foo"
+})
+	console.log(rsp)
+	
+}
+
+getAvalue()
 ```

@@ -1,127 +1,115 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class UrlService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Create a URL
   create(request: CreateRequest): Promise<CreateResponse> {
-    return this.client.call(
-      "url",
-      "Create",
-      request
-    ) as Promise<CreateResponse>;
+    return this.client.call('url', 'Create', request) as Promise<CreateResponse>
   }
   // Delete a URL
   delete(request: DeleteRequest): Promise<DeleteResponse> {
-    return this.client.call(
-      "url",
-      "Delete",
-      request
-    ) as Promise<DeleteResponse>;
+    return this.client.call('url', 'Delete', request) as Promise<DeleteResponse>
   }
   // List all the shortened URLs
   list(request: ListRequest): Promise<ListResponse> {
-    return this.client.call("url", "List", request) as Promise<ListResponse>;
+    return this.client.call('url', 'List', request) as Promise<ListResponse>
   }
   // Resolve returns the destination URL of a short URL.
   resolve(request: ResolveRequest): Promise<ResolveResponse> {
     return this.client.call(
-      "url",
-      "Resolve",
+      'url',
+      'Resolve',
       request
-    ) as Promise<ResolveResponse>;
+    ) as Promise<ResolveResponse>
   }
   // Shorten a URL
   shorten(request: ShortenRequest): Promise<ShortenResponse> {
     return this.client.call(
-      "url",
-      "Shorten",
+      'url',
+      'Shorten',
       request
-    ) as Promise<ShortenResponse>;
+    ) as Promise<ShortenResponse>
   }
   // Update the destination for a short URL
   update(request: UpdateRequest): Promise<UpdateResponse> {
-    return this.client.call(
-      "url",
-      "Update",
-      request
-    ) as Promise<UpdateResponse>;
+    return this.client.call('url', 'Update', request) as Promise<UpdateResponse>
   }
 }
 
 export interface CreateRequest {
   // destination url
-  destinationURL?: string;
+  destinationURL?: string
   // a unique id e.g uuid or my-url
-  id?: string;
+  id?: string
 }
 
 export interface CreateResponse {
-  url?: URLPair;
+  url?: URLPair
 }
 
 export interface DeleteRequest {
   // delete by id
-  id?: string;
+  id?: string
   // delete by shortURL
-  shortURL?: string;
+  shortURL?: string
 }
 
 export interface DeleteResponse {}
 
 export interface ListRequest {
   // filter by short URL, optional
-  shortURL?: string;
+  shortURL?: string
 }
 
 export interface ListResponse {
-  urlPairs?: URLPair;
+  urlPairs?: URLPair
 }
 
 export interface ResolveRequest {
   // resolve by id
-  id?: string;
+  id?: string
   // short url to resolve
-  shortURL?: string;
+  shortURL?: string
 }
 
 export interface ResolveResponse {
-  destinationURL?: string;
+  destinationURL?: string
 }
 
 export interface ShortenRequest {
   // the url to shorten
-  destinationURL?: string;
+  destinationURL?: string
 }
 
 export interface ShortenResponse {
   // the shortened url
-  shortURL?: string;
+  shortURL?: string
 }
 
 export interface URLPair {
   // time of creation
-  created?: string;
+  created?: string
   // destination url
-  destinationURL?: string;
+  destinationURL?: string
   // The number of times the short URL has been resolved
-  hitCount?: number;
+  hitCount?: number
   // url id
-  id?: string;
+  id?: string
   // shortened url
-  shortURL?: string;
+  shortURL?: string
 }
 
 export interface UpdateRequest {
   // the destination to update to
-  destinationURL?: string;
+  destinationURL?: string
   // update by id
-  id?: string;
+  id?: string
   // update by short url
-  shortURL?: string;
+  shortURL?: string
 }
 
 export interface UpdateResponse {}

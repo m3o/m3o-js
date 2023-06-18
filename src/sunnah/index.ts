@@ -1,183 +1,183 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class SunnahService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Get a list of books from within a collection. A book can contain many chapters
   // each with its own hadiths.
   books(request: BooksRequest): Promise<BooksResponse> {
     return this.client.call(
-      "sunnah",
-      "Books",
+      'sunnah',
+      'Books',
       request
-    ) as Promise<BooksResponse>;
+    ) as Promise<BooksResponse>
   }
   // Get all the chapters of a given book within a collection.
   chapters(request: ChaptersRequest): Promise<ChaptersResponse> {
     return this.client.call(
-      "sunnah",
-      "Chapters",
+      'sunnah',
+      'Chapters',
       request
-    ) as Promise<ChaptersResponse>;
+    ) as Promise<ChaptersResponse>
   }
   // Get a list of available collections. A collection is
   // a compilation of hadiths collected and written by an author.
   collections(request: CollectionsRequest): Promise<CollectionsResponse> {
     return this.client.call(
-      "sunnah",
-      "Collections",
+      'sunnah',
+      'Collections',
       request
-    ) as Promise<CollectionsResponse>;
+    ) as Promise<CollectionsResponse>
   }
   // Hadiths returns a list of hadiths and their corresponding text for a
   // given book within a collection.
   hadiths(request: HadithsRequest): Promise<HadithsResponse> {
     return this.client.call(
-      "sunnah",
-      "Hadiths",
+      'sunnah',
+      'Hadiths',
       request
-    ) as Promise<HadithsResponse>;
+    ) as Promise<HadithsResponse>
   }
 }
 
 export interface Book {
   // arabic name of the book
-  arabic_name?: string;
+  arabic_name?: string
   // number of hadiths in the book
-  hadiths?: number;
+  hadiths?: number
   // number of the book e.g 1
-  id?: number;
+  id?: number
   // name of the book
-  name?: string;
+  name?: string
 }
 
 export interface BooksRequest {
   // Name of the collection
-  collection?: string;
+  collection?: string
   // Limit the number of books returned
-  limit?: number;
+  limit?: number
   // The page in the pagination
-  page?: number;
+  page?: number
 }
 
 export interface BooksResponse {
   // A list of books
-  books?: Book[];
+  books?: Book[]
   // Name of the collection
-  collection?: string;
+  collection?: string
   // The limit specified
-  limit?: number;
+  limit?: number
   // The page requested
-  page?: number;
+  page?: number
   // The total overall books
-  total?: number;
+  total?: number
 }
 
 export interface Chapter {
   // arabic title
-  arabic_title?: string;
+  arabic_title?: string
   // the book number
-  book?: number;
+  book?: number
   // the chapter id e.g 1
-  id?: number;
+  id?: number
   // the chapter key e.g 1.00
-  key?: string;
+  key?: string
   // title of the chapter
-  title?: string;
+  title?: string
 }
 
 export interface ChaptersRequest {
   // number of the book
-  book?: number;
+  book?: number
   // name of the collection
-  collection?: string;
+  collection?: string
   // Limit the number of chapters returned
-  limit?: number;
+  limit?: number
   // The page in the pagination
-  page?: number;
+  page?: number
 }
 
 export interface ChaptersResponse {
   // number of the book
-  book?: number;
+  book?: number
   // The chapters of the book
-  chapters?: Chapter[];
+  chapters?: Chapter[]
   // name of the collection
-  collection?: string;
+  collection?: string
   // Limit the number of chapters returned
-  limit?: number;
+  limit?: number
   // The page in the pagination
-  page?: number;
+  page?: number
   // Total chapters in the book
-  total?: number;
+  total?: number
 }
 
 export interface Collection {
   // Arabic title if available
-  arabic_title?: string;
+  arabic_title?: string
   // Total hadiths in the collection
-  hadiths?: number;
+  hadiths?: number
   // Name of the collection e.g bukhari
-  name?: string;
+  name?: string
   // An introduction explaining the collection
-  summary?: string;
+  summary?: string
   // Title of the collection e.g Sahih al-Bukhari
-  title?: string;
+  title?: string
 }
 
 export interface CollectionsRequest {
   // Number of collections to limit to
-  limit?: number;
+  limit?: number
   // The page in the pagination
-  page?: number;
+  page?: number
 }
 
 export interface CollectionsResponse {
-  collections?: Collection[];
+  collections?: Collection[]
 }
 
 export interface Hadith {
   // the arabic chapter title
-  arabic_chapter_title?: string;
+  arabic_chapter_title?: string
   // the arabic text
-  arabic_text?: string;
+  arabic_text?: string
   // the chapter id
-  chapter?: number;
+  chapter?: number
   // the chapter key
-  chapter_key?: string;
+  chapter_key?: string
   // the chapter title
-  chapter_title?: string;
+  chapter_title?: string
   // hadith id
-  id?: number;
+  id?: number
   // hadith text
-  text?: string;
+  text?: string
 }
 
 export interface HadithsRequest {
   // number of the book
-  book?: number;
+  book?: number
   // name of the collection
-  collection?: string;
+  collection?: string
   // Limit the number of hadiths
-  limit?: number;
+  limit?: number
   // The page in the pagination
-  page?: number;
+  page?: number
 }
 
 export interface HadithsResponse {
   // number of the book
-  book?: number;
+  book?: number
   // name of the collection
-  collection?: string;
+  collection?: string
   // The hadiths of the book
-  hadiths?: Hadith[];
+  hadiths?: Hadith[]
   // Limit the number of hadiths returned
-  limit?: number;
+  limit?: number
   // The page in the pagination
-  page?: number;
+  page?: number
   // Total hadiths in the  book
-  total?: number;
+  total?: number
 }

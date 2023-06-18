@@ -1,14 +1,14 @@
-const m3o = require("m3o").default(process.env.M3O_API_TOKEN);
+const m3o = require('m3o').default(process.env.M3O_API_TOKEN)
 
 async function main() {
   let rsp = await m3o.file.save({
     file: {
-      content: "file content example",
-      path: "/document/text-files/file.txt",
-      project: "examples",
-    },
-  });
-  console.log(rsp);
+      content: 'file content example',
+      path: '/document/text-files/file.txt',
+      project: 'examples'
+    }
+  })
+  console.log(rsp)
 }
 
-main();
+main()

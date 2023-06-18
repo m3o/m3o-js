@@ -1,94 +1,94 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class EthereumService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Get the balance of an ethereum wallet
   balance(request: BalanceRequest): Promise<BalanceResponse> {
     return this.client.call(
-      "ethereum",
-      "Balance",
+      'ethereum',
+      'Balance',
       request
-    ) as Promise<BalanceResponse>;
+    ) as Promise<BalanceResponse>
   }
   // Broadcast presigned transaction to ethereum network
   broadcast(request: BroadcastRequest): Promise<BroadcastResponse> {
     return this.client.call(
-      "ethereum",
-      "Broadcast",
+      'ethereum',
+      'Broadcast',
       request
-    ) as Promise<BroadcastResponse>;
+    ) as Promise<BroadcastResponse>
   }
   // Get transaction details by hash
   transaction(request: TransactionRequest): Promise<TransactionResponse> {
     return this.client.call(
-      "ethereum",
-      "Transaction",
+      'ethereum',
+      'Transaction',
       request
-    ) as Promise<TransactionResponse>;
+    ) as Promise<TransactionResponse>
   }
 }
 
 export interface BalanceRequest {
   // address of wallet
-  address?: string;
+  address?: string
 }
 
 export interface BalanceResponse {
   // the account balance (in wei)
-  balance?: number;
+  balance?: number
 }
 
 export interface BroadcastRequest {
   // raw transaction data to broadcast
-  hex?: string;
+  hex?: string
 }
 
 export interface BroadcastResponse {
   // the transaction hash
-  hash?: string;
+  hash?: string
 }
 
 export interface TransactionRequest {
   // tx hash
-  hash?: string;
+  hash?: string
 }
 
 export interface TransactionResponse {
   // the block hash
-  block_hash?: string;
+  block_hash?: string
   // the block number
-  block_number?: string;
+  block_number?: string
   // chain id
-  chain_id?: string;
+  chain_id?: string
   // sent from
-  from_address?: string;
+  from_address?: string
   // gas
-  gas?: string;
+  gas?: string
   // gas price
-  gas_price?: string;
+  gas_price?: string
   // tx hash
-  hash?: string;
+  hash?: string
   // input
-  input?: string;
+  input?: string
   // max fee per gas
-  max_fee_per_gas?: string;
+  max_fee_per_gas?: string
   // max priority fee per gas
-  max_priority_fee_per_gas?: string;
+  max_priority_fee_per_gas?: string
   // the nonce
-  nonce?: string;
-  r?: string;
-  s?: string;
+  nonce?: string
+  r?: string
+  s?: string
   // to address
-  to_address?: string;
+  to_address?: string
   // transaction index
-  tx_index?: string;
+  tx_index?: string
   // type of transaction
-  type?: string;
-  v?: string;
+  type?: string
+  v?: string
   // value of transaction
-  value?: string;
+  value?: string
 }

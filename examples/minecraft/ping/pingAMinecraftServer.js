@@ -1,10 +1,10 @@
-const m3o = require("m3o").default(process.env.M3O_API_TOKEN);
+const m3o = require('m3o').default(process.env.M3O_API_TOKEN)
 
 async function main() {
   let rsp = await m3o.minecraft.ping({
-    address: "funcraft.net",
-  });
-  console.log(rsp);
+    address: 'funcraft.net'
+  })
+  console.log(rsp)
 }
 
-main();
+main()

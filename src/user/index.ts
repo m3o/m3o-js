@@ -1,79 +1,79 @@
-import * as m3o from "@m3o/m3o-node";
+import * as m3o from '@m3o/m3o-node'
 
 export class UserService {
-  private client: m3o.Client;
+  private client: m3o.Client
 
   constructor(token: string) {
-    this.client = new m3o.Client({ token: token });
+    this.client = new m3o.Client({ token: token })
   }
   // Create a new user account. The email address and username for the account must be unique.
   create(request: CreateRequest): Promise<CreateResponse> {
     return this.client.call(
-      "user",
-      "Create",
+      'user',
+      'Create',
       request
-    ) as Promise<CreateResponse>;
+    ) as Promise<CreateResponse>
   }
   // Delete an account by id
   delete(request: DeleteRequest): Promise<DeleteResponse> {
     return this.client.call(
-      "user",
-      "Delete",
+      'user',
+      'Delete',
       request
-    ) as Promise<DeleteResponse>;
+    ) as Promise<DeleteResponse>
   }
   // List all users. Returns a paged list of results
   list(request: ListRequest): Promise<ListResponse> {
-    return this.client.call("user", "List", request) as Promise<ListResponse>;
+    return this.client.call('user', 'List', request) as Promise<ListResponse>
   }
   // Login using username or email. The response will return a new session for successful login,
   // 401 in the case of login failure and 500 for any other error
   login(request: LoginRequest): Promise<LoginResponse> {
-    return this.client.call("user", "Login", request) as Promise<LoginResponse>;
+    return this.client.call('user', 'Login', request) as Promise<LoginResponse>
   }
   // Logout of all user's sessions
   logoutAll(request: LogoutAllRequest): Promise<LogoutAllResponse> {
     return this.client.call(
-      "user",
-      "LogoutAll",
+      'user',
+      'LogoutAll',
       request
-    ) as Promise<LogoutAllResponse>;
+    ) as Promise<LogoutAllResponse>
   }
   // Logout a user account
   logout(request: LogoutRequest): Promise<LogoutResponse> {
     return this.client.call(
-      "user",
-      "Logout",
+      'user',
+      'Logout',
       request
-    ) as Promise<LogoutResponse>;
+    ) as Promise<LogoutResponse>
   }
   // Read an account by id, username or email. Only one need to be specified.
   read(request: ReadRequest): Promise<ReadResponse> {
-    return this.client.call("user", "Read", request) as Promise<ReadResponse>;
+    return this.client.call('user', 'Read', request) as Promise<ReadResponse>
   }
   // Read a session by the session id. In the event it has expired or is not found and error is returned.
   readSession(request: ReadSessionRequest): Promise<ReadSessionResponse> {
     return this.client.call(
-      "user",
-      "ReadSession",
+      'user',
+      'ReadSession',
       request
-    ) as Promise<ReadSessionResponse>;
+    ) as Promise<ReadSessionResponse>
   }
   // Reset password with the code sent by the "SendPasswordResetEmail" endpoint.
   resetPassword(request: ResetPasswordRequest): Promise<ResetPasswordResponse> {
     return this.client.call(
-      "user",
-      "ResetPassword",
+      'user',
+      'ResetPassword',
       request
-    ) as Promise<ResetPasswordResponse>;
+    ) as Promise<ResetPasswordResponse>
   }
   // Login using email only - Passwordless
   sendMagicLink(request: SendMagicLinkRequest): Promise<SendMagicLinkResponse> {
     return this.client.call(
-      "user",
-      "SendMagicLink",
+      'user',
+      'SendMagicLink',
       request
-    ) as Promise<SendMagicLinkResponse>;
+    ) as Promise<SendMagicLinkResponse>
   }
   // Send an email with a verification code to reset password.
   // Call "ResetPassword" endpoint once user provides the code.
@@ -81,46 +81,46 @@ export class UserService {
     request: SendPasswordResetEmailRequest
   ): Promise<SendPasswordResetEmailResponse> {
     return this.client.call(
-      "user",
-      "SendPasswordResetEmail",
+      'user',
+      'SendPasswordResetEmail',
       request
-    ) as Promise<SendPasswordResetEmailResponse>;
+    ) as Promise<SendPasswordResetEmailResponse>
   }
   // Send a verification email to a user.
   sendVerificationEmail(
     request: SendVerificationEmailRequest
   ): Promise<SendVerificationEmailResponse> {
     return this.client.call(
-      "user",
-      "SendVerificationEmail",
+      'user',
+      'SendVerificationEmail',
       request
-    ) as Promise<SendVerificationEmailResponse>;
+    ) as Promise<SendVerificationEmailResponse>
   }
   // Update the account password
   updatePassword(
     request: UpdatePasswordRequest
   ): Promise<UpdatePasswordResponse> {
     return this.client.call(
-      "user",
-      "UpdatePassword",
+      'user',
+      'UpdatePassword',
       request
-    ) as Promise<UpdatePasswordResponse>;
+    ) as Promise<UpdatePasswordResponse>
   }
   // Update the account username or email
   update(request: UpdateRequest): Promise<UpdateResponse> {
     return this.client.call(
-      "user",
-      "Update",
+      'user',
+      'Update',
       request
-    ) as Promise<UpdateResponse>;
+    ) as Promise<UpdateResponse>
   }
   // Verify the email address of an account from a token sent in an email to the user.
   verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {
     return this.client.call(
-      "user",
-      "VerifyEmail",
+      'user',
+      'VerifyEmail',
       request
-    ) as Promise<VerifyEmailResponse>;
+    ) as Promise<VerifyEmailResponse>
   }
   // Check whether the token attached to MagicLink is valid or not.
   // Ideally, you need to call this endpoint from your http request
@@ -128,52 +128,52 @@ export class UserService {
   // SendMagicLink request.
   verifyToken(request: VerifyTokenRequest): Promise<VerifyTokenResponse> {
     return this.client.call(
-      "user",
-      "VerifyToken",
+      'user',
+      'VerifyToken',
       request
-    ) as Promise<VerifyTokenResponse>;
+    ) as Promise<VerifyTokenResponse>
   }
 }
 
 export interface Account {
   // unix timestamp
-  created?: number;
+  created?: number
   // an email address
-  email?: string;
+  email?: string
   // unique account id
-  id?: string;
+  id?: string
   // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
+  profile?: { [key: string]: string }
   // unix timestamp
-  updated?: number;
+  updated?: number
   // alphanumeric username
-  username?: string;
+  username?: string
   // date of verification
-  verification_date?: number;
+  verification_date?: number
   // if the account is verified
-  verified?: boolean;
+  verified?: boolean
 }
 
 export interface CreateRequest {
   // the email address
-  email?: string;
+  email?: string
   // optional account id
-  id?: string;
+  id?: string
   // the user password
-  password?: string;
+  password?: string
   // optional user profile as map<string,string>
-  profile?: { [key: string]: string };
+  profile?: { [key: string]: string }
   // the username
-  username?: string;
+  username?: string
 }
 
 export interface CreateResponse {
-  account?: { [key: string]: any };
+  account?: { [key: string]: any }
 }
 
 export interface DeleteRequest {
   // the account id
-  id?: string;
+  id?: string
 }
 
 export interface DeleteResponse {}
@@ -181,180 +181,180 @@ export interface DeleteResponse {}
 export interface ListRequest {
   // Maximum number of records to return. Default limit is 25.
   // Maximum limit is 1000. Anything higher will return an error.
-  limit?: number;
-  offset?: number;
+  limit?: number
+  offset?: number
 }
 
 export interface ListResponse {
-  users?: Account[];
+  users?: Account[]
 }
 
 export interface LoginRequest {
   // The email address of the user
-  email?: string;
+  email?: string
   // The password of the user
-  password?: string;
+  password?: string
   // The username of the user
-  username?: string;
+  username?: string
 }
 
 export interface LoginResponse {
   // The session of the logged in  user
-  session?: { [key: string]: any };
+  session?: { [key: string]: any }
 }
 
 export interface LogoutAllRequest {
   // the user to logout
-  user_id?: string;
+  user_id?: string
 }
 
 export interface LogoutAllResponse {}
 
 export interface LogoutRequest {
   // the session id for the user to logout
-  session_id?: string;
+  session_id?: string
 }
 
 export interface LogoutResponse {}
 
 export interface ReadRequest {
   // the account email
-  email?: string;
+  email?: string
   // the account id
-  id?: string;
+  id?: string
   // the account username
-  username?: string;
+  username?: string
 }
 
 export interface ReadResponse {
-  account?: { [key: string]: any };
+  account?: { [key: string]: any }
 }
 
 export interface ReadSessionRequest {
   // The unique session id
-  session_id?: string;
+  session_id?: string
 }
 
 export interface ReadSessionResponse {
   // the session for the user
-  session?: { [key: string]: any };
+  session?: { [key: string]: any }
 }
 
 export interface ResetPasswordRequest {
   // The code from the verification email
-  code?: string;
+  code?: string
   // confirm new password
-  confirm_password?: string;
+  confirm_password?: string
   // the email to reset the password for
-  email?: string;
+  email?: string
   // the new password
-  new_password?: string;
+  new_password?: string
 }
 
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
   // Your web site address, example www.example.com or user.example.com
-  address?: string;
+  address?: string
   // the email address of the user
-  email?: string;
+  email?: string
   // Endpoint name where your http request handler handles MagicLink by
   // calling M3O VerifyToken endpoint. You can return as a result a success,
   // failed or redirect to another page.
-  endpoint?: string;
+  endpoint?: string
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
-  from_name?: string;
-  subject?: string;
+  from_name?: string
+  subject?: string
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
-  text_content?: string;
+  text_content?: string
 }
 
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
   // email address to send reset for
-  email?: string;
+  email?: string
   // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
-  expiration?: number;
+  expiration?: number
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
+  from_name?: string
   // subject of the email
-  subject?: string;
+  subject?: string
   // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
   // HTML emails are not available currently.
-  text_content?: string;
+  text_content?: string
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
   // email address to send the verification code
-  email?: string;
+  email?: string
   // The url to redirect to incase of failure
-  failure_redirect_url?: string;
+  failure_redirect_url?: string
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
+  from_name?: string
   // The url to redirect to after successful verification
-  redirect_url?: string;
+  redirect_url?: string
   // subject of the email
-  subject?: string;
+  subject?: string
   // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
-  text_content?: string;
+  text_content?: string
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
   // unix timestamp
-  created?: number;
+  created?: number
   // unix timestamp
-  expires?: number;
+  expires?: number
   // the session id
-  id?: string;
+  id?: string
   // the associated user id
-  userId?: string;
+  userId?: string
 }
 
 export interface UpdatePasswordRequest {
   // confirm new password
-  confirm_password?: string;
+  confirm_password?: string
   // the new password
-  new_password?: string;
+  new_password?: string
   // the old password
-  old_password?: string;
+  old_password?: string
   // the account id
-  userId?: string;
+  userId?: string
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
   // the new email address
-  email?: string;
+  email?: string
   // the account id
-  id?: string;
+  id?: string
   // the user profile as map<string,string>
-  profile?: { [key: string]: string };
+  profile?: { [key: string]: string }
   // the new username
-  username?: string;
+  username?: string
 }
 
 export interface UpdateResponse {}
 
 export interface VerifyEmailRequest {
   // The token from the verification email
-  token?: string;
+  token?: string
 }
 
 export interface VerifyEmailResponse {}
 
 export interface VerifyTokenRequest {
-  token?: string;
+  token?: string
 }
 
 export interface VerifyTokenResponse {
-  is_valid?: boolean;
-  message?: string;
-  session?: { [key: string]: any };
+  is_valid?: boolean
+  message?: string
+  session?: { [key: string]: any }
 }
