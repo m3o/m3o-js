@@ -6,6 +6,10 @@ export class AiService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token })
   }
+  // Make a request to ChatGPT
+  chat(request: ChatRequest): Promise<ChatResponse> {
+    return this.client.call('ai', 'Chat', request) as Promise<ChatResponse>
+  }
   // Make a request to the AI
   complete(request: CompleteRequest): Promise<CompleteResponse> {
     return this.client.call(
@@ -36,6 +40,22 @@ export class AiService {
   }
 }
 
+export interface ChatRequest {
+  // context for the call
+  context?: { [key: string]: any }[]
+  // the model e.g gpt-3.5-turbo-16k
+  model?: string
+  // the prompt
+  prompt?: string
+  // role e.g system or user
+  role?: string
+}
+
+export interface ChatResponse {
+  // the response
+  reply?: string
+}
+
 export interface CompleteRequest {
   // input to pass in
   text?: string
@@ -44,6 +64,13 @@ export interface CompleteRequest {
 export interface CompleteResponse {
   // text returned
   text?: string
+}
+
+export interface Context {
+  // prompt used
+  prompt?: string
+  // response for prompt
+  reply?: string
 }
 
 export interface EditRequest {

@@ -96,3 +96,27 @@ async function moderateHateSpeech() {
 
 moderateHateSpeech()
 ```
+## Chat
+
+Make a request to ChatGPT
+
+
+[https://m3o.com/ai/api#Chat](https://m3o.com/ai/api#Chat)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Make a request to ChatGPT
+async function chatWithChatGpt() {
+	const rsp = await aiService.chat({
+  "model": "gpt-3.5-turbo",
+  "prompt": "who is leonardo davinci"
+})
+	console.log(rsp)
+	
+}
+
+chatWithChatGpt()
+```
