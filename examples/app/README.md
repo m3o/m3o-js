@@ -4,6 +4,77 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/App/api](https
 
 Endpoints:
 
+## Run
+
+Run an app from source
+
+
+[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Run an app from source
+async function runAnApp() {
+	const rsp = await appService.run({
+  "branch": "master",
+  "name": "helloworld",
+  "port": 8080,
+  "region": "europe-west1",
+  "repo": "github.com/asim/helloworld"
+})
+	console.log(rsp)
+	
+}
+
+runAnApp()
+```
+## Regions
+
+Return the support regions
+
+
+[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Return the support regions
+async function listRegions() {
+	const rsp = await appService.regions({})
+	console.log(rsp)
+	
+}
+
+listRegions()
+```
+## Status
+
+Get the status of an app
+
+
+[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get the status of an app
+async function getTheStatusOfAnApp() {
+	const rsp = await appService.status({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+getTheStatusOfAnApp()
+```
 ## Resolve
 
 Resolve an app by id to its raw backend endpoint
@@ -73,75 +144,6 @@ async function deleteAnApp() {
 
 deleteAnApp()
 ```
-## Reserve
-
-Reserve app names
-
-
-[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Reserve app names
-async function reserveAppName() {
-	const rsp = await appService.reserve({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-reserveAppName()
-```
-## Get
-
-Get an app by name
-
-
-[https://m3o.com/app/api#Get](https://m3o.com/app/api#Get)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get an app by name
-async function getAnApp() {
-	const rsp = await appService.get({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getAnApp()
-```
-## Status
-
-Get the status of an app
-
-
-[https://m3o.com/app/api#Status](https://m3o.com/app/api#Status)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get the status of an app
-async function getTheStatusOfAnApp() {
-	const rsp = await appService.status({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getTheStatusOfAnApp()
-```
 ## Logs
 
 Get the logs for an app
@@ -187,51 +189,49 @@ async function listTheApps() {
 
 listTheApps()
 ```
-## Run
+## Get
 
-Run an app from source
+Get an app by name
 
 
-[https://m3o.com/app/api#Run](https://m3o.com/app/api#Run)
+[https://m3o.com/app/api#Get](https://m3o.com/app/api#Get)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Run an app from source
-async function runAnApp() {
-	const rsp = await appService.run({
-  "branch": "master",
-  "name": "helloworld",
-  "port": 8080,
-  "region": "europe-west1",
-  "repo": "github.com/asim/helloworld"
+// Get an app by name
+async function getAnApp() {
+	const rsp = await appService.get({
+  "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-runAnApp()
+getAnApp()
 ```
-## Regions
+## Reserve
 
-Return the support regions
+Reserve app names
 
 
-[https://m3o.com/app/api#Regions](https://m3o.com/app/api#Regions)
+[https://m3o.com/app/api#Reserve](https://m3o.com/app/api#Reserve)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Return the support regions
-async function listRegions() {
-	const rsp = await appService.regions({})
+// Reserve app names
+async function reserveAppName() {
+	const rsp = await appService.reserve({
+  "name": "helloworld"
+})
 	console.log(rsp)
 	
 }
 
-listRegions()
+reserveAppName()
 ```
