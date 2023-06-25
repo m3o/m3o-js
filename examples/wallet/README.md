@@ -83,28 +83,28 @@ async function transferMoney() {
 
 transferMoney()
 ```
-## Balance
+## Transactions
 
-Get the balance of a wallet
+List the transactions for a wallet
 
 
-[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
+[https://m3o.com/wallet/api#Transactions](https://m3o.com/wallet/api#Transactions)
 
 ```js
 const { WalletService } = require('m3o/wallet');
 
 const walletService = new WalletService(process.env.M3O_API_TOKEN)
 
-// Get the balance of a wallet
-async function getBalance() {
-	const rsp = await walletService.balance({
+// List the transactions for a wallet
+async function listTransactions() {
+	const rsp = await walletService.transactions({
   "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
 })
 	console.log(rsp)
 	
 }
 
-getBalance()
+listTransactions()
 ```
 ## Delete
 
@@ -197,26 +197,26 @@ async function listWallets() {
 
 listWallets()
 ```
-## Transactions
+## Balance
 
-List the transactions for a wallet
+Get the balance of a wallet
 
 
-[https://m3o.com/wallet/api#Transactions](https://m3o.com/wallet/api#Transactions)
+[https://m3o.com/wallet/api#Balance](https://m3o.com/wallet/api#Balance)
 
 ```js
 const { WalletService } = require('m3o/wallet');
 
 const walletService = new WalletService(process.env.M3O_API_TOKEN)
 
-// List the transactions for a wallet
-async function listTransactions() {
-	const rsp = await walletService.transactions({
+// Get the balance of a wallet
+async function getBalance() {
+	const rsp = await walletService.balance({
   "id": "b6407edd-2e26-45c0-9e2c-343689bbe5f6"
 })
 	console.log(rsp)
 	
 }
 
-listTransactions()
+getBalance()
 ```
