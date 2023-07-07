@@ -166,7 +166,7 @@ export interface Contract {
   // name of contract
   name?: string
   // owner id
-  owner?: number
+  owner?: string
   // payout address
   payout_address?: string
   // aka "ERC1155"

@@ -4,63 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ai/api](https:
 
 Endpoints:
 
-## Chat
-
-Make a request to ChatGPT
-
-
-[https://m3o.com/ai/api#Chat](https://m3o.com/ai/api#Chat)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Make a request to ChatGPT
-async function chatWithChatGpt() {
-	const rsp = await aiService.chat({
-  "context": [
-    {
-      "prompt": "who is leonardo davinci",
-      "reply": "Leonardo da Vinci was an Italian polymath during the Renaissance period. He was born in 1452 in Vinci, Italy, and is renowned for his contributions to various fields such as science, engineering, art, and anatomy. Da Vinci's most famous works include the Mona Lisa and The Last Supper. He is often considered one of the greatest artists and thinkers of all time."
-    },
-    {
-      "prompt": "where is he from?",
-      "reply": "Leonardo da Vinci was from Vinci, a town in Tuscany, Italy."
-    }
-  ],
-  "model": "gpt-3.5-turbo",
-  "prompt": "when did he die?"
-})
-	console.log(rsp)
-	
-}
-
-chatWithChatGpt()
-```
-## Complete
-
-Make a request to the AI
-
-
-[https://m3o.com/ai/api#Complete](https://m3o.com/ai/api#Complete)
-
-```js
-const { AiService } = require('m3o/ai');
-
-const aiService = new AiService(process.env.M3O_API_TOKEN)
-
-// Make a request to the AI
-async function completeTheText() {
-	const rsp = await aiService.complete({
-  "text": "who is leonardo davinci"
-})
-	console.log(rsp)
-	
-}
-
-completeTheText()
-```
 ## Edit
 
 Edit or edit prompt/code
@@ -129,4 +72,61 @@ async function moderateHateSpeech() {
 }
 
 moderateHateSpeech()
+```
+## Chat
+
+Make a request to ChatGPT
+
+
+[https://m3o.com/ai/api#Chat](https://m3o.com/ai/api#Chat)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Make a request to ChatGPT
+async function chatWithChatGpt() {
+	const rsp = await aiService.chat({
+  "context": [
+    {
+      "prompt": "who is leonardo davinci",
+      "reply": "Leonardo da Vinci was an Italian polymath during the Renaissance period. He was born in 1452 in Vinci, Italy, and is renowned for his contributions to various fields such as science, engineering, art, and anatomy. Da Vinci's most famous works include the Mona Lisa and The Last Supper. He is often considered one of the greatest artists and thinkers of all time."
+    },
+    {
+      "prompt": "where is he from?",
+      "reply": "Leonardo da Vinci was from Vinci, a town in Tuscany, Italy."
+    }
+  ],
+  "model": "gpt-3.5-turbo",
+  "prompt": "when did he die?"
+})
+	console.log(rsp)
+	
+}
+
+chatWithChatGpt()
+```
+## Complete
+
+Make a request to the AI
+
+
+[https://m3o.com/ai/api#Complete](https://m3o.com/ai/api#Complete)
+
+```js
+const { AiService } = require('m3o/ai');
+
+const aiService = new AiService(process.env.M3O_API_TOKEN)
+
+// Make a request to the AI
+async function completeTheText() {
+	const rsp = await aiService.complete({
+  "text": "who is leonardo davinci"
+})
+	console.log(rsp)
+	
+}
+
+completeTheText()
 ```
