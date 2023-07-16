@@ -28,30 +28,6 @@ async function readRecords() {
 
 readRecords()
 ```
-## Delete
-
-Delete a record in the database by id.
-
-
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Delete a record in the database by id.
-async function deleteArecord() {
-	const rsp = await dbService.delete({
-  "id": "1",
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-deleteArecord()
-```
 ## Truncate
 
 Truncate the records in a table
@@ -74,29 +50,6 @@ async function truncateTable() {
 }
 
 truncateTable()
-```
-## Count
-
-Count records in a table
-
-
-[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
-
-```js
-const { DbService } = require('m3o/db');
-
-const dbService = new DbService(process.env.M3O_API_TOKEN)
-
-// Count records in a table
-async function countEntriesInAtable() {
-	const rsp = await dbService.count({
-  "table": "example"
-})
-	console.log(rsp)
-	
-}
-
-countEntriesInAtable()
 ```
 ## ListTables
 
@@ -199,6 +152,30 @@ async function updateArecord() {
 
 updateArecord()
 ```
+## Delete
+
+Delete a record in the database by id.
+
+
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Delete a record in the database by id.
+async function deleteArecord() {
+	const rsp = await dbService.delete({
+  "id": "1",
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+deleteArecord()
+```
 ## DropTable
 
 Drop a table in the DB
@@ -221,4 +198,27 @@ async function dropTable() {
 }
 
 dropTable()
+```
+## Count
+
+Count records in a table
+
+
+[https://m3o.com/db/api#Count](https://m3o.com/db/api#Count)
+
+```js
+const { DbService } = require('m3o/db');
+
+const dbService = new DbService(process.env.M3O_API_TOKEN)
+
+// Count records in a table
+async function countEntriesInAtable() {
+	const rsp = await dbService.count({
+  "table": "example"
+})
+	console.log(rsp)
+	
+}
+
+countEntriesInAtable()
 ```
