@@ -4,6 +4,51 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Secret/api](ht
 
 Endpoints:
 
+## List
+
+List all the available secrets
+
+
+[https://m3o.com/secret/api#List](https://m3o.com/secret/api#List)
+
+```js
+const { SecretService } = require('m3o/secret');
+
+const secretService = new SecretService(process.env.M3O_API_TOKEN)
+
+// List all the available secrets
+async function listAllSecrets() {
+	const rsp = await secretService.list({})
+	console.log(rsp)
+	
+}
+
+listAllSecrets()
+```
+## Set
+
+Set a secret. Overwrites any existing value already set.
+
+
+[https://m3o.com/secret/api#Set](https://m3o.com/secret/api#Set)
+
+```js
+const { SecretService } = require('m3o/secret');
+
+const secretService = new SecretService(process.env.M3O_API_TOKEN)
+
+// Set a secret. Overwrites any existing value already set.
+async function setAvalue() {
+	const rsp = await secretService.set({
+  "key": "foo",
+  "value": "bar"
+})
+	console.log(rsp)
+	
+}
+
+setAvalue()
+```
 ## Get
 
 Get a secret by key.
@@ -49,49 +94,4 @@ async function deleteAvalue() {
 }
 
 deleteAvalue()
-```
-## List
-
-List all the available secrets
-
-
-[https://m3o.com/secret/api#List](https://m3o.com/secret/api#List)
-
-```js
-const { SecretService } = require('m3o/secret');
-
-const secretService = new SecretService(process.env.M3O_API_TOKEN)
-
-// List all the available secrets
-async function listAllSecrets() {
-	const rsp = await secretService.list({})
-	console.log(rsp)
-	
-}
-
-listAllSecrets()
-```
-## Set
-
-Set a secret. Overwrites any existing value already set.
-
-
-[https://m3o.com/secret/api#Set](https://m3o.com/secret/api#Set)
-
-```js
-const { SecretService } = require('m3o/secret');
-
-const secretService = new SecretService(process.env.M3O_API_TOKEN)
-
-// Set a secret. Overwrites any existing value already set.
-async function setAvalue() {
-	const rsp = await secretService.set({
-  "key": "foo",
-  "value": "bar"
-})
-	console.log(rsp)
-	
-}
-
-setAvalue()
 ```
