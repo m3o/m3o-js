@@ -38,6 +38,12 @@ export class AiService {
       request
     ) as Promise<ModerateResponse>
   }
+  // Stream a response from chatgpt
+  stream(
+    request: StreamRequest
+  ): Promise<m3o.Stream<StreamRequest, StreamResponse>> {
+    return this.client.stream('ai', 'Stream', request)
+  }
 }
 
 export interface ChatRequest {
@@ -118,4 +124,18 @@ export interface ModerateResponse {
   flagged?: boolean
   // related scores
   scores?: { [key: string]: number }
+}
+
+export interface StreamRequest {
+  // the potential model e.g gpt-4
+  model?: string
+  // the prompt to provide
+  prompt?: string
+}
+
+export interface StreamResponse {
+  // whether its a complete or partial response
+  partial?: boolean
+  // a set of words in the response
+  words?: string[]
 }
