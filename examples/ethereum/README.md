@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Ethereum/api](
 
 Endpoints:
 
-## Balance
-
-Get the balance of an ethereum wallet
-
-
-[https://m3o.com/ethereum/api#Balance](https://m3o.com/ethereum/api#Balance)
-
-```js
-const { EthereumService } = require('m3o/ethereum');
-
-const ethereumService = new EthereumService(process.env.M3O_API_TOKEN)
-
-// Get the balance of an ethereum wallet
-async function getAethereumAddressBalance() {
-	const rsp = await ethereumService.balance({
-  "address": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
-})
-	console.log(rsp)
-	
-}
-
-getAethereumAddressBalance()
-```
 ## Broadcast
 
 Broadcast presigned transaction to ethereum network
@@ -72,4 +49,27 @@ async function getAethereumTransaction() {
 }
 
 getAethereumTransaction()
+```
+## Balance
+
+Get the balance of an ethereum wallet
+
+
+[https://m3o.com/ethereum/api#Balance](https://m3o.com/ethereum/api#Balance)
+
+```js
+const { EthereumService } = require('m3o/ethereum');
+
+const ethereumService = new EthereumService(process.env.M3O_API_TOKEN)
+
+// Get the balance of an ethereum wallet
+async function getAethereumAddressBalance() {
+	const rsp = await ethereumService.balance({
+  "address": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae"
+})
+	console.log(rsp)
+	
+}
+
+getAethereumAddressBalance()
 ```
