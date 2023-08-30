@@ -4,6 +4,30 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Url/api](https
 
 Endpoints:
 
+## Update
+
+Update the destination for a short URL
+
+
+[https://m3o.com/url/api#Update](https://m3o.com/url/api#Update)
+
+```js
+const { UrlService } = require('m3o/url');
+
+const urlService = new UrlService(process.env.M3O_API_TOKEN)
+
+// Update the destination for a short URL
+async function updateAshortUrl() {
+	const rsp = await urlService.update({
+  "destinationURL": "https://mynewsite.com/this-is-a-rather-long-web-address",
+  "shortURL": "https://m3o.one/url/f8f3f83f3f83g"
+})
+	console.log(rsp)
+	
+}
+
+updateAshortUrl()
+```
 ## Shorten
 
 Shorten a URL
@@ -117,28 +141,4 @@ async function listYourShortenedUrls() {
 }
 
 listYourShortenedUrls()
-```
-## Update
-
-Update the destination for a short URL
-
-
-[https://m3o.com/url/api#Update](https://m3o.com/url/api#Update)
-
-```js
-const { UrlService } = require('m3o/url');
-
-const urlService = new UrlService(process.env.M3O_API_TOKEN)
-
-// Update the destination for a short URL
-async function updateAshortUrl() {
-	const rsp = await urlService.update({
-  "destinationURL": "https://mynewsite.com/this-is-a-rather-long-web-address",
-  "shortURL": "https://m3o.one/url/f8f3f83f3f83g"
-})
-	console.log(rsp)
-	
-}
-
-updateAshortUrl()
 ```

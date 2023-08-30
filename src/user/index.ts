@@ -236,6 +236,8 @@ export interface ReadSessionRequest {
 }
 
 export interface ReadSessionResponse {
+  // the user for the session
+  account?: { [key: string]: any }
   // the session for the user
   session?: { [key: string]: any }
 }
