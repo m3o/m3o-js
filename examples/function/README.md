@@ -4,29 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Function/api](
 
 Endpoints:
 
-## Delete
-
-Delete a function by name
-
-
-[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
-
-```js
-const { FunctionService } = require('m3o/function');
-
-const functionService = new FunctionService(process.env.M3O_API_TOKEN)
-
-// Delete a function by name
-async function deleteAfunction() {
-	const rsp = await functionService.delete({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-deleteAfunction()
-```
 ## Describe
 
 Get the info for a deployed function
@@ -115,34 +92,29 @@ async function listRuntimes() {
 
 listRuntimes()
 ```
-## Deploy
+## Logs
 
-Deploy a group of functions
+Get the logs for a function
 
 
-[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
+[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Deploy a group of functions
-async function deployAfunction() {
-	const rsp = await functionService.deploy({
-  "branch": "main",
-  "entrypoint": "Helloworld",
-  "name": "helloworld",
-  "region": "europe-west1",
-  "repo": "https://github.com/m3o/m3o",
-  "runtime": "go116",
-  "subfolder": "examples/go-function"
+// Get the logs for a function
+async function retrieveBuildLogsForAfunction() {
+	const rsp = await functionService.logs({
+  "logs_type": "build",
+  "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deployAfunction()
+retrieveBuildLogsForAfunction()
 ```
 ## Call
 
@@ -169,6 +141,29 @@ async function callAfunction() {
 }
 
 callAfunction()
+```
+## Delete
+
+Delete a function by name
+
+
+[https://m3o.com/function/api#Delete](https://m3o.com/function/api#Delete)
+
+```js
+const { FunctionService } = require('m3o/function');
+
+const functionService = new FunctionService(process.env.M3O_API_TOKEN)
+
+// Delete a function by name
+async function deleteAfunction() {
+	const rsp = await functionService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAfunction()
 ```
 ## List
 
@@ -214,29 +209,34 @@ async function proxyUrl() {
 
 proxyUrl()
 ```
-## Logs
+## Deploy
 
-Get the logs for a function
+Deploy a group of functions
 
 
-[https://m3o.com/function/api#Logs](https://m3o.com/function/api#Logs)
+[https://m3o.com/function/api#Deploy](https://m3o.com/function/api#Deploy)
 
 ```js
 const { FunctionService } = require('m3o/function');
 
 const functionService = new FunctionService(process.env.M3O_API_TOKEN)
 
-// Get the logs for a function
-async function retrieveBuildLogsForAfunction() {
-	const rsp = await functionService.logs({
-  "logs_type": "build",
-  "name": "helloworld"
+// Deploy a group of functions
+async function deployAfunction() {
+	const rsp = await functionService.deploy({
+  "branch": "main",
+  "entrypoint": "Helloworld",
+  "name": "helloworld",
+  "region": "europe-west1",
+  "repo": "https://github.com/m3o/m3o",
+  "runtime": "go116",
+  "subfolder": "examples/go-function"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAfunction()
+deployAfunction()
 ```
 ## Update
 
