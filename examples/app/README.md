@@ -69,51 +69,29 @@ async function resolveAppById() {
 
 resolveAppById()
 ```
-## Update
+## Logs
 
-Update the app. The latest source code will be downloaded, built and deployed.
-
-
-[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Update the app. The latest source code will be downloaded, built and deployed.
-async function updateAnApp() {
-	const rsp = await appService.update({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-updateAnApp()
-```
-## Delete
-
-Delete an app
+Get the logs for an app
 
 
-[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Delete an app
-async function deleteAnApp() {
-	const rsp = await appService.delete({
+// Get the logs for an app
+async function retrieveBuildLogsForAnApp() {
+	const rsp = await appService.logs({
+  "logs_type": "build",
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-deleteAnApp()
+retrieveBuildLogsForAnApp()
 ```
 ## Reserve
 
@@ -137,29 +115,6 @@ async function reserveAppName() {
 }
 
 reserveAppName()
-```
-## Get
-
-Get an app by name
-
-
-[https://m3o.com/app/api#Get](https://m3o.com/app/api#Get)
-
-```js
-const { AppService } = require('m3o/app');
-
-const appService = new AppService(process.env.M3O_API_TOKEN)
-
-// Get an app by name
-async function getAnApp() {
-	const rsp = await appService.get({
-  "name": "helloworld"
-})
-	console.log(rsp)
-	
-}
-
-getAnApp()
 ```
 ## Run
 
@@ -211,27 +166,72 @@ async function getTheStatusOfAnApp() {
 
 getTheStatusOfAnApp()
 ```
-## Logs
+## Update
 
-Get the logs for an app
+Update the app. The latest source code will be downloaded, built and deployed.
 
 
-[https://m3o.com/app/api#Logs](https://m3o.com/app/api#Logs)
+[https://m3o.com/app/api#Update](https://m3o.com/app/api#Update)
 
 ```js
 const { AppService } = require('m3o/app');
 
 const appService = new AppService(process.env.M3O_API_TOKEN)
 
-// Get the logs for an app
-async function retrieveBuildLogsForAnApp() {
-	const rsp = await appService.logs({
-  "logs_type": "build",
+// Update the app. The latest source code will be downloaded, built and deployed.
+async function updateAnApp() {
+	const rsp = await appService.update({
   "name": "helloworld"
 })
 	console.log(rsp)
 	
 }
 
-retrieveBuildLogsForAnApp()
+updateAnApp()
+```
+## Delete
+
+Delete an app
+
+
+[https://m3o.com/app/api#Delete](https://m3o.com/app/api#Delete)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Delete an app
+async function deleteAnApp() {
+	const rsp = await appService.delete({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+deleteAnApp()
+```
+## Get
+
+Get an app by name
+
+
+[https://m3o.com/app/api#Get](https://m3o.com/app/api#Get)
+
+```js
+const { AppService } = require('m3o/app');
+
+const appService = new AppService(process.env.M3O_API_TOKEN)
+
+// Get an app by name
+async function getAnApp() {
+	const rsp = await appService.get({
+  "name": "helloworld"
+})
+	console.log(rsp)
+	
+}
+
+getAnApp()
 ```
